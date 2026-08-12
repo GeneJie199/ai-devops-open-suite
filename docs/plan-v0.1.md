@@ -518,6 +518,8 @@ AI 输出必须包含：
 
 ---
 
+> 历史说明：本文件记录最初立项思路。监控部分关于外部 Collector、VictoriaMetrics 和“时序存储不自研”的建议已被 [原生可观测架构决策](native-observability-architecture.md) 取代；当前实现与交付边界以该决策和各产品 README 为准。
+
 ## 5. 推荐技术架构
 
 ### 5.1 统一技术栈
