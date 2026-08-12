@@ -1,6 +1,7 @@
 param(
   [switch]$SkipTests,
-  [switch]$SkipE2E
+  [switch]$SkipE2E,
+  [string]$SuiteVersion = '0.3.0-rc.2'
 )
 
 $ErrorActionPreference = 'Stop'
@@ -119,7 +120,7 @@ try {
   $FleetProcess = Start-Process -FilePath $FleetCtl -ArgumentList @('serve','--addr',"127.0.0.1:$FleetPort",'--data',(Join-Path $Work 'fleet')) -RedirectStandardOutput (Join-Path $Work 'fleet.out.log') -RedirectStandardError (Join-Path $Work 'fleet.err.log') -PassThru -WindowStyle Hidden
   $Processes.Add($FleetProcess)
   Wait-Http "$FleetBase/api/v1/health"
-	$AgentProcess = Start-Process -FilePath $FleetCtl -ArgumentList @('agent','--center',$FleetBase,'--node','suite-e2e','--interval','1s','--report-interval','1s','--collector-jitter','0s','--inventory',(Join-Path $InfraState 'inventory.json'),'--drift',(Join-Path $InfraState 'drift.json'),'--label','version=0.3.0-rc.1','--spool-dir',(Join-Path $Work 'agent-spool'),'--credential-file',(Join-Path $Work 'agent-credential.json')) -RedirectStandardOutput (Join-Path $Work 'agent.out.log') -RedirectStandardError (Join-Path $Work 'agent.err.log') -PassThru -WindowStyle Hidden
+	$AgentProcess = Start-Process -FilePath $FleetCtl -ArgumentList @('agent','--center',$FleetBase,'--node','suite-e2e','--interval','1s','--report-interval','1s','--collector-jitter','0s','--inventory',(Join-Path $InfraState 'inventory.json'),'--drift',(Join-Path $InfraState 'drift.json'),'--label',"version=$SuiteVersion",'--spool-dir',(Join-Path $Work 'agent-spool'),'--credential-file',(Join-Path $Work 'agent-credential.json')) -RedirectStandardOutput (Join-Path $Work 'agent.out.log') -RedirectStandardError (Join-Path $Work 'agent.err.log') -PassThru -WindowStyle Hidden
   $Processes.Add($AgentProcess)
   Wait-Http "$FleetBase/api/v1/nodes/suite-e2e"
   Start-Sleep -Seconds 3
@@ -129,7 +130,7 @@ try {
   Write-Host '[6/7] Gate candidate, drift, native metrics, fleet state, and observation'
   $Plan = @{
     release_id = 'suite-e2e'
-    version = '0.3.0-rc.1'
+    version = $SuiteVersion
     candidate_file = $CandidatePath
     recovery_checks = @(@{ name='previous binary retained'; type='file'; path=$ReleaseGuard })
     checks = @(@{ name='InfraScout inventory'; type='file'; path=(Join-Path $InfraState 'inventory.json') })

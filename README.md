@@ -104,7 +104,7 @@ Linux、macOS、WSL 或 Git Bash：
 ## 项目资料
 
 - [架构与立项草案](docs/plan-v0.1.md)
-- [0.3.0 RC 发布说明与发布顺序](docs/release-0.3.0-rc.1.md)
+- [0.3.0 RC.2 发布审计与稳定版门禁](docs/release-0.3.0-rc.2.md)
 - [命名和文档审计](docs/naming-and-doc-audit.md)
 - [原生可观测架构决策](docs/native-observability-architecture.md)
 - [早期 Linux 扫描里程碑](docs/next-feature-linux-scan-demo.md)

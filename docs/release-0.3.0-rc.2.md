@@ -1,8 +1,8 @@
-# 0.3.0 RC 发布说明
+# 0.3.0 RC.2 发布审计
 
-状态：RC 门禁已通过，待按发布顺序推送；不得提前标记稳定版
+状态：RC.2 已发布并完成下载产物验收；稳定版发布门禁已满足
 
-候选：`v0.3.0-rc.1`
+候选：`v0.3.0-rc.2`
 
 日期：2026-08-12
 
@@ -26,9 +26,17 @@
 
 - Windows PowerShell 与 Git Bash 五模块 E2E 均为 `GO`：8 项门禁、4 次观察采样。
 - 136 使用随机 `/tmp` 目录与动态 loopback 端口执行 Linux amd64 预编译候选，最终为 `GO`：8 项门禁、4 次观察采样。
+- 从 GitHub Release 重新下载 36 个上传资产，全部通过 GitHub SHA-256 digest；其中 31 个业务产物同时通过各仓库发布的 `checksums.txt`。
+- 使用下载回来的 RC.2 Linux amd64 二进制在 136 再次执行五模块链路，结果为 `GO`：8 项门禁、4 次观察采样，满足稳定版放行条件。
 - 远端验收结束后，临时目录、进程与监听端口均已清理；未读取或修改松月阁目录、服务、容器和数据。
 - 四个控制台完成 1440×900 产品截图与 390×844 移动端复验，均无整页横向溢出。
 
+## 不可变发布记录
+
+- `lifecycle-spec v0.1.0` 的首次 tag workflow 因 Windows checkout 行尾误判而停止；标签未复用，修复后由 `v0.1.1` 完成三平台门禁和发布。
+- 三个产品的 `rc.1` 已生成 Pre-release，ReleaseGuard 的 `rc.1` 因候选版本与稳定版 Changelog 章节做逐字匹配而停止；所有标签均未强推或复用。
+- 四个产品统一升级到 `v0.3.0-rc.2`，使用当前发布 Actions，明确标记 Pre-release，并全部完成测试、构建、校验和与发布。
+
 ## 发布顺序
 
-先发布 `lifecycle-spec v0.1.0`，再并行发布四个产品的 `v0.3.0-rc.1`，最后更新 `project-docs`。任何仓库门禁失败都停止整套稳定版推进；不强推、不复用标签。
+已先发布 [lifecycle-spec v0.1.1](https://github.com/GeneJie199/lifecycle-spec/releases/tag/v0.1.1)，再发布 DevCycle、InfraScout、FleetScope 和 ReleaseGuard 的统一 `v0.3.0-rc.2` Pre-release，最后创建 `project-docs` 同版本快照。RC 下载产物复验通过后，允许按相同顺序推进稳定 `v0.3.0`；任何仓库门禁失败都停止整套推进，不强推、不复用标签。

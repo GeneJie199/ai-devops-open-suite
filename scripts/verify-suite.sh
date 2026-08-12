@@ -2,6 +2,7 @@
 set -euo pipefail
 
 ROOT=$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)
+SUITE_VERSION=${SUITE_VERSION:-0.3.0-rc.2}
 WORK=$(mktemp -d "${TMPDIR:-/tmp}/ai-devops-suite-e2e.XXXXXX")
 pick_port() { python3 -c 'import socket; s=socket.socket(); s.bind(("127.0.0.1",0)); print(s.getsockname()[1]); s.close()'; }
 DEV_PORT=${DEV_PORT:-$(pick_port)}
@@ -77,7 +78,7 @@ echo "[5/7] Run the FleetScope native Agent and persist metric samples"
 export FLEET_TOKEN=suite-e2e-bootstrap-token
 "$WORK/fleetctl" serve --addr "127.0.0.1:$FLEET_PORT" --data "$WORK/fleet" >"$WORK/fleet.log" 2>&1 & PIDS+=("$!")
 for _ in $(seq 1 80); do curl -fsS "http://127.0.0.1:$FLEET_PORT/api/v1/health" >/dev/null && break; sleep .1; done
-"$WORK/fleetctl" agent --center "http://127.0.0.1:$FLEET_PORT" --node suite-e2e --interval 1s --report-interval 1s --collector-jitter 0s --inventory "$WORK/infra/inventory.json" --drift "$WORK/infra/drift.json" --label version=0.3.0-rc.1 --spool-dir "$WORK/agent-spool" --credential-file "$WORK/agent-credential.json" >"$WORK/agent.log" 2>&1 & PIDS+=("$!")
+"$WORK/fleetctl" agent --center "http://127.0.0.1:$FLEET_PORT" --node suite-e2e --interval 1s --report-interval 1s --collector-jitter 0s --inventory "$WORK/infra/inventory.json" --drift "$WORK/infra/drift.json" --label version="$SUITE_VERSION" --spool-dir "$WORK/agent-spool" --credential-file "$WORK/agent-credential.json" >"$WORK/agent.log" 2>&1 & PIDS+=("$!")
 node_ready=0
 for _ in $(seq 1 80); do
   if curl -fsS "http://127.0.0.1:$FLEET_PORT/api/v1/nodes/suite-e2e" >/dev/null 2>&1; then node_ready=1; break; fi
@@ -95,12 +96,12 @@ sleep 3
 "$WORK/lifecycle-validate" fleet-node-report.json "$WORK/fleet/nodes/suite-e2e.json"
 
 echo "[6/7] Gate candidate, drift, native metrics, fleet state, and observation"
-python3 - "$WORK" "$FLEET_PORT" <<'PY'
+python3 - "$WORK" "$FLEET_PORT" "$SUITE_VERSION" <<'PY'
 import json, os, sys
-work, port = sys.argv[1], sys.argv[2]
+work, port, version = sys.argv[1], sys.argv[2], sys.argv[3]
 plan = {
     "release_id":"suite-e2e",
-    "version":"0.3.0-rc.1",
+    "version":version,
     "candidate_file":os.path.join(work,"candidate.json"),
     "recovery_checks":[{"name":"previous binary retained","type":"file","path":os.path.join(work,"releaseguard")}],
     "checks":[{"name":"InfraScout inventory","type":"file","path":os.path.join(work,"infra","inventory.json")}],
