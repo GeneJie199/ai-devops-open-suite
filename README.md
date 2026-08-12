@@ -4,6 +4,26 @@
 
 AI 是可选执行者，确定性采集、稳定 ID、显式规则和人工批准才是事实来源。
 
+## 三分钟启动
+
+从 [Releases](https://github.com/GeneJie199/ai-devops-open-suite/releases) 下载并解压当前套件包，然后执行一条命令。安装器会按平台下载五个经过 SHA-256 校验的二进制，生成本机 Fleet 凭据、初始化数据目录并启动全部页面。
+
+Windows PowerShell：
+
+```powershell
+.\scripts\install-suite.ps1 -Start
+```
+
+Linux 或 macOS：
+
+```bash
+./scripts/install-suite.sh --start
+```
+
+默认仅监听 `127.0.0.1`。启动后打开 DevCycle 的 `http://127.0.0.1:8766`，顶部模块切换器可进入 InfraScout、FleetScope 和 ReleaseGuard。完整的目录、端口、离线安装和日常管理说明见[快速开始](docs/quickstart.md)。
+
+需要重启后自动恢复时，将安装命令中的 `-Start` 换成 Windows 的 `-EnableAutostart`，或将 `--start` 换成 Linux/macOS 的 `--enable-autostart`。安装后可随时运行 `suitectl doctor` 自检二进制、目录、凭据和端口。
+
 ## 五个仓库
 
 | 产品 | 解决的问题 | 可独立使用 |
@@ -57,7 +77,7 @@ flowchart LR
 - 单文件 Go 二进制和嵌入式 Web UI；运行时不需要 Node 或外部 CDN。
 - SQLite、原子 JSON，以及 FleetScope 自研的分段时序/事件存储。
 - loopback 默认、InfraScout 脱敏、Fleet 写入认证、TLS/mTLS、不可变发布证据。
-- Linux/macOS/Windows 构建，CI、发布工作流、安装脚本和 systemd 示例。
+- Linux/macOS/Windows 构建，CI、发布工作流、校验安装、持久端口和免管理员自启动。
 - 跨五模块自动 E2E：候选 → 基线/漂移 → Agent 上报 → Fleet 观察 → ReleaseGuard `GO`。
 
 明确不声称：
@@ -68,7 +88,7 @@ flowchart LR
 
 ## 本地验收
 
-将 `project-docs` 与 `lifecycle-spec`、`ai-dev-cycle-manager`、`infrastructure-discovery`、`fleet-observability`、`release-validation` 克隆到同一父目录，然后在 `project-docs` 仓库根目录执行：
+将 `ai-devops-open-suite` 与 `lifecycle-spec`、`ai-dev-cycle-manager`、`infrastructure-discovery`、`fleet-observability`、`release-validation` 克隆到同一父目录，然后在 `ai-devops-open-suite` 仓库根目录执行：
 
 Windows：
 
@@ -103,6 +123,8 @@ Linux、macOS、WSL 或 Git Bash：
 
 ## 项目资料
 
+- [安装与快速开始](docs/quickstart.md)
+- [0.3.2 发布审计](docs/release-0.3.2.md)
 - [架构与立项草案](docs/plan-v0.1.md)
 - [0.3.1 稳定版发布审计](docs/release-0.3.1.md)
 - [0.3.0 RC.2 发布审计与稳定版门禁](docs/release-0.3.0-rc.2.md)

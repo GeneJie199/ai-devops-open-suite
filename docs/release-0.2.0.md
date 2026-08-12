@@ -33,7 +33,7 @@ Browser acceptance covers desktop and mobile layouts for the four embedded conso
 1. Confirm the empty public `fleet-observability` and `release-validation` repositories and all remotes.
 2. Publish and tag `lifecycle-spec` as `v0.1.0`.
 3. Publish and tag DevCycle, InfraScout, FleetScope, and ReleaseGuard as `v0.2.0`.
-4. Publish `project-docs` after all repository links and release assets resolve.
+4. Publish `ai-devops-open-suite` after all repository links and release assets resolve.
 5. Confirm each GitHub Actions release contains all platform binaries and `checksums.txt`.
 
 Do not reuse a tag after a failed release. Fix forward, create a patch version, and keep generated reports and approvals immutable.

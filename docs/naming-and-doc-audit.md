@@ -25,7 +25,7 @@
 | `checkpoint-*.md` 像产品文档 | 已标注「内部里程碑备忘」 |
 | 架构图仅写短名 | 已改为代号 + 短名对照 |
 | CONTRIBUTING 过简且英文任务口吻 | lifecycle-spec 已重写 |
-| 套件无对外主页仓 | 新建 `project-docs` |
+| 套件无对外主页仓 | 新建 `ai-devops-open-suite` |
 | DriftReport 尚无风险等级/证据字段 | 记入下一阶段计划，不在文档中宣称已具备 |
 | 立项计划书偏长、内部向 | 放入 `docs/plan-v0.1.md`，README 不链为首要入口 |
 
@@ -34,7 +34,7 @@
 - 各仓尚无统一的 Issue / PR 模板  
 - DevCycle / InfraScout 尚无独立 `docs/architecture.md`（可链到套件与协议仓）  
 - 正式产品商标名未定，代号可能更换  
-- `project-docs` 与本地 `ai-devops/README.md` 需保持同步（同源复制）
+- `ai-devops-open-suite` 与本地 `ai-devops/README.md` 需保持同步（同源复制）
 
 ## 4. 术语书写约定
 

@@ -1,0 +1,42 @@
+name: Release suite launcher
+
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: write
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Validate package inputs
+        run: |
+          python3 scripts/check-docs.py
+          bash -n scripts/install-suite.sh scripts/suitectl.sh
+          python3 -m json.tool examples/release-report.demo.json >/dev/null
+      - name: Build launcher archives
+        run: |
+          package=dist/ai-devops-open-suite
+          mkdir -p "$package/scripts" "$package/examples" "$package/docs"
+          cp scripts/install-suite.ps1 scripts/install-suite.sh scripts/suitectl.ps1 scripts/suitectl.sh "$package/scripts/"
+          cp examples/release-report.demo.json "$package/examples/"
+          cp docs/quickstart.md "$package/docs/"
+          cp README.md LICENSE SECURITY.md "$package/"
+          chmod +x "$package/scripts/"*.sh
+          tag="${GITHUB_REF_NAME}"
+          (cd dist && zip -qr "ai-devops-open-suite-${tag}.zip" ai-devops-open-suite)
+          tar -C dist -czf "dist/ai-devops-open-suite-${tag}.tar.gz" ai-devops-open-suite
+          (cd dist && sha256sum *.zip *.tar.gz >checksums.txt)
+      - name: Publish GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          tag="${GITHUB_REF_NAME}"
+          assets=("dist/ai-devops-open-suite-${tag}.zip" "dist/ai-devops-open-suite-${tag}.tar.gz" dist/checksums.txt)
+          if gh release view "$tag" >/dev/null 2>&1; then
+            gh release upload "$tag" "${assets[@]}" --clobber
+          else
+            gh release create "$tag" "${assets[@]}" --generate-notes --title "AI DevOps Open Suite ${tag}"

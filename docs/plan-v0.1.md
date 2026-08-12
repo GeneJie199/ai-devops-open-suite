@@ -673,7 +673,7 @@ ai-dev-cycle-manager       AI 开发周期管理工具
 infrastructure-discovery   基础设施发现和 Drift CLI
 fleet-observability        多节点监控、拓扑和变化中心
 release-validation         发布验收和观察工具
-project-docs               总体文档和演示环境，可选
+ai-devops-open-suite       总体文档、安装器和演示环境
 ```
 
 各仓库内部统一：

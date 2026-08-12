@@ -39,4 +39,4 @@
 
 ## 发布顺序
 
-已先发布 [lifecycle-spec v0.1.1](https://github.com/GeneJie199/lifecycle-spec/releases/tag/v0.1.1)，再发布 DevCycle、InfraScout、FleetScope 和 ReleaseGuard 的统一 `v0.3.0-rc.2` Pre-release，最后创建 `project-docs` 同版本快照。RC 下载产物复验通过后，允许按相同顺序推进稳定 `v0.3.0`；任何仓库门禁失败都停止整套推进，不强推、不复用标签。
+已先发布 [lifecycle-spec v0.1.1](https://github.com/GeneJie199/lifecycle-spec/releases/tag/v0.1.1)，再发布 DevCycle、InfraScout、FleetScope 和 ReleaseGuard 的统一 `v0.3.0-rc.2` Pre-release，最后创建 `ai-devops-open-suite` 同版本快照。RC 下载产物复验通过后，允许按相同顺序推进稳定 `v0.3.0`；任何仓库门禁失败都停止整套推进，不强推、不复用标签。
