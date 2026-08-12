@@ -2,7 +2,7 @@
 set -euo pipefail
 
 ROOT=$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)
-SUITE_VERSION=${SUITE_VERSION:-0.3.0-rc.2}
+SUITE_VERSION=${SUITE_VERSION:-0.3.1}
 WORK=$(mktemp -d "${TMPDIR:-/tmp}/ai-devops-suite-e2e.XXXXXX")
 pick_port() { python3 -c 'import socket; s=socket.socket(); s.bind(("127.0.0.1",0)); print(s.getsockname()[1]); s.close()'; }
 DEV_PORT=${DEV_PORT:-$(pick_port)}

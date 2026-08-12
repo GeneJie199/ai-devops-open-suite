@@ -1,7 +1,7 @@
 param(
   [switch]$SkipTests,
   [switch]$SkipE2E,
-  [string]$SuiteVersion = '0.3.0-rc.2'
+  [string]$SuiteVersion = '0.3.1'
 )
 
 $ErrorActionPreference = 'Stop'
