@@ -19,7 +19,7 @@ $PortConfigPath = Join-Path $Config 'ports.env'
 $AutostartName = 'AI DevOps Open Suite.lnk'
 $AutostartPath = if ($env:OS -eq 'Windows_NT') { Join-Path ([Environment]::GetFolderPath('Startup')) $AutostartName } else { '' }
 $AutostartBootstrap = Join-Path $Config 'autostart.ps1'
-$SuiteVersion = if (Test-Path -LiteralPath $VersionPath) { (Get-Content -LiteralPath $VersionPath -Raw).Trim() } else { '0.3.2' }
+$SuiteVersion = if (Test-Path -LiteralPath $VersionPath) { (Get-Content -LiteralPath $VersionPath -Raw).Trim() } else { '0.3.3' }
 $IsWindowsHost = $env:OS -eq 'Windows_NT'
 $SavedPorts = @{}
 if (Test-Path -LiteralPath $PortConfigPath -PathType Leaf) {

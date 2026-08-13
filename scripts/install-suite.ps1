@@ -1,6 +1,7 @@
 param(
   [string]$Prefix = $(if ($env:AI_DEVOPS_HOME) { $env:AI_DEVOPS_HOME } else { Join-Path $env:LOCALAPPDATA 'ai-devops-suite' }),
   [string]$Version = '0.3.2',
+  [string]$SuiteVersion = '0.3.3',
   [string]$SpecVersion = '0.1.1',
   [string]$SourceRoot = '',
   [switch]$Start,
@@ -121,10 +122,10 @@ try {
   }
 
   Copy-Item -LiteralPath (Join-Path (Split-Path -Parent $PSScriptRoot) 'examples\release-report.demo.json') -Destination (Join-Path $Examples 'release-report.demo.json') -Force
-  [IO.File]::WriteAllText((Join-Path $Config 'suite-version'), $Version, $Utf8NoBom)
+  [IO.File]::WriteAllText((Join-Path $Config 'suite-version'), $SuiteVersion, $Utf8NoBom)
   & (Join-Path $Bin 'suitectl.ps1') init -SuiteHome $Prefix | Out-Host
   Write-Host ''
-  Write-Host "AI DevOps Open Suite $Version installed in $Prefix"
+  Write-Host "AI DevOps Open Suite $SuiteVersion installed in $Prefix (components $Version)"
   if ($EnableAutostart) {
     & (Join-Path $Bin 'suitectl.ps1') enable -SuiteHome $Prefix | Out-Host
   } elseif ($Start -or $WasRunning) {

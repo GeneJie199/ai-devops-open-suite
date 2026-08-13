@@ -40,3 +40,4 @@ jobs:
             gh release upload "$tag" "${assets[@]}" --clobber
           else
             gh release create "$tag" "${assets[@]}" --generate-notes --title "AI DevOps Open Suite ${tag}"
+          fi

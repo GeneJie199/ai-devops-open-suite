@@ -8,6 +8,8 @@ AI 是可选执行者，确定性采集、稳定 ID、显式规则和人工批�
 
 从 [Releases](https://github.com/GeneJie199/ai-devops-open-suite/releases) 下载并解压当前套件包，然后执行一条命令。安装器会按平台下载五个经过 SHA-256 校验的二进制，生成本机 Fleet 凭据、初始化数据目录并启动全部页面。
 
+当前套件版本为 `0.3.3`，默认安装已完成跨平台发布门禁和下载资产复验的 `0.3.2` 产品组件。
+
 Windows PowerShell：
 
 ```powershell
@@ -124,6 +126,7 @@ Linux、macOS、WSL 或 Git Bash：
 ## 项目资料
 
 - [安装与快速开始](docs/quickstart.md)
+- [0.3.3 套件发布审计](docs/release-0.3.3.md)
 - [0.3.2 发布审计](docs/release-0.3.2.md)
 - [架构与立项草案](docs/plan-v0.1.md)
 - [0.3.1 稳定版发布审计](docs/release-0.3.1.md)

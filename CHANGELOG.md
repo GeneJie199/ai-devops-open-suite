@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.3.3 - 2026-08-13
+
+- Fix the suite Release publication shell block after the failed `v0.3.2` packaging tag; the failed tag is retained for audit and is not reused.
+- Separate the `0.3.3` umbrella suite version from the verified `0.3.2` product asset version so installation status and Fleet labels remain truthful.
+
 ## 0.3.2 - 2026-08-13
 
 - Add checksum-verified cross-platform suite installers and a single `suitectl` entry point for initialization, start, stop, restart, status, browser opening, and logs.

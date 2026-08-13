@@ -14,6 +14,8 @@ AI DevOps Open Suite 的四个产品页面和协议校验器可以一次安装�
 
 从项目的 [Releases](https://github.com/GeneJie199/ai-devops-open-suite/releases) 下载 ZIP 或 TAR 包并解压。
 
+套件版本 `0.3.3` 默认安装产品组件 `0.3.2` 和协议校验器 `0.1.1`。`--version` / `-Version` 用于选择产品组件版本；`--suite-version` / `-SuiteVersion` 仅用于自定义套件控制器显示版本，通常不需要设置。
+
 Windows PowerShell：
 
 ```powershell

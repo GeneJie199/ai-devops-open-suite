@@ -2,6 +2,7 @@
 set -euo pipefail
 
 VERSION=0.3.2
+SUITE_VERSION=0.3.3
 SPEC_VERSION=0.1.1
 PREFIX=${AI_DEVOPS_HOME:-"$HOME/.local/share/ai-devops-suite"}
 SOURCE_ROOT=
@@ -10,13 +11,14 @@ ENABLE_AUTOSTART=false
 SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 
 usage() {
-  printf '%s\n' 'Usage: install-suite.sh [--prefix DIR] [--version VERSION] [--spec-version VERSION] [--source-root DIR] [--start] [--enable-autostart]'
+  printf '%s\n' 'Usage: install-suite.sh [--prefix DIR] [--version VERSION] [--suite-version VERSION] [--spec-version VERSION] [--source-root DIR] [--start] [--enable-autostart]'
 }
 
 while [[ $# -gt 0 ]]; do
   case "$1" in
     --prefix) PREFIX=$2; shift 2 ;;
     --version) VERSION=$2; shift 2 ;;
+    --suite-version) SUITE_VERSION=$2; shift 2 ;;
     --spec-version) SPEC_VERSION=$2; shift 2 ;;
     --source-root) SOURCE_ROOT=$2; shift 2 ;;
     --start) START=true; shift ;;
@@ -152,9 +154,9 @@ if ! install_payload; then
 fi
 
 install -m 0644 "$SCRIPT_DIR/../examples/release-report.demo.json" "$EXAMPLES/release-report.demo.json"
-printf '%s' "$VERSION" >"$PREFIX/config/suite-version"
+printf '%s' "$SUITE_VERSION" >"$PREFIX/config/suite-version"
 "$BIN/suitectl" init
-printf '\nAI DevOps Open Suite %s installed in %s\n' "$VERSION" "$PREFIX"
+printf '\nAI DevOps Open Suite %s installed in %s (components %s)\n' "$SUITE_VERSION" "$PREFIX" "$VERSION"
 if [[ "$ENABLE_AUTOSTART" == true ]]; then
   "$BIN/suitectl" enable
 elif [[ "$START" == true || "$was_running" == true ]]; then
