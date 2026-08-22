@@ -69,7 +69,9 @@ function Initialize-Suite {
     "AI_DEVOPS_FLEETSCOPE_PORT=$($Ports.fleetscope)",
     "AI_DEVOPS_RELEASEGUARD_PORT=$($Ports.releaseguard)"
   )
-  [IO.File]::WriteAllLines($PortConfigPath, $PortConfig, (New-Object Text.UTF8Encoding($false)))
+  if (-not (Test-Path -LiteralPath $PortConfigPath -PathType Leaf)) {
+    [IO.File]::WriteAllLines($PortConfigPath, $PortConfig, (New-Object Text.UTF8Encoding($false)))
+  }
   $Report = Join-Path $Data 'releaseguard\release-report.json'
   $Demo = Join-Path $Examples 'release-report.demo.json'
   if (-not (Test-Path -LiteralPath $Report) -and (Test-Path -LiteralPath $Demo)) {
@@ -341,8 +343,11 @@ function Copy-InstallSnapshot([string]$Destination, [string]$Reason) {
 
 function Write-BackupManifest([string]$Root) {
   $Records = @()
+  $RootPrefix = [IO.Path]::GetFullPath($Root).TrimEnd([IO.Path]::DirectorySeparatorChar) + [IO.Path]::DirectorySeparatorChar
   foreach ($File in Get-ChildItem -LiteralPath $Root -Recurse -File | Where-Object Name -ne 'backup-files.json' | Sort-Object FullName) {
-    $Relative = [IO.Path]::GetRelativePath($Root, $File.FullName).Replace('\','/')
+    $FullName = [IO.Path]::GetFullPath($File.FullName)
+    if (-not $FullName.StartsWith($RootPrefix, [StringComparison]::OrdinalIgnoreCase)) { throw 'Backup file escaped its root.' }
+    $Relative = $FullName.Substring($RootPrefix.Length).Replace('\','/')
     $Records += [ordered]@{ path=$Relative; size=$File.Length; sha256=(Get-FileHash -LiteralPath $File.FullName -Algorithm SHA256).Hash.ToLowerInvariant() }
   }
   $Value = [ordered]@{ schemaVersion='ai-devops.backup-files/v1'; files=$Records }

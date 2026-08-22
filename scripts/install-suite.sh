@@ -94,15 +94,94 @@ BACKUPS="$PREFIX/backups"
 STAGE=$(mktemp -d "${TMPDIR:-/tmp}/ai-devops-install.XXXXXX")
 STAGED_BIN="$STAGE/bin"
 PREVIOUS_VERSION=$(if [[ -f "$CONFIG/suite-version" ]]; then cat "$CONFIG/suite-version"; else printf unversioned; fi)
+[[ "$PREVIOUS_VERSION" =~ ^[a-zA-Z0-9][a-zA-Z0-9._-]*$ ]] || PREVIOUS_VERSION=unversioned
 BACKUP_ID="$(date -u +%Y%m%dT%H%M%SZ)-$$-${PREVIOUS_VERSION//[^a-zA-Z0-9._-]/_}"
 BACKUP_ROOT="$BACKUPS/$BACKUP_ID"
 BACKUP_BIN="$BACKUP_ROOT/bin"
 BACKUP_CONFIG="$BACKUP_ROOT/config"
+TRANSACTION_INDEX="$CONFIG/install-transaction.txt"
+TRANSACTION_STATE="$CONFIG/install-transaction.json"
 cleanup() {
   case "$STAGE" in "${TMPDIR:-/tmp}"/ai-devops-install.*) rm -rf "$STAGE" ;; esac
 }
 trap cleanup EXIT
-mkdir -p "$BIN" "$EXAMPLES" "$STAGED_BIN" "$BACKUP_BIN" "$BACKUP_CONFIG" "$CONFIG" "$PROTOCOLS" "$BACKUPS"
+mkdir -p "$BIN" "$EXAMPLES" "$STAGED_BIN" "$CONFIG" "$PROTOCOLS" "$BACKUPS"
+
+write_backup_manifest() {
+  local root=$1 file relative size digest
+  : >"$root/backup-files.txt"
+  while IFS= read -r file; do
+    [[ -f "$file" && ! -L "$file" ]] || continue
+    relative=${file#"$root/"}
+    size=$(wc -c <"$file" | tr -d ' ')
+    digest=$(hash_file "$file")
+    printf '%s|%s|%s\n' "$digest" "$size" "$relative" >>"$root/backup-files.txt"
+  done < <(LC_ALL=C find "$root" -type f ! -name backup-files.txt -print | LC_ALL=C sort)
+  chmod 0600 "$root/backup-files.txt"
+}
+
+verify_backup_manifest() {
+  local root=$1 digest size relative extra file actual_size actual_digest
+  [[ -s "$root/backup-files.txt" ]] || { printf 'Interrupted install backup has no integrity manifest.\n' >&2; return 1; }
+  while IFS='|' read -r digest size relative extra; do
+    [[ -z "$extra" && "$digest" =~ ^[0-9a-f]{64}$ && "$size" =~ ^[0-9]+$ ]] || { printf 'Interrupted install backup manifest is malformed.\n' >&2; return 1; }
+    [[ "$relative" =~ ^[a-zA-Z0-9][a-zA-Z0-9._/-]*$ && "$relative" != *..* ]] || { printf 'Interrupted install backup contains an unsafe path.\n' >&2; return 1; }
+    file="$root/$relative"
+    [[ -f "$file" && ! -L "$file" ]] || { printf 'Interrupted install backup file is missing: %s\n' "$relative" >&2; return 1; }
+    actual_size=$(wc -c <"$file" | tr -d ' ')
+    actual_digest=$(hash_file "$file")
+    [[ "$actual_size" == "$size" && "$actual_digest" == "$digest" ]] || { printf 'Interrupted install backup integrity check failed: %s\n' "$relative" >&2; return 1; }
+  done <"$root/backup-files.txt"
+}
+
+recover_interrupted_install() {
+  local reason=${1:-startup} kind schema backup_id previous_version target_version was_running had_previous extra
+  local root line_number=0 relative source destination
+  [[ -f "$TRANSACTION_INDEX" ]] || return 0
+  IFS='|' read -r kind schema backup_id previous_version target_version was_running had_previous extra <"$TRANSACTION_INDEX"
+  [[ -z "$extra" && "$kind" == transaction && "$schema" == ai-devops.install-transaction/v1 ]] || { printf 'Interrupted install transaction header is malformed.\n' >&2; return 1; }
+  [[ "$backup_id" =~ ^[a-zA-Z0-9][a-zA-Z0-9._-]*$ && "$previous_version" =~ ^[a-zA-Z0-9][a-zA-Z0-9._-]*$ && "$target_version" =~ ^[a-zA-Z0-9][a-zA-Z0-9._-]*$ ]] || { printf 'Interrupted install transaction contains an unsafe version or backup ID.\n' >&2; return 1; }
+  [[ "$was_running" =~ ^(true|false)$ && "$had_previous" =~ ^(true|false)$ ]] || { printf 'Interrupted install transaction contains an invalid state.\n' >&2; return 1; }
+  root="$BACKUPS/$backup_id"
+  [[ -d "$root" && ! -L "$root" ]] || { printf 'Interrupted install backup is unavailable: %s\n' "$backup_id" >&2; return 1; }
+  verify_backup_manifest "$root" || return 1
+  if [[ "$reason" == failure ]]; then
+    printf 'Install commit failed; restoring the previous installation.\n' >&2
+  else
+    printf 'Recovering the previous installation after an interrupted upgrade...\n' >&2
+  fi
+  while IFS='|' read -r kind relative extra; do
+    ((line_number+=1))
+    (( line_number == 1 )) && continue
+    [[ -z "$extra" && "$kind" == managed && "$relative" =~ ^(bin|config|protocols|examples|data)/[a-zA-Z0-9][a-zA-Z0-9._/-]*$ && "$relative" != *..* ]] || { printf 'Interrupted install transaction contains an unsafe managed path.\n' >&2; return 1; }
+    source="$root/$relative"
+    destination="$PREFIX/$relative"
+    mkdir -p "$(dirname "$destination")"
+    if [[ -f "$source" && ! -L "$source" ]]; then cp -p "$source" "$destination"; else rm -f "$destination"; fi
+    rm -f "$destination.new"
+  done <"$TRANSACTION_INDEX"
+  printf '{"schemaVersion":"ai-devops.install-recovery/v1","backupId":"%s","restoredVersion":"%s","interruptedTargetVersion":"%s","recoveredAt":"%s","wasRunning":%s}\n' \
+    "$backup_id" "$previous_version" "$target_version" "$(date -u +%Y-%m-%dT%H:%M:%SZ)" "$was_running" >"$CONFIG/last-install-recovery.json"
+  chmod 0600 "$CONFIG/last-install-recovery.json"
+  if [[ "$was_running" == true && "$had_previous" == true && -x "$BIN/suitectl" ]]; then "$BIN/suitectl" start || return 1; fi
+  rm -f "$TRANSACTION_INDEX" "$TRANSACTION_STATE" "$TRANSACTION_INDEX.new" "$TRANSACTION_STATE.new"
+}
+
+write_transaction_state() {
+  local phase=$1
+  printf '{"schemaVersion":"ai-devops.install-transaction/v1","backupId":"%s","previousVersion":"%s","targetVersion":"%s","phase":"%s","wasRunning":%s,"hadPreviousInstallation":%s,"updatedAt":"%s"}\n' \
+    "$BACKUP_ID" "$PREVIOUS_VERSION" "$SUITE_VERSION" "$phase" "$was_running" "$had_previous" "$(date -u +%Y-%m-%dT%H:%M:%SZ)" >"$TRANSACTION_STATE.new"
+  chmod 0600 "$TRANSACTION_STATE.new"
+  mv -f "$TRANSACTION_STATE.new" "$TRANSACTION_STATE"
+}
+
+recover_interrupted_install startup
+PREVIOUS_VERSION=$(if [[ -f "$CONFIG/suite-version" ]]; then cat "$CONFIG/suite-version"; else printf unversioned; fi)
+[[ "$PREVIOUS_VERSION" =~ ^[a-zA-Z0-9][a-zA-Z0-9._-]*$ ]] || PREVIOUS_VERSION=unversioned
+BACKUP_ID="$(date -u +%Y%m%dT%H%M%SZ)-$$-${PREVIOUS_VERSION//[^a-zA-Z0-9._-]/_}"
+BACKUP_ROOT="$BACKUPS/$BACKUP_ID"
+BACKUP_BIN="$BACKUP_ROOT/bin"
+BACKUP_CONFIG="$BACKUP_ROOT/config"
 
 receive() {
   local repo=$1 tag=$2 name=$3 destination=$4
@@ -114,7 +193,19 @@ receive() {
     printf 'Offline asset not found: %s. Checked only %s; network fallback is disabled.\n' "$name" "$SOURCE_ROOT" >&2
     exit 1
   else
-    curl --fail --location --retry 3 --output "$destination" "https://github.com/GeneJie199/$repo/releases/download/$tag/$name"
+    local partial="$destination.part" attempt status
+    for attempt in 1 2 3; do
+      if curl --fail --location --connect-timeout 15 --max-time 300 --speed-limit 1024 --speed-time 60 --continue-at - --output "$partial" "https://github.com/GeneJie199/$repo/releases/download/$tag/$name"; then
+        mv -f "$partial" "$destination"
+        return
+      else
+        status=$?
+      fi
+      if (( status == 33 )); then rm -f "$partial"; fi
+      (( attempt < 3 )) && sleep "$attempt"
+    done
+    printf 'Download failed after 3 attempts: %s\n' "$name" >&2
+    return 1
   fi
 }
 
@@ -163,34 +254,40 @@ for pid_file in "$PREFIX/run"/*.pid; do
   fi
   if [[ "$actual_path" == "$expected_path" ]]; then was_running=true; break; fi
 done
+had_previous=false
+[[ -x "$BIN/suitectl" ]] && had_previous=true
+managed_paths=()
+mkdir -p "$BACKUP_BIN" "$BACKUP_CONFIG"
+for target in "${targets[@]}"; do managed_paths+=("bin/$target"); done
+managed_paths+=(bin/suitectl bin/install-suite examples/release-report.demo.json "protocols/$protocol_asset")
+managed_paths+=(config/suite-version config/suite-manifest.json config/install-assets.txt config/install-state.json config/fleet-token config/ports.env)
+managed_paths+=(data/releaseguard/release-report.json)
+for relative in "${managed_paths[@]}"; do
+  source="$PREFIX/$relative"
+  if [[ -f "$source" && ! -L "$source" ]]; then
+    destination="$BACKUP_ROOT/$relative"
+    mkdir -p "$(dirname "$destination")"
+    cp -p "$source" "$destination"
+  fi
+done
+if [[ "$had_previous" == true && ! -f "$BACKUP_BIN/install-suite" ]]; then install -m 0755 "$SCRIPT_DIR/install-suite.sh" "$BACKUP_BIN/install-suite"; fi
+printf '{"schemaVersion":"ai-devops.install-backup/v1","backupId":"%s","previousVersion":"%s","targetVersion":"%s","createdAt":"%s","wasRunning":%s,"hadPreviousInstallation":%s}\n' \
+  "$BACKUP_ID" "$PREVIOUS_VERSION" "$SUITE_VERSION" "$(date -u +%Y-%m-%dT%H:%M:%SZ)" "$was_running" "$had_previous" >"$BACKUP_ROOT/backup-state.json"
+chmod 0600 "$BACKUP_ROOT/backup-state.json"
+write_backup_manifest "$BACKUP_ROOT"
+{
+  printf 'transaction|ai-devops.install-transaction/v1|%s|%s|%s|%s|%s\n' "$BACKUP_ID" "$PREVIOUS_VERSION" "$SUITE_VERSION" "$was_running" "$had_previous"
+  for relative in "${managed_paths[@]}"; do printf 'managed|%s\n' "$relative"; done
+} >"$TRANSACTION_INDEX.new"
+chmod 0600 "$TRANSACTION_INDEX.new"
+mv -f "$TRANSACTION_INDEX.new" "$TRANSACTION_INDEX"
+write_transaction_state prepared
+
 if [[ "$was_running" == true && -x "$BIN/suitectl" ]]; then
   printf 'Stopping the running suite for an atomic upgrade...\n'
   "$BIN/suitectl" stop
 fi
-
-had_previous=false
-[[ -x "$BIN/suitectl" ]] && had_previous=true
-for target in "${targets[@]}"; do [[ -f "$BIN/$target" ]] && cp -p "$BIN/$target" "$BACKUP_BIN/$target"; done
-[[ -f "$BIN/suitectl" ]] && cp -p "$BIN/suitectl" "$BACKUP_BIN/suitectl"
-[[ -f "$BIN/install-suite" ]] && cp -p "$BIN/install-suite" "$BACKUP_BIN/install-suite"
-if [[ "$had_previous" == true && ! -f "$BACKUP_BIN/install-suite" ]]; then install -m 0755 "$SCRIPT_DIR/install-suite.sh" "$BACKUP_BIN/install-suite"; fi
-for name in suite-version suite-manifest.json install-assets.txt install-state.json; do [[ -f "$CONFIG/$name" ]] && cp -p "$CONFIG/$name" "$BACKUP_CONFIG/$name"; done
-printf '{"schemaVersion":"ai-devops.install-backup/v1","backupId":"%s","previousVersion":"%s","targetVersion":"%s","createdAt":"%s","wasRunning":%s,"hadPreviousInstallation":%s}\n' \
-  "$BACKUP_ID" "$PREVIOUS_VERSION" "$SUITE_VERSION" "$(date -u +%Y-%m-%dT%H:%M:%SZ)" "$was_running" "$had_previous" >"$BACKUP_ROOT/backup-state.json"
-chmod 0600 "$BACKUP_ROOT/backup-state.json"
-write_backup_manifest() {
-  local root=$1 file relative size digest
-  : >"$root/backup-files.txt"
-  for file in "$root/bin"/* "$root/config"/* "$root/backup-state.json"; do
-    [[ -f "$file" ]] || continue
-    relative=${file#"$root/"}
-    size=$(wc -c <"$file" | tr -d ' ')
-    digest=$(hash_file "$file")
-    printf '%s|%s|%s\n' "$digest" "$size" "$relative" >>"$root/backup-files.txt"
-  done
-  chmod 0600 "$root/backup-files.txt"
-}
-write_backup_manifest "$BACKUP_ROOT"
+write_transaction_state stopped
 
 install_payload() {
   local target
@@ -205,20 +302,7 @@ install_payload() {
 }
 
 restore_previous_install() {
-  printf 'Install commit failed; restoring the previous installation.\n' >&2
-  for target in "${targets[@]}"; do
-    if [[ -f "$BACKUP_BIN/$target" ]]; then cp -p "$BACKUP_BIN/$target" "$BIN/$target"; else rm -f "$BIN/$target"; fi
-    rm -f "$BIN/$target.new"
-  done
-  if [[ -f "$BACKUP_BIN/suitectl" ]]; then cp -p "$BACKUP_BIN/suitectl" "$BIN/suitectl"; else rm -f "$BIN/suitectl"; fi
-  if [[ -f "$BACKUP_BIN/install-suite" ]]; then cp -p "$BACKUP_BIN/install-suite" "$BIN/install-suite"; else rm -f "$BIN/install-suite"; fi
-  rm -f "$BIN/suitectl.new"
-  rm -f "$BIN/install-suite.new"
-  for name in suite-version suite-manifest.json install-assets.txt install-state.json; do
-    if [[ -f "$BACKUP_CONFIG/$name" ]]; then cp -p "$BACKUP_CONFIG/$name" "$CONFIG/$name"; else rm -f "$CONFIG/$name"; fi
-    rm -f "$CONFIG/$name.new"
-  done
-  if [[ "$was_running" == true && -x "$BIN/suitectl" ]]; then "$BIN/suitectl" start || true; fi
+  recover_interrupted_install failure
 }
 
 finalize_install() {
@@ -247,14 +331,30 @@ finalize_install() {
     "$(if [[ "$had_previous" == true ]]; then printf '"%s"' "$BACKUP_ID"; else printf null; fi)" >>"$install_state" || return 1
   chmod 0600 "$install_state" || return 1
   mv -f "$install_state" "$CONFIG/install-state.json" || return 1
-  if [[ "$had_previous" == false ]]; then rm -rf "$BACKUP_ROOT" || return 1; fi
   "$BIN/suitectl" init || return 1
 }
 
-if ! install_payload || ! finalize_install; then
+if ! install_payload; then
   restore_previous_install
   exit 1
 fi
+write_transaction_state payload-installed
+if [[ ${AI_DEVOPS_ACCEPTANCE_ABORT_AFTER_PAYLOAD:-} == 1 ]]; then
+  case "$PREFIX" in "${TMPDIR:-/tmp}"/ai-devops-*) kill -KILL $$ ;; *) printf 'Acceptance abort is restricted to an ai-devops-* temporary prefix.\n' >&2; restore_previous_install; exit 2 ;; esac
+fi
+if [[ ${AI_DEVOPS_ACCEPTANCE_FAIL_AFTER_PAYLOAD:-} == 1 ]]; then
+  case "$PREFIX" in
+    "${TMPDIR:-/tmp}"/ai-devops-*) printf 'Acceptance failure after payload replacement.\n' >&2; restore_previous_install; exit 1 ;;
+    *) printf 'Acceptance failure is restricted to an ai-devops-* temporary prefix.\n' >&2; restore_previous_install; exit 2 ;;
+  esac
+fi
+if ! finalize_install; then
+  restore_previous_install
+  exit 1
+fi
+write_transaction_state initialized
+rm -f "$TRANSACTION_INDEX" "$TRANSACTION_STATE"
+if [[ "$had_previous" == false ]]; then rm -rf "$BACKUP_ROOT"; fi
 
 printf '\nAI DevOps Open Suite %s installed in %s (%d verified components, %s)\n' "$SUITE_VERSION" "$PREFIX" "${#targets[@]}" "$(if [[ "$OFFLINE_MODE" == true ]]; then printf offline; else printf online; fi)"
 if [[ "$had_previous" == true ]]; then printf 'Rollback backup: %s\n' "$BACKUP_ID"; fi

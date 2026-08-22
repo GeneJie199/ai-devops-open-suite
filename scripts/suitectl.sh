@@ -58,8 +58,10 @@ init_suite() {
     if command -v openssl >/dev/null; then openssl rand -base64 32 >"$TOKEN_PATH"; else head -c 32 /dev/urandom | base64 >"$TOKEN_PATH"; fi
   fi
   chmod 0600 "$TOKEN_PATH"
-  printf 'AI_DEVOPS_DEVCYCLE_PORT=%s\nAI_DEVOPS_INFRASCOUT_PORT=%s\nAI_DEVOPS_FLEETSCOPE_PORT=%s\nAI_DEVOPS_RELEASEGUARD_PORT=%s\n' \
-    "$DEVCYCLE_PORT" "$INFRASCOUT_PORT" "$FLEETSCOPE_PORT" "$RELEASEGUARD_PORT" >"$PORT_CONFIG"
+  if [[ ! -f "$PORT_CONFIG" ]]; then
+    printf 'AI_DEVOPS_DEVCYCLE_PORT=%s\nAI_DEVOPS_INFRASCOUT_PORT=%s\nAI_DEVOPS_FLEETSCOPE_PORT=%s\nAI_DEVOPS_RELEASEGUARD_PORT=%s\n' \
+      "$DEVCYCLE_PORT" "$INFRASCOUT_PORT" "$FLEETSCOPE_PORT" "$RELEASEGUARD_PORT" >"$PORT_CONFIG"
+  fi
   chmod 0600 "$PORT_CONFIG"
   if [[ ! -f "$DATA/releaseguard/release-report.json" && -f "$EXAMPLES/release-report.demo.json" ]]; then
     cp "$EXAMPLES/release-report.demo.json" "$DATA/releaseguard/release-report.json"

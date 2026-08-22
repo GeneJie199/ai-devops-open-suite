@@ -7,6 +7,8 @@
 - Add a single suite manifest with exact per-platform digests, generated Bash indexes, platform-specific full offline bundle build/verification, and immutable Release workflow behavior.
 - Add controller-driven upgrade and integrity-checked rollback, data-preserving uninstall, exact-path-confirmed purge, and machine-readable install/backup/uninstall state on Windows, Linux, and macOS script paths.
 - Pass Windows and isolated Linux install lifecycle acceptance, Linux network-namespace offline installation, failed-commit restoration, tampered-backup rejection, and a public v0.3.3 Windows upgrade/rollback preservation test.
+- Add durable interrupted-install journaling and verified next-run recovery, PowerShell 5.1 compatibility, bounded online download retry/resume behavior, and deterministic acceptance-only failure injection restricted to temporary paths.
+- Pass manifest-driven online installation and public v0.3.3 migration on Linux, and preserve real DevCycle, InfraScout, FleetScope, and ReleaseGuard state fingerprints through upgrade and rollback on Windows and Linux.
 
 ## 0.3.3 - 2026-08-13
 

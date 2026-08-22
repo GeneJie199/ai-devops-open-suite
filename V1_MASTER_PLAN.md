@@ -68,8 +68,8 @@ Exit evidence: committed planning documents, public milestone/issues, exact base
 - [x] Build and structurally verify complete offline bundles for every advertised artifact platform.
 - [x] Prove Linux amd64 offline install in an isolated network namespace with no product service started and no external cache.
 - [x] Add first-class `upgrade`, `rollback`, and `uninstall`; make data purge a separate exact-path-confirmed command.
-- [ ] Preserve configuration, ports, token/identity, state, snapshots, approvals, and releases across upgrade.
-- [ ] Make install failures and interrupted upgrades recover to the prior working binaries.
+- [x] Preserve configuration, ports, token/identity, state, snapshots, approvals, and releases across upgrade.
+- [x] Make install failures and interrupted upgrades recover to the prior working binaries.
 - [x] Produce machine-readable installation, backup, uninstall, and bundle metadata; keep actionable doctor output.
 
 Exit evidence: clean online/offline install, v0.3-to-current upgrade, rollback, restart, uninstall-with-data-preserved, explicit purge tests on Windows and Linux.
@@ -205,4 +205,4 @@ Windows arm64 is not a v1.0 artifact target unless all component binaries and an
 |---|---|---|---|
 | 2026-08-22 | M0 baseline audit | six exact commits; five Go test/vet runs; releases/CI/remotes checked | pass |
 | 2026-08-22 | M0 governance | commit `2526e93`; public v1.0 milestone and issues 1-8; compatibility ADR | pass |
-| 2026-08-22 | M1 install lifecycle checkpoint | five offline bundles structurally verified; Windows/Linux install/upgrade/rollback/uninstall/purge; Linux network namespace; tampered backup rejected | pass |
+| 2026-08-22 | M1 install lifecycle checkpoint | five offline bundles verified; Windows/Linux online and offline install; public v0.3.3 migration; real product-state preservation; process-kill recovery journal; rollback/uninstall/purge | pass |

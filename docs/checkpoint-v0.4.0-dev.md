@@ -10,6 +10,8 @@ Scope: M1 development checkpoint, not a public release
 - The full offline builder packages all five executables, the lifecycle protocol archive, installer/controller, manifest, file digests, documentation, and examples.
 - The offline verifier rejects unsafe archive paths, links, undeclared files, stale indexes, non-executable Unix installers, and component/protocol digest mismatches.
 - `suitectl` supports version, upgrade, rollback, uninstall, and purge. Upgrade backups are persistent and integrity checked before rollback.
+- A durable install transaction journal is written before services stop or payloads change. The next installer invocation verifies the backup, restores every managed file, records `last-install-recovery.json`, restarts a previously running suite, and then safely retries the requested install.
+- Online downloads have bounded retries and timeouts. Bash retains partial downloads and resumes them on retry; offline mode never enters this path.
 - Uninstall preserves data/config/logs/protocols/backups. Purge requires the exact canonical suite path and refuses roots and links/reparse points.
 - Release workflow refuses an existing Release, requires tag/manifest agreement, builds all offline platforms, verifies them, and creates GitHub build provenance.
 
@@ -24,6 +26,11 @@ Scope: M1 development checkpoint, not a public release
 - Exact-path-confirmed purge: pass.
 - Missing offline asset with network fallback disabled: correctly rejected.
 - Tampered backup binary: correctly rejected before any rollback mutation.
+- A child Windows PowerShell process was forcibly terminated after payload replacement. The next invocation restored the prior binary from the integrity-checked journal before continuing.
+- Windows PowerShell 5.1 compatibility: pass, including install, service runtime, Doctor, rollback, uninstall, and purge.
+- Persisted ports were unchanged when an upgrade process inherited different ambient port variables.
+- DevCycle requirement DB, Fleet identity/registration, ReleaseGuard report, and digest-bound approval retained identical full-data fingerprints through upgrade and rollback.
+- Manifest-driven online install, five downloads, Doctor, and purge on dynamic ports: pass.
 
 The current development installer was also applied to a clean installation created from the public Open Suite v0.3.3 ZIP. Four product data markers, the Fleet token, and persisted port configuration survived upgrade and rollback. Rollback restored `suite-version` to `0.3.3`.
 
@@ -33,11 +40,15 @@ Host 136 was used only in random `/tmp/ai-devops-v1-accept.*` paths and dynamic 
 
 - Full offline install, start, Agent, four service endpoints, Doctor, stop: pass.
 - Controller-driven upgrade, rollback, uninstall-preserve, reinstall, purge: pass.
-- Forced post-binary protocol commit failure restored the prior binary: pass.
+- Forced post-payload commit failure restored the prior binary immediately: pass.
+- A real installer process was killed after payload replacement; the persisted journal restored the prior installation on the next invocation: pass.
 - Tampered persistent backup was rejected: pass.
 - Missing local asset did not fall back to the network: pass.
 - A separate root network namespace with no network interfaces ran only installer/controller initialization and wrote an offline five-component install state: pass.
 - All remote acceptance directories were removed after the test.
+- DevCycle requirement DB, InfraScout baseline/inventory, Fleet identity/registration, ReleaseGuard report, and digest-bound approval retained identical full-data fingerprints through upgrade and rollback.
+- Manifest-driven online install, five downloads, Doctor, and purge on dynamic ports: pass.
+- The public v0.3.3 launcher upgraded to this checkpoint and rolled back to `suite-version` 0.3.3 while preserving four product markers, Fleet token, and ports: pass.
 
 InfraScout reported Docker socket permission as a warning for the unprivileged user; this was expected and avoided reading unrelated containers.
 
@@ -47,15 +58,14 @@ All five platform archives passed the offline verifier. These local development 
 
 | Platform | Archive size | SHA-256 |
 |---|---:|---|
-| Windows amd64 | 22,555,858 | `6b8bce2e726843ea69013a77e5c34844b139771213ff24c237bd3290e8d21504` |
-| Linux amd64 | 22,078,871 | `01b9e76149557eeedb28d2d4d7465ef6b64480f805e9c7055605520da46b65cc` |
-| Linux arm64 | 20,194,689 | `f1cda125d34cf910c51d94fc957ae3e6ba2da8ff7d7f62cd29613a611834f610` |
-| macOS amd64 | 22,351,318 | `4ac152c3455966dea907d0b4ab88a6cba7570928e2d765f29c0d23fb5f57432b` |
-| macOS arm64 | 20,915,572 | `6986a3eca6f1c077e9b5f3f6504e08b73f7599c64dcacda824dbf3574a43bcc5` |
+| Windows amd64 | 22,559,163 | `85032241d0b4248a3d72ec16bd043e7434c69bd39dbec41c1144990501339bdc` |
+| Linux amd64 | 22,082,104 | `91f8219e19f4bce49bcec09b4cfe0c86c12479dace07093f9d5e0ad1a41deb77` |
+| Linux arm64 | 20,199,231 | `3e47d291d4d79eb2e07a14c8579de0828eff8d57fa561e426a88091e7f12e92e` |
+| macOS amd64 | 22,355,856 | `77da4eaa82bd26fbda949f0739be2d378c3ec9a4e4bb11bc13452df56d8d0362` |
+| macOS arm64 | 20,920,130 | `182c0efce75930f555976a316a291d5a4fe7db7ebf1ac43ae3156e368b2fc9c6` |
 
-## Remaining before M1 closes
+## M1 result
 
-- Run the public v0.3.3 migration preservation test on Linux.
-- Add interruption/power-loss journaling and recovery acceptance.
-- Rebuild all bundles from v1 component releases and generate component SBOMs before RC.
-- Keep macOS and Linux arm64 at build-tested status until native runtime evidence exists.
+M1 is complete. Its repeatable acceptance entry points are `accept-offline-windows.ps1`, `accept-offline-linux.sh`, `accept-online-windows.ps1`, `accept-online-linux.sh`, `accept-upgrade-from-v033-linux.sh`, and the network-namespace harness.
+
+The archives in this document remain development evidence, not public v1 releases. They must be rebuilt from v1 component releases and receive component SBOMs before RC. macOS and Linux arm64 remain build-tested only until native runtime evidence exists.

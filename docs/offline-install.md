@@ -24,4 +24,6 @@ The full offline archive is platform-specific and already contains every executa
 
 The installer detects the bundled `assets/<platform>` directory, verifies every SHA-256 digest from the suite manifest, and stays in offline mode. A missing or mismatched file is a hard failure; it does not silently download a replacement.
 
+Upgrade writes an integrity-checked backup and a durable transaction journal before stopping a running suite or replacing files. If the installer process or machine stops after mutation begins, run the same installer command again. It verifies the saved backup, restores the prior working installation, records recovery metadata in `config/last-install-recovery.json`, and then retries the install. Do not delete `config/install-transaction.*` or the referenced backup manually.
+
 Run `suitectl doctor` after installation. The full v1.0 acceptance report will identify which platforms completed a native runtime test and which are build-tested only.

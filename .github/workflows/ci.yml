@@ -20,12 +20,12 @@ jobs:
           python3 scripts/validate-suite-manifest.py
           python3 scripts/test-suite-manifest.py
       - name: Validate shell scripts
-        run: bash -n scripts/install-suite.sh scripts/suitectl.sh scripts/verify-suite.sh
+        run: bash -n scripts/install-suite.sh scripts/suitectl.sh scripts/verify-suite.sh scripts/accept-offline-linux.sh scripts/accept-offline-network-namespace.sh scripts/accept-online-linux.sh scripts/accept-upgrade-from-v033-linux.sh
       - name: Validate PowerShell scripts and demo report
         shell: pwsh
         run: |
           $ErrorActionPreference = 'Stop'
-          foreach ($path in 'scripts/install-suite.ps1','scripts/suitectl.ps1','scripts/verify-suite.ps1') {
+          foreach ($path in 'scripts/install-suite.ps1','scripts/suitectl.ps1','scripts/verify-suite.ps1','scripts/accept-offline-windows.ps1','scripts/accept-online-windows.ps1') {
             $errors = $null
             [void][System.Management.Automation.Language.Parser]::ParseFile((Resolve-Path $path), [ref]$null, [ref]$errors)
             if ($errors) { throw ($errors.Message -join "`n") }

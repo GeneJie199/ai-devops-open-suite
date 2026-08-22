@@ -2,7 +2,7 @@
 
 Updated: 2026-08-22  
 Program: v1.0 GA  
-State: active development
+State: M1 complete; M2 active
 
 ## Current releases
 
@@ -25,6 +25,9 @@ All repositories were clean, on `main`, tracking `origin/main`, and had no ahead
 - Windows amd64 passed public-asset install, start, doctor, local Agent, UI readiness, and stop.
 - Linux amd64 passed isolated `/tmp` install, runtime, Agent, health, port persistence, stale-PID protection, user-systemd generation, version checks, and cleanup on host 136.
 - The 136 acceptance used dynamic loopback ports and isolated paths; it did not access or modify the unrelated SongYueGe environment.
+- The v0.4.0-dev lifecycle checkpoint passed manifest-driven online and full-offline installation on Windows amd64 and Linux amd64.
+- Public v0.3.3 upgrade/rollback preservation passed on both Windows and Linux; full-data fingerprints covered real product databases, infrastructure state, Fleet identity, release reports, and digest-bound approvals.
+- Forced process termination after payload replacement recovered through a durable integrity-checked journal on Windows and Linux.
 
 ## Capability matrix
 
@@ -107,7 +110,7 @@ v1.0 gaps:
 Available now:
 
 - Checksum-verified online component installation and source-root offline installation.
-- Transactional binary replacement with in-process failure restoration and prior-service restart.
+- Transactional replacement with in-process failure restoration, durable interruption journal, verified next-run recovery, and prior-service restart.
 - Unified `suitectl` init/start/stop/restart/status/open/logs/doctor/enable/disable entry point.
 - Persistent ports, local Fleet token/identity, Windows Startup, Linux user systemd, macOS LaunchAgent, safe PID verification, and cross-module verification scripts.
 - Development manifest `ai-devops.suite-manifest/v1` with exact per-platform component digests and generated dependency-free Bash indexes.
@@ -117,13 +120,13 @@ Available now:
 v1.0 gaps:
 
 - Full offline bundles are development artifacts until component v1 releases exist; SBOM generation and final public provenance remain pending.
-- Linux v0.3-to-v1 and final v1 upgrade acceptance remain pending; Windows has passed the current v0.3.3-to-0.4.0-dev preservation checkpoint.
-- Interrupted process/power-loss upgrade recovery still needs a durable journal beyond the tested commit-failure restoration.
+- Final v1 component rebuild, v1 upgrade acceptance, SBOMs, and public-asset retesting remain pending for RC/GA.
+- Native runtime claims remain limited to Windows amd64 and Linux amd64; other built platforms are not promoted by archive availability alone.
 - Public READMEs/support matrices, scale evidence, provenance, and release gates require v1 completion.
 
 ## Active work
 
-1. Finish remaining M1 interrupted-upgrade and Linux v0.3 migration acceptance.
+1. Deliver the M2 DevCycle requirement-first, provider-neutral, evidence-backed workflow.
 2. Advance product work in dependency order: protocol, DevCycle/InfraScout, FleetScope, ReleaseGuard, then complete suite integration.
 3. Run Kimi K3 and browser review at every major UI checkpoint.
 4. Complete security, reliability, scale, RC, GA, and post-release public smoke gates.
