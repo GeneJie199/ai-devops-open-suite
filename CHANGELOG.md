@@ -11,6 +11,7 @@
 - Pass manifest-driven online installation and public v0.3.3 migration on Linux, and preserve real DevCycle, InfraScout, FleetScope, and ReleaseGuard state fingerprints through upgrade and rollback on Windows and Linux.
 - Complete DevCycle v0.4.0-dev with requirement-first provider-neutral planning, safe credentials/request preview, real Agent adapters, durable handoff, canonical evidence, humanized Git, and responsive browser acceptance.
 - Complete InfraScout v0.4.0-dev with native typed discovery/topology, PostgreSQL/MySQL metadata v2, unified database/relationship review and release gates, one-command onboarding, hardened offline UI, real disposable-database acceptance, and Kimi `GO` review.
+- Complete FleetScope v0.4.0-dev with cross-platform native discovery, safe monitoring recommendations, topology history/diff, durable multi-channel notifications, privacy-scoped optional AI evidence, one-command onboarding, hardened installers, responsive browser acceptance, isolated Linux runtime/race acceptance, and Kimi review.
 
 ## 0.3.3 - 2026-08-13
 

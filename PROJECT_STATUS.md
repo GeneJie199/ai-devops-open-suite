@@ -2,7 +2,7 @@
 
 Updated: 2026-08-23
 Program: v1.0 GA  
-State: M1-M3 complete; M4 active
+State: M1-M4 complete; M5 active
 
 ## Current releases
 
@@ -11,7 +11,7 @@ State: M1-M3 complete; M4 active
 | lifecycle-spec | v0.1.1 | `2c9853b7e1959d2ceaaf7289aa5f4a2af0f5f5bd` | current formal workflows green |
 | DevCycle | v0.3.2 / v0.4.0-dev | `11f03ad5c532c4fc0dd9a3d4efcd8dc33d934498` | v0.4.0-dev CI green |
 | InfraScout | v0.3.2 / v0.4.0-dev | `f84245c322849edf1f10f00760341fbca455a4a1` | v0.4.0-dev CI green |
-| FleetScope | v0.3.2 | `e8c2007fd17ba4a368eb1a81028766bb9db3990a` | current formal workflows green |
+| FleetScope | v0.3.2 / v0.4.0-dev | `c51ece279c298f18684a908f656594b3ae87c8df` | v0.4.0-dev CI green |
 | ReleaseGuard | v0.3.2 | `5c299f06179b14cbcaaef8522f7a25005bbb10ea` | current formal workflows green |
 | Open Suite | v0.3.3 | `b909998e8bf57771400b06939b6903e132e9b5f9` | current formal workflows green |
 
@@ -30,6 +30,7 @@ All repositories were clean, on `main`, tracking `origin/main`, and had no ahead
 - Forced process termination after payload replacement recovered through a durable integrity-checked journal on Windows and Linux.
 - DevCycle v0.4.0-dev passed its requirement-first manual/AI workflow, provider and secret controls, five real Agent adapters, evidence gate, responsive browser acceptance, and three-platform CI.
 - InfraScout v0.4.0-dev passed native discovery, typed topology, unified infrastructure/database drift review, responsive browser acceptance, and disposable PostgreSQL 16/MySQL 8.4 metadata collection on host 136 using random containers, loopback ports, and `/tmp` paths that were removed afterward.
+- FleetScope v0.4.0-dev passed native Windows/macOS/Linux listener and process discovery, topology history/diff, durable multi-channel notification delivery, privacy-scoped evidence/optional AI, one-command local startup, responsive browser acceptance, and an isolated Linux install/runtime plus race test on host 136.
 
 ## Capability matrix
 
@@ -89,12 +90,15 @@ Available now:
 - Native segmented metric/event stores plus optional Prometheus, Influx, and OTLP compatibility inputs.
 - Token authentication, optional TLS/mTLS, loopback-safe defaults, collector timeout isolation, spool ordering/recovery, and self-observability tests.
 
-v1.0 gaps:
+Delivered on v0.4.0-dev main:
 
-- Topology is currently derived from retained reports but lacks explicit topology snapshots, point-in-time retrieval, and topology diff.
-- Change Center does not yet aggregate database/topology change documents into one stable public contract.
-- Alert delivery is basic webhook notification and needs durable delivery, dedupe/grouping/suppression/windows/retries and maintained channels.
-- Monitoring onboarding and AI evidence-package/privacy flows are incomplete.
+- Native OS listener/process discovery and stable safe recommendations work without Prometheus; Prometheus, Influx, and OTLP remain compatibility-only inputs.
+- Immutable topology snapshots, point-in-time structural diffs, group/release/incident context, and append-only relationship review are available.
+- Durable Webhook, Feishu, WeCom, DingTalk, Slack, Telegram, and SMTP delivery includes grouping, deduplication, suppressions, deployment windows, bounded retry, and manual replay.
+- Privacy-scoped immutable evidence packages, explicit redacted AI payload preview/confirmation, assumptions, completeness confidence, and optional provider-neutral explanations are available.
+- `fleetctl up`, `fleetctl doctor`, Linux systemd and Windows user installers, native monitoring configuration download, offline icons, and responsive operations workflows are complete.
+
+Remaining before GA: lifecycle v1 contract alignment, ReleaseGuard correlation, final suite installation assets, RC/public-asset acceptance, and final documentation/SBOM/provenance gates.
 
 ### ReleaseGuard
 
@@ -131,8 +135,8 @@ v1.0 gaps:
 
 ## Active work
 
-1. Deliver M4 FleetScope native fleet operations, topology history/diff, unified Change Center, and durable alert delivery.
-2. Advance remaining product work in dependency order: FleetScope, ReleaseGuard, protocol/design convergence, then complete suite integration.
+1. Deliver M5 ReleaseGuard expected-change correlation, complete release evidence chain, and operator remediation.
+2. Advance remaining work in dependency order: ReleaseGuard, protocol/design convergence, then complete suite integration.
 3. Run Kimi K3 and browser review at every major UI checkpoint.
 4. Complete security, reliability, scale, RC, GA, and post-release public smoke gates.
 

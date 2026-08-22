@@ -144,3 +144,34 @@ Host 136 was used only through random containers `infrascout-m3-*-99b249c6e1` / 
 ### M3 result
 
 M3 is complete and pushed. InfraScout is a self-contained discovery and drift product with native collectors, typed topology, real read-only database metadata, unified review/gating, install/service assets, and a responsive operational UI. Public tagging remains deferred until FleetScope, ReleaseGuard, protocol/design convergence, suite integration, and RC/public-asset acceptance are complete.
+
+## M4 FleetScope delivery checkpoint
+
+Repository: `GeneJie199/fleet-observability`
+
+- Commit: `c51ece279c298f18684a908f656594b3ae87c8df` (`feat: deliver FleetScope native operations platform`).
+- GitHub CI: <https://github.com/GeneJie199/fleet-observability/actions/runs/32594120601> passed on Windows, macOS, and Linux.
+- Local tests, vet, race detector, Staticcheck, reachable Govulncheck, formatting, JavaScript syntax, Linux/macOS/Windows cross-builds, installer syntax, and release-package structure checks passed.
+- Kimi K3's final read-only audit reported no P0 blocker. Follow-up findings for bootstrap-token retention, Windows/macOS discovery, redaction, evidence retention, and discovery configuration handoff were closed or explicitly bounded before submission.
+
+### Product surface
+
+- Native discovery is the default when no InfraScout report is provided. Linux, Windows, and macOS collectors use operating-system listener/process sources while serializing only bounded process names, resource kinds, listeners, and stable identities; command arguments, environment values, and business data are excluded.
+- Recognized PostgreSQL, MySQL, Redis, Nginx, Docker, and process endpoints produce safe monitoring recommendations and a downloadable applications configuration whose credentials remain environment references.
+- Immutable automatic/manual topology snapshots support point-in-time retrieval, structural node/relationship diffs, resource-group scope, release/incident context, and append-only confirmation audit.
+- Durable notifications support Webhook, Feishu, WeCom, DingTalk, Slack, Telegram, and SMTP with grouping, deduplication, suppressions, deployment windows, critical bypass, bounded queues, exponential retry, delivery history, and manual replay.
+- Immutable evidence packages expose deterministic facts, privacy exclusions, assumptions, confidence, optional bounded excerpts, exact AI payload hash/preview, explicit confirmation, response retention, and redaction for secrets, bearer values, URL credentials, JWTs, and private keys.
+- Optional AI explanation supports OpenAI-compatible, Anthropic, Gemini, and custom providers. Endpoints and credentials remain startup configuration/environment inputs; AI is not required for any monitoring, alert, topology, or evidence workflow.
+- `fleetctl up` creates a loopback-only Center plus self-enrolling local Agent with persistent generated credentials, automatic native discovery, optional InfraScout integration, browser opening, and restart recovery. `fleetctl doctor --require-node` verifies storage, credentials, health, authenticated overview, discovery, and live node presence.
+- Linux systemd and Windows per-user installers provide install, startup, doctor, uninstall, and explicit purge paths. The Linux Agent environment never retains the management bootstrap token after enrollment.
+
+### Acceptance
+
+- Desktop 1440x1000 and mobile 390x844 browser checks covered overview, data sources/recommendations, notification delivery, evidence/AI preview, topology history/diff, and relationship review with offline Lucide icons, no console errors, and no whole-page overflow.
+- A real local one-command smoke produced one enrolled Agent, one node, native discovery, four metrics, and four compatibility adapters. Management credentials passed through the browser fragment were immediately moved into session state and removed from the visible URL.
+- Host 136 acceptance used disposable containers, no host ports, no business mounts, random `/tmp/fleetscope-m4-*` paths, and no network for the runtime installation case. `doctor --require-node` passed 5/5 checks, and the Linux report contained native host/endpoint/resource relationships with no command or environment fields.
+- A separate disposable Go container ran `go test -race -timeout 240s ./...` against a read-only source mount. Every package passed. Both exact containers and matching `/tmp` paths were removed and their absence verified; no SongYueGe path, service, container, port, or data was enumerated or modified.
+
+### M4 result
+
+M4 is complete and pushed. FleetScope is now a self-contained native monitoring product with compatibility-only external inputs, reliable alert delivery, historical topology, privacy-governed evidence/optional AI, and low-friction installation and onboarding. Public tagging remains deferred until ReleaseGuard, protocol/design convergence, suite integration, and RC/public-asset acceptance are complete.
