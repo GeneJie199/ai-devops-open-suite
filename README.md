@@ -125,6 +125,12 @@ Linux、macOS、WSL 或 Git Bash：
 
 ## 项目资料
 
+- [v1.0 总控计划](V1_MASTER_PLAN.md)
+- [当前项目状态](PROJECT_STATUS.md)
+- [公开路线图](ROADMAP.md)
+- [兼容性矩阵](COMPATIBILITY.md)
+- [平台支持矩阵](SUPPORT_MATRIX.md)
+- [发布政策](RELEASE_POLICY.md)
 - [安装与快速开始](docs/quickstart.md)
 - [0.3.3 套件发布审计](docs/release-0.3.3.md)
 - [0.3.2 发布审计](docs/release-0.3.2.md)

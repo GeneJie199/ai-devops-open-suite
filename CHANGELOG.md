@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+- Start the governed v1.0 program with an audited six-repository capability matrix, executable master plan, public roadmap, platform support matrix, compatibility policy, and immutable release policy.
+- Define additive lifecycle protocol evolution and a backup-first, idempotent migration requirement for every persisted v0.3 state format.
+
 ## 0.3.3 - 2026-08-13
 
 - Fix the suite Release publication shell block after the failed `v0.3.2` packaging tag; the failed tag is retained for audit and is not reused.
