@@ -1,16 +1,16 @@
 # AI DevOps Open Suite Project Status
 
-Updated: 2026-08-22  
+Updated: 2026-08-23
 Program: v1.0 GA  
-State: M1 complete; M2 active
+State: M1-M3 complete; M4 active
 
 ## Current releases
 
 | Repository | Release | Main commit | CI / release state |
 |---|---:|---|---|
 | lifecycle-spec | v0.1.1 | `2c9853b7e1959d2ceaaf7289aa5f4a2af0f5f5bd` | current formal workflows green |
-| DevCycle | v0.3.2 | `146bced213c2f9c4db8a9d96850822f756feac94` | current formal workflows green |
-| InfraScout | v0.3.2 | `7f0765d2e95bce56a69ac486b1924eb018b2e6f1` | current formal workflows green |
+| DevCycle | v0.3.2 / v0.4.0-dev | `11f03ad5c532c4fc0dd9a3d4efcd8dc33d934498` | v0.4.0-dev CI green |
+| InfraScout | v0.3.2 / v0.4.0-dev | `f84245c322849edf1f10f00760341fbca455a4a1` | v0.4.0-dev CI green |
 | FleetScope | v0.3.2 | `e8c2007fd17ba4a368eb1a81028766bb9db3990a` | current formal workflows green |
 | ReleaseGuard | v0.3.2 | `5c299f06179b14cbcaaef8522f7a25005bbb10ea` | current formal workflows green |
 | Open Suite | v0.3.3 | `b909998e8bf57771400b06939b6903e132e9b5f9` | current formal workflows green |
@@ -28,6 +28,8 @@ All repositories were clean, on `main`, tracking `origin/main`, and had no ahead
 - The v0.4.0-dev lifecycle checkpoint passed manifest-driven online and full-offline installation on Windows amd64 and Linux amd64.
 - Public v0.3.3 upgrade/rollback preservation passed on both Windows and Linux; full-data fingerprints covered real product databases, infrastructure state, Fleet identity, release reports, and digest-bound approvals.
 - Forced process termination after payload replacement recovered through a durable integrity-checked journal on Windows and Linux.
+- DevCycle v0.4.0-dev passed its requirement-first manual/AI workflow, provider and secret controls, five real Agent adapters, evidence gate, responsive browser acceptance, and three-platform CI.
+- InfraScout v0.4.0-dev passed native discovery, typed topology, unified infrastructure/database drift review, responsive browser acceptance, and disposable PostgreSQL 16/MySQL 8.4 metadata collection on host 136 using random containers, loopback ports, and `/tmp` paths that were removed afterward.
 
 ## Capability matrix
 
@@ -53,12 +55,13 @@ Available now:
 - Optional AI plan preview/apply and AI diff explanation with redaction and strict JSON validation.
 - Loopback-only Web UI, SQLite migrations, and deterministic readiness checks.
 
-v1.0 gaps:
+Delivered on v0.4.0-dev main:
 
-- The planning model does not yet cover the full product brief, test plan, agent assignment, rollback, or candidate narrative.
-- AI generation currently invokes three local CLIs; it lacks configurable API-compatible providers and safe secret storage.
-- Agent adapters need Gemini CLI, OpenCode, and custom definitions plus stronger handoff UX.
-- Humanized Git and evidence types need a complete beginner-facing acceptance path.
+- Requirement-first editable planning covers product understanding, scope, assumptions, questions/defaults, acceptance, tests, tasks, Agent assignment, risk, rollback, and candidate narrative.
+- Manual operation remains complete; configurable API providers, OS-keyring/environment credentials, request preview, redaction, and five real Agent adapters are available.
+- Humanized Git, raw patch access, durable handoff, canonical evidence, candidate, and development-report paths passed desktop/mobile acceptance.
+
+Remaining before GA: cross-product protocol alignment, final suite installation assets, RC/public-asset acceptance, and final documentation/SBOM/provenance gates.
 
 ### InfraScout
 
@@ -69,11 +72,13 @@ Available now:
 - Approved baseline, deterministic structured diff, noise filtering, severity, auditable classifications, temporary expiry, selected baseline promotion, watch mode, Web UI, and offline report.
 - Read-only PostgreSQL/MySQL metadata collection and schema/table/column/index/view/trigger/routine/privilege diff.
 
-v1.0 gaps:
+Delivered on v0.4.0-dev main:
 
-- The generic resource model and protocol mapping require consolidation and stable v1 serialization.
-- Database metadata lacks complete primary/unique/foreign-key and user/role detail and is not yet integrated into the main review/evidence path.
-- Desired-state and release-correlation semantics need completion and browser onboarding needs simplification.
+- First-class Host, Process, Service, Deployment, Container, Database, Endpoint, Volume, Network, Relationship, Observation, Evidence, ChangeEvent, Application, and observed/approved/desired state views.
+- PostgreSQL/MySQL metadata v2 includes PK/unique/FK constraints, indexes, views, triggers, routines, roles, and privileges without business-row queries.
+- Database and relationship drift share the main decision, fingerprint, blocking-risk, check, Web review, and selective baseline-promotion path.
+
+Remaining before GA: final suite protocol mapping, ReleaseGuard expected-change correlation, final public assets, and RC acceptance.
 
 ### FleetScope
 
@@ -126,8 +131,8 @@ v1.0 gaps:
 
 ## Active work
 
-1. Deliver the M2 DevCycle requirement-first, provider-neutral, evidence-backed workflow.
-2. Advance product work in dependency order: protocol, DevCycle/InfraScout, FleetScope, ReleaseGuard, then complete suite integration.
+1. Deliver M4 FleetScope native fleet operations, topology history/diff, unified Change Center, and durable alert delivery.
+2. Advance remaining product work in dependency order: FleetScope, ReleaseGuard, protocol/design convergence, then complete suite integration.
 3. Run Kimi K3 and browser review at every major UI checkpoint.
 4. Complete security, reliability, scale, RC, GA, and post-release public smoke gates.
 

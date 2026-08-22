@@ -76,26 +76,26 @@ Exit evidence: clean online/offline install, v0.3-to-current upgrade, rollback, 
 
 ### M2 - DevCycle requirement-first workflow
 
-- [ ] Make “What do you want AI to build?” the primary new-user path while retaining full manual operation.
-- [ ] Expand planning output to understanding, scope, assumptions, missing information, acceptance criteria, test cases, test plan, tasks, agent suggestions, order, risks, rollback concerns, and candidate notes.
-- [ ] Add configurable AI providers: OpenAI-compatible, Anthropic, Gemini, local OpenAI-compatible/Ollama-style, and custom adapters.
-- [ ] Store secrets outside normal logs/evidence/Git and provide a redacted request preview.
-- [ ] Add Codex, Claude Code, Gemini CLI, Kimi, OpenCode, and custom Agent adapter definitions without embedding an agent implementation.
-- [ ] Complete task handoff, lifecycle state, worktree ownership, bounded logs, diff, test, and evidence links.
-- [ ] Extend humanized Git with user/API/database/configuration impact, risk, and suggested verification; retain raw diff.
-- [ ] Support evidence kinds for code, commit, test, screenshot, command, HTTP response, artifact, and human confirmation.
+- [x] Make “What do you want AI to build?” the primary new-user path while retaining full manual operation.
+- [x] Expand planning output to understanding, scope, assumptions, missing information, acceptance criteria, test cases, test plan, tasks, agent suggestions, order, risks, rollback concerns, and candidate notes.
+- [x] Add configurable AI providers: OpenAI-compatible, Anthropic, Gemini, local OpenAI-compatible/Ollama-style, and custom adapters.
+- [x] Store secrets outside normal logs/evidence/Git and provide a redacted request preview.
+- [x] Add Codex, Claude Code, Gemini CLI, Kimi, OpenCode, and custom Agent adapter definitions without embedding an agent implementation.
+- [x] Complete task handoff, lifecycle state, worktree ownership, bounded logs, diff, test, and evidence links.
+- [x] Extend humanized Git with user/API/database/configuration impact, risk, and suggested verification; retain raw diff.
+- [x] Support evidence kinds for code, commit, test, screenshot, command, HTTP response, artifact, and human confirmation.
 
 Exit evidence: complete new-user path with and without AI, deterministic evidence gate, provider/secret tests, agent interruption/restart tests, browser UX acceptance.
 
 ### M3 - InfraScout discovery and drift
 
-- [ ] Keep `infrascout scan` useful without configuration and report unsupported collectors as warnings, not fabricated success.
-- [ ] Harden host, process, endpoint, systemd, Docker, Compose, network, volume, Nginx, runtime, database, exposure, and relationship evidence.
-- [ ] Normalize Host, Process, Service, Deployment, Container, Database, Endpoint, Volume, Network, Relationship, Observation, Snapshot, Evidence, and ChangeEvent through stable public contracts.
-- [ ] Complete desired/approved/observed state and expected/approved/temporary/pending/unexpected/denied review semantics.
-- [ ] Expand PostgreSQL/MySQL metadata to primary keys, indexes/unique, foreign keys, views, triggers, functions/procedures, users/roles, and privileges within documented engine limits.
-- [ ] Keep metadata collection read-only and exclude business rows by default.
-- [ ] Add database baseline/review/evidence integration and release correlation.
+- [x] Keep `infrascout scan` useful without configuration and report unsupported collectors as warnings, not fabricated success.
+- [x] Harden host, process, endpoint, systemd, Docker, Compose, network, volume, Nginx, runtime, database, exposure, and relationship evidence.
+- [x] Normalize Host, Process, Service, Deployment, Container, Database, Endpoint, Volume, Network, Relationship, Observation, Snapshot, Evidence, and ChangeEvent through stable public contracts.
+- [x] Complete desired/approved/observed state and expected/approved/temporary/pending/unexpected/denied review semantics.
+- [x] Expand PostgreSQL/MySQL metadata to primary keys, indexes/unique, foreign keys, views, triggers, functions/procedures, users/roles, and privileges within documented engine limits.
+- [x] Keep metadata collection read-only and exclude business rows by default.
+- [x] Add database baseline/review/evidence integration and release correlation.
 
 Exit evidence: zero-config scan, structured infrastructure diff, database metadata diff against disposable PostgreSQL/MySQL, noise filtering, review expiry and baseline promotion tests.
 
@@ -206,3 +206,5 @@ Windows arm64 is not a v1.0 artifact target unless all component binaries and an
 | 2026-08-22 | M0 baseline audit | six exact commits; five Go test/vet runs; releases/CI/remotes checked | pass |
 | 2026-08-22 | M0 governance | commit `2526e93`; public v1.0 milestone and issues 1-8; compatibility ADR | pass |
 | 2026-08-22 | M1 install lifecycle checkpoint | five offline bundles verified; Windows/Linux online and offline install; public v0.3.3 migration; real product-state preservation; process-kill recovery journal; rollback/uninstall/purge | pass |
+| 2026-08-22 | M2 DevCycle delivery checkpoint | commit `11f03ad5`; provider-neutral planning; real Agent adapters; evidence gate; desktop/mobile acceptance; three-platform CI | pass |
+| 2026-08-23 | M3 InfraScout delivery checkpoint | commit `f84245c`; native discovery/topology; PostgreSQL/MySQL v2; unified review/gate; disposable real-database acceptance; Kimi GO; responsive browser acceptance | pass |

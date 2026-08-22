@@ -1,7 +1,7 @@
-# v0.4.0-dev Installation Lifecycle Checkpoint
+# v0.4.0-dev Product Delivery Checkpoint
 
 Date: 2026-08-22
-Scope: M1-M2 development checkpoint, not a public release
+Scope: M1-M3 development checkpoint, not a public release
 
 ## Implemented
 
@@ -105,3 +105,42 @@ Repository: `GeneJie199/ai-dev-cycle-manager`
 ### M2 result
 
 M2 is complete and pushed. DevCycle is a release-candidate product surface, not a compatibility shell: AI is optional, manual operation remains complete, outbound model behavior is reviewable, Agent processes are real and durable, and release readiness remains evidence-derived. Public tagging is deferred until all suite modules and cross-product acceptance are complete.
+
+## M3 InfraScout delivery checkpoint
+
+Repository: `GeneJie199/infrastructure-discovery`
+
+- Commits: `5b8e38ed10c77e8d35af1356a50e13539bf458fa` (complete discovery workflow) and `f84245c322849edf1f10f00760341fbca455a4a1` (real-database visibility calibration).
+- GitHub CI: <https://github.com/GeneJie199/infrastructure-discovery/actions/runs/32588046650> passed on Windows, macOS, and Linux; the final calibration run is <https://github.com/GeneJie199/infrastructure-discovery/actions/runs/32588878098>.
+- Local tests, vet, Staticcheck, actionlint, Bash syntax/install smoke, Linux cross-build, and JavaScript syntax passed. The prior Govulncheck run found no reachable vulnerabilities.
+- Kimi K3's first final audit found one release blocker: volatile PID evidence participated in relationship fingerprints. Evidence was removed from relationship comparison identity, a restart-stability regression test was added, and Kimi's repeated audit returned `VERDICT: GO`.
+
+### Product surface
+
+- `infrascout up` performs first discovery, approved baseline/current state, drift, monitoring plan, local Viewer, and optional browser launch in one command; headless use is supported with `--no-open`.
+- Native host, process, endpoint, systemd, Docker, Compose, network, volume, Nginx, deployment, application, database, exposure, relationship, evidence, observation, and ChangeEvent data is collected without Prometheus.
+- systemd absence degrades to a warning; restart/autostart/unit, container health/restart/network/mount, and address-aware Nginx upstream relationships are retained.
+- PostgreSQL/MySQL metadata v2 captures database name, schemas, tables, columns, PK/unique/FK/check constraints, indexes, views, triggers, routines, roles/users, and privileges in read-only transactions without business-row queries.
+- Database and topology changes merge into the main fingerprint, decision, blocking risk, ChangeEvent, CLI/Web review, `check --fail-on`, and single-change promotion workflow.
+- Relationship evidence remains available for operators but volatile evidence such as PIDs no longer creates drift or invalidates approvals. Added-table promotion retains columns as separate pending changes.
+- Review mutations require a same-origin custom header, remote mutation remains disabled, sensitive CLI/DSN forms are redacted, and release artifacts include the installer, systemd unit, and checksums.
+
+### Real database acceptance
+
+Host 136 was used only through random containers `infrascout-m3-*-99b249c6e1` / `infrascout-m3-*-0567470932`, random loopback ports, and matching `/tmp/infrascout-m3-*` paths. No SongYueGe directory, service, container, network, volume, port, or data was enumerated or modified. Both acceptance sets were removed and their absence was verified.
+
+- Disposable PostgreSQL 16 and MySQL 8.4 instances exposed tables, seven columns, four primary/unique/foreign-key constraints, indexes, a view, triggers, a routine, roles/users, and privileges to the collector with no warnings after documented permissions.
+- PostgreSQL's read-only catalog path returned four constraints and two trigger events for a normal metadata account; MySQL returned four constraints and one trigger under the documented `TRIGGER`/`mysql.user` visibility permissions.
+- After adding a column, constraint, role, and privilege, both engines produced five database changes, `CRITICAL` database and unified blocking risk, five unified database ChangeEvents, and the expected non-zero `check --fail-on critical` result.
+- Approving and promoting only `dbmeta:column:public.orders.total_cents` removed that one item while four unrelated constraint/role/privilege changes remained blocking.
+
+### UX acceptance
+
+- The offline Lucide UI exposes seven functional views: overview, applications, assets, exposure/dependencies, changes, database, and FleetScope handoff.
+- Desktop and 390x844 mobile checks covered all views with no console errors or whole-page horizontal overflow; resource details use a responsive drawer/dialog and the mobile database view remains usable.
+- The final change queue displayed eight localized infrastructure/database items, stable severity/classification states, evidence, asset location, review, and promotion paths.
+- The local Viewer remains available at `http://127.0.0.1:18765/`; this page and DevCycle's `http://127.0.0.1:18766/` are isolated from host 136 and SongYueGe.
+
+### M3 result
+
+M3 is complete and pushed. InfraScout is a self-contained discovery and drift product with native collectors, typed topology, real read-only database metadata, unified review/gating, install/service assets, and a responsive operational UI. Public tagging remains deferred until FleetScope, ReleaseGuard, protocol/design convergence, suite integration, and RC/public-asset acceptance are complete.

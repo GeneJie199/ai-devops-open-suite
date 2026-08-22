@@ -9,6 +9,8 @@
 - Pass Windows and isolated Linux install lifecycle acceptance, Linux network-namespace offline installation, failed-commit restoration, tampered-backup rejection, and a public v0.3.3 Windows upgrade/rollback preservation test.
 - Add durable interrupted-install journaling and verified next-run recovery, PowerShell 5.1 compatibility, bounded online download retry/resume behavior, and deterministic acceptance-only failure injection restricted to temporary paths.
 - Pass manifest-driven online installation and public v0.3.3 migration on Linux, and preserve real DevCycle, InfraScout, FleetScope, and ReleaseGuard state fingerprints through upgrade and rollback on Windows and Linux.
+- Complete DevCycle v0.4.0-dev with requirement-first provider-neutral planning, safe credentials/request preview, real Agent adapters, durable handoff, canonical evidence, humanized Git, and responsive browser acceptance.
+- Complete InfraScout v0.4.0-dev with native typed discovery/topology, PostgreSQL/MySQL metadata v2, unified database/relationship review and release gates, one-command onboarding, hardened offline UI, real disposable-database acceptance, and Kimi `GO` review.
 
 ## 0.3.3 - 2026-08-13
 
