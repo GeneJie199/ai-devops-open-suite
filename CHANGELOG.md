@@ -12,6 +12,8 @@
 - Complete DevCycle v0.4.0-dev with requirement-first provider-neutral planning, safe credentials/request preview, real Agent adapters, durable handoff, canonical evidence, humanized Git, and responsive browser acceptance.
 - Complete InfraScout v0.4.0-dev with native typed discovery/topology, PostgreSQL/MySQL metadata v2, unified database/relationship review and release gates, one-command onboarding, hardened offline UI, real disposable-database acceptance, and Kimi `GO` review.
 - Complete FleetScope v0.4.0-dev with cross-platform native discovery, safe monitoring recommendations, topology history/diff, durable multi-channel notifications, privacy-scoped optional AI evidence, one-command onboarding, hardened installers, responsive browser acceptance, isolated Linux runtime/race acceptance, and Kimi review.
+- Complete ReleaseGuard v0.4.0-dev with versioned expected-change correlation, cross-stage evidence links, deterministic remediation, hardened onboarding and installers, responsive browser acceptance, isolated Linux runtime/race acceptance, and Kimi review.
+- Extend lifecycle-spec v0.2.0-dev with strict Expected Changes and ReleaseGuard change-correlation/guidance contracts plus synchronized Go/TypeScript types.
 
 ## 0.3.3 - 2026-08-13
 

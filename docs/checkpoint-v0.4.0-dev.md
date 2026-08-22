@@ -175,3 +175,34 @@ Repository: `GeneJie199/fleet-observability`
 ### M4 result
 
 M4 is complete and pushed. FleetScope is now a self-contained native monitoring product with compatibility-only external inputs, reliable alert delivery, historical topology, privacy-governed evidence/optional AI, and low-friction installation and onboarding. Public tagging remains deferred until ReleaseGuard, protocol/design convergence, suite integration, and RC/public-asset acceptance are complete.
+
+## M5 ReleaseGuard delivery checkpoint
+
+Repositories: `GeneJie199/release-validation` and `GeneJie199/lifecycle-spec`
+
+- ReleaseGuard commit: `bd340e93ae795d4275c8e96a3ad24d323b499fca` (`feat: deliver ReleaseGuard evidence platform`).
+- Protocol commits: `0f794557359448f7859c44b46f2253b1ffc8b3e7` (Expected Changes and report contracts) and `2cbd04b8237473f5f296dc947e5970e053909b39` (evidence-bound correlations).
+- lifecycle-spec GitHub CI runs `32596164950` and `32597372359` passed on Windows, macOS, and Linux, including Linux race, Staticcheck, Govulncheck, type-manifest consistency, and schema validation.
+- ReleaseGuard local tests, vet, Staticcheck, reachable Govulncheck, JavaScript/PowerShell syntax, JSON validation, five-target cross-build, archive-structure smoke, and protocol validation passed. GitHub CI run `32597895954` passed on Windows, macOS, and Linux, including Linux race, Staticcheck, Govulncheck, build, CLI, installer, vendored-asset, and archive-input gates.
+
+### Product surface
+
+- `lifecycle-spec/expected-changes/v1` strictly binds release identity, version, generation time, source, action, stable resource selector, optional fingerprint/fields, checks, metrics, nodes, external evidence IDs, and required/optional intent.
+- ReleaseGuard normalizes InfraScout/database drift and release-scoped FleetScope changes/topology, performs exact one-to-one correlation, and blocks required missing, ambiguous, denied, or unexpected changes while retaining optional-missing evidence.
+- Database declarations require named verification checks, Git migration files require a database declaration, and Fleet/topology declarations require node scope. Referenced checks, metric policies, nodes, and evidence IDs remain visible in the report and decision console.
+- Candidate, preflight, changes, observation, and report stages retain immutable plan/report digests, restart-safe observation, deterministic guidance, rollback prerequisites, and human-only digest-bound approval.
+- `releaseguard init` generates a non-overwriting starter plan for new or established Git repositories; `doctor` validates binary, report, approval binding, run state, and optional live console health.
+- Safe `git-ref`, single-statement read-only SQL, explicit malformed Fleet failures, same-origin approval mutation protection, remote-view risk warnings, and bounded evidence handling close the final audit findings.
+- Linux/macOS and Windows installers provide checksum verification, install, doctor, data-preserving uninstall, and exact-confirmation purge. Tagged archives contain the complete documentation, examples, deployment files, and both installer families.
+
+### Acceptance
+
+- Kimi Code performed an initial gap audit and a final independent read-only release audit. Its release-archive blocker, malformed-URL panic, sample-regression gap, and untracked-asset concern were fixed before commit; CI now asserts the vendored offline icon asset and every archive input.
+- Desktop 1440x1000 and mobile 390x844 acceptance covered the decision summary and change-correlation workflow with no whole-page overflow, missing icon, focus artifact, or blocked navigation. The local page remains available at `http://127.0.0.1:18767/`.
+- Windows checksum install, doctor, data-preserving uninstall, final archive structure, live console health, first immutable approval, and rejected overwrite with unchanged approval hash passed.
+- Host 136 used only random `/tmp/releaseguard-m5-*` paths, dynamic loopback ports, and a uniquely named disposable race container with a read-only source mount. The final Linux candidate installed, initialized a new one-commit repository, produced `GO`, served the report, passed doctor, preserved data on uninstall, and passed confirmation-gated purge.
+- A separate Go 1.26.6 container passed `go test -race -timeout 240s ./...`. Exact temporary paths and the exact container were removed; no SongYueGe directory, service, container, port, network, volume, or data was enumerated or modified.
+
+### M5 result
+
+M5 is complete and pushed. ReleaseGuard now closes the candidate-to-expected-change-to-observation-to-immutable-report chain with deterministic, operator-readable evidence and no dependency on Prometheus or another external collector. Public tagging remains deferred until M6 design/accessibility convergence, M7 hardening/scale/documentation, and M8 RC/public-asset acceptance are complete.

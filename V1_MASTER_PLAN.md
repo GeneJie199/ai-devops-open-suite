@@ -101,26 +101,26 @@ Exit evidence: zero-config scan, structured infrastructure diff, database metada
 
 ### M4 - FleetScope fleet operations
 
-- [ ] Make fleet triage the default: needs action, needs attention, healthy, offline, followed by dense comparison views.
-- [ ] Complete install, secure enrollment, auto-registration, discovery ingestion, recommendations, and one-action monitoring enablement.
-- [ ] Harden native host, Docker, PostgreSQL, MySQL, Redis, HTTP/Nginx, and TLS collectors; retain Prometheus/Influx/OTLP as optional inputs only.
-- [ ] Persist topology snapshots and implement topology diff by time/group/release/incident.
-- [ ] Cover deployment, service dependency, database dependency, exposure, monitoring coverage, and incident impact views.
-- [ ] Preserve relationship source, confidence, evidence, first/last seen, confirm/correct/ignore/manual audit state.
-- [ ] Complete the Change Center across host, deployment, Docker, service, network, database, and topology drift.
-- [ ] Add durable alert delivery with dedupe, grouping, suppression, stabilization, deployment windows, retries, and bounded queues.
-- [ ] Ship a maintainable channel set: generic webhook plus Feishu, WeCom, DingTalk, Slack, Telegram, and SMTP where reliable; document security and retry behavior.
-- [ ] Add evidence-package generation and redacted AI preview/explanation with evidence, assumptions, and confidence sections.
+- [x] Make fleet triage the default: needs action, needs attention, healthy, offline, followed by dense comparison views.
+- [x] Complete install, secure enrollment, auto-registration, discovery ingestion, recommendations, and one-action monitoring enablement.
+- [x] Harden native host, Docker, PostgreSQL, MySQL, Redis, HTTP/Nginx, and TLS collectors; retain Prometheus/Influx/OTLP as optional inputs only.
+- [x] Persist topology snapshots and implement topology diff by time/group/release/incident.
+- [x] Cover deployment, service dependency, database dependency, exposure, monitoring coverage, and incident impact views.
+- [x] Preserve relationship source, confidence, evidence, first/last seen, confirm/correct/ignore/manual audit state.
+- [x] Complete the Change Center across host, deployment, Docker, service, network, database, and topology drift.
+- [x] Add durable alert delivery with dedupe, grouping, suppression, stabilization, deployment windows, retries, and bounded queues.
+- [x] Ship a maintainable channel set: generic webhook plus Feishu, WeCom, DingTalk, Slack, Telegram, and SMTP where reliable; document security and retry behavior.
+- [x] Add evidence-package generation and redacted AI preview/explanation with evidence, assumptions, and confidence sections.
 
 Exit evidence: multi-node auto-onboarding, topology snapshot/diff, Change Center actions, collector fault isolation, alert storm controls, delivery retry tests, AI privacy tests, browser UX acceptance.
 
 ### M5 - ReleaseGuard lifecycle integration
 
-- [ ] Accept DevCycle candidates and versioned expected infrastructure/database changes.
-- [ ] Correlate release, InfraScout/DB drift, Fleet health/topology/change, metric regression, version consistency, and observation windows.
-- [ ] Verify environment contract, migrations, smoke/HTTP/script checks, rollback readiness, and expected-change coverage.
-- [ ] Keep final reports immutable and approvals cryptographically bound to the exact report digest.
-- [ ] Add evidence-backed explanations while retaining human-only approval authority.
+- [x] Accept DevCycle candidates and versioned expected infrastructure/database changes.
+- [x] Correlate release, InfraScout/DB drift, Fleet health/topology/change, metric regression, version consistency, and observation windows.
+- [x] Verify environment contract, migrations, smoke/HTTP/script checks, rollback readiness, and expected-change coverage.
+- [x] Keep final reports immutable and approvals cryptographically bound to the exact report digest.
+- [x] Add evidence-backed explanations while retaining human-only approval authority.
 
 Exit evidence: candidate to preflight to expected changes to observation to final report, including negative-path and restart/resume tests.
 
