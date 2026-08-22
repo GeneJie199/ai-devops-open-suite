@@ -13,6 +13,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
+      - uses: actions/setup-go@v7
+        with:
+          go-version: '1.26.6'
+          cache: false
+      - name: Secret scan
+        run: go run github.com/zricethezav/gitleaks/v8@v8.30.1 git . --redact --no-banner --log-opts="--all"
       - name: Validate local documentation links and images
         run: python3 scripts/check-docs.py
       - name: Validate suite manifest and generated indexes
@@ -20,12 +26,12 @@ jobs:
           python3 scripts/validate-suite-manifest.py
           python3 scripts/test-suite-manifest.py
       - name: Validate shell scripts
-        run: bash -n scripts/install-suite.sh scripts/suitectl.sh scripts/verify-suite.sh scripts/accept-offline-linux.sh scripts/accept-offline-network-namespace.sh scripts/accept-online-linux.sh scripts/accept-upgrade-from-v033-linux.sh
+        run: bash -n scripts/bootstrap.sh scripts/install-suite.sh scripts/suitectl.sh scripts/verify-suite.sh scripts/accept-offline-linux.sh scripts/accept-offline-network-namespace.sh scripts/accept-online-linux.sh scripts/accept-upgrade-from-v033-linux.sh scripts/accept-standalone-installers-linux.sh scripts/accept-bootstrap-linux.sh
       - name: Validate PowerShell scripts and demo report
         shell: pwsh
         run: |
           $ErrorActionPreference = 'Stop'
-          foreach ($path in 'scripts/install-suite.ps1','scripts/suitectl.ps1','scripts/verify-suite.ps1','scripts/accept-offline-windows.ps1','scripts/accept-online-windows.ps1') {
+          foreach ($path in 'scripts/bootstrap.ps1','scripts/install-suite.ps1','scripts/suitectl.ps1','scripts/verify-suite.ps1','scripts/accept-offline-windows.ps1','scripts/accept-online-windows.ps1','scripts/accept-bootstrap-windows.ps1') {
             $errors = $null
             [void][System.Management.Automation.Language.Parser]::ParseFile((Resolve-Path $path), [ref]$null, [ref]$errors)
             if ($errors) { throw ($errors.Message -join "`n") }

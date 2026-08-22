@@ -14,6 +14,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
+      - uses: actions/setup-go@v7
+        with:
+          go-version: '1.26.6'
+          cache: false
       - name: Validate package inputs
         env:
           GH_TOKEN: ${{ github.token }}
@@ -23,9 +27,10 @@ jobs:
             exit 1
           fi
           python3 scripts/check-docs.py
-          bash -n scripts/install-suite.sh scripts/suitectl.sh
+          bash -n scripts/bootstrap.sh scripts/install-suite.sh scripts/suitectl.sh
           python3 -m json.tool examples/release-report.demo.json >/dev/null
           python3 scripts/validate-suite-manifest.py
+          go run github.com/zricethezav/gitleaks/v8@v8.30.1 git . --redact --no-banner --log-opts="--all"
           version=$(python3 -c 'import json; print(json.load(open("suite-manifest.json"))["suiteVersion"])')
           test "v$version" = "$GITHUB_REF_NAME" || { echo "Tag $GITHUB_REF_NAME does not match suite manifest v$version" >&2; exit 1; }
       - name: Build launcher archives
@@ -41,26 +46,39 @@ jobs:
           tag="${GITHUB_REF_NAME}"
           (cd dist && zip -qr "ai-devops-open-suite-${tag}.zip" ai-devops-open-suite)
           tar -C dist -czf "dist/ai-devops-open-suite-${tag}.tar.gz" ai-devops-open-suite
+          cp "dist/ai-devops-open-suite-${tag}.zip" dist/ai-devops-open-suite-online.zip
+          cp "dist/ai-devops-open-suite-${tag}.tar.gz" dist/ai-devops-open-suite-online.tar.gz
       - name: Build full offline bundles
         run: |
           for platform in windows-amd64 linux-amd64 linux-arm64 darwin-amd64 darwin-arm64; do
             python3 scripts/build-offline-bundle.py --platform "$platform" --output dist --cache dist/.asset-cache
           done
           python3 scripts/verify-offline-bundle.py dist/ai-devops-open-suite-full-offline-*
-          (cd dist && sha256sum *.zip *.tar.gz >checksums.txt)
+      - name: Generate suite SBOM
+        uses: anchore/sbom-action@v0.24.0
+        with:
+          path: dist
+          format: cyclonedx-json
+          output-file: dist/ai-devops-open-suite-${{ github.ref_name }}.cdx.json
+          upload-artifact: false
+      - name: Generate release checksums
+        run: (cd dist && sha256sum *.zip *.tar.gz *.cdx.json >checksums.txt)
       - name: Attest release archives
         uses: actions/attest-build-provenance@v4
         with:
           subject-path: |
             dist/*.zip
             dist/*.tar.gz
+            dist/*.cdx.json
+            dist/checksums.txt
       - name: Publish GitHub release
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           tag="${GITHUB_REF_NAME}"
           mapfile -t archives < <(find dist -maxdepth 1 -type f \( -name '*.zip' -o -name '*.tar.gz' \) -print | sort)
-          assets=("${archives[@]}" dist/checksums.txt suite-manifest.json)
+          mapfile -t sboms < <(find dist -maxdepth 1 -type f -name '*.cdx.json' -print | sort)
+          assets=("${archives[@]}" "${sboms[@]}" dist/checksums.txt suite-manifest.json)
           options=(--generate-notes --title "AI DevOps Open Suite ${tag}")
           [[ "$tag" == *-* ]] && options+=(--prerelease)
           gh release create "$tag" "${assets[@]}" "${options[@]}"
