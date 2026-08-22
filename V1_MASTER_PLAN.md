@@ -137,13 +137,13 @@ Exit evidence: Kimi review record, before/after screenshots, browser automation,
 
 ### M7 - Hardening, scale, security, and documentation
 
-- [ ] Test disconnect, jitter, duplicate/out-of-order events, center restart, agent restart, process crash, stale PID, disk-full behavior, DB lock, and interrupted upgrade.
-- [ ] Run applicable race tests, Staticcheck, govulncheck, secret scanning, malformed-input/fuzz tests, and security review.
-- [ ] Audit file permissions, temp paths, traversal, command/shell injection, SSRF, debug endpoints, loopback/auth defaults, AI leakage, and log redaction.
-- [ ] Generate release SBOMs, checksums, manifest, and GitHub-supported provenance/attestation.
-- [ ] Benchmark ingestion, retention, disk growth, CPU, and memory; publish only measured recommended scale.
-- [ ] Rebuild all six READMEs for external users and verify every installation command.
-- [ ] Publish compatibility/support matrices, known limitations, security/release policies, contribution guide, and roadmap.
+- [x] Test disconnect, jitter, duplicate/out-of-order events, center restart, agent restart, process crash, stale PID, disk-full behavior, DB lock, and interrupted upgrade.
+- [x] Run applicable race tests, Staticcheck, govulncheck, secret scanning, malformed-input/fuzz tests, and security review.
+- [x] Audit file permissions, temp paths, traversal, command/shell injection, SSRF, debug endpoints, loopback/auth defaults, AI leakage, and log redaction.
+- [x] Generate release SBOMs, checksums, manifest, and GitHub-supported provenance/attestation.
+- [x] Benchmark ingestion, retention, disk growth, CPU, and memory; publish only measured recommended scale.
+- [x] Rebuild all six READMEs for external users and verify every installation command.
+- [x] Publish compatibility/support matrices, known limitations, security/release policies, contribution guide, and roadmap.
 
 Exit evidence: security and benchmark reports, generated SBOM/provenance, verified READMEs, resilience test results.
 
@@ -208,3 +208,7 @@ Windows arm64 is not a v1.0 artifact target unless all component binaries and an
 | 2026-08-22 | M1 install lifecycle checkpoint | five offline bundles verified; Windows/Linux online and offline install; public v0.3.3 migration; real product-state preservation; process-kill recovery journal; rollback/uninstall/purge | pass |
 | 2026-08-22 | M2 DevCycle delivery checkpoint | commit `11f03ad5`; provider-neutral planning; real Agent adapters; evidence gate; desktop/mobile acceptance; three-platform CI | pass |
 | 2026-08-23 | M3 InfraScout delivery checkpoint | commit `f84245c`; native discovery/topology; PostgreSQL/MySQL v2; unified review/gate; disposable real-database acceptance; Kimi GO; responsive browser acceptance | pass |
+| 2026-08-23 | M4 FleetScope delivery checkpoint | commit `b50a7bd`; native collection; durable spools/notifications; topology/change center; privacy-scoped AI evidence; isolated Linux and responsive browser acceptance | pass |
+| 2026-08-23 | M5 ReleaseGuard delivery checkpoint | commit `64a3294`; version-bound expected changes; cross-product correlation; immutable report/digest approval; recovery and responsive browser acceptance | pass |
+| 2026-08-23 | M6 unified UX checkpoint | Open Suite commit `05c216f`; shared design system; four-product onboarding/responsive/accessibility acceptance; Kimi K3 review with all P1 findings resolved | pass |
+| 2026-08-23 | M7 hardening checkpoint | component commits `7b93aa2`, `207d201`, `eedcbf3`, `1912a3d`, `6e7ebb6`; final CI green; race/security/fuzz/resilience/installer/bootstrap/100-node scale evidence | pass |

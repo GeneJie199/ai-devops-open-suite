@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 1.0.0 - 2026-08-23
+
 - Start the governed v1.0 program with an audited six-repository capability matrix, executable master plan, public roadmap, platform support matrix, compatibility policy, and immutable release policy.
 - Define additive lifecycle protocol evolution and a backup-first, idempotent migration requirement for every persisted v0.3 state format.
 - Add a single suite manifest with exact per-platform digests, generated Bash indexes, platform-specific full offline bundle build/verification, and immutable Release workflow behavior.
@@ -14,6 +16,11 @@
 - Complete FleetScope v0.4.0-dev with cross-platform native discovery, safe monitoring recommendations, topology history/diff, durable multi-channel notifications, privacy-scoped optional AI evidence, one-command onboarding, hardened installers, responsive browser acceptance, isolated Linux runtime/race acceptance, and Kimi review.
 - Complete ReleaseGuard v0.4.0-dev with versioned expected-change correlation, cross-stage evidence links, deterministic remediation, hardened onboarding and installers, responsive browser acceptance, isolated Linux runtime/race acceptance, and Kimi review.
 - Extend lifecycle-spec v0.2.0-dev with strict Expected Changes and ReleaseGuard change-correlation/guidance contracts plus synchronized Go/TypeScript types.
+- Harden all five Go release pipelines with secret/security scanning, fuzz smoke tests, CycloneDX SBOMs, SHA-256 manifests, and GitHub provenance attestations.
+- Enforce connect-time SSRF policy for FleetScope notifications and AI providers, reject redirects/URL credentials/unsafe headers, and preserve explicit private-network opt-in for trusted local destinations.
+- Add the reproducible `fleetctl bench` workload and publish real Windows/Linux 100-node results; compact telemetry memory from roughly 1.598 GiB to roughly 271 MiB and make bounded telemetry/event memory retain the newest window.
+- Add checksum-verifying standalone DevCycle, InfraScout, and FleetScope installers with safe doctor/uninstall/purge actions and complete platform release archives.
+- Add stable one-command online bootstrap scripts and full external-user README structures across all six repositories.
 
 ## 0.3.3 - 2026-08-13
 

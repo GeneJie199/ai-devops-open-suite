@@ -1,6 +1,6 @@
 # Platform Support Matrix
 
-Updated: 2026-08-22
+Updated: 2026-08-23
 
 Support levels:
 
@@ -38,5 +38,5 @@ An artifact may be published without being labeled Verified. README and release 
 - Web services bind to loopback by default.
 - Linux provides the richest InfraScout host discovery. Non-Linux products may run, but InfraScout collector coverage is not claimed as Linux-equivalent.
 - The suite is designed for a local user or small team boundary. Enterprise SSO, multi-tenancy, and SLA-backed high availability are outside v1.0.
-- Recommended node count, ingestion rate, retention, disk, CPU, and memory remain unpublished until the v1 benchmark is executed.
-
+- FleetScope v1.0 is measured and recommended for up to 100 nodes per Center. The 100-node, 8-metric, 60-second, 3-day run retained 3,456,000 samples and 43,200 events in roughly 271 MiB Go heap and 647 MiB disk, with roughly 216 MB/day projected growth. See [the full scale baseline](docs/scale-benchmark.md).
+- The 100-node starting recommendation is 2 CPU, 2 GiB RAM, 5 GiB disk, 60-second collection, and 3-day retention. Larger fleets, higher-cardinality labels, and longer retention are not verified GA claims.

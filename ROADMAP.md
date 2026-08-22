@@ -1,6 +1,6 @@
 # AI DevOps Open Suite Roadmap
 
-Updated: 2026-08-22
+Updated: 2026-08-23
 
 The roadmap describes product direction. The detailed executable v1.0 gate is maintained in [V1_MASTER_PLAN.md](V1_MASTER_PLAN.md), and current facts are maintained in [PROJECT_STATUS.md](PROJECT_STATUS.md).
 
@@ -45,6 +45,8 @@ The roadmap describes product direction. The detailed executable v1.0 gate is ma
 - Measured scale baseline and honest platform/support matrix.
 - Reliability, security, malformed-input, upgrade, and public-asset tests.
 
+Measured v1.0 scale boundary: one FleetScope Center, up to 100 nodes, 8 metrics per node at 60-second intervals, and 3-day retention. Exact Windows/Linux results and resource guidance are in [the scale benchmark](docs/scale-benchmark.md); larger or federated fleets remain post-1.0 work.
+
 ## Post-1.0 candidates
 
 These items are intentionally outside the v1.0 gate unless implementation becomes low-risk after the core is complete:
@@ -70,4 +72,3 @@ These items are intentionally outside the v1.0 gate unless implementation become
 - Reproducible benchmarks contributed on documented hardware profiles.
 
 Features are accepted based on correctness, safety, maintenance cost, and fit with the local-first evidence model, not feature count.
-

@@ -1,149 +1,186 @@
 # AI DevOps Open Suite
 
-本地优先、可独立部署的开源开发运维套件。它把“为什么改、改了什么、机器实际运行什么、发布能不能继续”连接成一条带证据的链路。
+A local-first, low-configuration open source suite that connects what a team intended to build, what changed in code and infrastructure, how a fleet is behaving, and whether a release is ready to proceed.
 
-AI 是可选执行者，确定性采集、稳定 ID、显式规则和人工批准才是事实来源。
+[![CI](https://github.com/GeneJie199/ai-devops-open-suite/actions/workflows/ci.yml/badge.svg)](https://github.com/GeneJie199/ai-devops-open-suite/actions/workflows/ci.yml)
+[![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
 
-## 三分钟启动
+## Screenshot
 
-从 [Releases](https://github.com/GeneJie199/ai-devops-open-suite/releases) 下载并解压当前套件包，然后执行一条命令。安装器会按平台下载五个经过 SHA-256 校验的二进制，生成本机 Fleet 凭据、初始化数据目录并启动全部页面。
+| DevCycle | InfraScout |
+|---|---|
+| ![DevCycle requirement verification workbench](assets/devcycle-workbench.png) | ![InfraScout infrastructure risk dashboard](assets/infrascout-risk.png) |
 
-当前套件版本为 `0.3.3`，默认安装已完成跨平台发布门禁和下载资产复验的 `0.3.2` 产品组件。
+| FleetScope | ReleaseGuard |
+|---|---|
+| ![FleetScope fleet health overview](assets/fleetscope-overview.png) | ![ReleaseGuard release decision console](assets/releaseguard-decision.png) |
 
-Windows PowerShell：
+## Why
+
+Small teams should not have to assemble a project tracker, machine inventory, collector, dashboard, topology engine, release gate, and several glue services before they can answer basic delivery questions. Open Suite gives each concern a focused standalone product and connects them through versioned evidence, while keeping data local and AI optional.
+
+## Core Features
+
+- **DevCycle** turns one requirement into editable scope, acceptance criteria, agent tasks, human-readable Git impact, test evidence, and a release candidate.
+- **InfraScout** performs useful zero-configuration Linux discovery, database metadata inspection, baseline/drift review, and release-ready evidence without reading business rows.
+- **FleetScope** owns its native Agent, collector, bounded telemetry/event stores, alerting, resource groups, monitoring coverage, changes, and evidence-backed topology.
+- **ReleaseGuard** runs deterministic preflight and observation gates, correlates expected changes, verifies rollback readiness, and binds the final decision to an immutable report.
+- **lifecycle-spec** keeps every cross-product document portable and independently validatable.
+- One installer provides checksums, backups, interrupted-upgrade recovery, rollback, doctor, start/stop, safe uninstall, and explicit purge.
+
+## Quick Start
+
+Windows PowerShell:
+
+```powershell
+irm https://raw.githubusercontent.com/GeneJie199/ai-devops-open-suite/main/scripts/bootstrap.ps1 | iex
+```
+
+Linux or macOS:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/GeneJie199/ai-devops-open-suite/main/scripts/bootstrap.sh | bash
+```
+
+The bootstrap downloads the latest stable suite archive and checksum, verifies SHA-256, installs all components, initializes secure local state, starts the suite, and runs `doctor`. Services listen on `127.0.0.1` by default.
+
+## Online Install
+
+The commands above are the supported online path. They download one stable bootstrap archive; users do not assemble five component releases or edit a manifest. After installation, use `suitectl status`, `suitectl doctor`, `suitectl start`, `suitectl stop`, `suitectl rollback`, or `suitectl uninstall`.
+
+The default pages are:
+
+| Product | Local URL |
+|---|---|
+| DevCycle | `http://127.0.0.1:8766/` |
+| InfraScout | `http://127.0.0.1:8765/` |
+| FleetScope | `http://127.0.0.1:8770/` |
+| ReleaseGuard | `http://127.0.0.1:8771/` |
+
+## Offline Install
+
+1. On an online machine, download the matching `ai-devops-open-suite-full-offline-v<version>-<os>-<arch>` archive and `checksums.txt` from [Releases](https://github.com/GeneJie199/ai-devops-open-suite/releases/latest).
+2. Move both files to the offline machine and verify the published SHA-256.
+3. Extract the archive and run one command from its `ai-devops-open-suite` directory.
+
+Windows:
 
 ```powershell
 .\scripts\install-suite.ps1 -Start
 ```
 
-Linux 或 macOS：
+Linux or macOS:
 
 ```bash
 ./scripts/install-suite.sh --start
 ```
 
-默认仅监听 `127.0.0.1`。启动后打开 DevCycle 的 `http://127.0.0.1:8766`，顶部模块切换器可进入 InfraScout、FleetScope 和 ReleaseGuard。完整的目录、端口、离线安装和日常管理说明见[快速开始](docs/quickstart.md)。
+Every component binary, protocol file, manifest, checksum, installer, controller, and document is inside the platform-specific bundle. The installer rejects a missing or mismatched asset and does not fall back to the network. See [full offline installation](docs/offline-install.md).
 
-需要重启后自动恢复时，将安装命令中的 `-Start` 换成 Windows 的 `-EnableAutostart`，或将 `--start` 换成 Linux/macOS 的 `--enable-autostart`。安装后可随时运行 `suitectl doctor` 自检二进制、目录、凭据和端口。
+## First Five Minutes
 
-## 五个仓库
+1. Open DevCycle and create or import a local Git project.
+2. Enter one requirement; use AI planning if configured or edit the generated manual template.
+3. Run InfraScout's first scan and accept the reviewed baseline.
+4. Confirm the local FleetScope Agent, native host metrics, monitoring recommendations, and resource topology.
+5. Export a DevCycle release candidate and run ReleaseGuard against the candidate, infrastructure drift, Fleet health, and recovery evidence.
 
-| 产品 | 解决的问题 | 可独立使用 |
+Each product also works alone. The module switcher is navigation, not an architectural dependency.
+
+## AI Optional
+
+All core workflows work without an AI provider. When enabled, AI helps plan requirements or explain bounded, redacted evidence; it does not invent metrics, approve drift, mutate production, or approve a release. OpenAI-compatible, Anthropic, Gemini, and local OpenAI-compatible endpoints use explicit provider settings and a user-visible data preview.
+
+## Comparison
+
+| Category | What it does well | Open Suite's role |
 |---|---|---|
-| [DevCycle](https://github.com/GeneJie199/ai-dev-cycle-manager) | 需求、验收、任务、Git Worktree、Codex/KIMI/Claude 会话、验证证据、发布候选 | 是 |
-| [InfraScout](https://github.com/GeneJie199/infrastructure-discovery) | Linux/systemd/Docker/Nginx/数据库发现、基线、漂移、风险和离线报告 | 是 |
-| [FleetScope](https://github.com/GeneJie199/fleet-observability) | 多节点指标、探针、告警、变化分类、历史趋势、资源组、监控覆盖和资源拓扑 | 是 |
-| [ReleaseGuard](https://github.com/GeneJie199/release-validation) | 发布计划、确定性门禁、Git/配置/数据库/Fleet 验证、回滚和人工批准 | 是 |
-| [lifecycle-spec](https://github.com/GeneJie199/lifecycle-spec) | 跨模块 JSON Schema、示例、Go/TS 类型和离线校验器 | 是 |
+| Issue trackers | Team planning and collaboration | Evidence-linked requirement-to-release lifecycle for local AI-assisted work |
+| Prometheus / OpenTelemetry ecosystems | Broad telemetry standards and integrations | FleetScope supplies its own default collector/store and accepts mainstream formats only as optional inputs |
+| Dashboards | Flexible charts | Fleet-first health, comparison, monitoring coverage, changes, topology, and incident impact |
+| CMDB / discovery tools | Central inventory governance | Read-only local discovery, stable evidence, baseline, and structural drift for small teams |
+| CI/CD systems | Build and deployment automation | Release intent, expected-change coverage, post-release observation, rollback evidence, and human decision |
 
-## 完整链路
+## Architecture
 
 ```mermaid
 flowchart LR
-  D["DevCycle<br/>需求、任务、证据"] -->|release-candidate.json| R["ReleaseGuard<br/>发布门禁与批准"]
-  I["InfraScout<br/>资产、基线、漂移"] -->|inventory / drift| F["FleetScope<br/>节点、告警、拓扑"]
-  I -->|drift.json| R
-  F -->|健康、版本、观察样本| R
-  S["lifecycle-spec<br/>Schema 与类型"] -.约束.-> D
-  S -.约束.-> I
-  S -.约束.-> F
-  S -.约束.-> R
+  D[DevCycle\nrequirement and evidence] -->|release candidate| R[ReleaseGuard\nrelease decision]
+  I[InfraScout\ninventory and drift] -->|snapshot and change| F[FleetScope\nfleet health and topology]
+  I -->|observed change| R
+  F -->|health, metrics and incident| R
+  S[lifecycle-spec\nversioned contracts] -. validates .-> D
+  S -. validates .-> I
+  S -. validates .-> F
+  S -. validates .-> R
 ```
 
-模块不 import 对方内部包；它们只通过版本化 JSON 和 HTTP 交互，所以可以按需要单独安装。
+The products never import another product's internal packages or read its private database. They exchange versioned JSON artifacts and documented HTTP APIs. All user-facing services are embedded in single Go binaries, with no runtime Node or CDN dependency.
 
-## 产品界面
+## Security
 
-四个产品共享同一套[界面设计系统与发布验收基线](docs/design-system.md)，同时保留各自适合研发、资产、监控和发布决策的领域信息结构。
+- Web services bind to loopback by default; remote Fleet access requires authentication and TLS, with optional mTLS.
+- Secrets come from protected environment/file inputs, are redacted from logs and evidence, and are excluded from AI previews.
+- Downloads and offline assets are pinned by SHA-256; a failed install restores the prior verified backup through a durable transaction journal.
+- Fleet outbound destinations enforce SSRF controls, DNS/IP validation at connect time, blocked metadata ranges, no redirects, and explicit private-network opt-in.
+- CI runs tests, vet, race checks, Staticcheck, govulncheck, secret scanning, security analysis, parser fuzzing, and release packaging gates.
+- Releases publish CycloneDX SBOMs, checksums, suite manifests, and GitHub-supported provenance attestations.
 
-M6 的 Kimi 评审、三档浏览器矩阵、键盘/轮询焦点验证和交付提交记录见 [M6 统一产品体验验收](docs/checkpoint-m6-ui.md)。
+Read [SECURITY.md](SECURITY.md), [compatibility](COMPATIBILITY.md), and the [release policy](RELEASE_POLICY.md).
 
-### DevCycle 工作台
+## Roadmap
 
-![DevCycle requirement verification workbench](assets/devcycle-workbench.png)
+v1.0 focuses on a trustworthy local and small-team boundary: zero-config onboarding, native monitoring, evidence-backed drift/topology, safe upgrades, and deterministic release decisions. Federated centers, enterprise SSO/multi-tenancy, HA, automatic production repair, and unmeasured large-fleet claims are outside this boundary. See [ROADMAP.md](ROADMAP.md).
 
-### InfraScout 风险驾驶舱
+## Contributing
 
-![InfraScout infrastructure risk dashboard](assets/infrascout-risk.png)
+Read [CONTRIBUTING.md](CONTRIBUTING.md), the [code of conduct](CODE_OF_CONDUCT.md), and each component's contribution guide. Bug reports and feature requests use the public issue templates; security reports follow [SECURITY.md](SECURITY.md).
 
-### FleetScope 总览与证据拓扑
+## Product Reference
 
-![FleetScope fleet health overview](assets/fleetscope-overview.png)
+### Repositories
 
-![FleetScope evidence-backed resource topology](assets/fleetscope-topology.png)
+| Product | Solves | Standalone |
+|---|---|---|
+| [DevCycle](https://github.com/GeneJie199/ai-dev-cycle-manager) | Requirement, acceptance, tasks, worktrees, agents, tests, evidence, release candidate | Yes |
+| [InfraScout](https://github.com/GeneJie199/infrastructure-discovery) | Discovery, inventory, database metadata, baseline, drift, risk, offline report | Yes |
+| [FleetScope](https://github.com/GeneJie199/fleet-observability) | Native collection/storage, multi-node health, alerts, changes, topology, coverage | Yes |
+| [ReleaseGuard](https://github.com/GeneJie199/release-validation) | Preflight, expected changes, observation, rollback evidence, immutable decision | Yes |
+| [lifecycle-spec](https://github.com/GeneJie199/lifecycle-spec) | JSON Schema, fixtures, Go/TS types, embedded offline validator | Yes |
 
-### ReleaseGuard 发布决策台
+### Capability Boundaries
 
-![ReleaseGuard release decision console](assets/releaseguard-decision.png)
+The suite is designed for individuals, small teams, and bounded internal fleets. It does not replace a code editor, Kubernetes control plane, enterprise IAM, remote shell, or deployment system. It does not automatically modify infrastructure, switch traffic, execute a rollback, merge code, or approve production risk.
 
-## 能力边界
+FleetScope has no Prometheus dependency. Prometheus text, Influx line protocol, and OTLP/HTTP JSON are compatibility inputs into FleetScope's own bounded store. Real v1.0 scale measurements and platform support levels are published in the [support matrix](SUPPORT_MATRIX.md) and [scale baseline](docs/scale-benchmark.md).
 
-当前版本面向个人、小团队和内网小中型节点集，提供：
+### Local Acceptance
 
-- 单文件 Go 二进制和嵌入式 Web UI；运行时不需要 Node 或外部 CDN。
-- SQLite、原子 JSON，以及 FleetScope 自研的分段时序/事件存储。
-- loopback 默认、InfraScout 脱敏、Fleet 写入认证、TLS/mTLS、不可变发布证据。
-- Linux/macOS/Windows 构建，CI、发布工作流、校验安装、持久端口和免管理员自启动。
-- 跨五模块自动 E2E：候选 → 基线/漂移 → Agent 上报 → Fleet 观察 → ReleaseGuard `GO`。
-
-明确不声称：
-
-- 替代代码编辑器、Kubernetes 控制面或企业 IAM。FleetScope 本身覆盖默认采集与有界时序存储，不要求另行部署 Prometheus 或其他采集器；Prometheus、Influx 和 OTLP 只是兼容输入。
-- 自动修复机器、自动合并代码、自动上线或替人做最终批准。
-- 在没有计划覆盖和证据的情况下证明业务绝对正确。
-
-## 本地验收
-
-将 `ai-devops-open-suite` 与 `lifecycle-spec`、`ai-dev-cycle-manager`、`infrastructure-discovery`、`fleet-observability`、`release-validation` 克隆到同一父目录，然后在 `ai-devops-open-suite` 仓库根目录执行：
-
-Windows：
+Clone the six repositories into one parent directory, then run:
 
 ```powershell
 .\scripts\verify-suite.ps1
 ```
 
-Linux、macOS、WSL 或 Git Bash：
+or:
 
 ```bash
 ./scripts/verify-suite.sh
 ```
 
-成功条件包括五个 Go module 的测试与 vet、五个二进制构建、协议 Schema 校验、DevCycle readiness、InfraScout 证据、Fleet Agent 真实上报和 ReleaseGuard 多次观察后的 `GO`。
+The suite gate tests and vets every Go module, builds all binaries, validates protocol fixtures, starts each product, completes the cross-product candidate-to-release path, and requires a deterministic ReleaseGuard result.
 
-## 设计原则
+### Project Documents
 
-1. **本地优先**：默认不把源码、资产和证据发往第三方。
-2. **AI 可替换**：Codex/KIMI/Claude 只是本机执行器，业务状态不绑定厂商。
-3. **变化必须有证据**：验收、漂移和发布都能回到命令、文件、报告或人工记录。
-4. **人工保留决策权**：工具给建议和失败原因，人决定批准、基线和回滚。
-5. **稳定契约**：跨仓数据走 `lifecycle-spec`，0.x 变更通过 Schema、示例和兼容测试演进。
+- [v1.0 master plan](V1_MASTER_PLAN.md)
+- [current status](PROJECT_STATUS.md)
+- [roadmap](ROADMAP.md)
+- [compatibility matrix](COMPATIBILITY.md)
+- [platform support matrix](SUPPORT_MATRIX.md)
+- [release policy](RELEASE_POLICY.md)
+- [quick start](docs/quickstart.md)
+- [design system](docs/design-system.md)
+- [M6 Kimi and responsive acceptance](docs/checkpoint-m6-ui.md)
+- [native observability architecture](docs/native-observability-architecture.md)
 
-## 安全
-
-- 所有 Web 服务默认监听 loopback；远程访问优先 SSH 隧道或认证反向代理。
-- ReleaseGuard 计划可以执行命令，必须像部署代码一样评审。
-- 数据库 DSN、Fleet Token 和 TLS 私钥只通过环境/文件配置，不进入仓库示例的真实值。
-- Inventory、Git 报告和 Agent 日志仍可能包含运维元数据，外发前需复核。
-
-每个仓库都包含 `SECURITY.md`、`CONTRIBUTING.md`、Apache-2.0 `LICENSE` 和更具体的运维说明。
-
-## 项目资料
-
-- [v1.0 总控计划](V1_MASTER_PLAN.md)
-- [当前项目状态](PROJECT_STATUS.md)
-- [公开路线图](ROADMAP.md)
-- [兼容性矩阵](COMPATIBILITY.md)
-- [平台支持矩阵](SUPPORT_MATRIX.md)
-- [发布政策](RELEASE_POLICY.md)
-- [安装与快速开始](docs/quickstart.md)
-- [v0.4.0-dev 安装生命周期验收](docs/checkpoint-v0.4.0-dev.md)
-- [0.3.3 套件发布审计](docs/release-0.3.3.md)
-- [0.3.2 发布审计](docs/release-0.3.2.md)
-- [架构与立项草案](docs/plan-v0.1.md)
-- [0.3.1 稳定版发布审计](docs/release-0.3.1.md)
-- [0.3.0 RC.2 发布审计与稳定版门禁](docs/release-0.3.0-rc.2.md)
-- [命名和文档审计](docs/naming-and-doc-audit.md)
-- [原生可观测架构决策](docs/native-observability-architecture.md)
-- [早期 Linux 扫描里程碑](docs/next-feature-linux-scan-demo.md)
-
-维护者：[GeneJie199](https://github.com/GeneJie199)。
+Maintainer: [GeneJie199](https://github.com/GeneJie199). Apache-2.0.

@@ -2,18 +2,18 @@
 
 Updated: 2026-08-23
 Program: v1.0 GA  
-State: M1-M6 complete; M7 active
+State: M1-M7 complete; M8 active
 
 ## Current releases
 
 | Repository | Release | Main commit | CI / release state |
 |---|---:|---|---|
-| lifecycle-spec | v0.1.1 / v0.2.0-dev | `2cbd04b8237473f5f296dc947e5970e053909b39` | v0.2.0-dev CI green |
-| DevCycle | v0.3.2 / v0.4.0-dev | `5a41f5f47cb7a88ab95e3b1ac992d179a04b5586` | M6 CI green |
-| InfraScout | v0.3.2 / v0.4.0-dev | `bfa6886f653f1858e2ae3c7522d8b41d874fe8fd` | M6 CI green |
-| FleetScope | v0.3.2 / v0.4.0-dev | `b50a7bdd603b59e6761842ad6d7744b44b5fcd2a` | M6 CI green |
-| ReleaseGuard | v0.3.2 / v0.4.0-dev | `64a329415f6153611f76657a1c567a45a45ebe7d` | M6 CI green |
-| Open Suite | v0.3.3 | `b909998e8bf57771400b06939b6903e132e9b5f9` | current formal workflows green |
+| lifecycle-spec | v0.1.1 / v1 candidate | `7b93aa2019e22d6c574516dfb86cfc020b32ec43` | CI `32605773468` green |
+| DevCycle | v0.3.2 / v1 candidate | `207d2016ba008c18318f7aa4831d35330a09d388` | CI `32605773644` green |
+| InfraScout | v0.3.2 / v1 candidate | `eedcbf32f3c981f78ed7e0b497e350c454e5bcf2` | CI `32605912865` green |
+| FleetScope | v0.3.2 / v1 candidate | `1912a3d2f0fe1f737ab688a08189c8852045cb72` | CI `32605773947` green |
+| ReleaseGuard | v0.3.2 / v1 candidate | `6e7ebb6f9cd27f31a3d786a0602d033a73a01d12` | CI `32605773223` green |
+| Open Suite | v0.3.3 / M7 working tree | `05c216fe8d9e073ee7ddb7d334efaebc8bce36ae` | M7 documentation gate pending commit |
 
 All repositories were clean, on `main`, tracking `origin/main`, and had no ahead/behind divergence at the v1 baseline. The earlier failed Open Suite `v0.3.2` tag remains visible for audit; `v0.3.3` is the corrected immutable release.
 
@@ -33,6 +33,11 @@ All repositories were clean, on `main`, tracking `origin/main`, and had no ahead
 - FleetScope v0.4.0-dev passed native Windows/macOS/Linux listener and process discovery, topology history/diff, durable multi-channel notification delivery, privacy-scoped evidence/optional AI, one-command local startup, responsive browser acceptance, and an isolated Linux install/runtime plus race test on host 136.
 - ReleaseGuard v0.4.0-dev passed versioned expected-change correlation across InfraScout/database/Fleet/topology evidence, cross-stage link validation, deterministic remediation guidance, onboarding/doctor/install lifecycle, responsive browser acceptance, five-target cross-builds, and isolated Linux install/runtime/race acceptance on host 136.
 - M6 unified all four product interfaces on one documented token, icon, focus, state, dialog, responsive, and accessibility baseline. Kimi K3 review, 12 browser viewport combinations, real 10/30-second polling focus checks, mobile command checks, and automated UI-contract tests passed.
+- M7 passed all five modules through Windows tests/vet, Linux race tests, Staticcheck, govulncheck, gosec, full-history secret scanning, and targeted parser fuzzing; every final component CI is green.
+- M7 exercised disconnect/retry/order/restart/durable-write/SQLite-lock/stale-work/stale-PID/interrupted-upgrade behavior, including real installer lifecycle tests on Windows and isolated Linux paths on host 136.
+- FleetScope's measured 100-node workload sustained 3,456,000 samples and 43,200 events with roughly 271 MiB loaded heap on both tested hosts; the documented recommendation deliberately stops at 100 nodes per Center.
+- Component and suite release workflows now produce checksums, CycloneDX SBOMs, and GitHub provenance; public artifact validation remains an M8 requirement.
+- All six external-user READMEs, support/security/scale documentation, and the one-command Windows/Linux bootstrap path passed local syntax, link, manifest, checksum, and isolated install acceptance.
 
 ## Capability matrix
 
@@ -64,7 +69,7 @@ Delivered on v0.4.0-dev main:
 - Manual operation remains complete; configurable API providers, OS-keyring/environment credentials, request preview, redaction, and five real Agent adapters are available.
 - Humanized Git, raw patch access, durable handoff, canonical evidence, candidate, and development-report paths passed desktop/mobile acceptance.
 
-Remaining before GA: hardening/scale evidence, final suite installation assets, RC/public-asset acceptance, and final documentation/SBOM/provenance gates.
+Remaining before GA: immutable RC/GA component assets and public-asset acceptance.
 
 ### InfraScout
 
@@ -81,7 +86,7 @@ Delivered on v0.4.0-dev main:
 - PostgreSQL/MySQL metadata v2 includes PK/unique/FK constraints, indexes, views, triggers, routines, roles, and privileges without business-row queries.
 - Database and relationship drift share the main decision, fingerprint, blocking-risk, check, Web review, and selective baseline-promotion path.
 
-Remaining before GA: hardening/scale evidence, final public assets, and RC acceptance.
+Remaining before GA: immutable RC/GA component assets and public-asset acceptance.
 
 ### FleetScope
 
@@ -100,7 +105,7 @@ Delivered on v0.4.0-dev main:
 - Privacy-scoped immutable evidence packages, explicit redacted AI payload preview/confirmation, assumptions, completeness confidence, and optional provider-neutral explanations are available.
 - `fleetctl up`, `fleetctl doctor`, Linux systemd and Windows user installers, native monitoring configuration download, offline icons, and responsive operations workflows are complete.
 
-Remaining before GA: hardening/scale evidence, final suite installation assets, RC/public-asset acceptance, and final documentation/SBOM/provenance gates.
+Remaining before GA: immutable RC/GA component assets and public-asset acceptance.
 
 ### ReleaseGuard
 
@@ -118,7 +123,7 @@ Delivered on v0.4.0-dev main:
 - `releaseguard init`, `doctor`, safe `git-ref`, Linux/macOS and Windows installers, complete archives, offline icons, and responsive decision workflows are implemented.
 - SQL is single-statement/read-only, malformed Fleet responses are explicit failures, browser mutations are same-origin hardened, and remote serving keeps loopback-safe defaults with an explicit risk warning.
 
-Remaining before GA: full hardening/scale evidence, SBOM/provenance, RC/public-asset acceptance, and final documentation convergence.
+Remaining before GA: immutable RC/GA component assets and public-asset acceptance.
 
 ### Open Suite
 
@@ -134,25 +139,24 @@ Available now:
 
 v1.0 gaps:
 
-- Full offline bundles are development artifacts until component v1 releases exist; SBOM generation and final public provenance remain pending.
-- Final v1 component rebuild, v1 upgrade acceptance, SBOMs, and public-asset retesting remain pending for RC/GA.
+- Full offline bundles and supply-chain metadata are implemented and locally verified, but remain development artifacts until component v1 releases exist.
+- Final v1 component rebuild, v1 upgrade/rollback acceptance, and public-asset retesting remain pending for RC/GA.
 - Native runtime claims remain limited to Windows amd64 and Linux amd64; other built platforms are not promoted by archive availability alone.
-- Public READMEs/support matrices, scale evidence, provenance, and release gates require v1 completion.
 
 ## Active work
 
-1. Deliver M7 hardening, reliability, scale, security, SBOM/provenance, and external-user documentation evidence.
-2. Close measured support boundaries before assembling the unique v1.0 RC.
-3. Run Kimi K3 and browser review at every major UI checkpoint.
-4. Complete RC, GA, and post-release public smoke gates without weakening loopback/auth/privacy defaults.
+1. Build a unique immutable v1.0 RC from the exact M7-reviewed component commits.
+2. Validate RC online/offline clean install, v0.3.3 upgrade, rollback, restart, doctor, uninstall, and public digests on Windows and isolated Linux.
+3. Resolve any release blocker under a new RC tag, then publish component/spec v1.0.0 releases followed by the suite v1.0.0 release.
+4. Redownload GA assets and repeat public Windows/Linux runtime, UI, Agent, manifest, and offline smoke tests.
 
 ## Current limitations
 
-- No measured scale/HA recommendation has been published.
 - No real macOS runtime acceptance is recorded; macOS is build-tested only.
 - Linux arm64 is build-tested only.
+- Scale above 100 nodes per FleetScope Center and high availability are not validated v1.0 claims.
 - The suite is local/small-team software, not enterprise IAM, RBAC, multi-tenancy, or an automated production remediation platform.
-- Signing/SBOM/provenance and full offline bundles are not yet part of the current stable release; the new Linux amd64 development bundle has passed a real network-namespace install.
+- SBOM/provenance and the new full offline bundles are implemented in release workflows but are not part of the current stable v0.3.3 release; they require M8 public-asset verification.
 - v1.0 work is in progress; the stable installation remains Open Suite v0.3.3 with product components v0.3.2.
 
 ## Stop conditions
