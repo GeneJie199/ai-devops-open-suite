@@ -2,17 +2,17 @@
 
 Updated: 2026-08-23
 Program: v1.0 GA  
-State: M1-M5 complete; M6 active
+State: M1-M6 complete; M7 active
 
 ## Current releases
 
 | Repository | Release | Main commit | CI / release state |
 |---|---:|---|---|
 | lifecycle-spec | v0.1.1 / v0.2.0-dev | `2cbd04b8237473f5f296dc947e5970e053909b39` | v0.2.0-dev CI green |
-| DevCycle | v0.3.2 / v0.4.0-dev | `11f03ad5c532c4fc0dd9a3d4efcd8dc33d934498` | v0.4.0-dev CI green |
-| InfraScout | v0.3.2 / v0.4.0-dev | `f84245c322849edf1f10f00760341fbca455a4a1` | v0.4.0-dev CI green |
-| FleetScope | v0.3.2 / v0.4.0-dev | `c51ece279c298f18684a908f656594b3ae87c8df` | v0.4.0-dev CI green |
-| ReleaseGuard | v0.3.2 / v0.4.0-dev | `bd340e93ae795d4275c8e96a3ad24d323b499fca` | v0.4.0-dev CI green |
+| DevCycle | v0.3.2 / v0.4.0-dev | `5a41f5f47cb7a88ab95e3b1ac992d179a04b5586` | M6 CI green |
+| InfraScout | v0.3.2 / v0.4.0-dev | `bfa6886f653f1858e2ae3c7522d8b41d874fe8fd` | M6 CI green |
+| FleetScope | v0.3.2 / v0.4.0-dev | `b50a7bdd603b59e6761842ad6d7744b44b5fcd2a` | M6 CI green |
+| ReleaseGuard | v0.3.2 / v0.4.0-dev | `64a329415f6153611f76657a1c567a45a45ebe7d` | M6 CI green |
 | Open Suite | v0.3.3 | `b909998e8bf57771400b06939b6903e132e9b5f9` | current formal workflows green |
 
 All repositories were clean, on `main`, tracking `origin/main`, and had no ahead/behind divergence at the v1 baseline. The earlier failed Open Suite `v0.3.2` tag remains visible for audit; `v0.3.3` is the corrected immutable release.
@@ -32,6 +32,7 @@ All repositories were clean, on `main`, tracking `origin/main`, and had no ahead
 - InfraScout v0.4.0-dev passed native discovery, typed topology, unified infrastructure/database drift review, responsive browser acceptance, and disposable PostgreSQL 16/MySQL 8.4 metadata collection on host 136 using random containers, loopback ports, and `/tmp` paths that were removed afterward.
 - FleetScope v0.4.0-dev passed native Windows/macOS/Linux listener and process discovery, topology history/diff, durable multi-channel notification delivery, privacy-scoped evidence/optional AI, one-command local startup, responsive browser acceptance, and an isolated Linux install/runtime plus race test on host 136.
 - ReleaseGuard v0.4.0-dev passed versioned expected-change correlation across InfraScout/database/Fleet/topology evidence, cross-stage link validation, deterministic remediation guidance, onboarding/doctor/install lifecycle, responsive browser acceptance, five-target cross-builds, and isolated Linux install/runtime/race acceptance on host 136.
+- M6 unified all four product interfaces on one documented token, icon, focus, state, dialog, responsive, and accessibility baseline. Kimi K3 review, 12 browser viewport combinations, real 10/30-second polling focus checks, mobile command checks, and automated UI-contract tests passed.
 
 ## Capability matrix
 
@@ -63,7 +64,7 @@ Delivered on v0.4.0-dev main:
 - Manual operation remains complete; configurable API providers, OS-keyring/environment credentials, request preview, redaction, and five real Agent adapters are available.
 - Humanized Git, raw patch access, durable handoff, canonical evidence, candidate, and development-report paths passed desktop/mobile acceptance.
 
-Remaining before GA: cross-product protocol alignment, final suite installation assets, RC/public-asset acceptance, and final documentation/SBOM/provenance gates.
+Remaining before GA: hardening/scale evidence, final suite installation assets, RC/public-asset acceptance, and final documentation/SBOM/provenance gates.
 
 ### InfraScout
 
@@ -80,7 +81,7 @@ Delivered on v0.4.0-dev main:
 - PostgreSQL/MySQL metadata v2 includes PK/unique/FK constraints, indexes, views, triggers, routines, roles, and privileges without business-row queries.
 - Database and relationship drift share the main decision, fingerprint, blocking-risk, check, Web review, and selective baseline-promotion path.
 
-Remaining before GA: final suite protocol/design convergence, final public assets, and RC acceptance.
+Remaining before GA: hardening/scale evidence, final public assets, and RC acceptance.
 
 ### FleetScope
 
@@ -99,7 +100,7 @@ Delivered on v0.4.0-dev main:
 - Privacy-scoped immutable evidence packages, explicit redacted AI payload preview/confirmation, assumptions, completeness confidence, and optional provider-neutral explanations are available.
 - `fleetctl up`, `fleetctl doctor`, Linux systemd and Windows user installers, native monitoring configuration download, offline icons, and responsive operations workflows are complete.
 
-Remaining before GA: lifecycle v1 contract alignment, final suite installation assets, RC/public-asset acceptance, and final documentation/SBOM/provenance gates.
+Remaining before GA: hardening/scale evidence, final suite installation assets, RC/public-asset acceptance, and final documentation/SBOM/provenance gates.
 
 ### ReleaseGuard
 
@@ -117,7 +118,7 @@ Delivered on v0.4.0-dev main:
 - `releaseguard init`, `doctor`, safe `git-ref`, Linux/macOS and Windows installers, complete archives, offline icons, and responsive decision workflows are implemented.
 - SQL is single-statement/read-only, malformed Fleet responses are explicit failures, browser mutations are same-origin hardened, and remote serving keeps loopback-safe defaults with an explicit risk warning.
 
-Remaining before GA: suite-wide stable v1 protocol naming, final unified UX/accessibility review, full hardening/scale evidence, SBOM/provenance, RC/public-asset acceptance, and final documentation convergence.
+Remaining before GA: full hardening/scale evidence, SBOM/provenance, RC/public-asset acceptance, and final documentation convergence.
 
 ### Open Suite
 
@@ -140,10 +141,10 @@ v1.0 gaps:
 
 ## Active work
 
-1. Deliver M6 unified design-system, onboarding, accessibility, and responsive convergence across all four products.
-2. Advance remaining work in dependency order: protocol/design convergence, hardening/scale/security, then complete suite integration and RC.
+1. Deliver M7 hardening, reliability, scale, security, SBOM/provenance, and external-user documentation evidence.
+2. Close measured support boundaries before assembling the unique v1.0 RC.
 3. Run Kimi K3 and browser review at every major UI checkpoint.
-4. Complete security, reliability, scale, RC, GA, and post-release public smoke gates.
+4. Complete RC, GA, and post-release public smoke gates without weakening loopback/auth/privacy defaults.
 
 ## Current limitations
 

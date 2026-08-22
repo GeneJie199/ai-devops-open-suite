@@ -54,6 +54,10 @@ flowchart LR
 
 ## 产品界面
 
+四个产品共享同一套[界面设计系统与发布验收基线](docs/design-system.md)，同时保留各自适合研发、资产、监控和发布决策的领域信息结构。
+
+M6 的 Kimi 评审、三档浏览器矩阵、键盘/轮询焦点验证和交付提交记录见 [M6 统一产品体验验收](docs/checkpoint-m6-ui.md)。
+
 ### DevCycle 工作台
 
 ![DevCycle requirement verification workbench](assets/devcycle-workbench.png)

@@ -126,12 +126,12 @@ Exit evidence: candidate to preflight to expected changes to observation to fina
 
 ### M6 - Unified design system and product UX
 
-- [ ] Publish and apply Open Suite typography, spacing, radius, icon, button, form, table, status, alert, dialog, navigation, empty/loading/error, chart, and topology patterns.
-- [ ] Complete onboarding and progressive disclosure for all four products.
-- [ ] Use familiar icons for controls, clear text for commands, compact operational layouts, and no decorative dashboard clutter.
-- [ ] Pass desktop, tablet, and mobile regression without whole-page horizontal overflow.
-- [ ] Pass keyboard, focus, contrast, dialog, error recovery, and basic accessible-name checks.
-- [ ] Run Kimi K3 information architecture, visual hierarchy, layout, onboarding, empty state, density, responsive, dashboard, and topology reviews; independently verify and implement accepted findings.
+- [x] Publish and apply Open Suite typography, spacing, radius, icon, button, form, table, status, alert, dialog, navigation, empty/loading/error, chart, and topology patterns.
+- [x] Complete onboarding and progressive disclosure for all four products.
+- [x] Use familiar icons for controls, clear text for commands, compact operational layouts, and no decorative dashboard clutter.
+- [x] Pass desktop, tablet, and mobile regression without whole-page horizontal overflow.
+- [x] Pass keyboard, focus, contrast, dialog, error recovery, and basic accessible-name checks.
+- [x] Run Kimi K3 information architecture, visual hierarchy, layout, onboarding, empty state, density, responsive, dashboard, and topology reviews; independently verify and implement accepted findings.
 
 Exit evidence: Kimi review record, before/after screenshots, browser automation, accessibility report, responsive acceptance.
 
