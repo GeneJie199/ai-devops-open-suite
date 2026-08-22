@@ -15,6 +15,10 @@ jobs:
       - uses: actions/checkout@v7
       - name: Validate local documentation links and images
         run: python3 scripts/check-docs.py
+      - name: Validate suite manifest and generated indexes
+        run: |
+          python3 scripts/validate-suite-manifest.py
+          python3 scripts/test-suite-manifest.py
       - name: Validate shell scripts
         run: bash -n scripts/install-suite.sh scripts/suitectl.sh scripts/verify-suite.sh
       - name: Validate PowerShell scripts and demo report
@@ -27,3 +31,4 @@ jobs:
             if ($errors) { throw ($errors.Message -join "`n") }
           }
           Get-Content examples/release-report.demo.json -Raw | ConvertFrom-Json | Out-Null
+          Get-Content suite-manifest.json -Raw | ConvertFrom-Json | Out-Null

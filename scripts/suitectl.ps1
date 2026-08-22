@@ -1,8 +1,12 @@
 param(
   [Parameter(Position=0)]
-  [ValidateSet('init','start','stop','restart','status','open','logs','doctor','enable','disable')]
+  [ValidateSet('init','start','stop','restart','status','open','logs','doctor','enable','disable','version','upgrade','rollback','uninstall','purge')]
   [string]$Command = 'status',
-  [string]$SuiteHome = $(if ($env:AI_DEVOPS_HOME) { $env:AI_DEVOPS_HOME } elseif ($PSScriptRoot) { Split-Path -Parent $PSScriptRoot } else { Join-Path $env:LOCALAPPDATA 'ai-devops-suite' })
+  [string]$SuiteHome = $(if ($env:AI_DEVOPS_HOME) { $env:AI_DEVOPS_HOME } elseif ($PSScriptRoot) { Split-Path -Parent $PSScriptRoot } else { Join-Path $env:LOCALAPPDATA 'ai-devops-suite' }),
+  [string]$ManifestPath = '',
+  [string]$SourceRoot = '',
+  [string]$BackupId = '',
+  [string]$ConfirmPurge = ''
 )
 
 $ErrorActionPreference = 'Stop'
@@ -13,6 +17,8 @@ $Logs = Join-Path $SuiteHome 'logs'
 $Run = Join-Path $SuiteHome 'run'
 $Examples = Join-Path $SuiteHome 'examples'
 $Config = Join-Path $SuiteHome 'config'
+$Backups = Join-Path $SuiteHome 'backups'
+$InstallStatePath = Join-Path $Config 'install-state.json'
 $TokenPath = Join-Path $Config 'fleet-token'
 $VersionPath = Join-Path $Config 'suite-version'
 $PortConfigPath = Join-Path $Config 'ports.env'
@@ -291,6 +297,121 @@ function Show-Logs {
   }
 }
 
+function Show-Version {
+  if (Test-Path -LiteralPath $InstallStatePath -PathType Leaf) {
+    $State = Get-Content -LiteralPath $InstallStatePath -Raw | ConvertFrom-Json
+    [pscustomobject]@{ Suite=$State.suiteVersion; Platform=$State.platform; InstalledAt=$State.installedAt; Source=$State.source } | Format-List
+    $State.components | Select-Object id,version,target | Format-Table -AutoSize
+    return
+  }
+  Write-Host "AI DevOps Open Suite $SuiteVersion (legacy installation metadata)"
+}
+
+function Invoke-Upgrade {
+  $Installer = Join-Path $Bin 'install-suite.ps1'
+  if ($SourceRoot) {
+    $BundledInstaller = Join-Path ([IO.Path]::GetFullPath($SourceRoot)) 'scripts\install-suite.ps1'
+    if (Test-Path -LiteralPath $BundledInstaller -PathType Leaf) { $Installer = $BundledInstaller }
+  }
+  if (-not (Test-Path -LiteralPath $Installer -PathType Leaf)) { throw "Installed upgrade helper is missing: $Installer" }
+  $EffectiveManifest = $ManifestPath
+  if (-not $EffectiveManifest -and $SourceRoot) { $EffectiveManifest = Join-Path ([IO.Path]::GetFullPath($SourceRoot)) 'suite-manifest.json' }
+  if (-not $EffectiveManifest) { $EffectiveManifest = Join-Path $Config 'suite-manifest.json' }
+  if (-not (Test-Path -LiteralPath $EffectiveManifest -PathType Leaf)) { throw 'Provide -ManifestPath or a full offline -SourceRoot containing suite-manifest.json.' }
+  & $Installer -Prefix $SuiteHome -ManifestPath $EffectiveManifest -SourceRoot $SourceRoot
+  if (-not $?) { throw 'Upgrade failed.' }
+}
+
+function Copy-InstallSnapshot([string]$Destination, [string]$Reason) {
+  $DestinationBin = Join-Path $Destination 'bin'
+  $DestinationConfig = Join-Path $Destination 'config'
+  New-Item -ItemType Directory -Force -Path $DestinationBin,$DestinationConfig | Out-Null
+  foreach ($Name in 'lifecycle-validate.exe','devcycle.exe','infrascout.exe','fleetctl.exe','releaseguard.exe','suitectl.ps1','install-suite.ps1') {
+    $Path = Join-Path $Bin $Name
+    if (Test-Path -LiteralPath $Path -PathType Leaf) { Copy-Item -LiteralPath $Path -Destination (Join-Path $DestinationBin $Name) -Force }
+  }
+  foreach ($Name in 'suite-version','suite-manifest.json','install-state.json') {
+    $Path = Join-Path $Config $Name
+    if (Test-Path -LiteralPath $Path -PathType Leaf) { Copy-Item -LiteralPath $Path -Destination (Join-Path $DestinationConfig $Name) -Force }
+  }
+  $State = [ordered]@{ schemaVersion='ai-devops.install-backup/v1'; backupId=(Split-Path -Leaf $Destination); previousVersion=$SuiteVersion; targetVersion=$Reason; createdAt=(Get-Date).ToUniversalTime().ToString('o'); wasRunning=$false; hadPreviousInstallation=$true }
+  [IO.File]::WriteAllText((Join-Path $Destination 'backup-state.json'), ($State | ConvertTo-Json -Depth 4), (New-Object Text.UTF8Encoding($false)))
+  Write-BackupManifest $Destination
+}
+
+function Write-BackupManifest([string]$Root) {
+  $Records = @()
+  foreach ($File in Get-ChildItem -LiteralPath $Root -Recurse -File | Where-Object Name -ne 'backup-files.json' | Sort-Object FullName) {
+    $Relative = [IO.Path]::GetRelativePath($Root, $File.FullName).Replace('\','/')
+    $Records += [ordered]@{ path=$Relative; size=$File.Length; sha256=(Get-FileHash -LiteralPath $File.FullName -Algorithm SHA256).Hash.ToLowerInvariant() }
+  }
+  $Value = [ordered]@{ schemaVersion='ai-devops.backup-files/v1'; files=$Records }
+  [IO.File]::WriteAllText((Join-Path $Root 'backup-files.json'), ($Value | ConvertTo-Json -Depth 6), (New-Object Text.UTF8Encoding($false)))
+}
+
+function Test-BackupManifest([string]$Root) {
+  $Path = Join-Path $Root 'backup-files.json'
+  if (-not (Test-Path -LiteralPath $Path -PathType Leaf)) { throw 'Rollback backup has no integrity manifest.' }
+  $Manifest = Get-Content -LiteralPath $Path -Raw | ConvertFrom-Json
+  if ($Manifest.schemaVersion -ne 'ai-devops.backup-files/v1') { throw 'Rollback backup integrity manifest has an unsupported version.' }
+  foreach ($Record in $Manifest.files) {
+    if ($Record.path -notmatch '^[a-zA-Z0-9][a-zA-Z0-9._/-]*$' -or $Record.path.Contains('..')) { throw "Rollback backup contains an unsafe path: $($Record.path)" }
+    $File = [IO.Path]::GetFullPath((Join-Path $Root ([string]$Record.path)))
+    if (-not $File.StartsWith([IO.Path]::GetFullPath($Root) + [IO.Path]::DirectorySeparatorChar, [StringComparison]::OrdinalIgnoreCase)) { throw 'Rollback backup path escaped its root.' }
+    if (-not (Test-Path -LiteralPath $File -PathType Leaf)) { throw "Rollback backup file is missing: $($Record.path)" }
+    $Info = Get-Item -LiteralPath $File
+    $Digest = (Get-FileHash -LiteralPath $File -Algorithm SHA256).Hash.ToLowerInvariant()
+    if ($Info.Length -ne [long]$Record.size -or $Digest -ne [string]$Record.sha256) { throw "Rollback backup integrity check failed: $($Record.path)" }
+  }
+}
+
+function Invoke-Rollback {
+  if (-not (Test-Path -LiteralPath $Backups -PathType Container)) { throw 'No rollback backups are available.' }
+  if ($BackupId -and $BackupId -notmatch '^[a-zA-Z0-9][a-zA-Z0-9._-]*$') { throw 'BackupId contains unsafe characters.' }
+  $Selected = if ($BackupId) { Join-Path $Backups $BackupId } else { Get-ChildItem -LiteralPath $Backups -Directory | Sort-Object Name -Descending | Select-Object -First 1 -ExpandProperty FullName }
+  if (-not $Selected -or -not (Test-Path -LiteralPath (Join-Path $Selected 'backup-state.json') -PathType Leaf)) { throw "Rollback backup not found: $BackupId" }
+  Test-BackupManifest $Selected
+  $Required = 'lifecycle-validate.exe','devcycle.exe','infrascout.exe','fleetctl.exe','releaseguard.exe','suitectl.ps1','install-suite.ps1'
+  foreach ($Name in $Required) { if (-not (Test-Path -LiteralPath (Join-Path $Selected "bin\$Name") -PathType Leaf)) { throw "Rollback backup is incomplete: $Name" } }
+  $WasRunning = $false
+  foreach ($Name in 'devcycle','infrascout','fleetscope','fleet-agent','releaseguard') { if (Managed-Process $Name) { $WasRunning = $true; break } }
+  if ($WasRunning) { Stop-Suite }
+  $RecoveryId = (Get-Date).ToUniversalTime().ToString('yyyyMMddTHHmmssZ') + '-rollback-from-' + ($SuiteVersion -replace '[^a-zA-Z0-9._-]','_')
+  Copy-InstallSnapshot (Join-Path $Backups $RecoveryId) 'rollback-recovery'
+  foreach ($Name in $Required) { Copy-Item -LiteralPath (Join-Path $Selected "bin\$Name") -Destination (Join-Path $Bin $Name) -Force }
+  foreach ($Name in 'suite-version','suite-manifest.json','install-state.json') {
+    $Path = Join-Path $Selected "config\$Name"
+    if (Test-Path -LiteralPath $Path -PathType Leaf) { Copy-Item -LiteralPath $Path -Destination (Join-Path $Config $Name) -Force }
+  }
+  $Restored = Get-Content -LiteralPath (Join-Path $Selected 'backup-state.json') -Raw | ConvertFrom-Json
+  if (-not (Test-Path -LiteralPath $VersionPath -PathType Leaf)) { [IO.File]::WriteAllText($VersionPath, [string]$Restored.previousVersion, (New-Object Text.UTF8Encoding($false))) }
+  Write-Host "Rolled back to backup $(Split-Path -Leaf $Selected). Current-version recovery backup: $RecoveryId"
+  if ($WasRunning) { & (Join-Path $Bin 'suitectl.ps1') start -SuiteHome $SuiteHome }
+}
+
+function Invoke-Uninstall {
+  Stop-Suite
+  if ($IsWindowsHost) { Disable-Autostart }
+  $State = [ordered]@{ schemaVersion='ai-devops.uninstall-state/v1'; uninstalledAt=(Get-Date).ToUniversalTime().ToString('o'); suiteVersion=$SuiteVersion; dataPreserved=$true; suiteHome=$SuiteHome }
+  New-Item -ItemType Directory -Force -Path $Config | Out-Null
+  [IO.File]::WriteAllText((Join-Path $Config 'uninstall-state.json'), ($State | ConvertTo-Json -Depth 4), (New-Object Text.UTF8Encoding($false)))
+  foreach ($Name in 'lifecycle-validate.exe','devcycle.exe','infrascout.exe','fleetctl.exe','releaseguard.exe','install-suite.ps1','suitectl.ps1') { Remove-Item -LiteralPath (Join-Path $Bin $Name) -Force -ErrorAction SilentlyContinue }
+  Write-Host "Binaries removed. Data, configuration, logs, protocols, and backups remain in $SuiteHome"
+  Write-Host "To delete them explicitly, reinstall the controller and run: suitectl purge -ConfirmPurge `"$SuiteHome`""
+}
+
+function Invoke-Purge {
+  if (-not $ConfirmPurge -or -not ([IO.Path]::GetFullPath($ConfirmPurge).Equals($SuiteHome, [StringComparison]::OrdinalIgnoreCase))) { throw "Purge requires -ConfirmPurge with the exact suite path: $SuiteHome" }
+  $Root = [IO.Path]::GetPathRoot($SuiteHome)
+  if ($SuiteHome.TrimEnd('\').Equals($Root.TrimEnd('\'), [StringComparison]::OrdinalIgnoreCase)) { throw 'Refusing to purge a filesystem root.' }
+  $Item = Get-Item -LiteralPath $SuiteHome -Force
+  if ($Item.Attributes -band [IO.FileAttributes]::ReparsePoint) { throw 'Refusing to purge a reparse point.' }
+  Stop-Suite
+  if ($IsWindowsHost) { Disable-Autostart }
+  Remove-Item -LiteralPath $SuiteHome -Recurse -Force
+  Write-Host "Purged suite binaries and data: $SuiteHome"
+}
+
 switch ($Command) {
   'init' { Initialize-Suite }
   'start' { Start-Suite }
@@ -302,4 +423,9 @@ switch ($Command) {
   'doctor' { Invoke-Doctor; if ($script:DoctorFailed) { exit 1 } }
   'enable' { Enable-Autostart }
   'disable' { Disable-Autostart }
+  'version' { Show-Version }
+  'upgrade' { Invoke-Upgrade }
+  'rollback' { Invoke-Rollback }
+  'uninstall' { Invoke-Uninstall }
+  'purge' { Invoke-Purge }
 }

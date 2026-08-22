@@ -1,0 +1,7 @@
+suite|ai-devops.suite-manifest/v1|0.4.0-dev|windows-amd64
+component|lifecycle-validate|lifecycle-spec|v0.1.1|0.1.1|lifecycle-validate-windows-amd64.exe|lifecycle-validate.exe|0c686a95ab49ec7e523a280f0f14ff3e80115d3c8e404359865c3bd44054d89c
+component|devcycle|ai-dev-cycle-manager|v0.3.2|0.3.2|devcycle-windows-amd64.exe|devcycle.exe|e19f954540828d85cca7c8ca81630e46be5a4736a506b090d6d84ad021e530a5
+component|infrascout|infrastructure-discovery|v0.3.2|0.3.2|infrascout-windows-amd64.exe|infrascout.exe|8cf2324f0d38ba1155cb0f3b45d5effde5c8e3f006a741299bbdc8d1c4433de9
+component|fleetctl|fleet-observability|v0.3.2|0.3.2|fleetctl-windows-amd64.exe|fleetctl.exe|74ba8c10b9d731b272c5aba01ae01f3243e235e06d0cd1884506db88f89367d8
+component|releaseguard|release-validation|v0.3.2|0.3.2|releaseguard-windows-amd64.exe|releaseguard.exe|16157ea730440d4f478c5bfd59dc50265349ba5d863ee6bab7776756a67c186f
+protocol|lifecycle-spec|v0.1.1|0.1.1|lifecycle-spec-v0.1.1.tar.gz|eb4e401d01f3ecda5eb179a4cd7de8134e0dd185e4fd11460da40b839ad59b4c

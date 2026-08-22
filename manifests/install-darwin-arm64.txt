@@ -1,0 +1,7 @@
+suite|ai-devops.suite-manifest/v1|0.4.0-dev|darwin-arm64
+component|lifecycle-validate|lifecycle-spec|v0.1.1|0.1.1|lifecycle-validate-darwin-arm64|lifecycle-validate|9fd53b6024f546b0fa3d3737c2db87b9884ef88defd9af59142eac375d3b87fd
+component|devcycle|ai-dev-cycle-manager|v0.3.2|0.3.2|devcycle-darwin-arm64|devcycle|4f78181df18124b9d5b67b644386154f1e59fbeaf5dec855e1e5104e9193fd50
+component|infrascout|infrastructure-discovery|v0.3.2|0.3.2|infrascout-darwin-arm64|infrascout|f85616877cf74bb39822563fee3c5d2da4b811c1ec8a9384071a188d78ab6ade
+component|fleetctl|fleet-observability|v0.3.2|0.3.2|fleetctl-darwin-arm64|fleetctl|5d7581736895fc6f917e770788b152edf4227037ec6661e6c9277e5001572ef0
+component|releaseguard|release-validation|v0.3.2|0.3.2|releaseguard-darwin-arm64|releaseguard|656d673b258d761e66a8974118a44ed3466316c5779c35ab950bf9bd498afcd7
+protocol|lifecycle-spec|v0.1.1|0.1.1|lifecycle-spec-v0.1.1.tar.gz|eb4e401d01f3ecda5eb179a4cd7de8134e0dd185e4fd11460da40b839ad59b4c

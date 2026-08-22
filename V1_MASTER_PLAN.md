@@ -56,21 +56,21 @@ Product releases converge on `v1.0.0`. The umbrella suite release converges on `
 - [x] Fetch and audit all six repositories, main branches, remotes, commits, releases, CI, documentation, and clean status.
 - [x] Re-run all existing Go tests and vet checks.
 - [x] Establish the current capability and gap matrix.
-- [ ] Publish this master plan, current status, roadmap, compatibility matrix, support matrix, and release policy.
-- [ ] Create a public v1.0 milestone and scoped GitHub issues.
-- [ ] Record protocol and persisted-data compatibility decisions as ADRs.
+- [x] Publish this master plan, current status, roadmap, compatibility matrix, support matrix, and release policy.
+- [x] Create a public v1.0 milestone and scoped GitHub issues.
+- [x] Record protocol and persisted-data compatibility decisions as ADRs.
 
 Exit evidence: committed planning documents, public milestone/issues, exact baseline commits, green baseline CI.
 
 ### M1 - Productization and zero-friction lifecycle
 
-- [ ] Replace per-repository version arguments with a signed/checksummed suite manifest.
-- [ ] Build complete offline bundles for every advertised artifact platform.
-- [ ] Prove offline install while outbound public network access is unavailable and caches are empty.
-- [ ] Add first-class `upgrade`, `rollback`, and `uninstall`; make data purge a separate explicit command.
+- [x] Replace per-repository version arguments with a checksummed suite manifest; release attestation is wired into the GA workflow.
+- [x] Build and structurally verify complete offline bundles for every advertised artifact platform.
+- [x] Prove Linux amd64 offline install in an isolated network namespace with no product service started and no external cache.
+- [x] Add first-class `upgrade`, `rollback`, and `uninstall`; make data purge a separate exact-path-confirmed command.
 - [ ] Preserve configuration, ports, token/identity, state, snapshots, approvals, and releases across upgrade.
 - [ ] Make install failures and interrupted upgrades recover to the prior working binaries.
-- [ ] Produce machine-readable installation metadata and doctor output.
+- [x] Produce machine-readable installation, backup, uninstall, and bundle metadata; keep actionable doctor output.
 
 Exit evidence: clean online/offline install, v0.3-to-current upgrade, rollback, restart, uninstall-with-data-preserved, explicit purge tests on Windows and Linux.
 
@@ -204,4 +204,5 @@ Windows arm64 is not a v1.0 artifact target unless all component binaries and an
 | Date | Checkpoint | Evidence | Result |
 |---|---|---|---|
 | 2026-08-22 | M0 baseline audit | six exact commits; five Go test/vet runs; releases/CI/remotes checked | pass |
-
+| 2026-08-22 | M0 governance | commit `2526e93`; public v1.0 milestone and issues 1-8; compatibility ADR | pass |
+| 2026-08-22 | M1 install lifecycle checkpoint | five offline bundles structurally verified; Windows/Linux install/upgrade/rollback/uninstall/purge; Linux network namespace; tampered backup rejected | pass |

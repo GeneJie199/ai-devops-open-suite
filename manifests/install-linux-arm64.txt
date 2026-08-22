@@ -1,0 +1,7 @@
+suite|ai-devops.suite-manifest/v1|0.4.0-dev|linux-arm64
+component|lifecycle-validate|lifecycle-spec|v0.1.1|0.1.1|lifecycle-validate-linux-arm64|lifecycle-validate|096abb5ddaffe0caea978b2a00885a6eaa5de18ff2ae343f5f89620f8d3f77f4
+component|devcycle|ai-dev-cycle-manager|v0.3.2|0.3.2|devcycle-linux-arm64|devcycle|4500739d7e9b5f8ff204a7c2a1ceeed89ea9a9738fa46dc62323fa5426c6a820
+component|infrascout|infrastructure-discovery|v0.3.2|0.3.2|infrascout-linux-arm64|infrascout|76172a0fb04d6c327cd3743dea43edd7a99cee21d392c9abb640cc60bf2937df
+component|fleetctl|fleet-observability|v0.3.2|0.3.2|fleetctl-linux-arm64|fleetctl|055bf3e850fc38a24265ca6ceb90a5f54f64b40e6e69d15060186d645039ad52
+component|releaseguard|release-validation|v0.3.2|0.3.2|releaseguard-linux-arm64|releaseguard|f5f60986a8a5de537865c9004deff2982adc1b1e966ab568b1291ed7169accfa
+protocol|lifecycle-spec|v0.1.1|0.1.1|lifecycle-spec-v0.1.1.tar.gz|eb4e401d01f3ecda5eb179a4cd7de8134e0dd185e4fd11460da40b839ad59b4c

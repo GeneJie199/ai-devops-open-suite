@@ -14,6 +14,8 @@ LOGS="$HOME_DIR/logs"
 RUN="$HOME_DIR/run"
 EXAMPLES="$HOME_DIR/examples"
 CONFIG="$HOME_DIR/config"
+BACKUPS="$HOME_DIR/backups"
+INSTALL_STATE="$CONFIG/install-state.json"
 TOKEN_PATH="$CONFIG/fleet-token"
 VERSION_PATH="$CONFIG/suite-version"
 PORT_CONFIG="$CONFIG/ports.env"
@@ -309,6 +311,120 @@ show_logs() {
   for file in "$LOGS"/*.log; do [[ -f "$file" ]] || continue; printf '\n== %s ==\n' "$(basename "$file")"; tail -n 40 "$file"; done
 }
 
+show_version() {
+  printf 'AI DevOps Open Suite %s\n' "$SUITE_VERSION"
+  if [[ -f "$CONFIG/install-assets.txt" ]]; then
+    while IFS='|' read -r kind id _repo _tag version _asset target _digest; do
+      if [[ "$kind" == component ]]; then printf '  %-20s %-12s %s\n' "$id" "$version" "$target"; fi
+    done <"$CONFIG/install-assets.txt"
+  elif [[ -f "$INSTALL_STATE" ]]; then
+    printf 'Install metadata: %s\n' "$INSTALL_STATE"
+  else
+    printf 'Legacy installation metadata\n'
+  fi
+}
+
+upgrade_suite() {
+  local source_root=${1:-} index=${2:-} installer="$BIN/install-suite"
+  if [[ -n "$source_root" && -x "$source_root/scripts/install-suite.sh" ]]; then installer="$source_root/scripts/install-suite.sh"; fi
+  [[ -x "$installer" ]] || { printf 'Upgrade helper is missing: %s\n' "$installer" >&2; return 1; }
+  if [[ -z "$index" && -n "$source_root" ]]; then index="$source_root/install-assets.txt"; fi
+  if [[ -z "$index" ]]; then index="$CONFIG/install-assets.txt"; fi
+  [[ -f "$index" ]] || { printf 'Provide a full offline source root or install index. Missing: %s\n' "$index" >&2; return 1; }
+  args=(--prefix "$HOME_DIR" --manifest-index "$index")
+  [[ -n "$source_root" ]] && args+=(--source-root "$source_root")
+  "$installer" "${args[@]}"
+}
+
+copy_install_snapshot() {
+  local destination=$1 reason=$2 name
+  mkdir -p "$destination/bin" "$destination/config"
+  for name in lifecycle-validate devcycle infrascout fleetctl releaseguard suitectl install-suite; do [[ -f "$BIN/$name" ]] && cp -p "$BIN/$name" "$destination/bin/$name"; done
+  for name in suite-version suite-manifest.json install-assets.txt install-state.json; do [[ -f "$CONFIG/$name" ]] && cp -p "$CONFIG/$name" "$destination/config/$name"; done
+  printf '{"schemaVersion":"ai-devops.install-backup/v1","backupId":"%s","previousVersion":"%s","targetVersion":"%s","createdAt":"%s","wasRunning":false,"hadPreviousInstallation":true}\n' \
+    "$(basename "$destination")" "$SUITE_VERSION" "$reason" "$(date -u +%Y-%m-%dT%H:%M:%SZ)" >"$destination/backup-state.json"
+  chmod 0600 "$destination/backup-state.json"
+  write_backup_manifest "$destination"
+}
+
+backup_hash() {
+  if command -v sha256sum >/dev/null; then sha256sum "$1" | awk '{print tolower($1)}'; else shasum -a 256 "$1" | awk '{print tolower($1)}'; fi
+}
+
+write_backup_manifest() {
+  local root=$1 file relative size digest
+  : >"$root/backup-files.txt"
+  for file in "$root/bin"/* "$root/config"/* "$root/backup-state.json"; do
+    [[ -f "$file" ]] || continue
+    relative=${file#"$root/"}
+    size=$(wc -c <"$file" | tr -d ' ')
+    digest=$(backup_hash "$file")
+    printf '%s|%s|%s\n' "$digest" "$size" "$relative" >>"$root/backup-files.txt"
+  done
+  chmod 0600 "$root/backup-files.txt"
+}
+
+verify_backup_manifest() {
+  local root=$1 digest size relative file actual_size actual_digest
+  [[ -s "$root/backup-files.txt" ]] || { printf 'Rollback backup has no integrity manifest.\n' >&2; return 1; }
+  while IFS='|' read -r digest size relative; do
+    [[ "$digest" =~ ^[0-9a-f]{64}$ && "$size" =~ ^[0-9]+$ && "$relative" =~ ^[a-zA-Z0-9][a-zA-Z0-9._/-]*$ && "$relative" != *..* ]] || { printf 'Rollback backup manifest is unsafe.\n' >&2; return 1; }
+    file="$root/$relative"
+    [[ -f "$file" && ! -L "$file" ]] || { printf 'Rollback backup file is missing: %s\n' "$relative" >&2; return 1; }
+    actual_size=$(wc -c <"$file" | tr -d ' ')
+    actual_digest=$(backup_hash "$file")
+    [[ "$actual_size" == "$size" && "$actual_digest" == "$digest" ]] || { printf 'Rollback backup integrity check failed: %s\n' "$relative" >&2; return 1; }
+  done <"$root/backup-files.txt"
+}
+
+rollback_suite() {
+  local requested=${1:-} selected='' name was_running=false recovery_id
+  [[ -d "$BACKUPS" ]] || { printf 'No rollback backups are available.\n' >&2; return 1; }
+  if [[ -n "$requested" ]]; then
+    [[ "$requested" =~ ^[a-zA-Z0-9][a-zA-Z0-9._-]*$ ]] || { printf 'Backup ID contains unsafe characters.\n' >&2; return 1; }
+    selected="$BACKUPS/$requested"
+  else
+    shopt -s nullglob
+    local candidates=("$BACKUPS"/*)
+    shopt -u nullglob
+    for name in "${candidates[@]}"; do [[ -d "$name" && -f "$name/backup-state.json" ]] && selected=$name; done
+  fi
+  [[ -n "$selected" && -f "$selected/backup-state.json" ]] || { printf 'Rollback backup not found: %s\n' "$requested" >&2; return 1; }
+  verify_backup_manifest "$selected" || return 1
+  for name in lifecycle-validate devcycle infrascout fleetctl releaseguard suitectl install-suite; do [[ -f "$selected/bin/$name" ]] || { printf 'Rollback backup is incomplete: %s\n' "$name" >&2; return 1; }; done
+  for name in devcycle infrascout fleetscope fleet-agent releaseguard; do if running_pid "$name" >/dev/null; then was_running=true; break; fi; done
+  [[ "$was_running" == true ]] && stop_suite
+  recovery_id="$(date -u +%Y%m%dT%H%M%SZ)-rollback-from-${SUITE_VERSION//[^a-zA-Z0-9._-]/_}"
+  copy_install_snapshot "$BACKUPS/$recovery_id" rollback-recovery
+  for name in lifecycle-validate devcycle infrascout fleetctl releaseguard suitectl install-suite; do cp -p "$selected/bin/$name" "$BIN/$name"; done
+  for name in suite-version suite-manifest.json install-assets.txt install-state.json; do [[ -f "$selected/config/$name" ]] && cp -p "$selected/config/$name" "$CONFIG/$name"; done
+  printf 'Rolled back to backup %s. Current-version recovery backup: %s\n' "$(basename "$selected")" "$recovery_id"
+  if [[ "$was_running" == true ]]; then "$BIN/suitectl" start; fi
+}
+
+uninstall_suite() {
+  local name
+  stop_suite
+  disable_autostart >/dev/null 2>&1 || true
+  mkdir -p "$CONFIG"
+  printf '{"schemaVersion":"ai-devops.uninstall-state/v1","uninstalledAt":"%s","suiteVersion":"%s","dataPreserved":true}\n' "$(date -u +%Y-%m-%dT%H:%M:%SZ)" "$SUITE_VERSION" >"$CONFIG/uninstall-state.json"
+  chmod 0600 "$CONFIG/uninstall-state.json"
+  for name in lifecycle-validate devcycle infrascout fleetctl releaseguard install-suite suitectl; do rm -f "$BIN/$name"; done
+  printf 'Binaries removed. Data, configuration, logs, protocols, and backups remain in %s\n' "$HOME_DIR"
+  printf 'To delete them explicitly, reinstall the controller and run: suitectl purge --confirm %q\n' "$HOME_DIR"
+}
+
+purge_suite() {
+  local confirmation=${1:-}
+  [[ "$confirmation" == "$HOME_DIR" ]] || { printf 'Purge requires --confirm with the exact suite path: %s\n' "$HOME_DIR" >&2; return 1; }
+  [[ "$HOME_DIR" != / && "$HOME_DIR" != "$HOME" && ${#HOME_DIR} -gt 5 ]] || { printf 'Refusing to purge an unsafe path.\n' >&2; return 1; }
+  [[ ! -L "$HOME_DIR" ]] || { printf 'Refusing to purge a symbolic link.\n' >&2; return 1; }
+  stop_suite
+  disable_autostart >/dev/null 2>&1 || true
+  rm -rf -- "$HOME_DIR"
+  printf 'Purged suite binaries and data: %s\n' "$HOME_DIR"
+}
+
 case "${1:-status}" in
   init) init_suite ;;
   start) start_suite ;;
@@ -320,5 +436,10 @@ case "${1:-status}" in
   doctor) doctor_suite ;;
   enable) enable_autostart ;;
   disable) disable_autostart ;;
-  *) printf 'Usage: suitectl {init|start|stop|restart|status|open|logs|doctor|enable|disable}\n' >&2; exit 2 ;;
+  version) show_version ;;
+  upgrade) upgrade_suite "${2:-}" "${3:-}" ;;
+  rollback) rollback_suite "${2:-}" ;;
+  uninstall) uninstall_suite ;;
+  purge) [[ ${2:-} == --confirm ]] || { printf 'Usage: suitectl purge --confirm PATH\n' >&2; exit 2; }; purge_suite "${3:-}" ;;
+  *) printf 'Usage: suitectl {init|start|stop|restart|status|open|logs|doctor|enable|disable|version|upgrade|rollback|uninstall|purge}\n' >&2; exit 2 ;;
 esac

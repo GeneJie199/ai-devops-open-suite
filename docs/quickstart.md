@@ -4,17 +4,19 @@ AI DevOps Open Suite 的四个产品页面和协议校验器可以一次安装�
 
 ## 支持平台
 
-- Windows 10/11、Windows Server，x86-64。
-- Linux，x86-64 或 ARM64。
-- macOS，Intel 或 Apple Silicon。
+- Windows amd64。
+- Linux amd64 或 arm64。
+- macOS amd64 或 arm64。
 
-在线安装需要能够访问 GitHub Releases。安装器会下载每个仓库发布的 `checksums.txt`，校验 SHA-256 后再替换本地二进制。
+各平台的真实验证等级见[支持矩阵](../SUPPORT_MATRIX.md)。有构建产物不等于已经完成原生运行验收。
+
+在线安装需要能够访问 GitHub Releases。安装器读取当前套件的版本化清单，按平台下载清单钉住的五个制品，校验每个精确 SHA-256 后才替换本地二进制。
 
 ## 一次安装并启动
 
 从项目的 [Releases](https://github.com/GeneJie199/ai-devops-open-suite/releases) 下载 ZIP 或 TAR 包并解压。
 
-套件版本 `0.3.3` 默认安装产品组件 `0.3.2` 和协议校验器 `0.1.1`。`--version` / `-Version` 用于选择产品组件版本；`--suite-version` / `-SuiteVersion` 仅用于自定义套件控制器显示版本，通常不需要设置。
+当前稳定版是套件 `0.3.3`、产品组件 `0.3.2` 和协议校验器 `0.1.1`。`main` 正在使用 `suite-manifest.json` 推进 v1；版本选择由清单统一完成，用户不再手工拼接五仓版本。
 
 Windows PowerShell：
 
@@ -70,6 +72,7 @@ powershell -ExecutionPolicy Bypass -File $suite doctor
 powershell -ExecutionPolicy Bypass -File $suite open
 powershell -ExecutionPolicy Bypass -File $suite logs
 powershell -ExecutionPolicy Bypass -File $suite restart
+powershell -ExecutionPolicy Bypass -File $suite version
 powershell -ExecutionPolicy Bypass -File $suite enable
 powershell -ExecutionPolicy Bypass -File $suite disable
 powershell -ExecutionPolicy Bypass -File $suite stop
@@ -84,6 +87,7 @@ suite="$HOME/.local/share/ai-devops-suite/bin/suitectl"
 "$suite" open
 "$suite" logs
 "$suite" restart
+"$suite" version
 "$suite" enable
 "$suite" disable
 "$suite" stop
@@ -91,7 +95,49 @@ suite="$HOME/.local/share/ai-devops-suite/bin/suitectl"
 
 `doctor` 会检查五个二进制、数据目录、Fleet 凭据、依赖和端口占用，并用非零退出码报告阻塞项。`enable` 会保存当前端口配置、启用当前用户的开机/登录自启动并立即启动套件；`disable` 只取消后续自启动，不会突然停止正在使用的页面。Windows 使用当前用户启动项，Linux 使用 user systemd，macOS 使用 LaunchAgent，均不要求套件以管理员身份运行。Linux 服务器若需要在用户登录前启动，管理器会尝试启用 linger；系统策略不允许时会打印一条交给管理员执行的命令。
 
-重复执行安装器即可升级或修复二进制；`data/`、`config/` 和已有凭据不会被删除。若套件正在运行，安装器会在全部下载与校验通过后统一停止服务，原子替换二进制，并自动恢复原来的运行状态。下载、校验或替换失败时不会留下混合版本，替换失败还会恢复先前的二进制。
+重复执行新版本安装器即可升级或修复二进制；`data/`、`config/` 和已有凭据不会被删除。若套件正在运行，安装器会在全部下载与校验通过后统一停止服务，原子替换二进制，并自动恢复原来的运行状态。下载、校验或替换失败时不会留下混合版本，替换失败还会恢复先前的二进制。
+
+从新版本完整包升级时，也可以让已安装的控制器接管：
+
+```powershell
+powershell -ExecutionPolicy Bypass -File $suite upgrade -SourceRoot D:\new-suite-bundle
+```
+
+```bash
+"$suite" upgrade /mnt/new-suite-bundle
+```
+
+安装器会把旧二进制和安装状态保存在 `backups/`。回到最近一次版本：
+
+```powershell
+powershell -ExecutionPolicy Bypass -File $suite rollback
+```
+
+```bash
+"$suite" rollback
+```
+
+也可以提供 `-BackupId <ID>`（Windows）或第二个参数 `<ID>`（Linux/macOS）选择已知回滚点。回滚不会覆盖或删除 `data/`；当前版本也会先生成一个可恢复备份。
+
+移除程序但保留数据、配置、日志和备份：
+
+```powershell
+powershell -ExecutionPolicy Bypass -File $suite uninstall
+```
+
+```bash
+"$suite" uninstall
+```
+
+只有确认不再需要任何套件数据时才运行 purge。它要求输入完全一致的安装路径：
+
+```powershell
+powershell -ExecutionPolicy Bypass -File $suite purge -ConfirmPurge "$env:LOCALAPPDATA\ai-devops-suite"
+```
+
+```bash
+"$suite" purge --confirm "$HOME/.local/share/ai-devops-suite"
+```
 
 ## 自定义目录和端口
 
@@ -110,37 +156,30 @@ AI_DEVOPS_RELEASEGUARD_PORT
 
 ## 离线安装
 
-将五个仓库的发布资产和各自 `checksums.txt` 放成下面的结构：
-
-```text
-release-assets/
-  lifecycle-spec/
-  ai-dev-cycle-manager/
-  infrastructure-discovery/
-  fleet-observability/
-  release-validation/
-```
+在联网机器下载与目标系统匹配的 `ai-devops-open-suite-full-offline-v<version>-<os>-<arch>` 和发布页校验值，拷贝到离线机器后解压。完整包已包含五个制品、协议归档、套件清单、文件清单、安装器、控制器和文档。
 
 Windows：
 
 ```powershell
-.\scripts\install-suite.ps1 -SourceRoot D:\release-assets -Start
+.\scripts\install-suite.ps1 -Start
 ```
 
 Linux 或 macOS：
 
 ```bash
-./scripts/install-suite.sh --source-root /mnt/release-assets --start
+./scripts/install-suite.sh --start
 ```
 
-离线模式执行完全相同的 SHA-256 校验，不会因为资产来自本地目录而跳过完整性检查。
+安装器会自动识别包内 `assets/<platform>` 并进入离线模式，执行与联网安装相同的精确 SHA-256 校验。任何资产缺失或不匹配都会直接失败；安装器不会回退到 GitHub、CDN 或其他公网来源。完整流程见[离线安装](offline-install.md)。
 
 ## 数据与排障
 
 - `bin/`：经过校验的五个可执行文件和套件管理器。
-- `config/`：版本、持久端口、Fleet 写入令牌和自启动引导等本机配置。
+- `config/`：安装状态、套件清单、版本、持久端口、Fleet 写入令牌和自启动引导等本机配置。
 - `data/`：SQLite、资产基线、漂移、时序和发布报告。
 - `logs/`：每个后台进程的标准输出和错误日志。
 - `run/`：仅保存当前由管理器启动的进程 PID。
+- `backups/`：升级和回滚前保存的版本化二进制与安装元数据。
+- `protocols/`：离线保存的生命周期协议与 Schema 归档。
 
 启动是事务式的：任一模块未就绪，管理器会关闭本次已经拉起的其他模块并清理 PID 文件。PID 文件会与实际二进制路径交叉验证，过期 PID 不会误杀无关进程。先运行 `doctor` 排除安装与端口问题，再运行 `status` 和 `logs` 查看运行状态与最近日志。端口冲突时，停止占用程序或覆盖相应的端口环境变量后执行 `restart`。

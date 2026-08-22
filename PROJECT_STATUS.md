@@ -110,21 +110,23 @@ Available now:
 - Transactional binary replacement with in-process failure restoration and prior-service restart.
 - Unified `suitectl` init/start/stop/restart/status/open/logs/doctor/enable/disable entry point.
 - Persistent ports, local Fleet token/identity, Windows Startup, Linux user systemd, macOS LaunchAgent, safe PID verification, and cross-module verification scripts.
+- Development manifest `ai-devops.suite-manifest/v1` with exact per-platform component digests and generated dependency-free Bash indexes.
+- Platform-specific full offline bundle builder/verifier covering Windows amd64, Linux amd64/arm64, and macOS amd64/arm64.
+- Versioned install/backup/uninstall metadata, integrity-checked persistent rollback points, controller-driven upgrade/rollback, data-preserving uninstall, and exact-path-confirmed purge.
 
 v1.0 gaps:
 
-- No full self-contained offline bundle with all platform artifacts, protocol, manifest, SBOM, and install metadata.
-- No user-invoked versioned rollback or uninstall/preserve-data/purge lifecycle.
-- No complete v0.3-to-v1 state migration acceptance or interrupted-upgrade recovery journal.
+- Full offline bundles are development artifacts until component v1 releases exist; SBOM generation and final public provenance remain pending.
+- Linux v0.3-to-v1 and final v1 upgrade acceptance remain pending; Windows has passed the current v0.3.3-to-0.4.0-dev preservation checkpoint.
+- Interrupted process/power-loss upgrade recovery still needs a durable journal beyond the tested commit-failure restoration.
 - Public READMEs/support matrices, scale evidence, provenance, and release gates require v1 completion.
 
 ## Active work
 
-1. Finish M0 governance documents and public GitHub milestone/issues.
-2. Implement the suite manifest, offline bundle, upgrade/rollback/uninstall lifecycle, and migration tests.
-3. Advance product work in dependency order: protocol, DevCycle/InfraScout, FleetScope, ReleaseGuard, then complete suite integration.
-4. Run Kimi K3 and browser review at every major UI checkpoint.
-5. Complete security, reliability, scale, RC, GA, and post-release public smoke gates.
+1. Finish remaining M1 interrupted-upgrade and Linux v0.3 migration acceptance.
+2. Advance product work in dependency order: protocol, DevCycle/InfraScout, FleetScope, ReleaseGuard, then complete suite integration.
+3. Run Kimi K3 and browser review at every major UI checkpoint.
+4. Complete security, reliability, scale, RC, GA, and post-release public smoke gates.
 
 ## Current limitations
 
@@ -132,10 +134,9 @@ v1.0 gaps:
 - No real macOS runtime acceptance is recorded; macOS is build-tested only.
 - Linux arm64 is build-tested only.
 - The suite is local/small-team software, not enterprise IAM, RBAC, multi-tenancy, or an automated production remediation platform.
-- Signing/SBOM/provenance and a truly network-isolated full offline bundle are not yet part of the current stable release.
+- Signing/SBOM/provenance and full offline bundles are not yet part of the current stable release; the new Linux amd64 development bundle has passed a real network-namespace install.
 - v1.0 work is in progress; the stable installation remains Open Suite v0.3.3 with product components v0.3.2.
 
 ## Stop conditions
 
 Normal bugs, test failures, design revisions, and CI failures are repaired within the program. Work stops only for the documented hard-stop classes: irreversible deletion of real user data, migrationless breakage of v0.3 data, lowered security defaults, unknown paid cost, unresolved legal risk, suspected supply-chain compromise, or access to unrelated production systems.
-

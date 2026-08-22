@@ -6,6 +6,8 @@ on:
 
 permissions:
   contents: write
+  id-token: write
+  attestations: write
 
 jobs:
   package:
@@ -13,31 +15,52 @@ jobs:
     steps:
       - uses: actions/checkout@v7
       - name: Validate package inputs
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
+          if gh release view "$GITHUB_REF_NAME" >/dev/null 2>&1; then
+            echo "Release $GITHUB_REF_NAME already exists; published releases are immutable." >&2
+            exit 1
+          fi
           python3 scripts/check-docs.py
           bash -n scripts/install-suite.sh scripts/suitectl.sh
           python3 -m json.tool examples/release-report.demo.json >/dev/null
+          python3 scripts/validate-suite-manifest.py
+          version=$(python3 -c 'import json; print(json.load(open("suite-manifest.json"))["suiteVersion"])')
+          test "v$version" = "$GITHUB_REF_NAME" || { echo "Tag $GITHUB_REF_NAME does not match suite manifest v$version" >&2; exit 1; }
       - name: Build launcher archives
         run: |
           package=dist/ai-devops-open-suite
           mkdir -p "$package/scripts" "$package/examples" "$package/docs"
           cp scripts/install-suite.ps1 scripts/install-suite.sh scripts/suitectl.ps1 scripts/suitectl.sh "$package/scripts/"
           cp examples/release-report.demo.json "$package/examples/"
-          cp docs/quickstart.md "$package/docs/"
-          cp README.md LICENSE SECURITY.md "$package/"
+          cp docs/quickstart.md docs/offline-install.md "$package/docs/"
+          cp -r manifests "$package/"
+          cp README.md LICENSE SECURITY.md COMPATIBILITY.md SUPPORT_MATRIX.md RELEASE_POLICY.md suite-manifest.json "$package/"
           chmod +x "$package/scripts/"*.sh
           tag="${GITHUB_REF_NAME}"
           (cd dist && zip -qr "ai-devops-open-suite-${tag}.zip" ai-devops-open-suite)
           tar -C dist -czf "dist/ai-devops-open-suite-${tag}.tar.gz" ai-devops-open-suite
+      - name: Build full offline bundles
+        run: |
+          for platform in windows-amd64 linux-amd64 linux-arm64 darwin-amd64 darwin-arm64; do
+            python3 scripts/build-offline-bundle.py --platform "$platform" --output dist --cache dist/.asset-cache
+          done
+          python3 scripts/verify-offline-bundle.py dist/ai-devops-open-suite-full-offline-*
           (cd dist && sha256sum *.zip *.tar.gz >checksums.txt)
+      - name: Attest release archives
+        uses: actions/attest-build-provenance@v4
+        with:
+          subject-path: |
+            dist/*.zip
+            dist/*.tar.gz
       - name: Publish GitHub release
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           tag="${GITHUB_REF_NAME}"
-          assets=("dist/ai-devops-open-suite-${tag}.zip" "dist/ai-devops-open-suite-${tag}.tar.gz" dist/checksums.txt)
-          if gh release view "$tag" >/dev/null 2>&1; then
-            gh release upload "$tag" "${assets[@]}" --clobber
-          else
-            gh release create "$tag" "${assets[@]}" --generate-notes --title "AI DevOps Open Suite ${tag}"
-          fi
+          mapfile -t archives < <(find dist -maxdepth 1 -type f \( -name '*.zip' -o -name '*.tar.gz' \) -print | sort)
+          assets=("${archives[@]}" dist/checksums.txt suite-manifest.json)
+          options=(--generate-notes --title "AI DevOps Open Suite ${tag}")
+          [[ "$tag" == *-* ]] && options+=(--prerelease)
+          gh release create "$tag" "${assets[@]}" "${options[@]}"

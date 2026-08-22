@@ -132,6 +132,7 @@ Linux、macOS、WSL 或 Git Bash：
 - [平台支持矩阵](SUPPORT_MATRIX.md)
 - [发布政策](RELEASE_POLICY.md)
 - [安装与快速开始](docs/quickstart.md)
+- [v0.4.0-dev 安装生命周期验收](docs/checkpoint-v0.4.0-dev.md)
 - [0.3.3 套件发布审计](docs/release-0.3.3.md)
 - [0.3.2 发布审计](docs/release-0.3.2.md)
 - [架构与立项草案](docs/plan-v0.1.md)

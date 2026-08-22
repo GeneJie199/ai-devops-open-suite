@@ -4,6 +4,9 @@
 
 - Start the governed v1.0 program with an audited six-repository capability matrix, executable master plan, public roadmap, platform support matrix, compatibility policy, and immutable release policy.
 - Define additive lifecycle protocol evolution and a backup-first, idempotent migration requirement for every persisted v0.3 state format.
+- Add a single suite manifest with exact per-platform digests, generated Bash indexes, platform-specific full offline bundle build/verification, and immutable Release workflow behavior.
+- Add controller-driven upgrade and integrity-checked rollback, data-preserving uninstall, exact-path-confirmed purge, and machine-readable install/backup/uninstall state on Windows, Linux, and macOS script paths.
+- Pass Windows and isolated Linux install lifecycle acceptance, Linux network-namespace offline installation, failed-commit restoration, tampered-backup rejection, and a public v0.3.3 Windows upgrade/rollback preservation test.
 
 ## 0.3.3 - 2026-08-13
 
