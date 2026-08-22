@@ -1,7 +1,7 @@
 # v0.4.0-dev Installation Lifecycle Checkpoint
 
 Date: 2026-08-22
-Scope: M1 development checkpoint, not a public release
+Scope: M1-M2 development checkpoint, not a public release
 
 ## Implemented
 
@@ -69,3 +69,39 @@ All five platform archives passed the offline verifier. These local development 
 M1 is complete. Its repeatable acceptance entry points are `accept-offline-windows.ps1`, `accept-offline-linux.sh`, `accept-online-windows.ps1`, `accept-online-linux.sh`, `accept-upgrade-from-v033-linux.sh`, and the network-namespace harness.
 
 The archives in this document remain development evidence, not public v1 releases. They must be rebuilt from v1 component releases and receive component SBOMs before RC. macOS and Linux arm64 remain build-tested only until native runtime evidence exists.
+
+## M2 DevCycle delivery checkpoint
+
+Repository: `GeneJie199/ai-dev-cycle-manager`
+
+- Commit: `11f03ad5c532c4fc0dd9a3d4efcd8dc33d934498` (`feat: deliver complete AI development lifecycle`).
+- GitHub CI: <https://github.com/GeneJie199/ai-dev-cycle-manager/actions/runs/32582766983>.
+- Windows, macOS, and Linux tests, vet, build, and CLI smoke: pass.
+- Linux formatting, race detector, Staticcheck, and reachable Govulncheck: pass.
+- Local Govulncheck initially identified five Go 1.26.5 standard-library vulnerabilities. The minimum toolchain was raised to Go 1.26.6 and the repeated scan returned `No vulnerabilities found`.
+
+### Product surface
+
+- Natural-language requirement capture and a five-stage intent, acceptance, execution, verification, and release workflow.
+- Durable editable `devcycle.planning-document/v1` documents with scope, assumptions, blocking questions/defaults, criteria, test cases, strategy, ordered tasks/dependencies/adapters/deliverables, risks, rollback concerns, candidate notes, provenance, optimistic revisions, and atomic application.
+- Provider-neutral AI planning through local Kimi/Codex/Claude CLIs or configurable OpenAI-compatible, Anthropic, Gemini, local OpenAI/Ollama, and custom OpenAI APIs.
+- API request preview, prompt and error redaction, OS-keyring or environment-backed credentials, HTTPS enforcement for credentialed remote providers, redirect refusal, response bounds, and connection tests.
+- Codex, Claude Code, Gemini CLI, Kimi Code, and OpenCode execution adapters plus constrained custom executable/argv adapters with no Shell or adapter environment injection.
+- Durable cross-Agent task handoffs, acceptance, work completed/remaining, risks, validation, and changed-file context.
+- Canonical code, commit, test, screenshot, command, HTTP-response, artifact, and human-confirmation Evidence with legacy alias normalization.
+- Humanized Git classification, five impact surfaces including security, risk reasons, suggested validation, structured files, and a verified real raw patch view.
+- Complete AI/Agent/repository settings, global activity center, offline Lucide assets, and revised end-user/configuration/operations/protocol documentation.
+
+### UX acceptance
+
+- Kimi K3 performed two independent read-only product reviews. The final review found no P0 blockers and classified the product as mature rather than an internal-tool skeleton.
+- Desktop 1440x1000 and mobile 390x844 browser acceptance used a separate SQLite database and loopback port 18766.
+- All five workflow stages, activity, code, and all three settings tabs loaded with no console errors or page-level horizontal overflow.
+- Mobile requirement list/detail navigation, return path, horizontally contained stage navigation, and AI request-preview dialog passed.
+- The Git view loaded 35 real changed files, produced complete risk/verification guidance, and exposed a 240,291-character raw patch containing `diff --git` markers.
+- Development report and release candidate rendered five cells into five grid tracks with no phantom column.
+- The local product page remains isolated from host 136 and SongYueGe.
+
+### M2 result
+
+M2 is complete and pushed. DevCycle is a release-candidate product surface, not a compatibility shell: AI is optional, manual operation remains complete, outbound model behavior is reviewable, Agent processes are real and durable, and release readiness remains evidence-derived. Public tagging is deferred until all suite modules and cross-product acceptance are complete.
