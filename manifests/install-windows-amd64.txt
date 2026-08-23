@@ -1,7 +1,7 @@
-suite|ai-devops.suite-manifest/v1|1.0.0-rc.2|windows-amd64
-component|lifecycle-validate|lifecycle-spec|v1.0.0-rc.2|1.0.0-rc.2|lifecycle-validate-windows-amd64.exe|lifecycle-validate.exe|ad64c229b2e955e7d58e9e3370662b666d0975a5220f5f40ff847388e65dfcc9
-component|devcycle|ai-dev-cycle-manager|v1.0.0-rc.2|1.0.0-rc.2|devcycle-windows-amd64.exe|devcycle.exe|711982f65f7bbf96633d13cfa9f967792954f72abd4800fa857225e4bbc63e25
-component|infrascout|infrastructure-discovery|v1.0.0-rc.2|1.0.0-rc.2|infrascout-windows-amd64.exe|infrascout.exe|da7ece3968e87da8b6516d2aad59c1e6196cd8419ce7ab8aef0cc5c7cd39a2ab
-component|fleetctl|fleet-observability|v1.0.0-rc.2|1.0.0-rc.2|fleetctl-windows-amd64.exe|fleetctl.exe|25ae830fef5abe21f8283a2e3053268b4c97079917d6ba064e2e95ee89c6ff9c
-component|releaseguard|release-validation|v1.0.0-rc.2|1.0.0-rc.2|releaseguard-windows-amd64.exe|releaseguard.exe|30bf194a52e70f0984b7dad396e2e46d4fb0ea394ac5c365ad16a567734ee033
-protocol|lifecycle-spec|v1.0.0-rc.2|1.0.0-rc.2|lifecycle-spec-v1.0.0-rc.2.tar.gz|339e912af3ab6662abca90833047c47bdbbc4109d11a8342fadf3d80bdb51aa6
+suite|ai-devops.suite-manifest/v1|1.0.0|windows-amd64
+component|lifecycle-validate|lifecycle-spec|v1.0.0|1.0.0|lifecycle-validate-windows-amd64.exe|lifecycle-validate.exe|0610f16d1f3d37163a810576b8c164f787777b3afba4afd062a19f40482dedf8
+component|devcycle|ai-dev-cycle-manager|v1.0.0|1.0.0|devcycle-windows-amd64.exe|devcycle.exe|85109505fa1d703fd7b887108ab0bcd4a494a12ba5558095a60b0c9c4b365db5
+component|infrascout|infrastructure-discovery|v1.0.0|1.0.0|infrascout-windows-amd64.exe|infrascout.exe|84f4ebc901d9a31aa6565b5a6f74265a4026d5cb1db4c14119f6a7b9973574dd
+component|fleetctl|fleet-observability|v1.0.0|1.0.0|fleetctl-windows-amd64.exe|fleetctl.exe|d2f2da8a32744d053c11c782c109f63d4b6771a71c2b56e4025f1c1ef5215921
+component|releaseguard|release-validation|v1.0.0|1.0.0|releaseguard-windows-amd64.exe|releaseguard.exe|2fdccc6f0d1a3f6bbd49ba6574b4b27e512c3fdcd49fb9ef2d195035cfe42ce9
+protocol|lifecycle-spec|v1.0.0|1.0.0|lifecycle-spec-v1.0.0.tar.gz|e13aceb476a072ac24ae1b4cc9472a289004876d472ecc48f0deeb1f1f8a6551
