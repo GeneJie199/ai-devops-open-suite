@@ -3,8 +3,8 @@ set -euo pipefail
 
 stage=${1:-}
 port=${2:-}
-[[ -d "$stage" && "$stage" == /tmp/ai-devops-m7-install.* ]] || {
-  printf 'Usage: accept-standalone-installers-linux.sh /tmp/ai-devops-m7-install.ID PORT\n' >&2
+[[ -d "$stage" && ( "$stage" == /tmp/ai-devops-m7-install.* || "$stage" == /tmp/ai-devops-v1-standalone.* ) ]] || {
+  printf 'Usage: accept-standalone-installers-linux.sh /tmp/ai-devops-v1-standalone.ID PORT\n' >&2
   exit 2
 }
 [[ "$port" =~ ^[0-9]+$ && "$port" -ge 1024 && "$port" -le 65535 ]] || {
@@ -16,7 +16,7 @@ port=${2:-}
 fleet_pid=
 cleanup() {
   if [[ -n "$fleet_pid" ]]; then kill "$fleet_pid" >/dev/null 2>&1 || true; wait "$fleet_pid" >/dev/null 2>&1 || true; fi
-  case "$stage" in /tmp/ai-devops-m7-install.*) rm -rf -- "$stage" ;; esac
+  case "$stage" in /tmp/ai-devops-m7-install.*|/tmp/ai-devops-v1-standalone.*) rm -rf -- "$stage" ;; esac
 }
 trap cleanup EXIT
 
@@ -93,4 +93,23 @@ confirm="$fleet_config:$fleet_center:$fleet_agent"
 env "${fleet_env[@]}" FLEETSCOPE_CONFIRM_PURGE="$confirm" sh "$stage/fleetscope/scripts/install.sh" uninstall --purge-data
 [[ ! -e "$fleet_config" && ! -e "$fleet_center" && ! -e "$fleet_agent" && -f "$shared_infra/ownership.marker" ]]
 
-printf '{"schema":"ai-devops.standalone-install-acceptance/v1","platform":"linux-amd64","checksum":true,"doctor":true,"start":true,"uninstall_preserved_data":true,"purge_guard":true,"module_ownership":true,"cleanup":true}\n'
+release_prefix="$stage/accept/release/local"
+release_state="$stage/accept/release/state/releaseguard"
+PREFIX="$release_prefix" RELEASEGUARD_STATE_DIR="$release_state" \
+  sh "$stage/releaseguard/scripts/install.sh" install "$stage/releaseguard/releaseguard" "$stage/releaseguard/checksums.txt"
+PREFIX="$release_prefix" RELEASEGUARD_STATE_DIR="$release_state" \
+  sh "$stage/releaseguard/scripts/install.sh" doctor
+printf preserve >"$release_state/preserve.marker"
+PREFIX="$release_prefix" RELEASEGUARD_STATE_DIR="$release_state" \
+  sh "$stage/releaseguard/scripts/install.sh" uninstall
+[[ ! -e "$release_prefix/bin/releaseguard" && -f "$release_state/preserve.marker" ]]
+if PREFIX="$release_prefix" RELEASEGUARD_STATE_DIR="$release_state" \
+  sh "$stage/releaseguard/scripts/install.sh" purge >/dev/null 2>&1; then
+  printf 'ReleaseGuard purge succeeded without confirmation.\n' >&2
+  exit 1
+fi
+PREFIX="$release_prefix" RELEASEGUARD_STATE_DIR="$release_state" RELEASEGUARD_CONFIRM_PURGE="$release_state" \
+  sh "$stage/releaseguard/scripts/install.sh" purge
+[[ ! -e "$release_state" ]]
+
+printf '{"schema":"ai-devops.standalone-install-acceptance/v1","platform":"linux-amd64","tag":"v1.0.0-rc.2","modules":4,"checksum":true,"doctor":true,"start":true,"uninstall_preserved_data":true,"purge_guard":true,"module_ownership":true,"cleanup":true}\n'
