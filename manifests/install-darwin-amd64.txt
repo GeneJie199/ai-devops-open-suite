@@ -1,7 +1,7 @@
-suite|ai-devops.suite-manifest/v1|1.0.0-rc.1|darwin-amd64
-component|lifecycle-validate|lifecycle-spec|v1.0.0-rc.1|1.0.0-rc.1|lifecycle-validate-darwin-amd64|lifecycle-validate|0fbf5ab40ef889532f29ef7f81fa8f504daccf0fa1d9500251112731ed96932e
-component|devcycle|ai-dev-cycle-manager|v1.0.0-rc.1|1.0.0-rc.1|devcycle-darwin-amd64|devcycle|290c8d71a22e2032a3485003ae0c6999e0bf7eed6849576c0cfb1ef794b85814
-component|infrascout|infrastructure-discovery|v1.0.0-rc.1|1.0.0-rc.1|infrascout-darwin-amd64|infrascout|25ba06501527d23f424f4be2e0dcbba92dd39b89eaff6b85d735f3428ac67cc3
-component|fleetctl|fleet-observability|v1.0.0-rc.1|1.0.0-rc.1|fleetctl-darwin-amd64|fleetctl|64e83593a68bfcb8bbce8e4a28d44c2dd4092f03527ed17e96edeae7b8f3645b
-component|releaseguard|release-validation|v1.0.0-rc.1|1.0.0-rc.1|releaseguard-darwin-amd64|releaseguard|d2a44b740cd22e70cd0aba43dc99399d77ef3cabfe8d146c168c4e9e1bbffaf8
-protocol|lifecycle-spec|v1.0.0-rc.1|1.0.0-rc.1|lifecycle-spec-v1.0.0-rc.1.tar.gz|6f9bc84fac2588a7a93a8209069146a35eea02a076ea81712d907c3f77a7577a
+suite|ai-devops.suite-manifest/v1|1.0.0-rc.2|darwin-amd64
+component|lifecycle-validate|lifecycle-spec|v1.0.0-rc.2|1.0.0-rc.2|lifecycle-validate-darwin-amd64|lifecycle-validate|0faae648c34ecb74cffdf18c563496ddfbd83ab2a8381bc166c9c73c3e5fde8b
+component|devcycle|ai-dev-cycle-manager|v1.0.0-rc.2|1.0.0-rc.2|devcycle-darwin-amd64|devcycle|2d6eb489f23bf412a388c123790865300732d2bd8f7dec5a38ba4036899ec2a8
+component|infrascout|infrastructure-discovery|v1.0.0-rc.2|1.0.0-rc.2|infrascout-darwin-amd64|infrascout|aa0a34de2f3815c1bbf08c99816c9f6dcfbd4d532c067126e025eb9cbf676e51
+component|fleetctl|fleet-observability|v1.0.0-rc.2|1.0.0-rc.2|fleetctl-darwin-amd64|fleetctl|5fb1620fce1da971194b2a0a3f6ac7f22d3af7f08a96db21041e41703c74ff51
+component|releaseguard|release-validation|v1.0.0-rc.2|1.0.0-rc.2|releaseguard-darwin-amd64|releaseguard|6f725b1006e8b14640c383b5786acb7b4cc9c17da600e38d379b9a761fcc448a
+protocol|lifecycle-spec|v1.0.0-rc.2|1.0.0-rc.2|lifecycle-spec-v1.0.0-rc.2.tar.gz|339e912af3ab6662abca90833047c47bdbbc4109d11a8342fadf3d80bdb51aa6

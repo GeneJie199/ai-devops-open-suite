@@ -1,7 +1,7 @@
-suite|ai-devops.suite-manifest/v1|1.0.0-rc.1|linux-arm64
-component|lifecycle-validate|lifecycle-spec|v1.0.0-rc.1|1.0.0-rc.1|lifecycle-validate-linux-arm64|lifecycle-validate|1f710ccd4be3a898903335146664e36f834978197bdb9dc40608ad35a9391b4b
-component|devcycle|ai-dev-cycle-manager|v1.0.0-rc.1|1.0.0-rc.1|devcycle-linux-arm64|devcycle|6ab355f991591ebd1684dd68130ce688bf650ac4e08c104d18b4f332f268a056
-component|infrascout|infrastructure-discovery|v1.0.0-rc.1|1.0.0-rc.1|infrascout-linux-arm64|infrascout|1edb2502223187d759581a1c0cba5694beb724fbc8f2afe79336ff057a198dcb
-component|fleetctl|fleet-observability|v1.0.0-rc.1|1.0.0-rc.1|fleetctl-linux-arm64|fleetctl|b25abff6cfe881f666ca76d59ca0da4a25a9981c4922fc78ec07e7bf0a9b4af9
-component|releaseguard|release-validation|v1.0.0-rc.1|1.0.0-rc.1|releaseguard-linux-arm64|releaseguard|de5411b047d0bcb63b1105fcc116df8b20f2a2601f1e53e06ca7e5a0344cd91a
-protocol|lifecycle-spec|v1.0.0-rc.1|1.0.0-rc.1|lifecycle-spec-v1.0.0-rc.1.tar.gz|6f9bc84fac2588a7a93a8209069146a35eea02a076ea81712d907c3f77a7577a
+suite|ai-devops.suite-manifest/v1|1.0.0-rc.2|linux-arm64
+component|lifecycle-validate|lifecycle-spec|v1.0.0-rc.2|1.0.0-rc.2|lifecycle-validate-linux-arm64|lifecycle-validate|3d4c051297a059519635a2241b67226d8565af906f8d51f995c04050e0043ec9
+component|devcycle|ai-dev-cycle-manager|v1.0.0-rc.2|1.0.0-rc.2|devcycle-linux-arm64|devcycle|dff04fa96919988a149ef5661bf36f246d91f4521f728585a4d5f4b36c2a1dfb
+component|infrascout|infrastructure-discovery|v1.0.0-rc.2|1.0.0-rc.2|infrascout-linux-arm64|infrascout|67dadf704a51a23331925c042cfdb0a21ec77ea864d8b560e24817f580890704
+component|fleetctl|fleet-observability|v1.0.0-rc.2|1.0.0-rc.2|fleetctl-linux-arm64|fleetctl|c380c91f2a0a9c81a19b327535bb7d6bb5b85c38fa9676ac97dfa96a705b7b82
+component|releaseguard|release-validation|v1.0.0-rc.2|1.0.0-rc.2|releaseguard-linux-arm64|releaseguard|7eb0be83e161b68aac3ead623ac389c6ed57ea47dd6c29130e7b9165041c3f1f
+protocol|lifecycle-spec|v1.0.0-rc.2|1.0.0-rc.2|lifecycle-spec-v1.0.0-rc.2.tar.gz|339e912af3ab6662abca90833047c47bdbbc4109d11a8342fadf3d80bdb51aa6

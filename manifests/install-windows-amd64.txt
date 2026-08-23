@@ -1,7 +1,7 @@
-suite|ai-devops.suite-manifest/v1|1.0.0-rc.1|windows-amd64
-component|lifecycle-validate|lifecycle-spec|v1.0.0-rc.1|1.0.0-rc.1|lifecycle-validate-windows-amd64.exe|lifecycle-validate.exe|993daf753ae49da343e014b77fed7b139676ded8cb5fe00dc8d7a271d97865ab
-component|devcycle|ai-dev-cycle-manager|v1.0.0-rc.1|1.0.0-rc.1|devcycle-windows-amd64.exe|devcycle.exe|1b3748586ebaf34b6efada9f0ead890f52b74c1f96032e61f2ffa10c49185a3c
-component|infrascout|infrastructure-discovery|v1.0.0-rc.1|1.0.0-rc.1|infrascout-windows-amd64.exe|infrascout.exe|1c6e3d873962475d68ca876746324db30f418bbf96e52d567dcc3ab140263de0
-component|fleetctl|fleet-observability|v1.0.0-rc.1|1.0.0-rc.1|fleetctl-windows-amd64.exe|fleetctl.exe|d1b2ddbf5d2744107909ff7e32b95149c8ef050b948d1f20f852d5c016f88b3d
-component|releaseguard|release-validation|v1.0.0-rc.1|1.0.0-rc.1|releaseguard-windows-amd64.exe|releaseguard.exe|c8542fdb5b6e782884adf7a2c7855db6f5c1489abd33110c54f706cb5d469ff7
-protocol|lifecycle-spec|v1.0.0-rc.1|1.0.0-rc.1|lifecycle-spec-v1.0.0-rc.1.tar.gz|6f9bc84fac2588a7a93a8209069146a35eea02a076ea81712d907c3f77a7577a
+suite|ai-devops.suite-manifest/v1|1.0.0-rc.2|windows-amd64
+component|lifecycle-validate|lifecycle-spec|v1.0.0-rc.2|1.0.0-rc.2|lifecycle-validate-windows-amd64.exe|lifecycle-validate.exe|ad64c229b2e955e7d58e9e3370662b666d0975a5220f5f40ff847388e65dfcc9
+component|devcycle|ai-dev-cycle-manager|v1.0.0-rc.2|1.0.0-rc.2|devcycle-windows-amd64.exe|devcycle.exe|711982f65f7bbf96633d13cfa9f967792954f72abd4800fa857225e4bbc63e25
+component|infrascout|infrastructure-discovery|v1.0.0-rc.2|1.0.0-rc.2|infrascout-windows-amd64.exe|infrascout.exe|da7ece3968e87da8b6516d2aad59c1e6196cd8419ce7ab8aef0cc5c7cd39a2ab
+component|fleetctl|fleet-observability|v1.0.0-rc.2|1.0.0-rc.2|fleetctl-windows-amd64.exe|fleetctl.exe|25ae830fef5abe21f8283a2e3053268b4c97079917d6ba064e2e95ee89c6ff9c
+component|releaseguard|release-validation|v1.0.0-rc.2|1.0.0-rc.2|releaseguard-windows-amd64.exe|releaseguard.exe|30bf194a52e70f0984b7dad396e2e46d4fb0ea394ac5c365ad16a567734ee033
+protocol|lifecycle-spec|v1.0.0-rc.2|1.0.0-rc.2|lifecycle-spec-v1.0.0-rc.2.tar.gz|339e912af3ab6662abca90833047c47bdbbc4109d11a8342fadf3d80bdb51aa6
