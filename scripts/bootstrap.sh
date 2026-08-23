@@ -23,7 +23,24 @@ fi
 tar -xzf "$stage/$archive" -C "$stage"
 installer="$stage/ai-devops-open-suite/scripts/install-suite.sh"
 [ -f "$installer" ] || { echo "verified archive does not contain the suite installer" >&2; exit 1; }
+prefix=${AI_DEVOPS_HOME:-$HOME/.local/share/ai-devops-suite}
+requested_start=false
 if [ "$#" -eq 0 ]; then
   set -- --start
+  requested_start=true
 fi
+arguments=("$@")
+for ((index=0; index<${#arguments[@]}; index++)); do
+  case "${arguments[$index]}" in
+    --start) requested_start=true ;;
+    --prefix)
+      index=$((index + 1))
+      [ "$index" -lt "${#arguments[@]}" ] || { echo "--prefix requires a value" >&2; exit 2; }
+      prefix=${arguments[$index]}
+      ;;
+  esac
+done
 bash "$installer" "$@"
+if [ "$requested_start" = true ]; then
+  "$prefix/bin/suitectl" doctor
+fi

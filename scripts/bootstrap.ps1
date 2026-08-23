@@ -25,6 +25,9 @@ try {
     $installer = Join-Path $stage 'ai-devops-open-suite\scripts\install-suite.ps1'
     if (-not (Test-Path -LiteralPath $installer -PathType Leaf)) { throw 'Verified archive does not contain the suite installer.' }
     & $installer -Prefix $Prefix -Start:(-not $NoStart) -EnableAutostart:$EnableAutostart
+    if (-not $NoStart) {
+        & (Join-Path $Prefix 'bin\suitectl.ps1') doctor -SuiteHome $Prefix
+    }
 } finally {
     $resolved = [IO.Path]::GetFullPath($stage)
     $tempRoot = [IO.Path]::GetFullPath([IO.Path]::GetTempPath())
