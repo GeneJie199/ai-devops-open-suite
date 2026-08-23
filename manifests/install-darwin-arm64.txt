@@ -1,7 +1,7 @@
-suite|ai-devops.suite-manifest/v1|0.4.0-dev|darwin-arm64
-component|lifecycle-validate|lifecycle-spec|v0.1.1|0.1.1|lifecycle-validate-darwin-arm64|lifecycle-validate|9fd53b6024f546b0fa3d3737c2db87b9884ef88defd9af59142eac375d3b87fd
-component|devcycle|ai-dev-cycle-manager|v0.3.2|0.3.2|devcycle-darwin-arm64|devcycle|4f78181df18124b9d5b67b644386154f1e59fbeaf5dec855e1e5104e9193fd50
-component|infrascout|infrastructure-discovery|v0.3.2|0.3.2|infrascout-darwin-arm64|infrascout|f85616877cf74bb39822563fee3c5d2da4b811c1ec8a9384071a188d78ab6ade
-component|fleetctl|fleet-observability|v0.3.2|0.3.2|fleetctl-darwin-arm64|fleetctl|5d7581736895fc6f917e770788b152edf4227037ec6661e6c9277e5001572ef0
-component|releaseguard|release-validation|v0.3.2|0.3.2|releaseguard-darwin-arm64|releaseguard|656d673b258d761e66a8974118a44ed3466316c5779c35ab950bf9bd498afcd7
-protocol|lifecycle-spec|v0.1.1|0.1.1|lifecycle-spec-v0.1.1.tar.gz|eb4e401d01f3ecda5eb179a4cd7de8134e0dd185e4fd11460da40b839ad59b4c
+suite|ai-devops.suite-manifest/v1|1.0.0-rc.1|darwin-arm64
+component|lifecycle-validate|lifecycle-spec|v1.0.0-rc.1|1.0.0-rc.1|lifecycle-validate-darwin-arm64|lifecycle-validate|cd5e89a3aaeb1eb61d5beb97314c166712de2dca9b9698435f44868a32610aff
+component|devcycle|ai-dev-cycle-manager|v1.0.0-rc.1|1.0.0-rc.1|devcycle-darwin-arm64|devcycle|559c112cb39e6d133ed7a6d1577598c22da68a34d23c79f24b4e300d03016b26
+component|infrascout|infrastructure-discovery|v1.0.0-rc.1|1.0.0-rc.1|infrascout-darwin-arm64|infrascout|7ad02af03ac355ce5eb47905844336ef50d913c4556dc0e324d6af37096b569e
+component|fleetctl|fleet-observability|v1.0.0-rc.1|1.0.0-rc.1|fleetctl-darwin-arm64|fleetctl|299203e033d5d7262615107172acd47b4b07110c6bc419474d2b1da6218253c4
+component|releaseguard|release-validation|v1.0.0-rc.1|1.0.0-rc.1|releaseguard-darwin-arm64|releaseguard|10909bdf3d2749dbd5fa0b914b35d400ccd2f6c1189f2e6497bc1d7be475d304
+protocol|lifecycle-spec|v1.0.0-rc.1|1.0.0-rc.1|lifecycle-spec-v1.0.0-rc.1.tar.gz|6f9bc84fac2588a7a93a8209069146a35eea02a076ea81712d907c3f77a7577a

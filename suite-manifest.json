@@ -1,86 +1,86 @@
 {
   "schemaVersion": "ai-devops.suite-manifest/v1",
-  "suiteVersion": "0.4.0-dev",
-  "channel": "development",
-  "generatedAt": "2026-08-22T12:00:00Z",
+  "suiteVersion": "1.0.0-rc.1",
+  "channel": "prerelease",
+  "generatedAt": "2026-08-23T00:09:00Z",
   "components": [
     {
       "id": "lifecycle-validate",
       "repository": "lifecycle-spec",
-      "version": "0.1.1",
-      "tag": "v0.1.1",
+      "version": "1.0.0-rc.1",
+      "tag": "v1.0.0-rc.1",
       "target": "lifecycle-validate",
       "assets": {
-        "windows-amd64": { "name": "lifecycle-validate-windows-amd64.exe", "sha256": "0c686a95ab49ec7e523a280f0f14ff3e80115d3c8e404359865c3bd44054d89c" },
-        "linux-amd64": { "name": "lifecycle-validate-linux-amd64", "sha256": "18fc503d5bec20a011766b6397b264a53ad6f502603c097f628ed2d6e5fbff06" },
-        "linux-arm64": { "name": "lifecycle-validate-linux-arm64", "sha256": "096abb5ddaffe0caea978b2a00885a6eaa5de18ff2ae343f5f89620f8d3f77f4" },
-        "darwin-amd64": { "name": "lifecycle-validate-darwin-amd64", "sha256": "357a0d8216b4a344bab3e3cc89b754fb66ccffe73c6d2b5d71966688f12ce00e" },
-        "darwin-arm64": { "name": "lifecycle-validate-darwin-arm64", "sha256": "9fd53b6024f546b0fa3d3737c2db87b9884ef88defd9af59142eac375d3b87fd" }
+        "windows-amd64": { "name": "lifecycle-validate-windows-amd64.exe", "sha256": "993daf753ae49da343e014b77fed7b139676ded8cb5fe00dc8d7a271d97865ab" },
+        "linux-amd64": { "name": "lifecycle-validate-linux-amd64", "sha256": "fc57dff7866e1b65deba46a479857265037254dbc939c92df0f681b064b1a9c5" },
+        "linux-arm64": { "name": "lifecycle-validate-linux-arm64", "sha256": "1f710ccd4be3a898903335146664e36f834978197bdb9dc40608ad35a9391b4b" },
+        "darwin-amd64": { "name": "lifecycle-validate-darwin-amd64", "sha256": "0fbf5ab40ef889532f29ef7f81fa8f504daccf0fa1d9500251112731ed96932e" },
+        "darwin-arm64": { "name": "lifecycle-validate-darwin-arm64", "sha256": "cd5e89a3aaeb1eb61d5beb97314c166712de2dca9b9698435f44868a32610aff" }
       }
     },
     {
       "id": "devcycle",
       "repository": "ai-dev-cycle-manager",
-      "version": "0.3.2",
-      "tag": "v0.3.2",
+      "version": "1.0.0-rc.1",
+      "tag": "v1.0.0-rc.1",
       "target": "devcycle",
       "assets": {
-        "windows-amd64": { "name": "devcycle-windows-amd64.exe", "sha256": "e19f954540828d85cca7c8ca81630e46be5a4736a506b090d6d84ad021e530a5" },
-        "linux-amd64": { "name": "devcycle-linux-amd64", "sha256": "ab3a7d22b59f80281ffb14755c8444d1ae1d04ca37e4d7684513f630c371f476" },
-        "linux-arm64": { "name": "devcycle-linux-arm64", "sha256": "4500739d7e9b5f8ff204a7c2a1ceeed89ea9a9738fa46dc62323fa5426c6a820" },
-        "darwin-amd64": { "name": "devcycle-darwin-amd64", "sha256": "1728520315d3d9def4ba7610f0adc74bb6b0ea9c8256f9b8f6db77d7a3aa9817" },
-        "darwin-arm64": { "name": "devcycle-darwin-arm64", "sha256": "4f78181df18124b9d5b67b644386154f1e59fbeaf5dec855e1e5104e9193fd50" }
+        "windows-amd64": { "name": "devcycle-windows-amd64.exe", "sha256": "1b3748586ebaf34b6efada9f0ead890f52b74c1f96032e61f2ffa10c49185a3c" },
+        "linux-amd64": { "name": "devcycle-linux-amd64", "sha256": "a0788eb46c146aa711cae8ed7efb56099c8de8a7a5636b6cf81389809bd8ec14" },
+        "linux-arm64": { "name": "devcycle-linux-arm64", "sha256": "6ab355f991591ebd1684dd68130ce688bf650ac4e08c104d18b4f332f268a056" },
+        "darwin-amd64": { "name": "devcycle-darwin-amd64", "sha256": "290c8d71a22e2032a3485003ae0c6999e0bf7eed6849576c0cfb1ef794b85814" },
+        "darwin-arm64": { "name": "devcycle-darwin-arm64", "sha256": "559c112cb39e6d133ed7a6d1577598c22da68a34d23c79f24b4e300d03016b26" }
       }
     },
     {
       "id": "infrascout",
       "repository": "infrastructure-discovery",
-      "version": "0.3.2",
-      "tag": "v0.3.2",
+      "version": "1.0.0-rc.1",
+      "tag": "v1.0.0-rc.1",
       "target": "infrascout",
       "assets": {
-        "windows-amd64": { "name": "infrascout-windows-amd64.exe", "sha256": "8cf2324f0d38ba1155cb0f3b45d5effde5c8e3f006a741299bbdc8d1c4433de9" },
-        "linux-amd64": { "name": "infrascout-linux-amd64", "sha256": "ff420da087a576c77ddde292122355925d2342755e3531da3a9abcec6b535bcc" },
-        "linux-arm64": { "name": "infrascout-linux-arm64", "sha256": "76172a0fb04d6c327cd3743dea43edd7a99cee21d392c9abb640cc60bf2937df" },
-        "darwin-amd64": { "name": "infrascout-darwin-amd64", "sha256": "4e9d5e93940a20acf9ed192a40ee8a70a113c94b5f5ba64cf5842583e5171a6c" },
-        "darwin-arm64": { "name": "infrascout-darwin-arm64", "sha256": "f85616877cf74bb39822563fee3c5d2da4b811c1ec8a9384071a188d78ab6ade" }
+        "windows-amd64": { "name": "infrascout-windows-amd64.exe", "sha256": "1c6e3d873962475d68ca876746324db30f418bbf96e52d567dcc3ab140263de0" },
+        "linux-amd64": { "name": "infrascout-linux-amd64", "sha256": "02a5ea932d4b5fe8e32425f57d833936549fbe8f08d55fa812641850ac2ceaf4" },
+        "linux-arm64": { "name": "infrascout-linux-arm64", "sha256": "1edb2502223187d759581a1c0cba5694beb724fbc8f2afe79336ff057a198dcb" },
+        "darwin-amd64": { "name": "infrascout-darwin-amd64", "sha256": "25ba06501527d23f424f4be2e0dcbba92dd39b89eaff6b85d735f3428ac67cc3" },
+        "darwin-arm64": { "name": "infrascout-darwin-arm64", "sha256": "7ad02af03ac355ce5eb47905844336ef50d913c4556dc0e324d6af37096b569e" }
       }
     },
     {
       "id": "fleetctl",
       "repository": "fleet-observability",
-      "version": "0.3.2",
-      "tag": "v0.3.2",
+      "version": "1.0.0-rc.1",
+      "tag": "v1.0.0-rc.1",
       "target": "fleetctl",
       "assets": {
-        "windows-amd64": { "name": "fleetctl-windows-amd64.exe", "sha256": "74ba8c10b9d731b272c5aba01ae01f3243e235e06d0cd1884506db88f89367d8" },
-        "linux-amd64": { "name": "fleetctl-linux-amd64", "sha256": "25131d98f96b2e9d284f40ea96fce5042bde3fa02547f59ed19581a265634781" },
-        "linux-arm64": { "name": "fleetctl-linux-arm64", "sha256": "055bf3e850fc38a24265ca6ceb90a5f54f64b40e6e69d15060186d645039ad52" },
-        "darwin-amd64": { "name": "fleetctl-darwin-amd64", "sha256": "2129257c495b27535e31cea13288d15ce854eed4f81dcba9917a130da4dc239a" },
-        "darwin-arm64": { "name": "fleetctl-darwin-arm64", "sha256": "5d7581736895fc6f917e770788b152edf4227037ec6661e6c9277e5001572ef0" }
+        "windows-amd64": { "name": "fleetctl-windows-amd64.exe", "sha256": "d1b2ddbf5d2744107909ff7e32b95149c8ef050b948d1f20f852d5c016f88b3d" },
+        "linux-amd64": { "name": "fleetctl-linux-amd64", "sha256": "6cd0008968f5c3ab931c6d11790f1355c971a322ea50c98d7133e53b24f97c07" },
+        "linux-arm64": { "name": "fleetctl-linux-arm64", "sha256": "b25abff6cfe881f666ca76d59ca0da4a25a9981c4922fc78ec07e7bf0a9b4af9" },
+        "darwin-amd64": { "name": "fleetctl-darwin-amd64", "sha256": "64e83593a68bfcb8bbce8e4a28d44c2dd4092f03527ed17e96edeae7b8f3645b" },
+        "darwin-arm64": { "name": "fleetctl-darwin-arm64", "sha256": "299203e033d5d7262615107172acd47b4b07110c6bc419474d2b1da6218253c4" }
       }
     },
     {
       "id": "releaseguard",
       "repository": "release-validation",
-      "version": "0.3.2",
-      "tag": "v0.3.2",
+      "version": "1.0.0-rc.1",
+      "tag": "v1.0.0-rc.1",
       "target": "releaseguard",
       "assets": {
-        "windows-amd64": { "name": "releaseguard-windows-amd64.exe", "sha256": "16157ea730440d4f478c5bfd59dc50265349ba5d863ee6bab7776756a67c186f" },
-        "linux-amd64": { "name": "releaseguard-linux-amd64", "sha256": "ac49f9841174f86986f6e87ebfe01fa9e3d88cca200766a7dbd5f8bd5b651693" },
-        "linux-arm64": { "name": "releaseguard-linux-arm64", "sha256": "f5f60986a8a5de537865c9004deff2982adc1b1e966ab568b1291ed7169accfa" },
-        "darwin-amd64": { "name": "releaseguard-darwin-amd64", "sha256": "e5f0772f3f87d8a061064e41c614a24325c5326022cb499d560e5d9558517da8" },
-        "darwin-arm64": { "name": "releaseguard-darwin-arm64", "sha256": "656d673b258d761e66a8974118a44ed3466316c5779c35ab950bf9bd498afcd7" }
+        "windows-amd64": { "name": "releaseguard-windows-amd64.exe", "sha256": "c8542fdb5b6e782884adf7a2c7855db6f5c1489abd33110c54f706cb5d469ff7" },
+        "linux-amd64": { "name": "releaseguard-linux-amd64", "sha256": "1fd9875a9977abea39758f41f3d4a817aa732f6174635708533a097ab95bddff" },
+        "linux-arm64": { "name": "releaseguard-linux-arm64", "sha256": "de5411b047d0bcb63b1105fcc116df8b20f2a2601f1e53e06ca7e5a0344cd91a" },
+        "darwin-amd64": { "name": "releaseguard-darwin-amd64", "sha256": "d2a44b740cd22e70cd0aba43dc99399d77ef3cabfe8d146c168c4e9e1bbffaf8" },
+        "darwin-arm64": { "name": "releaseguard-darwin-arm64", "sha256": "10909bdf3d2749dbd5fa0b914b35d400ccd2f6c1189f2e6497bc1d7be475d304" }
       }
     }
   ],
   "protocol": {
     "repository": "lifecycle-spec",
-    "version": "0.1.1",
-    "tag": "v0.1.1",
-    "asset": "lifecycle-spec-v0.1.1.tar.gz",
-    "sha256": "eb4e401d01f3ecda5eb179a4cd7de8134e0dd185e4fd11460da40b839ad59b4c"
+    "version": "1.0.0-rc.1",
+    "tag": "v1.0.0-rc.1",
+    "asset": "lifecycle-spec-v1.0.0-rc.1.tar.gz",
+    "sha256": "6f9bc84fac2588a7a93a8209069146a35eea02a076ea81712d907c3f77a7577a"
   },
   "platforms": {
     "windows-amd64": { "os": "windows", "arch": "amd64", "verificationLevel": "verified" },

@@ -1,7 +1,7 @@
-suite|ai-devops.suite-manifest/v1|0.4.0-dev|windows-amd64
-component|lifecycle-validate|lifecycle-spec|v0.1.1|0.1.1|lifecycle-validate-windows-amd64.exe|lifecycle-validate.exe|0c686a95ab49ec7e523a280f0f14ff3e80115d3c8e404359865c3bd44054d89c
-component|devcycle|ai-dev-cycle-manager|v0.3.2|0.3.2|devcycle-windows-amd64.exe|devcycle.exe|e19f954540828d85cca7c8ca81630e46be5a4736a506b090d6d84ad021e530a5
-component|infrascout|infrastructure-discovery|v0.3.2|0.3.2|infrascout-windows-amd64.exe|infrascout.exe|8cf2324f0d38ba1155cb0f3b45d5effde5c8e3f006a741299bbdc8d1c4433de9
-component|fleetctl|fleet-observability|v0.3.2|0.3.2|fleetctl-windows-amd64.exe|fleetctl.exe|74ba8c10b9d731b272c5aba01ae01f3243e235e06d0cd1884506db88f89367d8
-component|releaseguard|release-validation|v0.3.2|0.3.2|releaseguard-windows-amd64.exe|releaseguard.exe|16157ea730440d4f478c5bfd59dc50265349ba5d863ee6bab7776756a67c186f
-protocol|lifecycle-spec|v0.1.1|0.1.1|lifecycle-spec-v0.1.1.tar.gz|eb4e401d01f3ecda5eb179a4cd7de8134e0dd185e4fd11460da40b839ad59b4c
+suite|ai-devops.suite-manifest/v1|1.0.0-rc.1|windows-amd64
+component|lifecycle-validate|lifecycle-spec|v1.0.0-rc.1|1.0.0-rc.1|lifecycle-validate-windows-amd64.exe|lifecycle-validate.exe|993daf753ae49da343e014b77fed7b139676ded8cb5fe00dc8d7a271d97865ab
+component|devcycle|ai-dev-cycle-manager|v1.0.0-rc.1|1.0.0-rc.1|devcycle-windows-amd64.exe|devcycle.exe|1b3748586ebaf34b6efada9f0ead890f52b74c1f96032e61f2ffa10c49185a3c
+component|infrascout|infrastructure-discovery|v1.0.0-rc.1|1.0.0-rc.1|infrascout-windows-amd64.exe|infrascout.exe|1c6e3d873962475d68ca876746324db30f418bbf96e52d567dcc3ab140263de0
+component|fleetctl|fleet-observability|v1.0.0-rc.1|1.0.0-rc.1|fleetctl-windows-amd64.exe|fleetctl.exe|d1b2ddbf5d2744107909ff7e32b95149c8ef050b948d1f20f852d5c016f88b3d
+component|releaseguard|release-validation|v1.0.0-rc.1|1.0.0-rc.1|releaseguard-windows-amd64.exe|releaseguard.exe|c8542fdb5b6e782884adf7a2c7855db6f5c1489abd33110c54f706cb5d469ff7
+protocol|lifecycle-spec|v1.0.0-rc.1|1.0.0-rc.1|lifecycle-spec-v1.0.0-rc.1.tar.gz|6f9bc84fac2588a7a93a8209069146a35eea02a076ea81712d907c3f77a7577a
