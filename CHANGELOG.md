@@ -21,6 +21,8 @@
 - Add the reproducible `fleetctl bench` workload and publish real Windows/Linux 100-node results; compact telemetry memory from roughly 1.598 GiB to roughly 271 MiB and make bounded telemetry/event memory retain the newest window.
 - Add checksum-verifying standalone DevCycle, InfraScout, and FleetScope installers with safe doctor/uninstall/purge actions and complete platform release archives.
 - Add stable one-command online bootstrap scripts and full external-user README structures across all six repositories.
+- Publish immutable RC1 and RC2 audit releases, repair the RC1 bootstrap health gate and standalone archive checksum contract under RC2, and pass public Windows/Linux online, offline, standalone, recovery, v0.3.3 upgrade/rollback, uninstall, and purge acceptance.
+- Verify all RC2 component and suite checksums after public download and verify GitHub provenance for all 70 attested release subjects.
 
 ## 0.3.3 - 2026-08-13
 

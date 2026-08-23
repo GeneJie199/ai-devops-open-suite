@@ -2,18 +2,18 @@
 
 Updated: 2026-08-23
 Program: v1.0 GA  
-State: M1-M7 complete; M8 active
+State: M1-M7 complete; M8 RC2 gate passed, GA publication active
 
 ## Current releases
 
 | Repository | Release | Main commit | CI / release state |
 |---|---:|---|---|
-| lifecycle-spec | v0.1.1 / v1 candidate | `7b93aa2019e22d6c574516dfb86cfc020b32ec43` | CI `32605773468` green |
-| DevCycle | v0.3.2 / v1 candidate | `207d2016ba008c18318f7aa4831d35330a09d388` | CI `32605773644` green |
-| InfraScout | v0.3.2 / v1 candidate | `eedcbf32f3c981f78ed7e0b497e350c454e5bcf2` | CI `32605912865` green |
-| FleetScope | v0.3.2 / v1 candidate | `1912a3d2f0fe1f737ab688a08189c8852045cb72` | CI `32605773947` green |
-| ReleaseGuard | v0.3.2 / v1 candidate | `6e7ebb6f9cd27f31a3d786a0602d033a73a01d12` | CI `32605773223` green |
-| Open Suite | v0.3.3 / M7 working tree | `05c216fe8d9e073ee7ddb7d334efaebc8bce36ae` | M7 documentation gate pending commit |
+| lifecycle-spec | v0.1.1 stable / v1.0.0-rc.2 | `37f13ac2ea4bc7ea5a5316d130ece6537c5dbff5` | RC2 release `32608884772` green |
+| DevCycle | v0.3.2 stable / v1.0.0-rc.2 | `2ed6e54328966ca16c1aa6585b3131fb87fdaa83` | RC2 release `32608887394` green |
+| InfraScout | v0.3.2 stable / v1.0.0-rc.2 | `b881a03c40fa4f11e9d9ef64f3cf6f5e229cfba6` | RC2 release `32608890134` green |
+| FleetScope | v0.3.2 stable / v1.0.0-rc.2 | `f1ebb93172355132c4171a49ed9603771819222e` | RC2 release `32608892328` green |
+| ReleaseGuard | v0.3.2 stable / v1.0.0-rc.2 | `8e0d7e8c9feea59e389500713a1c3a0e2bfe17b0` | RC2 release `32608895276` green |
+| Open Suite | v0.3.3 stable / v1.0.0-rc.2 | `969890b0d100c4dd0eb2e9d07ff4716b3dec8e08` | RC2 release `32609612650` green; latest main CI active |
 
 All repositories were clean, on `main`, tracking `origin/main`, and had no ahead/behind divergence at the v1 baseline. The earlier failed Open Suite `v0.3.2` tag remains visible for audit; `v0.3.3` is the corrected immutable release.
 
@@ -38,6 +38,9 @@ All repositories were clean, on `main`, tracking `origin/main`, and had no ahead
 - FleetScope's measured 100-node workload sustained 3,456,000 samples and 43,200 events with roughly 271 MiB loaded heap on both tested hosts; the documented recommendation deliberately stops at 100 nodes per Center.
 - Component and suite release workflows now produce checksums, CycloneDX SBOMs, and GitHub provenance; public artifact validation remains an M8 requirement.
 - All six external-user READMEs, support/security/scale documentation, and the one-command Windows/Linux bootstrap path passed local syntax, link, manifest, checksum, and isolated install acceptance.
+- M8 RC2 published 71 assets across six immutable prereleases. All 70 attested subjects passed GitHub provenance verification, and every component and suite checksum passed after redownload.
+- RC2 public assets passed online bootstrap, complete offline lifecycle, standalone install lifecycle, and public v0.3.3 upgrade/rollback acceptance on Windows amd64 and isolated Linux amd64.
+- RC1 exposed two packaging/acceptance blockers. Both were fixed under RC2 without replacing the audit releases: bootstrap now runs `doctor`, and standalone archives now carry a checksum matching their generic executable name.
 
 ## Capability matrix
 
@@ -145,10 +148,10 @@ v1.0 gaps:
 
 ## Active work
 
-1. Build a unique immutable v1.0 RC from the exact M7-reviewed component commits.
-2. Validate RC online/offline clean install, v0.3.3 upgrade, rollback, restart, doctor, uninstall, and public digests on Windows and isolated Linux.
-3. Resolve any release blocker under a new RC tag, then publish component/spec v1.0.0 releases followed by the suite v1.0.0 release.
-4. Redownload GA assets and repeat public Windows/Linux runtime, UI, Agent, manifest, and offline smoke tests.
+1. Publish component/spec v1.0.0 releases from the exact RC2-reviewed commits and verify their public assets.
+2. Assemble the stable suite manifest from the GA asset digests, then publish Open Suite v1.0.0.
+3. Redownload GA assets and repeat public Windows/Linux runtime, UI, Agent, manifest, online, offline, upgrade, rollback, uninstall, and purge smoke tests.
+4. Close M8 only after every public release and post-release gate is recorded in the final control handoff.
 
 ## Current limitations
 
@@ -156,8 +159,8 @@ v1.0 gaps:
 - Linux arm64 is build-tested only.
 - Scale above 100 nodes per FleetScope Center and high availability are not validated v1.0 claims.
 - The suite is local/small-team software, not enterprise IAM, RBAC, multi-tenancy, or an automated production remediation platform.
-- SBOM/provenance and the new full offline bundles are implemented in release workflows but are not part of the current stable v0.3.3 release; they require M8 public-asset verification.
-- v1.0 work is in progress; the stable installation remains Open Suite v0.3.3 with product components v0.3.2.
+- SBOM, provenance, and full offline bundles passed RC2 public-asset verification but are not promoted as stable until the final v1.0.0 releases pass post-release smoke tests.
+- v1.0 GA publication is in progress; until it completes, the latest non-prerelease installation remains Open Suite v0.3.3 with product components v0.3.2.
 
 ## Stop conditions
 

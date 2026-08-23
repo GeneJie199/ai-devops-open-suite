@@ -149,11 +149,11 @@ Exit evidence: security and benchmark reports, generated SBOM/provenance, verifi
 
 ### M8 - RC, GA, and public-asset acceptance
 
-- [ ] Build a unique v1.0 RC with full online and offline artifacts.
-- [ ] Test clean install, v0.3.3 upgrade, rollback, restart, doctor, and uninstall on isolated Windows and Linux.
-- [ ] Verify supported architecture bundles without claiming unexecuted native validation.
-- [ ] Resolve every release blocker and rerun the complete gate.
-- [ ] Merge exact reviewed commits to all six `main` branches and wait for green CI.
+- [x] Build a unique v1.0 RC with full online and offline artifacts.
+- [x] Test clean install, v0.3.3 upgrade, rollback, restart, doctor, and uninstall on isolated Windows and Linux.
+- [x] Verify supported architecture bundles without claiming unexecuted native validation.
+- [x] Resolve every release blocker and rerun the complete gate.
+- [x] Merge exact reviewed commits to all six `main` branches and wait for green CI.
 - [ ] Publish immutable component/spec `v1.0.0` releases, then the suite `v1.0.0` release.
 - [ ] Redownload public assets and repeat Windows and Linux install/start/doctor/UI/Agent/offline-manifest smoke tests.
 - [ ] If a public blocker is found, fix it under a new patch tag; never replace an immutable release silently.
@@ -212,3 +212,4 @@ Windows arm64 is not a v1.0 artifact target unless all component binaries and an
 | 2026-08-23 | M5 ReleaseGuard delivery checkpoint | commit `64a3294`; version-bound expected changes; cross-product correlation; immutable report/digest approval; recovery and responsive browser acceptance | pass |
 | 2026-08-23 | M6 unified UX checkpoint | Open Suite commit `05c216f`; shared design system; four-product onboarding/responsive/accessibility acceptance; Kimi K3 review with all P1 findings resolved | pass |
 | 2026-08-23 | M7 hardening checkpoint | component commits `7b93aa2`, `207d201`, `eedcbf3`, `1912a3d`, `6e7ebb6`; final CI green; race/security/fuzz/resilience/installer/bootstrap/100-node scale evidence | pass |
+| 2026-08-23 | M8 release-candidate checkpoint | immutable RC2 releases; 70 provenance subjects; all public checksums; Windows/Linux online, offline, standalone, v0.3.3 upgrade/rollback, recovery, uninstall, and purge acceptance | pass |
