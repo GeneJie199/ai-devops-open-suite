@@ -31,7 +31,7 @@ jobs:
         shell: pwsh
         run: |
           $ErrorActionPreference = 'Stop'
-          foreach ($path in 'scripts/bootstrap.ps1','scripts/install-suite.ps1','scripts/suitectl.ps1','scripts/verify-suite.ps1','scripts/accept-offline-windows.ps1','scripts/accept-online-windows.ps1','scripts/accept-upgrade-from-v033-windows.ps1','scripts/accept-bootstrap-windows.ps1') {
+          foreach ($path in 'scripts/bootstrap.ps1','scripts/install-suite.ps1','scripts/suitectl.ps1','scripts/verify-suite.ps1','scripts/accept-offline-windows.ps1','scripts/accept-online-windows.ps1','scripts/accept-upgrade-from-v033-windows.ps1','scripts/accept-bootstrap-windows.ps1','scripts/accept-public-bootstrap-windows.ps1') {
             $errors = $null
             [void][System.Management.Automation.Language.Parser]::ParseFile((Resolve-Path $path), [ref]$null, [ref]$errors)
             if ($errors) { throw ($errors.Message -join "`n") }
