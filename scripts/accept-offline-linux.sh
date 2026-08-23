@@ -21,6 +21,7 @@ tar -xzf "$archive" -C "$work/extract"
 bundle="$work/extract/ai-devops-open-suite"
 installer="$bundle/scripts/install-suite.sh"
 [[ -x "$installer" && -f "$bundle/install-assets.txt" ]] || { printf 'Offline bundle layout is invalid.\n' >&2; exit 1; }
+target_version=$(python3 -c 'import json,sys; print(json.load(open(sys.argv[1]))["suiteVersion"])' "$bundle/suite-manifest.json")
 
 readarray -t ports < <(python3 - <<'PY'
 import socket
@@ -101,11 +102,11 @@ fi
 grep -q 'Recovering the previous installation after an interrupted upgrade' "$work/recovery.log" || { printf 'Interrupted upgrade recovery was not reported.\n' >&2; exit 1; }
 [[ $(sha256sum "$prefix/bin/devcycle" | awk '{print $1}') == "$interrupted_previous_hash" ]] || { printf 'Interrupted upgrade did not restore the previous binary.\n' >&2; exit 1; }
 [[ -f "$prefix/config/last-install-recovery.json" && ! -e "$prefix/config/install-transaction.txt" && ! -e "$prefix/config/install-transaction.json" ]] || { printf 'Interrupted upgrade recovery metadata is incomplete.\n' >&2; exit 1; }
-python3 - "$prefix/config/last-install-recovery.json" <<'PY'
+python3 - "$prefix/config/last-install-recovery.json" "$target_version" <<'PY'
 import json, sys
 value = json.load(open(sys.argv[1], encoding="utf-8"))
 assert value["schemaVersion"] == "ai-devops.install-recovery/v1"
-assert value["interruptedTargetVersion"] == "0.4.0-dev"
+assert value["interruptedTargetVersion"] == sys.argv[2]
 assert value["wasRunning"] is True
 PY
 recovered_status=$("$controller" status)

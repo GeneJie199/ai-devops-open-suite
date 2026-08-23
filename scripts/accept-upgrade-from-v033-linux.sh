@@ -17,6 +17,7 @@ trap cleanup EXIT
 mkdir -p "$work/new" "$work/old" "$work/legacy-source"
 tar -xzf "$offline_archive" -C "$work/new"
 new_bundle="$work/new/ai-devops-open-suite"
+target_version=$(python3 -c 'import json,sys; print(json.load(open(sys.argv[1]))["suiteVersion"])' "$new_bundle/suite-manifest.json")
 curl --fail --location --retry 3 \
   --output "$work/old-suite.tar.gz" \
   https://github.com/GeneJie199/ai-devops-open-suite/releases/download/v0.3.3/ai-devops-open-suite-v0.3.3.tar.gz
@@ -74,4 +75,4 @@ for product in devcycle infrascout fleetscope releaseguard; do [[ -f "$prefix/da
 "$prefix/bin/suitectl" purge --confirm "$prefix"
 [[ ! -e "$prefix" ]] || { printf 'Acceptance cleanup failed.\n' >&2; exit 1; }
 
-printf '{"platform":"linux-amd64","source":"public-v0.3.3-launcher","target":"0.4.0-dev","data_markers_preserved":4,"fleet_token_preserved":true,"ports_preserved":true,"rollback_version":"0.3.3","backup_integrity_manifest":true,"cleanup":true}\n'
+printf '{"platform":"linux-amd64","source":"public-v0.3.3-launcher","target":"%s","data_markers_preserved":4,"fleet_token_preserved":true,"ports_preserved":true,"rollback_version":"0.3.3","backup_integrity_manifest":true,"cleanup":true}\n' "$target_version"

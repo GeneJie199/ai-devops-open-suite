@@ -47,6 +47,7 @@ try {
   $Installer = Join-Path $Bundle 'scripts\install-suite.ps1'
   $Manifest = Join-Path $Bundle 'suite-manifest.json'
   if (-not (Test-Path -LiteralPath $Installer -PathType Leaf) -or -not (Test-Path -LiteralPath $Manifest -PathType Leaf)) { throw 'Offline bundle layout is invalid.' }
+  $TargetVersion = [string](Get-Content -LiteralPath $Manifest -Raw | ConvertFrom-Json).suiteVersion
 
   $Ports = @(Free-Port; Free-Port; Free-Port; Free-Port)
   $env:AI_DEVOPS_DEVCYCLE_PORT = $Ports[0]
@@ -111,7 +112,7 @@ try {
   $RecoveryPath = Join-Path $Prefix 'config\last-install-recovery.json'
   if (-not (Test-Path -LiteralPath $RecoveryPath -PathType Leaf)) { throw 'Interrupted upgrade recovery metadata is missing.' }
   $Recovery = Get-Content -LiteralPath $RecoveryPath -Raw | ConvertFrom-Json
-  if ($Recovery.schemaVersion -ne 'ai-devops.install-recovery/v1' -or $Recovery.interruptedTargetVersion -ne '0.4.0-dev' -or -not $Recovery.wasRunning) { throw 'Interrupted upgrade recovery metadata is invalid.' }
+  if ($Recovery.schemaVersion -ne 'ai-devops.install-recovery/v1' -or $Recovery.interruptedTargetVersion -ne $TargetVersion -or -not $Recovery.wasRunning) { throw 'Interrupted upgrade recovery metadata is invalid.' }
   if ((Test-Path -LiteralPath (Join-Path $Prefix 'config\install-transaction.txt')) -or (Test-Path -LiteralPath (Join-Path $Prefix 'config\install-transaction.json'))) { throw 'Interrupted upgrade journal was not cleared after recovery.' }
   $Status = & $Controller status -SuiteHome $Prefix | Out-String
   if ($Status -notmatch 'DevCycle\s+ready') { throw 'Interrupted upgrade recovery did not restart the previously running suite.' }
