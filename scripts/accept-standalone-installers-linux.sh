@@ -13,6 +13,12 @@ port=${2:-}
 }
 [[ $(id -u) -eq 0 ]] || { printf 'Run this isolated acceptance as root.\n' >&2; exit 2; }
 
+version=$("$stage/devcycle/devcycle" version)
+[[ $version =~ ^[0-9]+\.[0-9]+\.[0-9]+([.-][0-9A-Za-z.-]+)?$ ]] || { printf 'DevCycle returned an invalid version.\n' >&2; exit 1; }
+for binary in "$stage/infrascout/infrascout" "$stage/fleetscope/fleetctl" "$stage/releaseguard/releaseguard"; do
+  [[ $("$binary" version) == "$version" ]] || { printf 'Standalone product versions do not match.\n' >&2; exit 1; }
+done
+
 fleet_pid=
 cleanup() {
   if [[ -n "$fleet_pid" ]]; then kill "$fleet_pid" >/dev/null 2>&1 || true; wait "$fleet_pid" >/dev/null 2>&1 || true; fi
@@ -112,4 +118,4 @@ PREFIX="$release_prefix" RELEASEGUARD_STATE_DIR="$release_state" RELEASEGUARD_CO
   sh "$stage/releaseguard/scripts/install.sh" purge
 [[ ! -e "$release_state" ]]
 
-printf '{"schema":"ai-devops.standalone-install-acceptance/v1","platform":"linux-amd64","tag":"v1.0.0-rc.2","modules":4,"checksum":true,"doctor":true,"start":true,"uninstall_preserved_data":true,"purge_guard":true,"module_ownership":true,"cleanup":true}\n'
+printf '{"schema":"ai-devops.standalone-install-acceptance/v1","platform":"linux-amd64","tag":"v%s","modules":4,"checksum":true,"doctor":true,"start":true,"uninstall_preserved_data":true,"purge_guard":true,"module_ownership":true,"cleanup":true}\n' "$version"
