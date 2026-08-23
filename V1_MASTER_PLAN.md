@@ -1,9 +1,9 @@
 # AI DevOps Open Suite v1.0 Master Plan
 
-Status: ACTIVE  
+Status: COMPLETE
 Started: 2026-08-22  
 Owner: suite maintainers  
-Target: a trustworthy, publicly installable v1.0 GA, followed by public-asset smoke tests
+Delivered: trustworthy, publicly installable v1.0 GA with public-asset smoke tests
 
 This plan is the execution source of truth for the v1.0 program. It is updated at every checkpoint. A checked item means implementation, review, tests, and recorded evidence have all completed; it does not mean that documentation alone was changed.
 
@@ -154,9 +154,9 @@ Exit evidence: security and benchmark reports, generated SBOM/provenance, verifi
 - [x] Verify supported architecture bundles without claiming unexecuted native validation.
 - [x] Resolve every release blocker and rerun the complete gate.
 - [x] Merge exact reviewed commits to all six `main` branches and wait for green CI.
-- [ ] Publish immutable component/spec `v1.0.0` releases, then the suite `v1.0.0` release.
-- [ ] Redownload public assets and repeat Windows and Linux install/start/doctor/UI/Agent/offline-manifest smoke tests.
-- [ ] If a public blocker is found, fix it under a new patch tag; never replace an immutable release silently.
+- [x] Publish immutable component/spec `v1.0.0` releases, then the suite `v1.0.0` release.
+- [x] Redownload public assets and repeat Windows and Linux install/start/doctor/UI/Agent/offline-manifest smoke tests.
+- [x] If a public blocker is found, fix it under a new patch tag; never replace an immutable release silently. No GA blocker was found.
 
 Exit evidence: public release URLs, asset digests, post-release smoke logs, clean/synced main commits, no known blocker.
 
@@ -213,3 +213,4 @@ Windows arm64 is not a v1.0 artifact target unless all component binaries and an
 | 2026-08-23 | M6 unified UX checkpoint | Open Suite commit `05c216f`; shared design system; four-product onboarding/responsive/accessibility acceptance; Kimi K3 review with all P1 findings resolved | pass |
 | 2026-08-23 | M7 hardening checkpoint | component commits `7b93aa2`, `207d201`, `eedcbf3`, `1912a3d`, `6e7ebb6`; final CI green; race/security/fuzz/resilience/installer/bootstrap/100-node scale evidence | pass |
 | 2026-08-23 | M8 release-candidate checkpoint | immutable RC2 releases; 70 provenance subjects; all public checksums; Windows/Linux online, offline, standalone, v0.3.3 upgrade/rollback, recovery, uninstall, and purge acceptance | pass |
+| 2026-08-23 | M8 GA and post-release checkpoint | six stable releases; 71 assets; 64 checksummed artifacts; 70 provenance subjects; public README, offline, upgrade/rollback, UI/Agent and isolated Linux acceptance | pass |

@@ -12,24 +12,24 @@ Support levels:
 
 | Platform | Artifact | Level | Evidence |
 |---|---|---|---|
-| Windows 11 amd64 | online component assets | Verified | v0.3.3 suite install/start/doctor/Agent/UI/stop |
-| Linux amd64 | online component assets | Verified | isolated v0.3.3 install/runtime acceptance on host 136 |
-| Linux arm64 | component assets | Build tested | GitHub Actions build only |
-| macOS amd64 | component assets | Build tested | GitHub Actions build only |
-| macOS arm64 | component assets | Build tested | GitHub Actions build only |
+| Windows 11 amd64 | online and full offline | Verified | public v1.0.0 bootstrap, offline lifecycle, UI/Agent, v0.3.3 upgrade/rollback, uninstall/purge |
+| Ubuntu 24.04 amd64 | online and full offline | Verified | public v1.0.0 bootstrap, no-network offline lifecycle, UI/Agent, standalone installers, v0.3.3 upgrade/rollback |
+| Linux arm64 | online and full offline | Build tested | cross-build, archive, manifest, checksum, SBOM, and provenance only |
+| macOS amd64 | online and full offline | Build tested | cross-build, archive, manifest, checksum, SBOM, and provenance only |
+| macOS arm64 | online and full offline | Build tested | cross-build, archive, manifest, checksum, SBOM, and provenance only |
 | Windows arm64 | none | Unsupported | current Windows installer rejects arm64 |
 
-The current v0.3 release does not include a complete offline bundle. Its `--source-root` / `-SourceRoot` path is an offline installer mechanism that still requires the user to assemble matching assets.
+The v1.0.0 release includes one complete offline bundle for each advertised artifact platform. Every bundle contains all binaries, protocol files, installers, controllers, documentation, and an internal file manifest.
 
-## v1.0 target
+## v1.0 result
 
-| Platform | Full offline bundle | Planned GA level |
+| Platform | Full offline bundle | GA level |
 |---|---|---|
-| Windows amd64 | required | Verified after public v1 smoke |
-| Linux amd64 | required | Verified after public v1 smoke |
-| Linux arm64 | required artifact | Build tested or Verified, based on native runtime evidence |
-| macOS amd64 | required artifact | Build tested or Verified, based on native runtime evidence |
-| macOS arm64 | required artifact | Build tested or Verified, based on native runtime evidence |
+| Windows amd64 | published and verified | Verified |
+| Linux amd64 | published and verified | Verified |
+| Linux arm64 | published and structurally verified | Build tested |
+| macOS amd64 | published and structurally verified | Build tested |
+| macOS arm64 | published and structurally verified | Build tested |
 
 An artifact may be published without being labeled Verified. README and release notes must preserve that distinction.
 

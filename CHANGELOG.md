@@ -23,6 +23,8 @@
 - Add stable one-command online bootstrap scripts and full external-user README structures across all six repositories.
 - Publish immutable RC1 and RC2 audit releases, repair the RC1 bootstrap health gate and standalone archive checksum contract under RC2, and pass public Windows/Linux online, offline, standalone, recovery, v0.3.3 upgrade/rollback, uninstall, and purge acceptance.
 - Verify all RC2 component and suite checksums after public download and verify GitHub provenance for all 70 attested release subjects.
+- Publish six stable v1.0.0 GitHub releases with 71 assets, 64 checksum-listed artifacts, 70 provenance subjects, SBOMs, stable online aliases, and five complete offline bundles.
+- Pass post-release Windows/Linux public README bootstrap, UI/Agent runtime, no-network offline, v0.3.3 upgrade/rollback, recovery, uninstall/purge, and standalone product acceptance.
 
 ## 0.3.3 - 2026-08-13
 

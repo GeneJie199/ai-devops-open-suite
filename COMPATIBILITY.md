@@ -1,14 +1,14 @@
 # Compatibility Matrix
 
-Updated: 2026-08-22
+Updated: 2026-08-23
 
 ## Current stable suite
 
 | Open Suite | lifecycle-spec | DevCycle | InfraScout | FleetScope | ReleaseGuard |
 |---:|---:|---:|---:|---:|---:|
-| 0.3.3 | 0.1.1 | 0.3.2 | 0.3.2 | 0.3.2 | 0.3.2 |
+| 1.0.0 | 1.0.0 | 1.0.0 | 1.0.0 | 1.0.0 | 1.0.0 |
 
-The suite manifest, rather than a user-maintained table, becomes authoritative in v1.0. Installers must reject an internally inconsistent component set before stopping an existing installation.
+The stable suite manifest is authoritative. Installers reject an inconsistent component set before replacing a working installation.
 
 ## Compatibility guarantees
 
@@ -23,11 +23,11 @@ The suite manifest, rather than a user-maintained table, becomes authoritative i
 
 | From | To | Current state |
 |---|---|---|
-| Open Suite 0.3.3 / components 0.3.2 | next v1 prerelease | required before RC; not yet accepted |
-| latest accepted v1 prerelease | v1.0.0 | required before GA; not yet accepted |
+| Open Suite 0.3.3 / components 0.3.2 | v1.0.0 | verified on public Windows amd64 and Linux amd64 assets; rollback to 0.3.3 verified |
+| v1.0.0-rc.2 | v1.0.0 | release manifests and clean installation verified |
 | v1.0.0 | later v1 patch | must preserve v1 contracts |
 
-The v0.3 stable release remains the recovery source until the v1 upgrade and rollback acceptance report is complete.
+Upgrade creates an integrity-checked backup before binary replacement. Ports, Fleet identity/token, DevCycle state, InfraScout state, Fleet registration, ReleaseGuard reports, and digest-bound approvals survived the accepted v0.3.3 upgrade path.
 
 ## Independent-product operation
 
@@ -39,4 +39,3 @@ Each product remains independently installable and operable. Cross-product integ
 - explicit credentials or local files selected by the user.
 
 Products do not import another product's internal packages or read another product's private database.
-

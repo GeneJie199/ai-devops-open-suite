@@ -4,7 +4,9 @@ Updated: 2026-08-23
 
 The roadmap describes product direction. The detailed executable v1.0 gate is maintained in [V1_MASTER_PLAN.md](V1_MASTER_PLAN.md), and current facts are maintained in [PROJECT_STATUS.md](PROJECT_STATUS.md).
 
-## v1.0 GA - trustworthy local-first delivery
+## v1.0 GA - delivered 2026-08-23
+
+All v1.0 items below shipped in the six stable GitHub releases and passed the recorded M0-M8 gates. Future changes follow the post-1.0 contribution themes and do not expand the GA support claim retroactively.
 
 ### Suite lifecycle
 
