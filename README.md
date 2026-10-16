@@ -182,5 +182,6 @@ The suite gate tests and vets every Go module, builds all binaries, validates pr
 - [design system](docs/design-system.md)
 - [M6 Kimi and responsive acceptance](docs/checkpoint-m6-ui.md)
 - [native observability architecture](docs/native-observability-architecture.md)
+- [maintainer workstation transfer](docs/workstation-transfer.md)
 
 Maintainer: [GeneJie199](https://github.com/GeneJie199). Apache-2.0.
