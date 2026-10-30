@@ -5,6 +5,7 @@ audit findings are fixed; see [review](v2-review.md).
 
 | Priority | Boundary / treatment |
 |---|---|
+| P1 historical release | Immutable public v1 bundles do not receive this branch's Go/x-text security fixes. The stable manifest still identifies those historical binaries. A separate supported security update is needed before recommending them for production |
 | P1 capability boundary | Generic local CLIs are trusted with their OS user's privileges. Worktree/path checks protect integration, not arbitrary OS access. Restrictive enforcement requests are refused; a true enforcing executor is future work |
 | P1 capability boundary | CLI token/cost usage remains unknown when unreported. Strict monetary/token budgets refuse unmetered execution rather than invent usage or overspend |
 | P1 operational boundary | After a crash, inspect/stop any surviving external worker before explicit retry. Ambiguous executions escalate and do not replay automatically |

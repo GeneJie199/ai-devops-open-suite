@@ -3,7 +3,7 @@
 
 ## v2 development and licensing
 
-Stable: v1.x (historical Apache-2.0 releases). Under development: v2 AI Engineering Team; not GA.
+Stable: v1.x (historical Apache-2.0 releases). Under development: v2 AI Engineering Team; not GA. The public stable installer does not contain these Runtime or security updates; see [known release boundaries](docs/v2-known-risks.md).
 
 Community Edition: **AGPL-3.0-only** for this development source. Historical release rights remain valid.
 Commercial / OEM licensing available for closed-source redistribution, white-labeling, embedding and other use cases incompatible with AGPL. See [license policy](LICENSE_POLICY.md), [history](LICENSING_HISTORY.md) and [commercial policy](COMMERCIAL_LICENSE.md).
