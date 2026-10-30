@@ -19,6 +19,9 @@ cache.parent.mkdir(parents=True, exist_ok=True)
 cache.write_bytes(asset.read_bytes())
 manifest.setdefault('sources', []).append(dict(repository='ai-devops-open-suite', tag=tag, revision=revision, asset=name, sha256=digest))
 manifest['suiteRevision'] = revision
+provenance = {'suiteVersion': manifest['suiteVersion'], 'suiteRevision': revision,
+              'sources': manifest['sources'], 'license': 'AGPL-3.0-only'}
+(root / 'dist/release-provenance.json').write_text(json.dumps(provenance, indent=2) + '\n', encoding='utf-8')
 out = root / '.qa/release/suite-manifest.json'
 out.parent.mkdir(parents=True, exist_ok=True)
 out.write_text(json.dumps(manifest, indent=2) + '\n', encoding='utf-8')

@@ -84,7 +84,7 @@ jobs:
           tag="${GITHUB_REF_NAME}"
           mapfile -t archives < <(find dist -maxdepth 1 -type f \( -name '*.zip' -o -name '*.tar.gz' \) -print | sort)
           mapfile -t sboms < <(find dist -maxdepth 1 -type f -name '*.cdx.json' -print | sort)
-          assets=("${archives[@]}" "${sboms[@]}" dist/checksums.txt dist/suite-manifest.json)
+          assets=("${archives[@]}" "${sboms[@]}" dist/checksums.txt dist/suite-manifest.json dist/release-provenance.json)
           options=(--notes-file RELEASE_NOTES.md --title "AI DevOps Open Suite ${tag}")
           [[ "$tag" == *-* ]] && options+=(--prerelease)
           gh release create "$tag" "${assets[@]}" "${options[@]}"

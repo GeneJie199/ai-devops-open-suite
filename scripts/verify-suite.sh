@@ -22,7 +22,7 @@ if [[ ${SKIP_TESTS:-0} == 1 ]]; then
 else
   echo "[1/7] Test every module"
   for module in lifecycle-spec ai-dev-cycle-manager infrastructure-discovery fleet-observability release-validation; do
-    (cd "$ROOT/$module" && go test ./... && go vet ./...)
+    (cd "$ROOT/$module" && go test -timeout 180s ./... && go vet ./...)
   done
 fi
 
@@ -56,19 +56,27 @@ else:
 def call(method, path, data=None):
     body = json.dumps(data).encode() if data is not None else None
     request = urllib.request.Request(base + path, data=body, method=method, headers={"Content-Type":"application/json"})
-    return json.load(urllib.request.urlopen(request))
+    return json.load(urllib.request.urlopen(request, timeout=10))
 requirement = call("POST", "/api/requirements", {"title":"Suite delivery", "description":"Cross-module verification"})
 criterion = call("POST", f"/api/requirements/{requirement['id']}/criteria", {"description":"All suite checks pass with evidence"})
 task = call("POST", "/api/tasks", {"requirementId":requirement["id"],"title":"Verify suite source and runtime"})
 call("POST", f"/api/tasks/{task['id']}/worktree", {"repositoryPath":sys.argv[2],"branch":"suite/e2e","worktreePath":sys.argv[3]})
 call("PATCH", f"/api/tasks/{task['id']}", {"status":"done"})
 verification=call("POST",f"/api/requirements/{requirement['id']}/runs",{"name":"test committed source","command":"git cat-file -e HEAD:README.md","workingDir":sys.argv[3],"criterionId":criterion["id"],"timeoutSeconds":30})
-for _ in range(100):
+deadline=time.monotonic()+45
+run=None
+while time.monotonic()<deadline:
     runs=call("GET",f"/api/requirements/{requirement['id']}/runs")
-    run=next(r for r in runs if r['id']==verification['id'])
-    if run['status']!='running':break
+    matching=[r for r in runs if r['id']==verification['id']]
+    if len(matching)>1:raise RuntimeError(f"Duplicate verification run ID: {verification['id']}")
+    if matching:
+        run=matching[0]
+        if run['status'] in ('passed','failed','timed_out','stopped','interrupted'):break
+        if run['status'] not in ('running','stopping'):
+            raise RuntimeError(f"Unexpected verification state: {run}")
     time.sleep(.1)
-assert run['status']=='passed' and run.get('evidenceId'),run
+if not run or run['status']!='passed' or not run.get('evidenceId') or not run.get('completedAt') or run['completedAt'].startswith('0001-') or run.get('exitCode')!=0:
+    raise RuntimeError(f"Machine source verification did not complete successfully (run {verification['id']}). Last run: {run}; available runs: {runs}")
 call("PATCH",f"/api/criteria/{criterion['id']}",{"satisfied":True})
 candidate = call("GET", f"/api/requirements/{requirement['id']}/release-candidate")
 assert candidate["readiness"]["ready"] and len(candidate["sources"]) == 1 and candidate["sources"][0]["clean"]

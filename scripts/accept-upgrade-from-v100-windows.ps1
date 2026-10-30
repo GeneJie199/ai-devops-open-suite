@@ -86,7 +86,7 @@ try {
   git -C $TeamRepo init -q
   git -C $TeamRepo -c user.name=Acceptance -c user.email=acceptance@example.invalid commit --allow-empty -qm baseline
   $MissionPayload = @{ repository=$TeamRepo; goal='Document local persistence'; checks=@('git status --porcelain'); models=@(@{ id='persistence'; provider='local'; adapter='codex'; capabilities=@('coding','exploration','testing','review'); contextLimit=100000; tier=2; available=$true; tools=$true }); policy=@{ trustedLocalCLI=$true; sourceExport=$false; allowedProviders=@('local') } }
-  $Mission = Invoke-RestMethod -Method Post -Uri "http://127.0.0.1:$($Ports[0])/api/team/missions" -ContentType application/json -Body ($MissionPayload | ConvertTo-Json -Depth 15)
+  $Mission = Invoke-RestMethod -Method Post -Uri "http://127.0.0.1:$($Ports[0])/api/team/missions" -ContentType 'application/json; charset=utf-8' -Body ([Text.Encoding]::UTF8.GetBytes(($MissionPayload | ConvertTo-Json -Depth 15)))
   if (-not $Mission.id) { throw 'Team sidecar Mission was not created.' }
   & $Controller stop -SuiteHome $Prefix | Out-Host
   $Sidecar = Join-Path $Prefix 'data\devcycle\devcycle.db.team.db'
