@@ -75,6 +75,10 @@ def verify_archive(path: pathlib.Path) -> None:
     content = files.get(protocol_name)
     if content is None or hashlib.sha256(content).hexdigest() != protocol["sha256"]:
         raise ManifestError(f"{path.name}: protocol asset mismatch")
+    for source in manifest.get("sources", []):
+        content = files.get("sources/" + source["asset"])
+        if content is None or hashlib.sha256(content).hexdigest() != source["sha256"]:
+            raise ManifestError(f"{path.name}: source archive mismatch")
     if not platform.startswith("windows-"):
         for script in ("scripts/install-suite.sh", "scripts/suitectl.sh"):
             if not executable.get(script, False):

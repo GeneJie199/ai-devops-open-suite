@@ -94,6 +94,14 @@ def build(manifest: dict, platform: str, output: pathlib.Path, cache: pathlib.Pa
         protocol = manifest["protocol"]
         cached_protocol = obtain(cache, protocol["repository"], protocol["tag"], protocol["asset"], protocol["sha256"])
         shutil.copy2(cached_protocol, protocol_dir / protocol["asset"])
+        for source in manifest.get("sources", []):
+            # Development sources are locally built and verified; never fetch an
+            # unapproved source archive while assembling an offline aggregate.
+            cached_source = cache / source["repository"] / source["tag"] / source["asset"]
+            verify_file(cached_source, source["sha256"])
+            destination = stage / "sources" / source["asset"]
+            destination.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(cached_source, destination)
         if not platform.startswith("windows-"):
             for name in ("install-suite.sh", "suitectl.sh"):
                 (stage / "scripts" / name).chmod(0o755)

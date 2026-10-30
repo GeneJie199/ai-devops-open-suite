@@ -38,6 +38,22 @@ def main():
         for relative in sorted(set(paths)):
             if relative and (repo/relative).is_file():tar.add(repo/relative,arcname='lifecycle-spec/'+relative,recursive=False)
     protocol['sha256']=hashlib.sha256(archive.read_bytes()).hexdigest()
+    manifest['sources']=[]
+    source_repos=[ROOT]+[ROOT.parent/item['repository'] for item in manifest['components']]
+    for repo in source_repos:
+        slug='ai-devops-open-suite' if repo==ROOT else repo.name
+        revision=subprocess.check_output(['git','rev-parse','HEAD'],cwd=repo,text=True).strip()
+        source=WORK/'cache'/slug/('v'+VERSION)/(slug+'-'+revision[:12]+'-source.tar.gz');source.parent.mkdir(parents=True,exist_ok=True)
+        paths=subprocess.check_output(['git','ls-files','-z'],cwd=repo).decode('utf-8').split('\0')
+        vendor=WORK/'vendor'/slug
+        if (repo/'go.mod').exists():
+            print('SOURCE',slug,'including vendored build dependencies',flush=True)
+            run(['go','mod','vendor','-o',str(vendor)],repo,{**os.environ,'GOTOOLCHAIN':'go1.27.3'})
+        with tarfile.open(source,'w:gz') as tar:
+            for relative in sorted(set(paths)):
+                if relative and (repo/relative).is_file():tar.add(repo/relative,arcname=slug+'/'+relative,recursive=False)
+            if vendor.is_dir():tar.add(vendor,arcname=slug+'/vendor')
+        manifest['sources'].append({'repository':slug,'tag':'v'+VERSION,'revision':revision,'asset':source.name,'sha256':hashlib.sha256(source.read_bytes()).hexdigest()})
     for platform in manifest['platforms'].values():platform['verificationLevel']='build-tested'
     manifest['platforms']['windows-amd64']['verificationLevel']='build-tested'
     path=WORK/'suite-manifest.json';path.write_text(json.dumps(manifest,indent=2)+'\n',encoding='utf-8')
