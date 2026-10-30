@@ -5,7 +5,7 @@ Uses the existing bundle builder and installer; never modifies the stable manife
 creates tags, publishes releases or substitutes unbuilt digest placeholders.
 """
 from pathlib import Path
-import datetime,hashlib,importlib.util,json,os,subprocess,tarfile
+import datetime,hashlib,importlib.util,io,json,os,subprocess,tarfile
 
 ROOT=Path(__file__).resolve().parents[1]
 WORK=ROOT/'.qa/v2-build'
@@ -44,14 +44,17 @@ def main():
         slug='ai-devops-open-suite' if repo==ROOT else repo.name
         revision=subprocess.check_output(['git','rev-parse','HEAD'],cwd=repo,text=True).strip()
         source=WORK/'cache'/slug/('v'+VERSION)/(slug+'-'+revision[:12]+'-source.tar.gz');source.parent.mkdir(parents=True,exist_ok=True)
-        paths=subprocess.check_output(['git','ls-files','-z'],cwd=repo).decode('utf-8').split('\0')
+        committed_source=subprocess.check_output(['git','archive','--format=tar',revision],cwd=repo)
         vendor=WORK/'vendor'/slug
         if (repo/'go.mod').exists():
             print('SOURCE',slug,'including vendored build dependencies',flush=True)
             run(['go','mod','vendor','-o',str(vendor)],repo,{**os.environ,'GOTOOLCHAIN':'go1.27.3'})
         with tarfile.open(source,'w:gz') as tar:
-            for relative in sorted(set(paths)):
-                if relative and (repo/relative).is_file():tar.add(repo/relative,arcname=slug+'/'+relative,recursive=False)
+            with tarfile.open(fileobj=io.BytesIO(committed_source),mode='r:') as committed:
+                for member in committed.getmembers():
+                    content=committed.extractfile(member) if member.isfile() else None
+                    member.name=slug+'/'+member.name
+                    tar.addfile(member,content)
             if vendor.is_dir():tar.add(vendor,arcname=slug+'/vendor')
         manifest['sources'].append({'repository':slug,'tag':'v'+VERSION,'revision':revision,'asset':source.name,'sha256':hashlib.sha256(source.read_bytes()).hexdigest()})
     for platform in manifest['platforms'].values():platform['verificationLevel']='build-tested'
