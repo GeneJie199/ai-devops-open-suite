@@ -1,3 +1,7 @@
+# v2 development roadmap
+
+The current program is [v2 AI Engineering Team](V2_MASTER_PLAN.md). [C0 acceptance](V2_ACCEPTANCE.md) and [architecture](V2_ARCHITECTURE.md) distinguish delivered foundations from future enterprise/distributed capabilities. Stable v1 history follows.
+
 # AI DevOps Open Suite Roadmap
 
 Updated: 2026-08-23

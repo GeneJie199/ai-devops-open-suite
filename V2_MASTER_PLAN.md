@@ -1,6 +1,6 @@
 # v2 AI Engineering Team master plan
 
-Date: 2026-10-30. Status: implementation in progress; not GA.
+Date: 2026-10-30. Status: C0 implemented and verified; development, not GA.
 
 ## Baseline and scope
 
@@ -37,7 +37,7 @@ remains blocked for a separately authenticated human-controlled production workf
 
 - [x] Restore and inspect actual six-repository layout and current remote CI.
 - [x] Record capability map, reuse decisions and v2 gaps.
-- [ ] Runtime, routing, memory, orchestration and shared views.
-- [ ] Licensing, offline metadata and extension boundaries.
-- [ ] Tests, review, fixes, verification and real mission.
-- [ ] Delivery with exact results and remaining risks.
+- [x] Runtime, routing, memory, orchestration and shared views.
+- [x] Licensing, offline metadata and extension boundaries.
+- [x] Tests, review, fixes, verification and real mission.
+- [x] Delivery with exact results and remaining risks.

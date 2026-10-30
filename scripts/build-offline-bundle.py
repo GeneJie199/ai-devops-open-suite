@@ -83,7 +83,7 @@ def build(manifest: dict, platform: str, output: pathlib.Path, cache: pathlib.Pa
             shutil.copy2(source, destination)
         for component in manifest["components"]:
             asset = component["assets"][platform]
-            cached = obtain(cache, component["repository"], component["tag"], asset["name"], asset["sha256"])
+            cached = obtain(cache, component["repository"], component["tag"], asset["name"], asset["sha256"], allow_network=manifest["channel"] != "development")
             shutil.copy2(cached, asset_dir / asset["name"])
         shutil.copytree(ROOT / "LICENSES", stage / "LICENSES")
         for name in ("NOTICE", "LICENSE_METADATA.json", "third-party-inventory.json", "third-party.cdx.json", "THIRD_PARTY_NOTICES.md", "LICENSING_HISTORY.md", "LICENSE_POLICY.md", "COMMERCIAL_LICENSE.md", "COMMERCIALIZATION.md", "TRADEMARK_POLICY.md", "CONTRIBUTOR_POLICY.md"):
@@ -92,7 +92,7 @@ def build(manifest: dict, platform: str, output: pathlib.Path, cache: pathlib.Pa
         licenses = {item["id"]: {"version": item["version"], "license": "Apache-2.0" if item["version"].startswith("1.") else "AGPL-3.0-only" if item["version"].startswith("2.") else "NOASSERTION"} for item in manifest["components"]}
         (stage / "component-licenses.json").write_text(json.dumps(licenses, indent=2) + "\n", encoding="utf-8")
         protocol = manifest["protocol"]
-        cached_protocol = obtain(cache, protocol["repository"], protocol["tag"], protocol["asset"], protocol["sha256"])
+        cached_protocol = obtain(cache, protocol["repository"], protocol["tag"], protocol["asset"], protocol["sha256"], allow_network=manifest["channel"] != "development")
         shutil.copy2(cached_protocol, protocol_dir / protocol["asset"])
         for source in manifest.get("sources", []):
             # Development sources are locally built and verified; never fetch an
@@ -115,14 +115,18 @@ def build(manifest: dict, platform: str, output: pathlib.Path, cache: pathlib.Pa
     return archive
 
 
-def obtain(cache: pathlib.Path, repository: str, tag: str, name: str, digest: str) -> pathlib.Path:
+def obtain(cache: pathlib.Path, repository: str, tag: str, name: str, digest: str, *, allow_network: bool = True) -> pathlib.Path:
     path = cache / repository / tag / name
     if path.is_file():
         try:
             verify_file(path, digest)
             return path
         except ManifestError:
+            if not allow_network:
+                raise
             path.unlink()
+    if not allow_network:
+        raise ManifestError(f"development asset must be explicitly rebuilt in local cache: {name}")
     path.parent.mkdir(parents=True, exist_ok=True)
     temporary = path.with_suffix(path.suffix + ".part")
     url = f"https://github.com/GeneJie199/{repository}/releases/download/{tag}/{name}"
