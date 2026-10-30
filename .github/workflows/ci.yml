@@ -21,6 +21,8 @@ jobs:
         run: go run github.com/zricethezav/gitleaks/v8@v8.30.1 git . --redact --no-banner --log-opts="--all"
       - name: License compliance evidence
         run: python3 scripts/license-guard.py
+      - name: License guard negative paths
+        run: python3 scripts/test-license-compliance.py
       - name: Validate local documentation links and images
         run: python3 scripts/check-docs.py
       - name: Validate suite manifest and generated indexes
