@@ -95,10 +95,9 @@ def build(manifest: dict, platform: str, output: pathlib.Path, cache: pathlib.Pa
         cached_protocol = obtain(cache, protocol["repository"], protocol["tag"], protocol["asset"], protocol["sha256"], allow_network=manifest["channel"] != "development")
         shutil.copy2(cached_protocol, protocol_dir / protocol["asset"])
         for source in manifest.get("sources", []):
-            # Development sources are locally built and verified; never fetch an
-            # unapproved source archive while assembling an offline aggregate.
-            cached_source = cache / source["repository"] / source["tag"] / source["asset"]
-            verify_file(cached_source, source["sha256"])
+            # Published sources use the same host and digest policy as binaries.
+            # Development sources must already exist in the explicit local cache.
+            cached_source = obtain(cache, source["repository"], source["tag"], source["asset"], source["sha256"], allow_network=manifest["channel"] != "development")
             destination = stage / "sources" / source["asset"]
             destination.parent.mkdir(parents=True, exist_ok=True)
             shutil.copy2(cached_source, destination)

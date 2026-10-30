@@ -1,0 +1,98 @@
+name: C0 source integration
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  acceptance:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - {os: ubuntu-latest, platform: linux-amd64}
+          - {os: windows-latest, platform: windows-amd64}
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          path: ai-devops
+      - uses: actions/checkout@v7
+        with:
+          repository: GeneJie199/ai-dev-cycle-manager
+          ref: codex/v2-ai-team-c0
+          path: ai-dev-cycle-manager
+      - uses: actions/checkout@v7
+        with:
+          repository: GeneJie199/infrastructure-discovery
+          ref: codex/v2-ai-team-c0
+          path: infrastructure-discovery
+      - uses: actions/checkout@v7
+        with:
+          repository: GeneJie199/fleet-observability
+          ref: codex/v2-ai-team-c0
+          path: fleet-observability
+      - uses: actions/checkout@v7
+        with:
+          repository: GeneJie199/release-validation
+          ref: codex/v2-ai-team-c0
+          path: release-validation
+      - uses: actions/checkout@v7
+        with:
+          repository: GeneJie199/lifecycle-spec
+          ref: codex/v2-ai-team-c0
+          path: lifecycle-spec
+      - uses: actions/setup-go@v7
+        with:
+          go-version: '1.27.3'
+          cache: false
+      - name: Check exact DTO contract drift
+        shell: bash
+        run: python lifecycle-spec/scripts/generate-team-schema.py --source ai-dev-cycle-manager/internal/team/model.go --check
+      - name: Record exact integration revisions
+        shell: bash
+        run: |
+          mkdir -p ai-devops/.qa/c0-final/hosted
+          for repo in ai-devops ai-dev-cycle-manager infrastructure-discovery fleet-observability release-validation lifecycle-spec; do
+            printf '%s ' "$repo" >> ai-devops/.qa/c0-final/hosted/revisions.txt
+            git -C "$repo" rev-parse HEAD >> ai-devops/.qa/c0-final/hosted/revisions.txt
+          done
+      - name: Cross-product machine evidence integration (Linux)
+        if: runner.os == 'Linux'
+        working-directory: ai-devops
+        run: bash scripts/verify-suite.sh 2>&1 | tee .qa/c0-final/hosted/integration.log
+      - name: Cross-product machine evidence integration (Windows)
+        if: runner.os == 'Windows'
+        working-directory: ai-devops
+        shell: pwsh
+        run: ./scripts/verify-suite.ps1 -SuiteVersion '2.0.0-rc.1' *>&1 | Tee-Object .qa/c0-final/hosted/integration.log
+      - name: Build source-pinned offline candidate
+        working-directory: ai-devops
+        shell: bash
+        run: python scripts/build-v2-development.py --version 2.0.0-rc.1 --platform '${{ matrix.platform }}' 2>&1 | tee .qa/c0-final/hosted/build.log
+      - name: Native offline lifecycle (Linux)
+        if: runner.os == 'Linux'
+        working-directory: ai-devops
+        run: bash scripts/accept-offline-linux.sh .qa/v2-build/ai-devops-open-suite-full-offline-v2.0.0-rc.1-linux-amd64.tar.gz 2>&1 | tee .qa/c0-final/hosted/offline.log
+      - name: Native offline lifecycle and real v1 upgrade (Windows)
+        if: runner.os == 'Windows'
+        working-directory: ai-devops
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $archive = '.qa/v2-build/ai-devops-open-suite-full-offline-v2.0.0-rc.1-windows-amd64.zip'
+          ./scripts/accept-offline-windows.ps1 -Archive $archive *>&1 | Tee-Object .qa/c0-final/hosted/offline.log
+          gh release download v1.0.0 --repo GeneJie199/ai-devops-open-suite --pattern '*windows-amd64.zip' --pattern checksums.txt --dir .qa/v1-public
+          if ($LASTEXITCODE -ne 0) { throw 'v1 download failed' }
+          python scripts/verify-release-download.py .qa/v1-public
+          if ($LASTEXITCODE -ne 0) { throw 'v1 checksum failed' }
+          ./scripts/accept-upgrade-from-v100-windows.ps1 -OfflineArchive $archive -PreviousArchive .qa/v1-public/ai-devops-open-suite-full-offline-v1.0.0-windows-amd64.zip *>&1 | Tee-Object .qa/c0-final/hosted/v1-upgrade.log
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: c0-integration-${{ matrix.platform }}
+          path: ai-devops/.qa/c0-final/hosted

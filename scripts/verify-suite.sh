@@ -99,10 +99,13 @@ echo "[6/7] Gate candidate, drift, native metrics, fleet state, and observation"
 python3 - "$WORK" "$FLEET_PORT" "$SUITE_VERSION" <<'PY'
 import json, os, sys
 work, port, version = sys.argv[1], sys.argv[2], sys.argv[3]
+candidate=json.load(open(os.path.join(work,"candidate.json")))
+source=candidate["sources"][0]
 plan = {
     "release_id":"suite-e2e",
     "version":version,
     "candidate_file":os.path.join(work,"candidate.json"),
+    "repository":source["repositoryPath"],"base_ref":source["headCommit"],"target_ref":source["headCommit"],
     "recovery_checks":[{"name":"previous binary retained","type":"file","path":os.path.join(work,"releaseguard")}],
     "checks":[{"name":"InfraScout inventory","type":"file","path":os.path.join(work,"infra","inventory.json")}],
     "drift_file":os.path.join(work,"infra","drift.json"),

@@ -83,7 +83,7 @@ def collect(repos, output):
     for entry in inventory['modules']:
         license=entry['license']; item={'type':'library','name':entry['module'],'version':entry['version'],'licenses':[{'license':{'name':license}}],'properties':[{'name':'license:evidence','value':json.dumps(entry['licenseFiles'])}]}
         components.append(item)
-    sbom={'bomFormat':'CycloneDX','specVersion':'1.5','version':1,'metadata':{'component':{'type':'application','name':'ai-devops-open-suite','version':'2.0.0-dev','licenses':[{'license':{'id':'AGPL-3.0-only'}}]}},'components':components}
+    sbom={'bomFormat':'CycloneDX','specVersion':'1.5','version':1,'metadata':{'component':{'type':'application','name':'ai-devops-open-suite','version':json.loads((ROOT/'LICENSE_METADATA.json').read_text(encoding='utf-8'))['sourceVersion'],'licenses':[{'license':{'id':'AGPL-3.0-only'}}]}},'components':components}
     (output/'third-party.cdx.json').write_text(json.dumps(sbom,indent=2)+'\n',encoding='utf-8')
     print(f'License evidence: {len(modules)} dependencies/assets; {len(set(warnings))} warnings')
     for warning in sorted(set(warnings)): print('WARNING:',warning)

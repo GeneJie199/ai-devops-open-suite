@@ -132,6 +132,9 @@ try {
     release_id = 'suite-e2e'
     version = $SuiteVersion
     candidate_file = $CandidatePath
+    repository = [string]$Candidate.sources[0].repositoryPath
+    base_ref = [string]$Candidate.sources[0].headCommit
+    target_ref = [string]$Candidate.sources[0].headCommit
     recovery_checks = @(@{ name='previous binary retained'; type='file'; path=$ReleaseGuard })
     checks = @(@{ name='InfraScout inventory'; type='file'; path=(Join-Path $InfraState 'inventory.json') })
     drift_file = Join-Path $InfraState 'drift.json'
