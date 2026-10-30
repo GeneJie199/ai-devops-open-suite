@@ -81,8 +81,23 @@ try {
   if ((File-Hash (Join-Path $Prefix 'config\fleet-token')) -ne $TokenBefore) { throw 'Upgrade changed the Fleet token.' }
   if ((File-Hash (Join-Path $Prefix 'config\ports.env')) -ne $PortsBefore) { throw 'Upgrade changed persisted ports.' }
 
+  $TeamRepo = Join-Path $Work 'team-source'
+  New-Item -ItemType Directory -Force $TeamRepo | Out-Null
+  git -C $TeamRepo init -q
+  git -C $TeamRepo -c user.name=Acceptance -c user.email=acceptance@example.invalid commit --allow-empty -qm baseline
+  $MissionPayload = @{ repository=$TeamRepo; goal='Document local persistence'; checks=@('git status --porcelain'); models=@(@{ id='persistence'; provider='local'; adapter='codex'; capabilities=@('coding','exploration','testing','review'); contextLimit=100000; tier=2; available=$true; tools=$true }); policy=@{ trustedLocalCLI=$true; sourceExport=$false; allowedProviders=@('local') } }
+  $Mission = Invoke-RestMethod -Method Post -Uri "http://127.0.0.1:$($Ports[0])/api/team/missions" -ContentType application/json -Body ($MissionPayload | ConvertTo-Json -Depth 15)
+  if (-not $Mission.id) { throw 'Team sidecar Mission was not created.' }
   & $Controller stop -SuiteHome $Prefix | Out-Host
+  $Sidecar = Join-Path $Prefix 'data\devcycle\devcycle.db.team.db'
+  if (-not (Test-Path $Sidecar)) { throw 'Team sidecar missing.' }
+  $SidecarBefore = File-Hash $Sidecar
+  python -c "import sqlite3,sys; assert sqlite3.connect(sys.argv[1]).execute('pragma user_version').fetchone()[0]==3; assert sqlite3.connect(sys.argv[2]).execute('pragma user_version').fetchone()[0]==1; print('original schema3 + Team schema1 verified')" (Join-Path $Prefix 'data\devcycle\devcycle.db') $Sidecar
+  if ($LASTEXITCODE -ne 0) { throw 'Database schema verification failed.' }
   & $Controller start -SuiteHome $Prefix | Out-Host
+  $Restarted = Invoke-RestMethod -Uri "http://127.0.0.1:$($Ports[0])/api/team/missions/$($Mission.id)"
+  if ($Restarted.id -ne $Mission.id) { throw 'Team mission did not survive restart.' }
+
   & $Controller doctor -SuiteHome $Prefix | Out-Host
   & $Controller stop -SuiteHome $Prefix | Out-Host
   & (Join-Path $Prefix 'bin\devcycle.exe') requirement list --db (Join-Path $Prefix 'data\devcycle\devcycle.db') | Out-File (Join-Path $Work 'requirements-v2.json') -Encoding utf8
@@ -94,6 +109,7 @@ try {
   }
   if ((File-Hash (Join-Path $Prefix 'config\fleet-token')) -ne $TokenBefore -or (File-Hash (Join-Path $Prefix 'config\ports.env')) -ne $PortsBefore) { throw 'Rollback changed token or ports.' }
 
+  if ((File-Hash $Sidecar) -ne $SidecarBefore) { throw 'Rollback altered Team sidecar.' }
   & $Controller start -SuiteHome $Prefix | Out-Host
   & $Controller doctor -SuiteHome $Prefix | Out-Host
   & $Controller stop -SuiteHome $Prefix | Out-Host
