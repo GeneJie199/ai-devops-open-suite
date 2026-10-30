@@ -73,7 +73,7 @@ def collect(repos, output):
             target.parent.mkdir(parents=True,exist_ok=True);copy_notice(file,target)
             key=repo.name+'/vendored-lucide'
             modules[key]={'module':'lucide+feather','version':'vendored','usedBy':[repo.name],'license':'ISC AND MIT','licenseFiles':[{'path':target.relative_to(output).as_posix(),'sha256':hashlib.sha256(file.read_bytes()).hexdigest()}]}
-    goroot=pathlib.Path(subprocess.check_output(['go','env','GOROOT'],text=True).strip())
+    goroot=pathlib.Path(subprocess.check_output(['go','env','GOROOT'],text=True,encoding='utf-8').strip())
     for name in ['LICENSE','PATENTS']:
         if (goroot/name).is_file():
             target=output/'LICENSES'/'third-party'/'go-runtime'/name;target.parent.mkdir(parents=True,exist_ok=True);copy_notice(goroot/name,target)
