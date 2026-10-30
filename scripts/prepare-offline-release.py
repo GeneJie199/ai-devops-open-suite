@@ -4,6 +4,7 @@ import hashlib
 import json
 from pathlib import Path
 import subprocess
+import sys
 
 root = Path(__file__).resolve().parents[1]
 manifest = json.loads((root / 'suite-manifest.json').read_text(encoding='utf-8'))
@@ -11,7 +12,7 @@ tag = 'v' + manifest['suiteVersion']
 revision = subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=root, text=True).strip()
 name = f'ai-devops-open-suite-{tag}-source.tar.gz'
 asset = root / 'dist' / name
-subprocess.run(['python3', str(root / 'scripts/package-corresponding-source.py'), '--output', str(asset)], cwd=root, check=True)
+subprocess.run([sys.executable, str(root / 'scripts/package-corresponding-source.py'), '--output', str(asset)], cwd=root, check=True)
 digest = hashlib.sha256(asset.read_bytes()).hexdigest()
 cache = root / 'dist/.asset-cache/ai-devops-open-suite' / tag / name
 cache.parent.mkdir(parents=True, exist_ok=True)
