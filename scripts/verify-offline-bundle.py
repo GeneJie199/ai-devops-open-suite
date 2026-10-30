@@ -37,6 +37,10 @@ def verify_archive(path: pathlib.Path) -> None:
     if bundle_manifest.get("schemaVersion") != "ai-devops.offline-bundle/v1" or bundle_manifest.get("networkRequired") is not False:
         raise ManifestError(f"{path.name}: invalid offline bundle metadata")
     manifest = decode_json(files, "suite-manifest.json")
+    if "LICENSE_METADATA.json" in files:
+        for required in ("NOTICE", "LICENSES/AGPL-3.0-only.txt", "LICENSES/Apache-2.0.txt", "third-party-inventory.json", "third-party.cdx.json", "component-licenses.json"):
+            if required not in files:
+                raise ManifestError(f"{path.name}: missing bundled license evidence {required}")
     validate_manifest(manifest)
     platform = bundle_manifest.get("platform")
     if platform not in manifest["platforms"] or bundle_manifest.get("suiteVersion") != manifest["suiteVersion"]:

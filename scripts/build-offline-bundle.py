@@ -60,7 +60,7 @@ def build(manifest: dict, platform: str, output: pathlib.Path, cache: pathlib.Pa
         protocol_dir = stage / "protocols"
         asset_dir.mkdir(parents=True)
         protocol_dir.mkdir(parents=True)
-        shutil.copy2(ROOT / "suite-manifest.json", stage / "suite-manifest.json")
+        (stage / "suite-manifest.json").write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
         (stage / "install-assets.txt").write_text(render_index(manifest, platform), encoding="utf-8", newline="\n")
         for relative in (
             "README.md",
@@ -85,6 +85,12 @@ def build(manifest: dict, platform: str, output: pathlib.Path, cache: pathlib.Pa
             asset = component["assets"][platform]
             cached = obtain(cache, component["repository"], component["tag"], asset["name"], asset["sha256"])
             shutil.copy2(cached, asset_dir / asset["name"])
+        shutil.copytree(ROOT / "LICENSES", stage / "LICENSES")
+        for name in ("NOTICE", "LICENSE_METADATA.json", "third-party-inventory.json", "third-party.cdx.json", "THIRD_PARTY_NOTICES.md", "LICENSING_HISTORY.md", "LICENSE_POLICY.md", "COMMERCIAL_LICENSE.md", "COMMERCIALIZATION.md", "TRADEMARK_POLICY.md", "CONTRIBUTOR_POLICY.md"):
+            shutil.copy2(ROOT / name, stage / name)
+        # Components are historical independent artifacts, not relicensed by aggregation.
+        licenses = {item["id"]: {"version": item["version"], "license": "Apache-2.0" if item["version"].startswith("1.") else "AGPL-3.0-only" if item["version"].startswith("2.") else "NOASSERTION"} for item in manifest["components"]}
+        (stage / "component-licenses.json").write_text(json.dumps(licenses, indent=2) + "\n", encoding="utf-8")
         protocol = manifest["protocol"]
         cached_protocol = obtain(cache, protocol["repository"], protocol["tag"], protocol["asset"], protocol["sha256"])
         shutil.copy2(cached_protocol, protocol_dir / protocol["asset"])
