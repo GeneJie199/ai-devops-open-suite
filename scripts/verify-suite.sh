@@ -59,10 +59,17 @@ def call(method, path, data=None):
     return json.load(urllib.request.urlopen(request))
 requirement = call("POST", "/api/requirements", {"title":"Suite delivery", "description":"Cross-module verification"})
 criterion = call("POST", f"/api/requirements/{requirement['id']}/criteria", {"description":"All suite checks pass with evidence"})
-call("PATCH", f"/api/criteria/{criterion['id']}", {"satisfied":True,"evidenceTitle":"suite E2E verification","evidenceNote":"automated cross-module acceptance"})
 task = call("POST", "/api/tasks", {"requirementId":requirement["id"],"title":"Verify suite source and runtime"})
 call("POST", f"/api/tasks/{task['id']}/worktree", {"repositoryPath":sys.argv[2],"branch":"suite/e2e","worktreePath":sys.argv[3]})
 call("PATCH", f"/api/tasks/{task['id']}", {"status":"done"})
+verification=call("POST",f"/api/requirements/{requirement['id']}/runs",{"name":"test committed source","command":"git cat-file -e HEAD:README.md","workingDir":sys.argv[3],"criterionId":criterion["id"],"timeoutSeconds":30})
+for _ in range(100):
+    runs=call("GET",f"/api/requirements/{requirement['id']}/runs")
+    run=next(r for r in runs if r['id']==verification['id'])
+    if run['status']!='running':break
+    time.sleep(.1)
+assert run['status']=='passed' and run.get('evidenceId'),run
+call("PATCH",f"/api/criteria/{criterion['id']}",{"satisfied":True})
 candidate = call("GET", f"/api/requirements/{requirement['id']}/release-candidate")
 assert candidate["readiness"]["ready"] and len(candidate["sources"]) == 1 and candidate["sources"][0]["clean"]
 with open(sys.argv[4], "w") as output:

@@ -98,11 +98,19 @@ try {
   Wait-Http "$DevBase/api/requirements"
   $Requirement = Invoke-Json POST "$DevBase/api/requirements" @{ title='Suite delivery'; description='Cross-module verification' }
   $Criterion = Invoke-Json POST "$DevBase/api/requirements/$($Requirement.id)/criteria" @{ description='All suite checks pass with evidence' }
-  Invoke-Json PATCH "$DevBase/api/criteria/$($Criterion.id)" @{ satisfied=$true; evidenceTitle='suite E2E verification'; evidenceNote='automated cross-module acceptance' } | Out-Null
   $Task = Invoke-Json POST "$DevBase/api/tasks" @{ requirementId=$Requirement.id; title='Verify suite source and runtime' }
   $Worktree = Join-Path $Work 'source-worktree'
   Invoke-Json POST "$DevBase/api/tasks/$($Task.id)/worktree" @{ repositoryPath=$SourceRepo; branch='suite/e2e'; worktreePath=$Worktree } | Out-Null
   Invoke-Json PATCH "$DevBase/api/tasks/$($Task.id)" @{ status='done' } | Out-Null
+  $Verification = Invoke-Json POST "$DevBase/api/requirements/$($Requirement.id)/runs" @{ name='test committed source'; command='git cat-file -e HEAD:README.md'; workingDir=$Worktree; criterionId=$Criterion.id; timeoutSeconds=30 }
+  for ($Attempt=0; $Attempt -lt 100; $Attempt++) {
+    $Runs = @(Invoke-Json GET "$DevBase/api/requirements/$($Requirement.id)/runs")
+    $Run = $Runs | Where-Object id -EQ $Verification.id
+    if ($Run.status -ne 'running') { break }
+    Start-Sleep -Milliseconds 100
+  }
+  if ($Run.status -ne 'passed' -or -not $Run.evidenceId) { throw 'Machine source verification did not pass.' }
+  Invoke-Json PATCH "$DevBase/api/criteria/$($Criterion.id)" @{ satisfied=$true } | Out-Null
   $Candidate = Invoke-Json GET "$DevBase/api/requirements/$($Requirement.id)/release-candidate"
   $CandidatePath = Join-Path $Work 'candidate.json'
 	Write-Utf8 $CandidatePath ($Candidate | ConvertTo-Json -Depth 50)

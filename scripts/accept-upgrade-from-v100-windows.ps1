@@ -102,6 +102,7 @@ try {
   & $Controller stop -SuiteHome $Prefix | Out-Host
   & (Join-Path $Prefix 'bin\devcycle.exe') requirement list --db (Join-Path $Prefix 'data\devcycle\devcycle.db') | Out-File (Join-Path $Work 'requirements-v2.json') -Encoding utf8
   if ($LASTEXITCODE -ne 0) { throw 'v2 cannot read v1 requirements.' }
+  $SidecarBefore = File-Hash $Sidecar
   & $Controller rollback -SuiteHome $Prefix -BackupId $BackupId | Out-Host
   if ((Get-Content -LiteralPath (Join-Path $Prefix 'config\suite-version') -Raw).Trim() -ne '1.0.0') { throw 'Rollback did not restore suite v1.0.0.' }
   foreach ($Product in 'devcycle','infrascout','fleetscope','releaseguard') {
