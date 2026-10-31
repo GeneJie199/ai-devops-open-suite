@@ -23,27 +23,27 @@ jobs:
       - uses: actions/checkout@v7
         with:
           repository: GeneJie199/ai-dev-cycle-manager
-          ref: 4e0aeb93cfb24fbd5b8445eaf8ad91e25552e5c6
+          ref: a45adea317b852fd8b2900cb816fba157d3e389c
           path: ai-dev-cycle-manager
       - uses: actions/checkout@v7
         with:
           repository: GeneJie199/infrastructure-discovery
-          ref: fdfda537588613753626837bb6d03eeb8b9ba8b5
+          ref: 5fa1b7dc047c166340495c5d84ac43c19b02e9ae
           path: infrastructure-discovery
       - uses: actions/checkout@v7
         with:
           repository: GeneJie199/fleet-observability
-          ref: 0033b69b5c6e725e2da1c7664ab5b09ab498d22c
+          ref: 493228f84825ed29fdfc06a73c7ff685ef0cdff5
           path: fleet-observability
       - uses: actions/checkout@v7
         with:
           repository: GeneJie199/release-validation
-          ref: 2fd7f9bdde77dd093d61fa4984d61d2057bc6478
+          ref: 6b6a5a75308aef7097fe6af757fbdfa7efd0d967
           path: release-validation
       - uses: actions/checkout@v7
         with:
           repository: GeneJie199/lifecycle-spec
-          ref: 6455367f6640241cdc30105b3cf60254ec54de89
+          ref: be211701e3a21d51f188f32c3c40860ff5271b56
           path: lifecycle-spec
       - uses: actions/setup-go@v7
         with:
@@ -72,7 +72,15 @@ jobs:
       - name: Build source-pinned offline candidate
         working-directory: ai-devops
         shell: bash
-        run: python scripts/build-v2-development.py --version 2.0.0-rc.1 --platform '${{ matrix.platform }}' 2>&1 | tee .qa/c0-final/hosted/build.log
+        run: |
+          channel=$(python -c 'import json; print(json.load(open("suite-manifest.json"))["channel"])')
+          if [ "$channel" = prerelease ]; then
+            python scripts/prepare-offline-release.py
+            python scripts/build-offline-bundle.py --manifest .qa/release/suite-manifest.json --platform '${{ matrix.platform }}' --output .qa/v2-build --cache dist/.asset-cache 2>&1 | tee .qa/c0-final/hosted/build.log
+            python scripts/verify-offline-bundle.py .qa/v2-build/ai-devops-open-suite-full-offline-*'${{ matrix.platform }}'*
+          else
+            python scripts/build-v2-development.py --version 2.0.0-rc.1 --platform '${{ matrix.platform }}' 2>&1 | tee .qa/c0-final/hosted/build.log
+          fi
       - name: Native offline lifecycle (Linux)
         if: runner.os == 'Linux'
         working-directory: ai-devops
@@ -96,4 +104,5 @@ jobs:
         if: always()
         with:
           name: c0-integration-${{ matrix.platform }}
+          include-hidden-files: true
           path: ai-devops/.qa/c0-final/hosted
