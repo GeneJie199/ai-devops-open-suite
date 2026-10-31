@@ -23,7 +23,7 @@ jobs:
       - uses: actions/checkout@v7
         with:
           repository: GeneJie199/ai-dev-cycle-manager
-          ref: a45adea317b852fd8b2900cb816fba157d3e389c
+          ref: f08aedae9bca225e5f5a945ecbcd3e666e0a6566
           path: ai-dev-cycle-manager
       - uses: actions/checkout@v7
         with:
@@ -38,12 +38,12 @@ jobs:
       - uses: actions/checkout@v7
         with:
           repository: GeneJie199/release-validation
-          ref: 6b6a5a75308aef7097fe6af757fbdfa7efd0d967
+          ref: 072a5387982c9083275ec334ab9f3a852bf43542
           path: release-validation
       - uses: actions/checkout@v7
         with:
           repository: GeneJie199/lifecycle-spec
-          ref: be211701e3a21d51f188f32c3c40860ff5271b56
+          ref: fc802cd53533783163dae57bd26c109a7c7819c5
           path: lifecycle-spec
       - uses: actions/setup-go@v7
         with:
