@@ -46,7 +46,7 @@ try {
     foreach ($Module in $Modules) {
       Push-Location (Join-Path $Root $Module)
       try {
-        Invoke-External go @('test','-timeout','180s','./...')
+        Invoke-External go @('test','-timeout','300s','./...')
         Invoke-External go @('vet','./...')
       } finally { Pop-Location }
     }

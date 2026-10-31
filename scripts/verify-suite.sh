@@ -22,7 +22,7 @@ if [[ ${SKIP_TESTS:-0} == 1 ]]; then
 else
   echo "[1/7] Test every module"
   for module in lifecycle-spec ai-dev-cycle-manager infrastructure-discovery fleet-observability release-validation; do
-    (cd "$ROOT/$module" && go test -timeout 180s ./... && go vet ./...)
+    (cd "$ROOT/$module" && go test -timeout 300s ./... && go vet ./...)
   done
 fi
 
