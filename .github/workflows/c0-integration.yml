@@ -23,7 +23,7 @@ jobs:
       - uses: actions/checkout@v7
         with:
           repository: GeneJie199/ai-dev-cycle-manager
-          ref: f08aedae9bca225e5f5a945ecbcd3e666e0a6566
+          ref: a1687f001a1504ad72fb222f1de21925bc1f9e44
           path: ai-dev-cycle-manager
       - uses: actions/checkout@v7
         with:
