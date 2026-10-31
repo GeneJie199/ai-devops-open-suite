@@ -44,6 +44,7 @@ jobs:
           cp -r LICENSES "$package/"
           cp NOTICE LICENSE_METADATA.json third-party-inventory.json third-party.cdx.json *_POLICY.md COMMERCIAL_LICENSE.md COMMERCIALIZATION.md LICENSING_HISTORY.md THIRD_PARTY_NOTICES.md "$package/"
           cp README.md LICENSE SECURITY.md COMPATIBILITY.md SUPPORT_MATRIX.md RELEASE_POLICY.md suite-manifest.json "$package/"
+          python3 scripts/copy-release-docs.py "$package"
           chmod +x "$package/scripts/"*.sh
           tag="${GITHUB_REF_NAME}"
           (cd dist && zip -qr "ai-devops-open-suite-${tag}.zip" ai-devops-open-suite)

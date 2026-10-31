@@ -17,6 +17,7 @@ import urllib.request
 import zipfile
 
 from suite_manifest import ManifestError, load_manifest, render_index, verify_file
+from release_docs import copy_documentation
 
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
@@ -81,6 +82,7 @@ def build(manifest: dict, platform: str, output: pathlib.Path, cache: pathlib.Pa
             destination = stage / relative
             destination.parent.mkdir(parents=True, exist_ok=True)
             shutil.copy2(source, destination)
+        copy_documentation(ROOT, stage)
         for component in manifest["components"]:
             asset = component["assets"][platform]
             cached = obtain(cache, component["repository"], component["tag"], asset["name"], asset["sha256"], allow_network=manifest["channel"] != "development")
