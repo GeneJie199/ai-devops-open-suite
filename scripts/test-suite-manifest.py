@@ -40,6 +40,12 @@ class SuiteManifestTest(unittest.TestCase):
         with self.assertRaises(ManifestError):
             validate_manifest(value)
 
+    def test_source_archive_traversal_is_rejected(self) -> None:
+        value = copy.deepcopy(self.manifest)
+        value["sources"] = [{"repository":"devcycle","tag":"v2.0.0-dev","revision":"a"*40,"asset":"../source.tar.gz","sha256":"0"*64}]
+        with self.assertRaises(ManifestError):
+            validate_manifest(value)
+
 
 if __name__ == "__main__":
     unittest.main()

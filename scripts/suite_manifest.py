@@ -74,6 +74,20 @@ def validate_manifest(value: Any) -> None:
     _tag(protocol.get("tag"), "protocol.tag")
     _filename(protocol.get("asset"), "protocol.asset")
     _digest(protocol.get("sha256"), "protocol.sha256")
+    sources = value.get("sources", [])
+    if not isinstance(sources, list):
+        raise ManifestError("sources must be an array")
+    seen_sources = set()
+    for source in sources:
+        if not isinstance(source, dict):
+            raise ManifestError("each source artifact must be an object")
+        _token(source.get("repository"), "source.repository")
+        _tag(source.get("tag"), "source.tag")
+        _filename(source.get("asset"), "source.asset")
+        _digest(source.get("sha256"), "source.sha256")
+        if not re.fullmatch(r"[0-9a-f]{40}", source.get("revision", "")) or source["asset"] in seen_sources:
+            raise ManifestError("invalid source revision or duplicate source asset")
+        seen_sources.add(source["asset"])
 
 
 def resolved_rows(manifest: dict[str, Any], platform: str) -> list[tuple[str, ...]]:

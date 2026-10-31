@@ -1,9 +1,18 @@
 # AI DevOps Open Suite
 
+
+## v2 development and licensing
+
+Stable: v1.x (historical Apache-2.0 releases). Preview: v2.0.0-rc.1 AI Engineering Team Community; not GA. The public stable installer remains v1.x; use the explicit RC offline release for these Runtime and security updates; see [known release boundaries](docs/v2-known-risks.md).
+
+Community Edition: **AGPL-3.0-only** for this development source. Historical release rights remain valid.
+Commercial / OEM licensing available for closed-source redistribution, white-labeling, embedding and other use cases incompatible with AGPL. See [license policy](LICENSE_POLICY.md), [history](LICENSING_HISTORY.md) and [commercial policy](COMMERCIAL_LICENSE.md).
+
+
 A local-first, low-configuration open source suite that connects what a team intended to build, what changed in code and infrastructure, how a fleet is behaving, and whether a release is ready to proceed.
 
 [![CI](https://github.com/GeneJie199/ai-devops-open-suite/actions/workflows/ci.yml/badge.svg)](https://github.com/GeneJie199/ai-devops-open-suite/actions/workflows/ci.yml)
-[![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
+[![License](https://img.shields.io/badge/license-AGPL--3.0-blue.svg)](LICENSE)
 
 ## Screenshot
 
@@ -184,4 +193,12 @@ The suite gate tests and vets every Go module, builds all binaries, validates pr
 - [native observability architecture](docs/native-observability-architecture.md)
 - [maintainer workstation transfer](docs/workstation-transfer.md)
 
-Maintainer: [GeneJie199](https://github.com/GeneJie199). Apache-2.0.
+Maintainer: [GeneJie199](https://github.com/GeneJie199). AGPL-3.0-only.
+
+## v2 engineering reference
+
+- [v2 master plan](V2_MASTER_PLAN.md) and [architecture](V2_ARCHITECTURE.md)
+- [AI Team runtime](AI_TEAM_RUNTIME.md), [routing](MODEL_ROUTING.md), [project memory](PROJECT_MEMORY.md), [risk](RISK_MODEL.md)
+- [commercial boundaries](COMMERCIALIZATION.md) and [license audit](docs/v2-license-audit.md)
+
+The stable manifest intentionally still references v1.0.0. Build the development line with `python scripts/build-v2-development.py`; it builds actual platform assets and a separate development manifest without changing the stable release.

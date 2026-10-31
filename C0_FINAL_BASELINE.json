@@ -1,0 +1,2358 @@
+{
+  "capturedAt": "2026-10-30T21:04:50.904369+00:00",
+  "repositories": [
+    {
+      "repository": {
+        "exit": 0,
+        "stderr": "",
+        "data": {
+          "id": 1326328777,
+          "node_id": "R_kgDOTw4ryQ",
+          "name": "ai-dev-cycle-manager",
+          "full_name": "GeneJie199/ai-dev-cycle-manager",
+          "private": false,
+          "owner": {
+            "login": "GeneJie199",
+            "id": 45138015,
+            "node_id": "MDQ6VXNlcjQ1MTM4MDE1",
+            "avatar_url": "https://avatars.githubusercontent.com/u/45138015?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/GeneJie199",
+            "html_url": "https://github.com/GeneJie199",
+            "followers_url": "https://api.github.com/users/GeneJie199/followers",
+            "following_url": "https://api.github.com/users/GeneJie199/following{/other_user}",
+            "gists_url": "https://api.github.com/users/GeneJie199/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/GeneJie199/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/GeneJie199/subscriptions",
+            "organizations_url": "https://api.github.com/users/GeneJie199/orgs",
+            "repos_url": "https://api.github.com/users/GeneJie199/repos",
+            "events_url": "https://api.github.com/users/GeneJie199/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/GeneJie199/received_events",
+            "type": "User",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "html_url": "https://github.com/GeneJie199/ai-dev-cycle-manager",
+          "description": "Local-first development lifecycle workbench for requirements, tasks, Git worktrees, AI sessions, verification evidence, and release candidates",
+          "fork": false,
+          "url": "https://api.github.com/repos/GeneJie199/ai-dev-cycle-manager",
+          "forks_url": "https://api.github.com/repos/GeneJie199/ai-dev-cycle-manager/forks",
+          "keys_url": "https://api.github.com/repos/GeneJie199/ai-dev-cycle-manager/keys{/key_id}",
+          "collaborators_url": "https://api.github.com/repos/GeneJie199/ai-dev-cycle-manager/collaborators{/collaborator}",
+          "teams_url": "https://api.github.com/repos/GeneJie199/ai-dev-cycle-manager/teams",
+          "hooks_url": "https://api.github.com/repos/GeneJie199/ai-dev-cycle-manager/hooks",
+          "issue_events_url": "https://api.github.com/repos/GeneJie199/ai-dev-cycle-manager/issues/events{/number}",
+          "events_url": "https://api.github.com/repos/GeneJie199/ai-dev-cycle-manager/events",
+          "assignees_url": "https://api.github.com/repos/GeneJie199/ai-dev-cycle-manager/assignees{/user}",
+          "branches_url": "https://api.github.com/repos/GeneJie199/ai-dev-cycle-manager/branches{/branch}",
+          "tags_url": "https://api.github.com/repos/GeneJie199/ai-dev-cycle-manager/tags",
+          "blobs_url": "https://api.github.com/repos/GeneJie199/ai-dev-cycle-manager/git/blobs{/sha}",
+          "git_tags_url": "https://api.github.com/repos/GeneJie199/ai-dev-cycle-manager/git/tags{/sha}",
+          "git_refs_url": "https://api.github.com/repos/GeneJie199/ai-dev-cycle-manager/git/refs{/sha}",
+          "trees_url": "https://api.github.com/repos/GeneJie199/ai-dev-cycle-manager/git/trees{/sha}",
+          "statuses_url": "https://api.github.com/repos/GeneJie199/ai-dev-cycle-manager/statuses/{sha}",
+          "languages_url": "https://api.github.com/repos/GeneJie199/ai-dev-cycle-manager/languages",
+          "stargazers_url": "https://api.github.com/repos/GeneJie199/ai-dev-cycle-manager/stargazers",
+          "contributors_url": "https://api.github.com/repos/GeneJie199/ai-dev-cycle-manager/contributors",
+          "subscribers_url": "https://api.github.com/repos/GeneJie199/ai-dev-cycle-manager/subscribers",
+          "subscription_url": "https://api.github.com/repos/GeneJie199/ai-dev-cycle-manager/subscription",
+          "commits_url": "https://api.github.com/repos/GeneJie199/ai-dev-cycle-manager/commits{/sha}",
+          "git_commits_url": "https://api.github.com/repos/GeneJie199/ai-dev-cycle-manager/git/commits{/sha}",
+          "comments_url": "https://api.github.com/repos/GeneJie199/ai-dev-cycle-manager/comments{/number}",
+          "issue_comment_url": "https://api.github.com/repos/GeneJie199/ai-dev-cycle-manager/issues/comments{/number}",
+          "contents_url": "https://api.github.com/repos/GeneJie199/ai-dev-cycle-manager/contents/{+path}",
+          "compare_url": "https://api.github.com/repos/GeneJie199/ai-dev-cycle-manager/compare/{base}...{head}",
+          "merges_url": "https://api.github.com/repos/GeneJie199/ai-dev-cycle-manager/merges",
+          "archive_url": "https://api.github.com/repos/GeneJie199/ai-dev-cycle-manager/{archive_format}{/ref}",
+          "downloads_url": "https://api.github.com/repos/GeneJie199/ai-dev-cycle-manager/downloads",
+          "issues_url": "https://api.github.com/repos/GeneJie199/ai-dev-cycle-manager/issues{/number}",
+          "pulls_url": "https://api.github.com/repos/GeneJie199/ai-dev-cycle-manager/pulls{/number}",
+          "milestones_url": "https://api.github.com/repos/GeneJie199/ai-dev-cycle-manager/milestones{/number}",
+          "notifications_url": "https://api.github.com/repos/GeneJie199/ai-dev-cycle-manager/notifications{?since,all,participating}",
+          "labels_url": "https://api.github.com/repos/GeneJie199/ai-dev-cycle-manager/labels{/name}",
+          "releases_url": "https://api.github.com/repos/GeneJie199/ai-dev-cycle-manager/releases{/id}",
+          "deployments_url": "https://api.github.com/repos/GeneJie199/ai-dev-cycle-manager/deployments",
+          "created_at": "2026-08-07T07:09:39Z",
+          "updated_at": "2026-08-23T00:47:46Z",
+          "pushed_at": "2026-10-30T17:52:02Z",
+          "git_url": "git://github.com/GeneJie199/ai-dev-cycle-manager.git",
+          "ssh_url": "git@github.com:GeneJie199/ai-dev-cycle-manager.git",
+          "clone_url": "https://github.com/GeneJie199/ai-dev-cycle-manager.git",
+          "svn_url": "https://github.com/GeneJie199/ai-dev-cycle-manager",
+          "homepage": null,
+          "size": 525,
+          "stargazers_count": 0,
+          "watchers_count": 0,
+          "language": "Go",
+          "has_issues": true,
+          "has_projects": true,
+          "has_downloads": false,
+          "has_wiki": true,
+          "has_pages": false,
+          "has_discussions": false,
+          "forks_count": 0,
+          "mirror_url": null,
+          "archived": false,
+          "disabled": false,
+          "open_issues_count": 1,
+          "license": {
+            "key": "apache-2.0",
+            "name": "Apache License 2.0",
+            "spdx_id": "Apache-2.0",
+            "url": "https://api.github.com/licenses/apache-2.0",
+            "node_id": "MDc6TGljZW5zZTI="
+          },
+          "allow_forking": true,
+          "is_template": false,
+          "web_commit_signoff_required": false,
+          "has_pull_requests": true,
+          "pull_request_creation_policy": "all",
+          "topics": [
+            "ai-devops",
+            "developer-tools",
+            "golang",
+            "local-first",
+            "release-management"
+          ],
+          "visibility": "public",
+          "forks": 0,
+          "open_issues": 1,
+          "watchers": 0,
+          "default_branch": "main",
+          "permissions": {
+            "admin": true,
+            "maintain": true,
+            "push": true,
+            "triage": true,
+            "pull": true
+          },
+          "temp_clone_token": "",
+          "allow_squash_merge": true,
+          "allow_merge_commit": true,
+          "allow_rebase_merge": true,
+          "allow_auto_merge": false,
+          "delete_branch_on_merge": false,
+          "allow_update_branch": false,
+          "use_squash_pr_title_as_default": false,
+          "squash_merge_commit_message": "COMMIT_MESSAGES",
+          "squash_merge_commit_title": "COMMIT_OR_PR_TITLE",
+          "merge_commit_message": "PR_TITLE",
+          "merge_commit_title": "MERGE_MESSAGE",
+          "security_and_analysis": {
+            "secret_scanning": {
+              "status": "enabled"
+            },
+            "secret_scanning_push_protection": {
+              "status": "enabled"
+            },
+            "dependabot_security_updates": {
+              "status": "disabled"
+            },
+            "secret_scanning_non_provider_patterns": {
+              "status": "disabled"
+            },
+            "secret_scanning_validity_checks": {
+              "status": "disabled"
+            }
+          },
+          "network_count": 0,
+          "subscribers_count": 0
+        }
+      },
+      "directory": "ai-dev-cycle-manager",
+      "url": "https://github.com/GeneJie199/ai-dev-cycle-manager/pull/1",
+      "local": "C:\\Users\\揭剑\\Documents\\ChatGPT\\ai-dev-cycle-manager",
+      "head": "3c8786ef2f7ba0475d80d92738c21f1193893ed1",
+      "status": {
+        "exit": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      "branches": {
+        "exit": 0,
+        "stdout": "+ audit/v2-runtime-e04979c3                                   032dea0 (C:/Users/揭剑/Documents/ChatGPT/ai-devops/.qa/runtime-audit-worktree) fix: require explicit recovery after ambiguous worker interruption\n* codex/v2-ai-team-c0                                         3c8786e [origin/codex/v2-ai-team-c0] fix: keep exhausted mission retries terminal\n  main                                                        b1c7437 [origin/main: ahead 1] feat: introduce durable AI team runtime with routing risk memory and evidence\n+ team/52758097-9874-41cc-9952-4adad86d8a81/analysis          b1c7437 (C:/Users/揭剑/Documents/ChatGPT/ai-devops/.qa/real-mission/team-worktrees/52758097-9874-41cc-9952-4adad86d8a81/analysis) feat: introduce durable AI team runtime with routing risk memory and evidence\n+ team/52758097-9874-41cc-9952-4adad86d8a81/build             b1c7437 (C:/Users/揭剑/Documents/ChatGPT/ai-devops/.qa/real-mission/team-worktrees/52758097-9874-41cc-9952-4adad86d8a81/build) feat: introduce durable AI team runtime with routing risk memory and evidence\n+ team/5b2124fd-46bc-45ce-933f-378fd1e46995/analysis-1493f8e9 900c398 (C:/Users/揭剑/Documents/ChatGPT/ai-devops/.qa/real-mission5/team-worktrees/5b2124fd-46bc-45ce-933f-378fd1e46995/analysis-1493f8e9) fix: stream long agent contexts through stdin and accept clean verdict replay\n+ team/5b2124fd-46bc-45ce-933f-378fd1e46995/build-9d2c5d52    eaefafc (C:/Users/揭剑/Documents/ChatGPT/ai-devops/.qa/real-mission5/team-worktrees/5b2124fd-46bc-45ce-933f-378fd1e46995/build-9d2c5d52) AI Team build: 5b2124fd-46bc-45ce-933f-378fd1e46995\n+ team/5b2124fd-46bc-45ce-933f-378fd1e46995/review-2b1dcfb3   eaefafc (C:/Users/揭剑/Documents/ChatGPT/ai-devops/.qa/real-mission5/team-worktrees/5b2124fd-46bc-45ce-933f-378fd1e46995/review-2b1dcfb3) AI Team build: 5b2124fd-46bc-45ce-933f-378fd1e46995\n+ team/5b2124fd-46bc-45ce-933f-378fd1e46995/tests-2e58d189    eaefafc (C:/Users/揭剑/Documents/ChatGPT/ai-devops/.qa/real-mission5/team-worktrees/5b2124fd-46bc-45ce-933f-378fd1e46995/tests-2e58d189) AI Team build: 5b2124fd-46bc-45ce-933f-378fd1e46995\n+ team/810b6010-5ea9-4e85-a123-c4a285a58b8c/analysis-fab44660 71bfce4 (C:/Users/揭剑/Documents/ChatGPT/ai-devops/.qa/real-mission3/team-worktrees/810b6010-5ea9-4e85-a123-c4a285a58b8c/analysis-fab44660) fix: make runtime task commit ownership explicit to agents\n+ team/922409b3-09d5-464a-bb41-40c0e96f2ea6/analysis          b1c7437 (C:/Users/揭剑/Documents/ChatGPT/ai-devops/.qa/real-mission2/team-worktrees/922409b3-09d5-464a-bb41-40c0e96f2ea6/analysis) feat: introduce durable AI team runtime with routing risk memory and evidence\n+ team/922409b3-09d5-464a-bb41-40c0e96f2ea6/build             b1c7437 (C:/Users/揭剑/Documents/ChatGPT/ai-devops/.qa/real-mission2/team-worktrees/922409b3-09d5-464a-bb41-40c0e96f2ea6/build) feat: introduce durable AI team runtime with routing risk memory and evidence\n+ team/b6eebe94-9e46-4e0b-b140-43c82c21fd21/analysis-87c6f112 388d07f (C:/Users/揭剑/Documents/ChatGPT/ai-devops/.qa/real-mission4/team-worktrees/b6eebe94-9e46-4e0b-b140-43c82c21fd21/analysis-87c6f112) legal: migrate v2 source with preserved notices and secure Go baseline\n+ team/b6eebe94-9e46-4e0b-b140-43c82c21fd21/build-709efc75    e6dc4e4 (C:/Users/揭剑/Documents/ChatGPT/ai-devops/.qa/real-mission4/team-worktrees/b6eebe94-9e46-4e0b-b140-43c82c21fd21/build-709efc75) AI Team build: b6eebe94-9e46-4e0b-b140-43c82c21fd21\n+ team/b6eebe94-9e46-4e0b-b140-43c82c21fd21/review-f77bbcfc   210e857 (C:/Users/揭剑/Documents/ChatGPT/ai-devops/.qa/real-mission4/team-worktrees/b6eebe94-9e46-4e0b-b140-43c82c21fd21/review-f77bbcfc) AI Team build: b6eebe94-9e46-4e0b-b140-43c82c21fd21\n+ team/b6eebe94-9e46-4e0b-b140-43c82c21fd21/tests-62e019fd    e6dc4e4 (C:/Users/揭剑/Documents/ChatGPT/ai-devops/.qa/real-mission4/team-worktrees/b6eebe94-9e46-4e0b-b140-43c82c21fd21/tests-62e019fd) AI Team build: b6eebe94-9e46-4e0b-b140-43c82c21fd21\n+ team/b6eebe94-9e46-4e0b-b140-43c82c21fd21/tests-bc597cf4    210e857 (C:/Users/揭剑/Documents/ChatGPT/ai-devops/.qa/real-mission4/team-worktrees/b6eebe94-9e46-4e0b-b140-43c82c21fd21/tests-bc597cf4) AI Team build: b6eebe94-9e46-4e0b-b140-43c82c21fd21\n  remotes/origin/HEAD                                         -> origin/main\n  remotes/origin/codex/v2-ai-team-c0                          3c8786e fix: keep exhausted mission retries terminal\n  remotes/origin/main                                         2ed6e54 release: embed standalone binary checksums",
+        "stderr": ""
+      },
+      "log": {
+        "exit": 0,
+        "stdout": "3c8786ef2f7ba0475d80d92738c21f1193893ed1 GeneJie <genejie199@gmail.com> fix: keep exhausted mission retries terminal\nab4a37f14a59b8625cd8421c2ff4c1a2a55041ff GeneJie <genejie199@gmail.com> fix: preserve accumulated artifacts and harden model review and local request gates\n7b45cc974b771882a6fe4a9f865ff58a15ff7354 GeneJie <genejie199@gmail.com> AI Team build: 5b2124fd-46bc-45ce-933f-378fd1e46995\n032dea08095abb38415f3609efad2693dac94a95 GeneJie <genejie199@gmail.com> fix: require explicit recovery after ambiguous worker interruption\n13dd86ab2494a825a9170da65f0842ca36c40017 GeneJie <genejie199@gmail.com> docs: explain stdin context transport and expert isolation controls\n900c3982b74dbf8039bb3b2f757f62cb6fff6246 GeneJie <genejie199@gmail.com> fix: stream long agent contexts through stdin and accept clean verdict replay\n310ae0d61873da20c1705ce30bdc3519baab5218 GeneJie <genejie199@gmail.com> fix: finalize v2 policy contracts and refreshed dependency license evidence\n1382a693ee4a8c9a666db9b566e6ca20fdc37df2 GeneJie <genejie199@gmail.com> build: use patched compiler for macOS and release targets",
+        "stderr": ""
+      },
+      "worktrees": {
+        "exit": 0,
+        "stdout": "worktree C:/Users/揭剑/Documents/ChatGPT/ai-dev-cycle-manager\nHEAD 3c8786ef2f7ba0475d80d92738c21f1193893ed1\nbranch refs/heads/codex/v2-ai-team-c0\n\nworktree C:/Users/揭剑/Documents/ChatGPT/ai-devops/.qa/real-mission/team-worktrees/52758097-9874-41cc-9952-4adad86d8a81/analysis\nHEAD b1c743761e2e96ce1cc01f19df139100ff2d195e\nbranch refs/heads/team/52758097-9874-41cc-9952-4adad86d8a81/analysis\n\nworktree C:/Users/揭剑/Documents/ChatGPT/ai-devops/.qa/real-mission/team-worktrees/52758097-9874-41cc-9952-4adad86d8a81/build\nHEAD b1c743761e2e96ce1cc01f19df139100ff2d195e\nbranch refs/heads/team/52758097-9874-41cc-9952-4adad86d8a81/build\n\nworktree C:/Users/揭剑/Documents/ChatGPT/ai-devops/.qa/real-mission2/team-worktrees/922409b3-09d5-464a-bb41-40c0e96f2ea6/analysis\nHEAD b1c743761e2e96ce1cc01f19df139100ff2d195e\nbranch refs/heads/team/922409b3-09d5-464a-bb41-40c0e96f2ea6/analysis\n\nworktree C:/Users/揭剑/Documents/ChatGPT/ai-devops/.qa/real-mission2/team-worktrees/922409b3-09d5-464a-bb41-40c0e96f2ea6/build\nHEAD b1c743761e2e96ce1cc01f19df139100ff2d195e\nbranch refs/heads/team/922409b3-09d5-464a-bb41-40c0e96f2ea6/build\n\nworktree C:/Users/揭剑/Documents/ChatGPT/ai-devops/.qa/real-mission3/team-worktrees/810b6010-5ea9-4e85-a123-c4a285a58b8c/analysis-fab44660\nHEAD 71bfce4f5794ecb12100bb375476a79ae13b48b1\nbranch refs/heads/team/810b6010-5ea9-4e85-a123-c4a285a58b8c/analysis-fab44660\n\nworktree C:/Users/揭剑/Documents/ChatGPT/ai-devops/.qa/real-mission4/team-worktrees/b6eebe94-9e46-4e0b-b140-43c82c21fd21/analysis-87c6f112\nHEAD 388d07f6ea965f037b54d884ad3239da2dec4f75\nbranch refs/heads/team/b6eebe94-9e46-4e0b-b140-43c82c21fd21/analysis-87c6f112\n\nworktree C:/Users/揭剑/Documents/ChatGPT/ai-devops/.qa/real-mission4/team-worktrees/b6eebe94-9e46-4e0b-b140-43c82c21fd21/build-709efc75\nHEAD e6dc4e4219fafbfbf8a3bc6ba2104b083a48a610\nbranch refs/heads/team/b6eebe94-9e46-4e0b-b140-43c82c21fd21/build-709efc75\n\nworktree C:/Users/揭剑/Documents/ChatGPT/ai-devops/.qa/real-mission4/team-worktrees/b6eebe94-9e46-4e0b-b140-43c82c21fd21/review-f77bbcfc\nHEAD 210e8572d2d0ded4ca34b468015e26c35cc819d7\nbranch refs/heads/team/b6eebe94-9e46-4e0b-b140-43c82c21fd21/review-f77bbcfc\n\nworktree C:/Users/揭剑/Documents/ChatGPT/ai-devops/.qa/real-mission4/team-worktrees/b6eebe94-9e46-4e0b-b140-43c82c21fd21/tests-62e019fd\nHEAD e6dc4e4219fafbfbf8a3bc6ba2104b083a48a610\nbranch refs/heads/team/b6eebe94-9e46-4e0b-b140-43c82c21fd21/tests-62e019fd\n\nworktree C:/Users/揭剑/Documents/ChatGPT/ai-devops/.qa/real-mission4/team-worktrees/b6eebe94-9e46-4e0b-b140-43c82c21fd21/tests-bc597cf4\nHEAD 210e8572d2d0ded4ca34b468015e26c35cc819d7\nbranch refs/heads/team/b6eebe94-9e46-4e0b-b140-43c82c21fd21/tests-bc597cf4\n\nworktree C:/Users/揭剑/Documents/ChatGPT/ai-devops/.qa/real-mission5/team-worktrees/5b2124fd-46bc-45ce-933f-378fd1e46995/analysis-1493f8e9\nHEAD 900c3982b74dbf8039bb3b2f757f62cb6fff6246\nbranch refs/heads/team/5b2124fd-46bc-45ce-933f-378fd1e46995/analysis-1493f8e9\n\nworktree C:/Users/揭剑/Documents/ChatGPT/ai-devops/.qa/real-mission5/team-worktrees/5b2124fd-46bc-45ce-933f-378fd1e46995/build-9d2c5d52\nHEAD eaefafcd65d6d2a86f5d8c12a2353fd39c3d8516\nbranch refs/heads/team/5b2124fd-46bc-45ce-933f-378fd1e46995/build-9d2c5d52\n\nworktree C:/Users/揭剑/Documents/ChatGPT/ai-devops/.qa/real-mission5/team-worktrees/5b2124fd-46bc-45ce-933f-378fd1e46995/review-2b1dcfb3\nHEAD eaefafcd65d6d2a86f5d8c12a2353fd39c3d8516\nbranch refs/heads/team/5b2124fd-46bc-45ce-933f-378fd1e46995/review-2b1dcfb3\n\nworktree C:/Users/揭剑/Documents/ChatGPT/ai-devops/.qa/real-mission5/team-worktrees/5b2124fd-46bc-45ce-933f-378fd1e46995/tests-2e58d189\nHEAD eaefafcd65d6d2a86f5d8c12a2353fd39c3d8516\nbranch refs/heads/team/5b2124fd-46bc-45ce-933f-378fd1e46995/tests-2e58d189\n\nworktree C:/Users/揭剑/Documents/ChatGPT/ai-devops/.qa/runtime-audit-worktree\nHEAD 032dea08095abb38415f3609efad2693dac94a95\nbranch refs/heads/audit/v2-runtime-e04979c3",
+        "stderr": ""
+      },
+      "diffStat": {
+        "exit": 0,
+        "stdout": ".gitattributes                                     |    4 +\n .github/workflows/ci.yml                           |    4 +-\n .github/workflows/release.yml                      |    6 +-\n .gitignore                                         |    5 +\n COMMERCIALIZATION.md                               |   16 +\n COMMERCIAL_LICENSE.md                              |   26 +\n CONTRIBUTING.md                                    |    3 +\n CONTRIBUTOR_POLICY.md                              |   28 +\n LICENSE                                            |  436 ++++----\n LICENSES/AGPL-3.0-only.txt                         |  235 ++++\n LICENSES/Apache-2.0.txt                            |  201 ++++\n .../ai-dev-cycle-manager/LUCIDE_LICENSE.txt        |   43 +\n .../filippo.io_edwards25519_v1.1.0/LICENSE         |   27 +\n .../LICENSE.md                                     |   21 +\n .../github.com_creack_pty_v1.1.9/LICENSE           |   23 +\n .../github.com_danieljoos_wincred_v1.2.3/LICENSE   |   21 +\n .../github.com_davecgh_go-spew_v1.1.1/LICENSE      |   15 +\n .../github.com_dustin_go-humanize_v1.0.1/LICENSE   |   21 +\n .../github.com_go-sql-driver_mysql_v1.9.3/AUTHORS  |  155 +++\n .../github.com_go-sql-driver_mysql_v1.9.3/LICENSE  |  373 +++++++\n .../github.com_godbus_dbus_v5_v5.2.2/LICENSE       |   25 +\n .../AUTHORS                                        |    7 +\n .../LICENSE                                        |  202 ++++\n .../third_party/svgpan/LICENSE                     |   27 +\n .../github.com_google_uuid_v1.6.0/LICENSE          |   27 +\n .../LICENSE                                        |  364 +++++++\n .../simplelru/LICENSE_list                         |   29 +\n .../LICENSE                                        |  201 ++++\n .../github.com_jackc_pgpassfile_v1.0.0/LICENSE     |   22 +\n .../LICENSE                                        |   22 +\n .../github.com_jackc_pgx_v5_v5.9.2/LICENSE         |   22 +\n .../github.com_jackc_puddle_v2_v2.2.2/LICENSE      |   22 +\n .../github.com_kr_pretty_v0.3.0/License            |   19 +\n .../third-party/github.com_kr_text_v0.2.0/License  |   19 +\n .../github.com_mattn_go-isatty_v0.0.24/LICENSE     |    9 +\n .../github.com_ncruces_go-strftime_v1.0.0/LICENSE  |   21 +\n .../github.com_oklog_ulid_v2_v2.1.2/AUTHORS.md     |    2 +\n .../github.com_oklog_ulid_v2_v2.1.2/LICENSE        |  201 ++++\n .../AUTHORS                                        |    1 +\n .../LICENSE                                        |   27 +\n .../github.com_pmezard_go-difflib_v1.0.0/LICENSE   |   27 +\n .../LICENSE                                        |   27 +\n .../LICENSE                                        |   27 +\n .../LICENSE.txt                                    |   29 +\n .../LICENSE                                        |  175 +++\n .../github.com_spf13_cobra_v1.10.2/LICENSE.txt     |  174 +++\n .../github.com_spf13_pflag_v1.0.9/LICENSE          |   28 +\n .../github.com_stretchr_objx_v0.1.0/LICENSE        |   22 +\n .../github.com_stretchr_objx_v0.5.2/LICENSE        |   22 +\n .../github.com_stretchr_testify_v1.11.1/LICENSE    |   21 +\n .../github.com_zalando_go-keyring_v0.2.8/LICENSE   |   21 +\n .../internal/shellescape/LICENSE                   |   21 +\n LICENSES/third-party/go-runtime/LICENSE            |   27 +\n LICENSES/third-party/go-runtime/PATENTS            |   22 +\n .../third-party/go.yaml.in_yaml_v3_v3.0.4/LICENSE  |   50 +\n .../third-party/go.yaml.in_yaml_v3_v3.0.4/NOTICE   |   13 +\n .../third-party/golang.org_x_mod_v0.37.0/LICENSE   |   27 +\n .../third-party/golang.org_x_mod_v0.37.0/PATENTS   |   22 +\n .../third-party/golang.org_x_mod_v0.38.0/LICENSE   |   27 +\n .../third-party/golang.org_x_mod_v0.38.0/PATENTS   |   22 +\n .../third-party/golang.org_x_sync_v0.21.0/LICENSE  |   27 +\n .../third-party/golang.org_x_sync_v0.21.0/PATENTS  |   22 +\n .../third-party/golang.org_x_sync_v0.22.0/LICENSE  |   27 +\n .../third-party/golang.org_x_sync_v0.22.0/PATENTS  |   22 +\n .../third-party/golang.org_x_sys_v0.26.0/LICENSE   |   27 +\n .../third-party/golang.org_x_sys_v0.26.0/PATENTS   |   22 +\n .../third-party/golang.org_x_sys_v0.47.0/LICENSE   |   27 +\n .../third-party/golang.org_x_sys_v0.47.0/PATENTS   |   22 +\n .../third-party/golang.org_x_text_v0.39.0/LICENSE  |   27 +\n .../third-party/golang.org_x_text_v0.39.0/PATENTS  |   22 +\n .../third-party/golang.org_x_text_v0.41.0/LICENSE  |   27 +\n .../third-party/golang.org_x_text_v0.41.0/PATENTS  |   22 +\n .../third-party/golang.org_x_tools_v0.47.0/LICENSE |   27 +\n .../third-party/golang.org_x_tools_v0.47.0/PATENTS |   22 +\n .../third-party/golang.org_x_tools_v0.48.0/LICENSE |   27 +\n .../third-party/golang.org_x_tools_v0.48.0/PATENTS |   22 +\n .../LICENSE                                        |   25 +\n .../third-party/gopkg.in_yaml.v3_v3.0.1/LICENSE    |   50 +\n .../third-party/gopkg.in_yaml.v3_v3.0.1/NOTICE     |   13 +\n .../infrastructure-discovery/LUCIDE_LICENSE.txt    |   43 +\n .../third-party/modernc.org_cc_v4_v4.29.1/LICENSE  |   27 +\n .../testdata/jhjourdan/LICENSE                     |   24 +\n .../modernc.org_ccgo_v4_v4.34.6/LICENSE            |   27 +\n .../modernc.org_fileutil_v1.4.0/AUTHORS            |   18 +\n .../modernc.org_fileutil_v1.4.0/LICENSE            |   27 +\n .../modernc.org_fileutil_v1.4.0/falloc/LICENSE     |   27 +\n .../modernc.org_fileutil_v1.4.0/hdb/LICENSE        |   27 +\n .../modernc.org_fileutil_v1.4.0/storage/LICENSE    |   27 +\n .../third-party/modernc.org_gc_v2_v2.6.5/LICENSE   |   69 ++\n .../third-party/modernc.org_gc_v3_v3.1.4/LICENSE   |   69 ++\n .../third-party/modernc.org_goabi0_v0.2.0/AUTHORS  |   11 +\n .../third-party/modernc.org_goabi0_v0.2.0/LICENSE  |   26 +\n .../third-party/modernc.org_libc_v1.74.4/AUTHORS   |   24 +\n .../third-party/modernc.org_libc_v1.74.4/LICENSE   |   27 +\n .../modernc.org_libc_v1.74.4/LICENSE-3RD-PARTY.md  |  305 ++++++\n .../testdata/nsz.repo.hu/libc-test/AUTHORS         |    7 +\n .../testdata/nsz.repo.hu/libc-test/COPYRIGHT       |   29 +\n .../nsz.repo.hu/libc-test/src/math/crlibm/COPYING  |  340 ++++++\n .../modernc.org_mathutil_v1.7.1/AUTHORS            |   13 +\n .../modernc.org_mathutil_v1.7.1/LICENSE            |   27 +\n .../modernc.org_mathutil_v1.7.1/mersenne/AUTHORS   |   11 +\n .../modernc.org_mathutil_v1.7.1/mersenne/LICENSE   |   27 +\n .../third-party/modernc.org_memory_v1.11.0/AUTHORS |   15 +\n .../third-party/modernc.org_memory_v1.11.0/LICENSE |   27 +\n .../modernc.org_memory_v1.11.0/LICENSE-GO          |   27 +\n .../modernc.org_memory_v1.11.0/LICENSE-LOGO        |    1 +\n .../modernc.org_memory_v1.11.0/LICENSE-MMAP-GO     |   25 +\n .../third-party/modernc.org_opt_v0.2.0/AUTHORS     |   11 +\n .../third-party/modernc.org_opt_v0.2.0/LICENSE     |   27 +\n .../modernc.org_sortutil_v1.2.1/AUTHORS            |   11 +\n .../modernc.org_sortutil_v1.2.1/LICENSE            |   27 +\n .../third-party/modernc.org_sqlite_v1.56.0/AUTHORS |   34 +\n .../third-party/modernc.org_sqlite_v1.56.0/LICENSE |   26 +\n .../third-party/modernc.org_strutil_v1.2.1/AUTHORS |   12 +\n .../third-party/modernc.org_strutil_v1.2.1/LICENSE |   27 +\n .../third-party/modernc.org_token_v1.1.0/LICENSE   |   27 +\n LICENSE_METADATA.json                              |   12 +\n LICENSE_POLICY.md                                  |   21 +\n LICENSING_HISTORY.md                               |   18 +\n NOTICE                                             |    6 +\n README.md                                          |   17 +-\n THIRD_PARTY_NOTICES.md                             |   24 +\n TRADEMARK_POLICY.md                                |   14 +\n api/extensions/v2/contracts.go                     |   40 +\n cmd/devcycle/main.go                               |    4 +\n docs/AI_TEAM_RUNTIME.md                            |   84 ++\n docs/MODEL_ROUTING.md                              |   37 +\n docs/PROJECT_MEMORY.md                             |   18 +\n docs/RISK_MODEL.md                                 |   25 +\n docs/ai-team-quickstart.md                         |   59 ++\n docs/v2-license-audit.md                           |   25 +\n go.mod                                             |    4 +-\n internal/agent/adapters.go                         |    5 +-\n internal/agent/stdin_test.go                       |   23 +\n internal/app/app.go                                |   32 +-\n internal/app/team.go                               |  730 +++++++++++++\n internal/app/team_test.go                          |  405 +++++++\n internal/app/workflow.go                           |   25 +-\n internal/git/commit.go                             |   20 +\n internal/team/AGPL-3.0-only.txt                    |  235 ++++\n internal/team/about.go                             |   36 +\n internal/team/lock_unix.go                         |   13 +\n internal/team/lock_windows.go                      |   15 +\n internal/team/model.go                             |  406 +++++++\n internal/team/store.go                             |  178 ++++\n internal/team/team_test.go                         |  240 +++++\n internal/web/server.go                             |   14 +\n internal/web/static/index.html                     |    1 +\n internal/web/static/team.css                       |    1 +\n internal/web/static/team.html                      |    7 +\n internal/web/static/team.js                        |   11 +\n internal/web/team.go                               |  141 +++\n internal/web/team_security_test.go                 |   32 +\n scripts/license-guard.py                           |   34 +\n third-party-inventory.json                         | 1088 +++++++++++++++++++\n third-party.cdx.json                               | 1119 ++++++++++++++++++++\n 156 files changed, 10752 insertions(+), 212 deletions(-)",
+        "stderr": ""
+      },
+      "ancestry": {
+        "exit": 0,
+        "stdout": "2ed6e54328966ca16c1aa6585b3131fb87fdaa83",
+        "stderr": ""
+      },
+      "pr": {
+        "exit": 0,
+        "stderr": "",
+        "data": {
+          "baseRefName": "main",
+          "baseRefOid": "2ed6e54328966ca16c1aa6585b3131fb87fdaa83",
+          "commits": [
+            {
+              "authoredDate": "2026-10-30T15:33:21Z",
+              "authors": [
+                {
+                  "email": "genejie199@gmail.com",
+                  "id": "MDQ6VXNlcjQ1MTM4MDE1",
+                  "login": "GeneJie199",
+                  "name": "GeneJie"
+                }
+              ],
+              "committedDate": "2026-10-30T15:33:21Z",
+              "messageBody": "…evidence",
+              "messageHeadline": "feat: introduce durable AI team runtime with routing risk memory and …",
+              "oid": "b1c743761e2e96ce1cc01f19df139100ff2d195e"
+            },
+            {
+              "authoredDate": "2026-10-30T15:52:56Z",
+              "authors": [
+                {
+                  "email": "genejie199@gmail.com",
+                  "id": "MDQ6VXNlcjQ1MTM4MDE1",
+                  "login": "GeneJie199",
+                  "name": "GeneJie"
+                }
+              ],
+              "committedDate": "2026-10-30T15:52:56Z",
+              "messageBody": "",
+              "messageHeadline": "feat: add bounded repair regression and protected task commit ownership",
+              "oid": "5a30d146151cf79864584e5cc5c714634e220179"
+            },
+            {
+              "authoredDate": "2026-10-30T15:53:13Z",
+              "authors": [
+                {
+                  "email": "genejie199@gmail.com",
+                  "id": "MDQ6VXNlcjQ1MTM4MDE1",
+                  "login": "GeneJie199",
+                  "name": "GeneJie"
+                }
+              ],
+              "committedDate": "2026-10-30T15:53:13Z",
+              "messageBody": "",
+              "messageHeadline": "fix: make runtime task commit ownership explicit to agents",
+              "oid": "71bfce4f5794ecb12100bb375476a79ae13b48b1"
+            },
+            {
+              "authoredDate": "2026-10-30T16:00:54Z",
+              "authors": [
+                {
+                  "email": "genejie199@gmail.com",
+                  "id": "MDQ6VXNlcjQ1MTM4MDE1",
+                  "login": "GeneJie199",
+                  "name": "GeneJie"
+                }
+              ],
+              "committedDate": "2026-10-30T16:00:54Z",
+              "messageBody": "",
+              "messageHeadline": "legal: migrate v2 source with preserved notices and secure Go baseline",
+              "oid": "388d07f6ea965f037b54d884ad3239da2dec4f75"
+            },
+            {
+              "authoredDate": "2026-10-30T16:04:59Z",
+              "authors": [
+                {
+                  "email": "genejie199@gmail.com",
+                  "id": "MDQ6VXNlcjQ1MTM4MDE1",
+                  "login": "GeneJie199",
+                  "name": "GeneJie"
+                }
+              ],
+              "committedDate": "2026-10-30T16:04:59Z",
+              "messageBody": "",
+              "messageHeadline": "build: use patched compiler for macOS and release targets",
+              "oid": "1382a693ee4a8c9a666db9b566e6ca20fdc37df2"
+            },
+            {
+              "authoredDate": "2026-10-30T16:13:52Z",
+              "authors": [
+                {
+                  "email": "genejie199@gmail.com",
+                  "id": "MDQ6VXNlcjQ1MTM4MDE1",
+                  "login": "GeneJie199",
+                  "name": "GeneJie"
+                }
+              ],
+              "committedDate": "2026-10-30T16:13:52Z",
+              "messageBody": "…idence",
+              "messageHeadline": "fix: finalize v2 policy contracts and refreshed dependency license ev…",
+              "oid": "310ae0d61873da20c1705ce30bdc3519baab5218"
+            },
+            {
+              "authoredDate": "2026-10-30T16:21:24Z",
+              "authors": [
+                {
+                  "email": "genejie199@gmail.com",
+                  "id": "MDQ6VXNlcjQ1MTM4MDE1",
+                  "login": "GeneJie199",
+                  "name": "GeneJie"
+                }
+              ],
+              "committedDate": "2026-10-30T16:21:24Z",
+              "messageBody": "…t replay",
+              "messageHeadline": "fix: stream long agent contexts through stdin and accept clean verdic…",
+              "oid": "900c3982b74dbf8039bb3b2f757f62cb6fff6246"
+            },
+            {
+              "authoredDate": "2026-10-30T16:25:19Z",
+              "authors": [
+                {
+                  "email": "genejie199@gmail.com",
+                  "id": "MDQ6VXNlcjQ1MTM4MDE1",
+                  "login": "GeneJie199",
+                  "name": "GeneJie"
+                }
+              ],
+              "committedDate": "2026-10-30T16:25:19Z",
+              "messageBody": "",
+              "messageHeadline": "docs: explain stdin context transport and expert isolation controls",
+              "oid": "13dd86ab2494a825a9170da65f0842ca36c40017"
+            },
+            {
+              "authoredDate": "2026-10-30T16:28:44Z",
+              "authors": [
+                {
+                  "email": "genejie199@gmail.com",
+                  "id": "MDQ6VXNlcjQ1MTM4MDE1",
+                  "login": "GeneJie199",
+                  "name": "GeneJie"
+                }
+              ],
+              "committedDate": "2026-10-30T16:28:44Z",
+              "messageBody": "",
+              "messageHeadline": "fix: require explicit recovery after ambiguous worker interruption",
+              "oid": "032dea08095abb38415f3609efad2693dac94a95"
+            },
+            {
+              "authoredDate": "2026-10-30T16:24:13Z",
+              "authors": [
+                {
+                  "email": "genejie199@gmail.com",
+                  "id": "MDQ6VXNlcjQ1MTM4MDE1",
+                  "login": "GeneJie199",
+                  "name": "GeneJie"
+                }
+              ],
+              "committedDate": "2026-10-30T16:31:55Z",
+              "messageBody": "",
+              "messageHeadline": "AI Team build: 5b2124fd-46bc-45ce-933f-378fd1e46995",
+              "oid": "7b45cc974b771882a6fe4a9f865ff58a15ff7354"
+            },
+            {
+              "authoredDate": "2026-10-30T16:46:33Z",
+              "authors": [
+                {
+                  "email": "genejie199@gmail.com",
+                  "id": "MDQ6VXNlcjQ1MTM4MDE1",
+                  "login": "GeneJie199",
+                  "name": "GeneJie"
+                }
+              ],
+              "committedDate": "2026-10-30T16:46:33Z",
+              "messageBody": "… request gates",
+              "messageHeadline": "fix: preserve accumulated artifacts and harden model review and local…",
+              "oid": "ab4a37f14a59b8625cd8421c2ff4c1a2a55041ff"
+            },
+            {
+              "authoredDate": "2026-10-30T17:51:59Z",
+              "authors": [
+                {
+                  "email": "genejie199@gmail.com",
+                  "id": "MDQ6VXNlcjQ1MTM4MDE1",
+                  "login": "GeneJie199",
+                  "name": "GeneJie"
+                }
+              ],
+              "committedDate": "2026-10-30T17:51:59Z",
+              "messageBody": "",
+              "messageHeadline": "fix: keep exhausted mission retries terminal",
+              "oid": "3c8786ef2f7ba0475d80d92738c21f1193893ed1"
+            }
+          ],
+          "headRefName": "codex/v2-ai-team-c0",
+          "headRefOid": "3c8786ef2f7ba0475d80d92738c21f1193893ed1",
+          "isDraft": true,
+          "mergeStateStatus": "CLEAN",
+          "mergeable": "MERGEABLE",
+          "number": 1,
+          "reviewDecision": "",
+          "reviews": [],
+          "state": "OPEN",
+          "statusCheckRollup": [
+            {
+              "__typename": "CheckRun",
+              "completedAt": "2026-10-30T17:56:28Z",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/GeneJie199/ai-dev-cycle-manager/actions/runs/41102063026/job/124220803878",
+              "name": "test (ubuntu-latest)",
+              "startedAt": "2026-10-30T17:52:11Z",
+              "status": "COMPLETED",
+              "workflowName": "CI"
+            },
+            {
+              "__typename": "CheckRun",
+              "completedAt": "2026-10-30T17:55:03Z",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/GeneJie199/ai-dev-cycle-manager/actions/runs/41102055427/job/124220786454",
+              "name": "test (ubuntu-latest)",
+              "startedAt": "2026-10-30T17:52:07Z",
+              "status": "COMPLETED",
+              "workflowName": "CI"
+            },
+            {
+              "__typename": "CheckRun",
+              "completedAt": "2026-10-30T17:54:59Z",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/GeneJie199/ai-dev-cycle-manager/actions/runs/41102063026/job/124220803655",
+              "name": "test (windows-latest)",
+              "startedAt": "2026-10-30T17:52:19Z",
+              "status": "COMPLETED",
+              "workflowName": "CI"
+            },
+            {
+              "__typename": "CheckRun",
+              "completedAt": "2026-10-30T17:54:53Z",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/GeneJie199/ai-dev-cycle-manager/actions/runs/41102055427/job/124220786488",
+              "name": "test (windows-latest)",
+              "startedAt": "2026-10-30T17:52:07Z",
+              "status": "COMPLETED",
+              "workflowName": "CI"
+            },
+            {
+              "__typename": "CheckRun",
+              "completedAt": "2026-10-30T17:54:59Z",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/GeneJie199/ai-dev-cycle-manager/actions/runs/41102063026/job/124220804006",
+              "name": "test (macos-latest)",
+              "startedAt": "2026-10-30T17:52:20Z",
+              "status": "COMPLETED",
+              "workflowName": "CI"
+            },
+            {
+              "__typename": "CheckRun",
+              "completedAt": "2026-10-30T17:54:59Z",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/GeneJie199/ai-dev-cycle-manager/actions/runs/41102055427/job/124220786216",
+              "name": "test (macos-latest)",
+              "startedAt": "2026-10-30T17:52:07Z",
+              "status": "COMPLETED",
+              "workflowName": "CI"
+            }
+          ],
+          "url": "https://github.com/GeneJie199/ai-dev-cycle-manager/pull/1"
+        }
+      },
+      "protection": {
+        "exit": 1,
+        "stdout": "{\"message\":\"Branch not protected\",\"documentation_url\":\"https://docs.github.com/rest/branches/branch-protection#get-branch-protection\",\"status\":\"404\"}",
+        "stderr": "gh: Branch not protected (HTTP 404)"
+      },
+      "rules": {
+        "exit": 0,
+        "stderr": "",
+        "data": []
+      },
+      "reviewThreads": {
+        "exit": 0,
+        "data": {
+          "data": {
+            "repository": {
+              "pullRequest": {
+                "reviewThreads": {
+                  "nodes": []
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "repository": {
+        "exit": 0,
+        "stderr": "",
+        "data": {
+          "id": 1326346731,
+          "node_id": "R_kgDOTw5x6w",
+          "name": "infrastructure-discovery",
+          "full_name": "GeneJie199/infrastructure-discovery",
+          "private": false,
+          "owner": {
+            "login": "GeneJie199",
+            "id": 45138015,
+            "node_id": "MDQ6VXNlcjQ1MTM4MDE1",
+            "avatar_url": "https://avatars.githubusercontent.com/u/45138015?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/GeneJie199",
+            "html_url": "https://github.com/GeneJie199",
+            "followers_url": "https://api.github.com/users/GeneJie199/followers",
+            "following_url": "https://api.github.com/users/GeneJie199/following{/other_user}",
+            "gists_url": "https://api.github.com/users/GeneJie199/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/GeneJie199/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/GeneJie199/subscriptions",
+            "organizations_url": "https://api.github.com/users/GeneJie199/orgs",
+            "repos_url": "https://api.github.com/users/GeneJie199/repos",
+            "events_url": "https://api.github.com/users/GeneJie199/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/GeneJie199/received_events",
+            "type": "User",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "html_url": "https://github.com/GeneJie199/infrastructure-discovery",
+          "description": "Local-first infrastructure discovery, baselines, drift detection, risk review, database metadata, and offline reports",
+          "fork": false,
+          "url": "https://api.github.com/repos/GeneJie199/infrastructure-discovery",
+          "forks_url": "https://api.github.com/repos/GeneJie199/infrastructure-discovery/forks",
+          "keys_url": "https://api.github.com/repos/GeneJie199/infrastructure-discovery/keys{/key_id}",
+          "collaborators_url": "https://api.github.com/repos/GeneJie199/infrastructure-discovery/collaborators{/collaborator}",
+          "teams_url": "https://api.github.com/repos/GeneJie199/infrastructure-discovery/teams",
+          "hooks_url": "https://api.github.com/repos/GeneJie199/infrastructure-discovery/hooks",
+          "issue_events_url": "https://api.github.com/repos/GeneJie199/infrastructure-discovery/issues/events{/number}",
+          "events_url": "https://api.github.com/repos/GeneJie199/infrastructure-discovery/events",
+          "assignees_url": "https://api.github.com/repos/GeneJie199/infrastructure-discovery/assignees{/user}",
+          "branches_url": "https://api.github.com/repos/GeneJie199/infrastructure-discovery/branches{/branch}",
+          "tags_url": "https://api.github.com/repos/GeneJie199/infrastructure-discovery/tags",
+          "blobs_url": "https://api.github.com/repos/GeneJie199/infrastructure-discovery/git/blobs{/sha}",
+          "git_tags_url": "https://api.github.com/repos/GeneJie199/infrastructure-discovery/git/tags{/sha}",
+          "git_refs_url": "https://api.github.com/repos/GeneJie199/infrastructure-discovery/git/refs{/sha}",
+          "trees_url": "https://api.github.com/repos/GeneJie199/infrastructure-discovery/git/trees{/sha}",
+          "statuses_url": "https://api.github.com/repos/GeneJie199/infrastructure-discovery/statuses/{sha}",
+          "languages_url": "https://api.github.com/repos/GeneJie199/infrastructure-discovery/languages",
+          "stargazers_url": "https://api.github.com/repos/GeneJie199/infrastructure-discovery/stargazers",
+          "contributors_url": "https://api.github.com/repos/GeneJie199/infrastructure-discovery/contributors",
+          "subscribers_url": "https://api.github.com/repos/GeneJie199/infrastructure-discovery/subscribers",
+          "subscription_url": "https://api.github.com/repos/GeneJie199/infrastructure-discovery/subscription",
+          "commits_url": "https://api.github.com/repos/GeneJie199/infrastructure-discovery/commits{/sha}",
+          "git_commits_url": "https://api.github.com/repos/GeneJie199/infrastructure-discovery/git/commits{/sha}",
+          "comments_url": "https://api.github.com/repos/GeneJie199/infrastructure-discovery/comments{/number}",
+          "issue_comment_url": "https://api.github.com/repos/GeneJie199/infrastructure-discovery/issues/comments{/number}",
+          "contents_url": "https://api.github.com/repos/GeneJie199/infrastructure-discovery/contents/{+path}",
+          "compare_url": "https://api.github.com/repos/GeneJie199/infrastructure-discovery/compare/{base}...{head}",
+          "merges_url": "https://api.github.com/repos/GeneJie199/infrastructure-discovery/merges",
+          "archive_url": "https://api.github.com/repos/GeneJie199/infrastructure-discovery/{archive_format}{/ref}",
+          "downloads_url": "https://api.github.com/repos/GeneJie199/infrastructure-discovery/downloads",
+          "issues_url": "https://api.github.com/repos/GeneJie199/infrastructure-discovery/issues{/number}",
+          "pulls_url": "https://api.github.com/repos/GeneJie199/infrastructure-discovery/pulls{/number}",
+          "milestones_url": "https://api.github.com/repos/GeneJie199/infrastructure-discovery/milestones{/number}",
+          "notifications_url": "https://api.github.com/repos/GeneJie199/infrastructure-discovery/notifications{?since,all,participating}",
+          "labels_url": "https://api.github.com/repos/GeneJie199/infrastructure-discovery/labels{/name}",
+          "releases_url": "https://api.github.com/repos/GeneJie199/infrastructure-discovery/releases{/id}",
+          "deployments_url": "https://api.github.com/repos/GeneJie199/infrastructure-discovery/deployments",
+          "created_at": "2026-08-07T07:25:43Z",
+          "updated_at": "2026-08-23T00:47:44Z",
+          "pushed_at": "2026-10-30T16:13:58Z",
+          "git_url": "git://github.com/GeneJie199/infrastructure-discovery.git",
+          "ssh_url": "git@github.com:GeneJie199/infrastructure-discovery.git",
+          "clone_url": "https://github.com/GeneJie199/infrastructure-discovery.git",
+          "svn_url": "https://github.com/GeneJie199/infrastructure-discovery",
+          "homepage": null,
+          "size": 413,
+          "stargazers_count": 0,
+          "watchers_count": 0,
+          "language": "Go",
+          "has_issues": true,
+          "has_projects": true,
+          "has_downloads": false,
+          "has_wiki": true,
+          "has_pages": false,
+          "has_discussions": false,
+          "forks_count": 0,
+          "mirror_url": null,
+          "archived": false,
+          "disabled": false,
+          "open_issues_count": 1,
+          "license": {
+            "key": "apache-2.0",
+            "name": "Apache License 2.0",
+            "spdx_id": "Apache-2.0",
+            "url": "https://api.github.com/licenses/apache-2.0",
+            "node_id": "MDc6TGljZW5zZTI="
+          },
+          "allow_forking": true,
+          "is_template": false,
+          "web_commit_signoff_required": false,
+          "has_pull_requests": true,
+          "pull_request_creation_policy": "all",
+          "topics": [
+            "ai-devops",
+            "asset-inventory",
+            "drift-detection",
+            "golang",
+            "infrastructure"
+          ],
+          "visibility": "public",
+          "forks": 0,
+          "open_issues": 1,
+          "watchers": 0,
+          "default_branch": "main",
+          "permissions": {
+            "admin": true,
+            "maintain": true,
+            "push": true,
+            "triage": true,
+            "pull": true
+          },
+          "temp_clone_token": "",
+          "allow_squash_merge": true,
+          "allow_merge_commit": true,
+          "allow_rebase_merge": true,
+          "allow_auto_merge": false,
+          "delete_branch_on_merge": false,
+          "allow_update_branch": false,
+          "use_squash_pr_title_as_default": false,
+          "squash_merge_commit_message": "COMMIT_MESSAGES",
+          "squash_merge_commit_title": "COMMIT_OR_PR_TITLE",
+          "merge_commit_message": "PR_TITLE",
+          "merge_commit_title": "MERGE_MESSAGE",
+          "security_and_analysis": {
+            "secret_scanning": {
+              "status": "enabled"
+            },
+            "secret_scanning_push_protection": {
+              "status": "enabled"
+            },
+            "dependabot_security_updates": {
+              "status": "disabled"
+            },
+            "secret_scanning_non_provider_patterns": {
+              "status": "disabled"
+            },
+            "secret_scanning_validity_checks": {
+              "status": "disabled"
+            }
+          },
+          "network_count": 0,
+          "subscribers_count": 0
+        }
+      },
+      "directory": "infrastructure-discovery",
+      "url": "https://github.com/GeneJie199/infrastructure-discovery/pull/1",
+      "local": "C:\\Users\\揭剑\\Documents\\ChatGPT\\infrastructure-discovery",
+      "head": "452dd74c850b9e383776e904a70a81acff51c6d5",
+      "status": {
+        "exit": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      "branches": {
+        "exit": 0,
+        "stdout": "* codex/v2-ai-team-c0                452dd74 [origin/codex/v2-ai-team-c0] fix: finalize v2 policy contracts and refreshed dependency license evidence\n  main                               b881a03 [origin/main] release: embed standalone binary checksums\n  remotes/origin/HEAD                -> origin/main\n  remotes/origin/codex/v2-ai-team-c0 452dd74 fix: finalize v2 policy contracts and refreshed dependency license evidence\n  remotes/origin/main                b881a03 release: embed standalone binary checksums",
+        "stderr": ""
+      },
+      "log": {
+        "exit": 0,
+        "stdout": "452dd74c850b9e383776e904a70a81acff51c6d5 GeneJie <genejie199@gmail.com> fix: finalize v2 policy contracts and refreshed dependency license evidence\nc352513a193cbd74cde15a85a3a79357b9e8b055 GeneJie <genejie199@gmail.com> security: update x/text past reachable PRECIS vulnerability\nd9693c23989b8d30bc9064d4510cab7150f5bbc1 GeneJie <genejie199@gmail.com> build: use patched compiler for macOS and release targets\n078a5b0eba5d20c389320b3caa704ed9dbbdb1ad GeneJie <genejie199@gmail.com> legal: migrate v2 source with preserved notices and secure Go baseline\nb881a03c40fa4f11e9d9ef64f3cf6f5e229cfba6 GeneJie <genejie199@gmail.com> release: embed standalone binary checksums\needcbf32f3c981f78ed7e0b497e350c454e5bcf2 GeneJie <genejie199@gmail.com> security: document private snapshot write boundary\n69fc747bde82d012fe5b779302cbe0ad0a8c1062 GeneJie <genejie199@gmail.com> release: deliver verified InfraScout packages\nc6794fb095b6962de4504b6840340efbc5548155 GeneJie <genejie199@gmail.com> security: add collector fuzz and scanning gates",
+        "stderr": ""
+      },
+      "worktrees": {
+        "exit": 0,
+        "stdout": "worktree C:/Users/揭剑/Documents/ChatGPT/infrastructure-discovery\nHEAD 452dd74c850b9e383776e904a70a81acff51c6d5\nbranch refs/heads/codex/v2-ai-team-c0",
+        "stderr": ""
+      },
+      "diffStat": {
+        "exit": 0,
+        "stdout": ".gitattributes                                     |    4 +\n .github/workflows/ci.yml                           |    4 +-\n .github/workflows/release.yml                      |    6 +-\n .gitignore                                         |    5 +\n COMMERCIALIZATION.md                               |   16 +\n COMMERCIAL_LICENSE.md                              |   26 +\n CONTRIBUTING.md                                    |    3 +\n CONTRIBUTOR_POLICY.md                              |   28 +\n LICENSE                                            |  427 ++++----\n LICENSES/AGPL-3.0-only.txt                         |  235 ++++\n LICENSES/Apache-2.0.txt                            |  192 ++++\n .../ai-dev-cycle-manager/LUCIDE_LICENSE.txt        |   43 +\n .../filippo.io_edwards25519_v1.1.0/LICENSE         |   27 +\n .../LICENSE.md                                     |   21 +\n .../github.com_creack_pty_v1.1.9/LICENSE           |   23 +\n .../github.com_danieljoos_wincred_v1.2.3/LICENSE   |   21 +\n .../github.com_davecgh_go-spew_v1.1.1/LICENSE      |   15 +\n .../github.com_dustin_go-humanize_v1.0.1/LICENSE   |   21 +\n .../github.com_go-sql-driver_mysql_v1.9.3/AUTHORS  |  155 +++\n .../github.com_go-sql-driver_mysql_v1.9.3/LICENSE  |  373 +++++++\n .../github.com_godbus_dbus_v5_v5.2.2/LICENSE       |   25 +\n .../AUTHORS                                        |    7 +\n .../LICENSE                                        |  202 ++++\n .../third_party/svgpan/LICENSE                     |   27 +\n .../github.com_google_uuid_v1.6.0/LICENSE          |   27 +\n .../LICENSE                                        |  364 +++++++\n .../simplelru/LICENSE_list                         |   29 +\n .../LICENSE                                        |  201 ++++\n .../github.com_jackc_pgpassfile_v1.0.0/LICENSE     |   22 +\n .../LICENSE                                        |   22 +\n .../github.com_jackc_pgx_v5_v5.9.2/LICENSE         |   22 +\n .../github.com_jackc_puddle_v2_v2.2.2/LICENSE      |   22 +\n .../github.com_kr_pretty_v0.3.0/License            |   19 +\n .../third-party/github.com_kr_text_v0.2.0/License  |   19 +\n .../github.com_mattn_go-isatty_v0.0.24/LICENSE     |    9 +\n .../github.com_ncruces_go-strftime_v1.0.0/LICENSE  |   21 +\n .../github.com_oklog_ulid_v2_v2.1.2/AUTHORS.md     |    2 +\n .../github.com_oklog_ulid_v2_v2.1.2/LICENSE        |  201 ++++\n .../AUTHORS                                        |    1 +\n .../LICENSE                                        |   27 +\n .../github.com_pmezard_go-difflib_v1.0.0/LICENSE   |   27 +\n .../LICENSE                                        |   27 +\n .../LICENSE                                        |   27 +\n .../LICENSE.txt                                    |   29 +\n .../LICENSE                                        |  175 +++\n .../github.com_spf13_cobra_v1.10.2/LICENSE.txt     |  174 +++\n .../github.com_spf13_pflag_v1.0.9/LICENSE          |   28 +\n .../github.com_stretchr_objx_v0.1.0/LICENSE        |   22 +\n .../github.com_stretchr_objx_v0.5.2/LICENSE        |   22 +\n .../github.com_stretchr_testify_v1.11.1/LICENSE    |   21 +\n .../github.com_zalando_go-keyring_v0.2.8/LICENSE   |   21 +\n .../internal/shellescape/LICENSE                   |   21 +\n LICENSES/third-party/go-runtime/LICENSE            |   27 +\n LICENSES/third-party/go-runtime/PATENTS            |   22 +\n .../third-party/go.yaml.in_yaml_v3_v3.0.4/LICENSE  |   50 +\n .../third-party/go.yaml.in_yaml_v3_v3.0.4/NOTICE   |   13 +\n .../third-party/golang.org_x_mod_v0.37.0/LICENSE   |   27 +\n .../third-party/golang.org_x_mod_v0.37.0/PATENTS   |   22 +\n .../third-party/golang.org_x_mod_v0.38.0/LICENSE   |   27 +\n .../third-party/golang.org_x_mod_v0.38.0/PATENTS   |   22 +\n .../third-party/golang.org_x_sync_v0.21.0/LICENSE  |   27 +\n .../third-party/golang.org_x_sync_v0.21.0/PATENTS  |   22 +\n .../third-party/golang.org_x_sync_v0.22.0/LICENSE  |   27 +\n .../third-party/golang.org_x_sync_v0.22.0/PATENTS  |   22 +\n .../third-party/golang.org_x_sys_v0.26.0/LICENSE   |   27 +\n .../third-party/golang.org_x_sys_v0.26.0/PATENTS   |   22 +\n .../third-party/golang.org_x_sys_v0.47.0/LICENSE   |   27 +\n .../third-party/golang.org_x_sys_v0.47.0/PATENTS   |   22 +\n .../third-party/golang.org_x_text_v0.39.0/LICENSE  |   27 +\n .../third-party/golang.org_x_text_v0.39.0/PATENTS  |   22 +\n .../third-party/golang.org_x_text_v0.41.0/LICENSE  |   27 +\n .../third-party/golang.org_x_text_v0.41.0/PATENTS  |   22 +\n .../third-party/golang.org_x_tools_v0.47.0/LICENSE |   27 +\n .../third-party/golang.org_x_tools_v0.47.0/PATENTS |   22 +\n .../third-party/golang.org_x_tools_v0.48.0/LICENSE |   27 +\n .../third-party/golang.org_x_tools_v0.48.0/PATENTS |   22 +\n .../LICENSE                                        |   25 +\n .../third-party/gopkg.in_yaml.v3_v3.0.1/LICENSE    |   50 +\n .../third-party/gopkg.in_yaml.v3_v3.0.1/NOTICE     |   13 +\n .../infrastructure-discovery/LUCIDE_LICENSE.txt    |   43 +\n .../third-party/modernc.org_cc_v4_v4.29.1/LICENSE  |   27 +\n .../testdata/jhjourdan/LICENSE                     |   24 +\n .../modernc.org_ccgo_v4_v4.34.6/LICENSE            |   27 +\n .../modernc.org_fileutil_v1.4.0/AUTHORS            |   18 +\n .../modernc.org_fileutil_v1.4.0/LICENSE            |   27 +\n .../modernc.org_fileutil_v1.4.0/falloc/LICENSE     |   27 +\n .../modernc.org_fileutil_v1.4.0/hdb/LICENSE        |   27 +\n .../modernc.org_fileutil_v1.4.0/storage/LICENSE    |   27 +\n .../third-party/modernc.org_gc_v2_v2.6.5/LICENSE   |   69 ++\n .../third-party/modernc.org_gc_v3_v3.1.4/LICENSE   |   69 ++\n .../third-party/modernc.org_goabi0_v0.2.0/AUTHORS  |   11 +\n .../third-party/modernc.org_goabi0_v0.2.0/LICENSE  |   26 +\n .../third-party/modernc.org_libc_v1.74.4/AUTHORS   |   24 +\n .../third-party/modernc.org_libc_v1.74.4/LICENSE   |   27 +\n .../modernc.org_libc_v1.74.4/LICENSE-3RD-PARTY.md  |  305 ++++++\n .../testdata/nsz.repo.hu/libc-test/AUTHORS         |    7 +\n .../testdata/nsz.repo.hu/libc-test/COPYRIGHT       |   29 +\n .../nsz.repo.hu/libc-test/src/math/crlibm/COPYING  |  340 ++++++\n .../modernc.org_mathutil_v1.7.1/AUTHORS            |   13 +\n .../modernc.org_mathutil_v1.7.1/LICENSE            |   27 +\n .../modernc.org_mathutil_v1.7.1/mersenne/AUTHORS   |   11 +\n .../modernc.org_mathutil_v1.7.1/mersenne/LICENSE   |   27 +\n .../third-party/modernc.org_memory_v1.11.0/AUTHORS |   15 +\n .../third-party/modernc.org_memory_v1.11.0/LICENSE |   27 +\n .../modernc.org_memory_v1.11.0/LICENSE-GO          |   27 +\n .../modernc.org_memory_v1.11.0/LICENSE-LOGO        |    1 +\n .../modernc.org_memory_v1.11.0/LICENSE-MMAP-GO     |   25 +\n .../third-party/modernc.org_opt_v0.2.0/AUTHORS     |   11 +\n .../third-party/modernc.org_opt_v0.2.0/LICENSE     |   27 +\n .../modernc.org_sortutil_v1.2.1/AUTHORS            |   11 +\n .../modernc.org_sortutil_v1.2.1/LICENSE            |   27 +\n .../third-party/modernc.org_sqlite_v1.56.0/AUTHORS |   34 +\n .../third-party/modernc.org_sqlite_v1.56.0/LICENSE |   26 +\n .../third-party/modernc.org_strutil_v1.2.1/AUTHORS |   12 +\n .../third-party/modernc.org_strutil_v1.2.1/LICENSE |   27 +\n .../third-party/modernc.org_token_v1.1.0/LICENSE   |   27 +\n LICENSE_METADATA.json                              |   12 +\n LICENSE_POLICY.md                                  |   21 +\n LICENSING_HISTORY.md                               |   18 +\n NOTICE                                             |    6 +\n README.md                                          |   13 +-\n THIRD_PARTY_NOTICES.md                             |   24 +\n TRADEMARK_POLICY.md                                |   14 +\n docs/v2-license-audit.md                           |   25 +\n go.mod                                             |    6 +-\n go.sum                                             |   20 +-\n scripts/license-guard.py                           |   34 +\n third-party-inventory.json                         | 1088 +++++++++++++++++++\n third-party.cdx.json                               | 1119 ++++++++++++++++++++\n 129 files changed, 7923 insertions(+), 204 deletions(-)",
+        "stderr": ""
+      },
+      "ancestry": {
+        "exit": 0,
+        "stdout": "b881a03c40fa4f11e9d9ef64f3cf6f5e229cfba6",
+        "stderr": ""
+      },
+      "pr": {
+        "exit": 0,
+        "stderr": "",
+        "data": {
+          "baseRefName": "main",
+          "baseRefOid": "b881a03c40fa4f11e9d9ef64f3cf6f5e229cfba6",
+          "commits": [
+            {
+              "authoredDate": "2026-10-30T16:00:59Z",
+              "authors": [
+                {
+                  "email": "genejie199@gmail.com",
+                  "id": "MDQ6VXNlcjQ1MTM4MDE1",
+                  "login": "GeneJie199",
+                  "name": "GeneJie"
+                }
+              ],
+              "committedDate": "2026-10-30T16:00:59Z",
+              "messageBody": "",
+              "messageHeadline": "legal: migrate v2 source with preserved notices and secure Go baseline",
+              "oid": "078a5b0eba5d20c389320b3caa704ed9dbbdb1ad"
+            },
+            {
+              "authoredDate": "2026-10-30T16:05:05Z",
+              "authors": [
+                {
+                  "email": "genejie199@gmail.com",
+                  "id": "MDQ6VXNlcjQ1MTM4MDE1",
+                  "login": "GeneJie199",
+                  "name": "GeneJie"
+                }
+              ],
+              "committedDate": "2026-10-30T16:05:05Z",
+              "messageBody": "",
+              "messageHeadline": "build: use patched compiler for macOS and release targets",
+              "oid": "d9693c23989b8d30bc9064d4510cab7150f5bbc1"
+            },
+            {
+              "authoredDate": "2026-10-30T16:08:51Z",
+              "authors": [
+                {
+                  "email": "genejie199@gmail.com",
+                  "id": "MDQ6VXNlcjQ1MTM4MDE1",
+                  "login": "GeneJie199",
+                  "name": "GeneJie"
+                }
+              ],
+              "committedDate": "2026-10-30T16:08:51Z",
+              "messageBody": "",
+              "messageHeadline": "security: update x/text past reachable PRECIS vulnerability",
+              "oid": "c352513a193cbd74cde15a85a3a79357b9e8b055"
+            },
+            {
+              "authoredDate": "2026-10-30T16:13:55Z",
+              "authors": [
+                {
+                  "email": "genejie199@gmail.com",
+                  "id": "MDQ6VXNlcjQ1MTM4MDE1",
+                  "login": "GeneJie199",
+                  "name": "GeneJie"
+                }
+              ],
+              "committedDate": "2026-10-30T16:13:55Z",
+              "messageBody": "…idence",
+              "messageHeadline": "fix: finalize v2 policy contracts and refreshed dependency license ev…",
+              "oid": "452dd74c850b9e383776e904a70a81acff51c6d5"
+            }
+          ],
+          "headRefName": "codex/v2-ai-team-c0",
+          "headRefOid": "452dd74c850b9e383776e904a70a81acff51c6d5",
+          "isDraft": true,
+          "mergeStateStatus": "CLEAN",
+          "mergeable": "MERGEABLE",
+          "number": 1,
+          "reviewDecision": "",
+          "reviews": [],
+          "state": "OPEN",
+          "statusCheckRollup": [
+            {
+              "__typename": "CheckRun",
+              "completedAt": "2026-10-30T16:14:48Z",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/GeneJie199/infrastructure-discovery/actions/runs/41087989767/job/124174115360",
+              "name": "test (ubuntu-latest)",
+              "startedAt": "2026-10-30T16:14:06Z",
+              "status": "COMPLETED",
+              "workflowName": "CI"
+            },
+            {
+              "__typename": "CheckRun",
+              "completedAt": "2026-10-30T16:14:45Z",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/GeneJie199/infrastructure-discovery/actions/runs/41087981035/job/124174084011",
+              "name": "test (ubuntu-latest)",
+              "startedAt": "2026-10-30T16:14:02Z",
+              "status": "COMPLETED",
+              "workflowName": "CI"
+            },
+            {
+              "__typename": "CheckRun",
+              "completedAt": "2026-10-30T16:14:52Z",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/GeneJie199/infrastructure-discovery/actions/runs/41087989767/job/124174116376",
+              "name": "test (windows-latest)",
+              "startedAt": "2026-10-30T16:14:06Z",
+              "status": "COMPLETED",
+              "workflowName": "CI"
+            },
+            {
+              "__typename": "CheckRun",
+              "completedAt": "2026-10-30T16:14:52Z",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/GeneJie199/infrastructure-discovery/actions/runs/41087981035/job/124174084091",
+              "name": "test (windows-latest)",
+              "startedAt": "2026-10-30T16:14:02Z",
+              "status": "COMPLETED",
+              "workflowName": "CI"
+            },
+            {
+              "__typename": "CheckRun",
+              "completedAt": "2026-10-30T16:16:27Z",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/GeneJie199/infrastructure-discovery/actions/runs/41087989767/job/124174115201",
+              "name": "test (macos-latest)",
+              "startedAt": "2026-10-30T16:15:12Z",
+              "status": "COMPLETED",
+              "workflowName": "CI"
+            },
+            {
+              "__typename": "CheckRun",
+              "completedAt": "2026-10-30T16:14:40Z",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/GeneJie199/infrastructure-discovery/actions/runs/41087981035/job/124174084075",
+              "name": "test (macos-latest)",
+              "startedAt": "2026-10-30T16:14:03Z",
+              "status": "COMPLETED",
+              "workflowName": "CI"
+            }
+          ],
+          "url": "https://github.com/GeneJie199/infrastructure-discovery/pull/1"
+        }
+      },
+      "protection": {
+        "exit": 1,
+        "stdout": "{\"message\":\"Branch not protected\",\"documentation_url\":\"https://docs.github.com/rest/branches/branch-protection#get-branch-protection\",\"status\":\"404\"}",
+        "stderr": "gh: Branch not protected (HTTP 404)"
+      },
+      "rules": {
+        "exit": 0,
+        "stderr": "",
+        "data": []
+      },
+      "reviewThreads": {
+        "exit": 0,
+        "data": {
+          "data": {
+            "repository": {
+              "pullRequest": {
+                "reviewThreads": {
+                  "nodes": []
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "repository": {
+        "exit": 0,
+        "stderr": "",
+        "data": {
+          "id": 1331630384,
+          "node_id": "R_kgDOT18RMA",
+          "name": "fleet-observability",
+          "full_name": "GeneJie199/fleet-observability",
+          "private": false,
+          "owner": {
+            "login": "GeneJie199",
+            "id": 45138015,
+            "node_id": "MDQ6VXNlcjQ1MTM4MDE1",
+            "avatar_url": "https://avatars.githubusercontent.com/u/45138015?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/GeneJie199",
+            "html_url": "https://github.com/GeneJie199",
+            "followers_url": "https://api.github.com/users/GeneJie199/followers",
+            "following_url": "https://api.github.com/users/GeneJie199/following{/other_user}",
+            "gists_url": "https://api.github.com/users/GeneJie199/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/GeneJie199/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/GeneJie199/subscriptions",
+            "organizations_url": "https://api.github.com/users/GeneJie199/orgs",
+            "repos_url": "https://api.github.com/users/GeneJie199/repos",
+            "events_url": "https://api.github.com/users/GeneJie199/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/GeneJie199/received_events",
+            "type": "User",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "html_url": "https://github.com/GeneJie199/fleet-observability",
+          "description": "Self-contained fleet monitoring with a native agent, time-series storage, alerts, change triage, and evidence-backed topology",
+          "fork": false,
+          "url": "https://api.github.com/repos/GeneJie199/fleet-observability",
+          "forks_url": "https://api.github.com/repos/GeneJie199/fleet-observability/forks",
+          "keys_url": "https://api.github.com/repos/GeneJie199/fleet-observability/keys{/key_id}",
+          "collaborators_url": "https://api.github.com/repos/GeneJie199/fleet-observability/collaborators{/collaborator}",
+          "teams_url": "https://api.github.com/repos/GeneJie199/fleet-observability/teams",
+          "hooks_url": "https://api.github.com/repos/GeneJie199/fleet-observability/hooks",
+          "issue_events_url": "https://api.github.com/repos/GeneJie199/fleet-observability/issues/events{/number}",
+          "events_url": "https://api.github.com/repos/GeneJie199/fleet-observability/events",
+          "assignees_url": "https://api.github.com/repos/GeneJie199/fleet-observability/assignees{/user}",
+          "branches_url": "https://api.github.com/repos/GeneJie199/fleet-observability/branches{/branch}",
+          "tags_url": "https://api.github.com/repos/GeneJie199/fleet-observability/tags",
+          "blobs_url": "https://api.github.com/repos/GeneJie199/fleet-observability/git/blobs{/sha}",
+          "git_tags_url": "https://api.github.com/repos/GeneJie199/fleet-observability/git/tags{/sha}",
+          "git_refs_url": "https://api.github.com/repos/GeneJie199/fleet-observability/git/refs{/sha}",
+          "trees_url": "https://api.github.com/repos/GeneJie199/fleet-observability/git/trees{/sha}",
+          "statuses_url": "https://api.github.com/repos/GeneJie199/fleet-observability/statuses/{sha}",
+          "languages_url": "https://api.github.com/repos/GeneJie199/fleet-observability/languages",
+          "stargazers_url": "https://api.github.com/repos/GeneJie199/fleet-observability/stargazers",
+          "contributors_url": "https://api.github.com/repos/GeneJie199/fleet-observability/contributors",
+          "subscribers_url": "https://api.github.com/repos/GeneJie199/fleet-observability/subscribers",
+          "subscription_url": "https://api.github.com/repos/GeneJie199/fleet-observability/subscription",
+          "commits_url": "https://api.github.com/repos/GeneJie199/fleet-observability/commits{/sha}",
+          "git_commits_url": "https://api.github.com/repos/GeneJie199/fleet-observability/git/commits{/sha}",
+          "comments_url": "https://api.github.com/repos/GeneJie199/fleet-observability/comments{/number}",
+          "issue_comment_url": "https://api.github.com/repos/GeneJie199/fleet-observability/issues/comments{/number}",
+          "contents_url": "https://api.github.com/repos/GeneJie199/fleet-observability/contents/{+path}",
+          "compare_url": "https://api.github.com/repos/GeneJie199/fleet-observability/compare/{base}...{head}",
+          "merges_url": "https://api.github.com/repos/GeneJie199/fleet-observability/merges",
+          "archive_url": "https://api.github.com/repos/GeneJie199/fleet-observability/{archive_format}{/ref}",
+          "downloads_url": "https://api.github.com/repos/GeneJie199/fleet-observability/downloads",
+          "issues_url": "https://api.github.com/repos/GeneJie199/fleet-observability/issues{/number}",
+          "pulls_url": "https://api.github.com/repos/GeneJie199/fleet-observability/pulls{/number}",
+          "milestones_url": "https://api.github.com/repos/GeneJie199/fleet-observability/milestones{/number}",
+          "notifications_url": "https://api.github.com/repos/GeneJie199/fleet-observability/notifications{?since,all,participating}",
+          "labels_url": "https://api.github.com/repos/GeneJie199/fleet-observability/labels{/name}",
+          "releases_url": "https://api.github.com/repos/GeneJie199/fleet-observability/releases{/id}",
+          "deployments_url": "https://api.github.com/repos/GeneJie199/fleet-observability/deployments",
+          "created_at": "2026-08-12T05:05:45Z",
+          "updated_at": "2026-08-23T00:47:53Z",
+          "pushed_at": "2026-10-30T16:14:01Z",
+          "git_url": "git://github.com/GeneJie199/fleet-observability.git",
+          "ssh_url": "git@github.com:GeneJie199/fleet-observability.git",
+          "clone_url": "https://github.com/GeneJie199/fleet-observability.git",
+          "svn_url": "https://github.com/GeneJie199/fleet-observability",
+          "homepage": null,
+          "size": 480,
+          "stargazers_count": 0,
+          "watchers_count": 0,
+          "language": "Go",
+          "has_issues": true,
+          "has_projects": true,
+          "has_downloads": false,
+          "has_wiki": false,
+          "has_pages": false,
+          "has_discussions": false,
+          "forks_count": 0,
+          "mirror_url": null,
+          "archived": false,
+          "disabled": false,
+          "open_issues_count": 1,
+          "license": {
+            "key": "apache-2.0",
+            "name": "Apache License 2.0",
+            "spdx_id": "Apache-2.0",
+            "url": "https://api.github.com/licenses/apache-2.0",
+            "node_id": "MDc6TGljZW5zZTI="
+          },
+          "allow_forking": true,
+          "is_template": false,
+          "web_commit_signoff_required": false,
+          "has_pull_requests": true,
+          "pull_request_creation_policy": "all",
+          "topics": [
+            "devops",
+            "golang",
+            "local-first",
+            "monitoring",
+            "observability"
+          ],
+          "visibility": "public",
+          "forks": 0,
+          "open_issues": 1,
+          "watchers": 0,
+          "default_branch": "main",
+          "permissions": {
+            "admin": true,
+            "maintain": true,
+            "push": true,
+            "triage": true,
+            "pull": true
+          },
+          "temp_clone_token": "",
+          "allow_squash_merge": true,
+          "allow_merge_commit": true,
+          "allow_rebase_merge": true,
+          "allow_auto_merge": false,
+          "delete_branch_on_merge": false,
+          "allow_update_branch": false,
+          "use_squash_pr_title_as_default": false,
+          "squash_merge_commit_message": "COMMIT_MESSAGES",
+          "squash_merge_commit_title": "COMMIT_OR_PR_TITLE",
+          "merge_commit_message": "PR_TITLE",
+          "merge_commit_title": "MERGE_MESSAGE",
+          "security_and_analysis": {
+            "secret_scanning": {
+              "status": "enabled"
+            },
+            "secret_scanning_push_protection": {
+              "status": "enabled"
+            },
+            "dependabot_security_updates": {
+              "status": "disabled"
+            },
+            "secret_scanning_non_provider_patterns": {
+              "status": "disabled"
+            },
+            "secret_scanning_validity_checks": {
+              "status": "disabled"
+            }
+          },
+          "network_count": 0,
+          "subscribers_count": 0
+        }
+      },
+      "directory": "fleet-observability",
+      "url": "https://github.com/GeneJie199/fleet-observability/pull/1",
+      "local": "C:\\Users\\揭剑\\Documents\\ChatGPT\\fleet-observability",
+      "head": "a7b1230e39b14a68f9830d28e12bfb018d0b6c58",
+      "status": {
+        "exit": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      "branches": {
+        "exit": 0,
+        "stdout": "* codex/v2-ai-team-c0                a7b1230 [origin/codex/v2-ai-team-c0] fix: finalize v2 policy contracts and refreshed dependency license evidence\n  main                               f1ebb93 [origin/main] release: embed standalone binary checksums\n  remotes/origin/HEAD                -> origin/main\n  remotes/origin/codex/v2-ai-team-c0 a7b1230 fix: finalize v2 policy contracts and refreshed dependency license evidence\n  remotes/origin/main                f1ebb93 release: embed standalone binary checksums",
+        "stderr": ""
+      },
+      "log": {
+        "exit": 0,
+        "stdout": "a7b1230e39b14a68f9830d28e12bfb018d0b6c58 GeneJie <genejie199@gmail.com> fix: finalize v2 policy contracts and refreshed dependency license evidence\n883430d85e354b97ac4e2272a894a25d4a202f10 GeneJie <genejie199@gmail.com> security: update x/text past reachable PRECIS vulnerability\n21ccbfd35d81eac568bd67870338c499a1ca9d9d GeneJie <genejie199@gmail.com> build: use patched compiler for macOS and release targets\n2b2e16b0f25b4631606100389666caefee19a3fc GeneJie <genejie199@gmail.com> legal: migrate v2 source with preserved notices and secure Go baseline\nf1ebb93172355132c4171a49ed9603771819222e GeneJie <genejie199@gmail.com> release: embed standalone binary checksums\n1912a3d2f0fe1f737ab688a08189c8852045cb72 GeneJie <genejie199@gmail.com> release: harden FleetScope packaging and install\nfb4a28fb03ee4295dc637128eecb746d52100312 GeneJie <genejie199@gmail.com> perf: publish bounded 100-node storage baseline\n700661088679c26c855d6d612e2e2b48e5a3106a GeneJie <genejie199@gmail.com> security: enforce outbound destination policy",
+        "stderr": ""
+      },
+      "worktrees": {
+        "exit": 0,
+        "stdout": "worktree C:/Users/揭剑/Documents/ChatGPT/fleet-observability\nHEAD a7b1230e39b14a68f9830d28e12bfb018d0b6c58\nbranch refs/heads/codex/v2-ai-team-c0",
+        "stderr": ""
+      },
+      "diffStat": {
+        "exit": 0,
+        "stdout": ".gitattributes                                     |    4 +\n .github/workflows/ci.yml                           |    4 +-\n .github/workflows/release.yml                      |    6 +-\n .gitignore                                         |    5 +\n COMMERCIALIZATION.md                               |   16 +\n COMMERCIAL_LICENSE.md                              |   26 +\n CONTRIBUTING.md                                    |    3 +\n CONTRIBUTOR_POLICY.md                              |   28 +\n LICENSE                                            |  436 ++++----\n LICENSES/AGPL-3.0-only.txt                         |  235 ++++\n LICENSES/Apache-2.0.txt                            |  201 ++++\n .../ai-dev-cycle-manager/LUCIDE_LICENSE.txt        |   43 +\n .../filippo.io_edwards25519_v1.1.0/LICENSE         |   27 +\n .../LICENSE.md                                     |   21 +\n .../github.com_creack_pty_v1.1.9/LICENSE           |   23 +\n .../github.com_danieljoos_wincred_v1.2.3/LICENSE   |   21 +\n .../github.com_davecgh_go-spew_v1.1.1/LICENSE      |   15 +\n .../github.com_dustin_go-humanize_v1.0.1/LICENSE   |   21 +\n .../github.com_go-sql-driver_mysql_v1.9.3/AUTHORS  |  155 +++\n .../github.com_go-sql-driver_mysql_v1.9.3/LICENSE  |  373 +++++++\n .../github.com_godbus_dbus_v5_v5.2.2/LICENSE       |   25 +\n .../AUTHORS                                        |    7 +\n .../LICENSE                                        |  202 ++++\n .../third_party/svgpan/LICENSE                     |   27 +\n .../github.com_google_uuid_v1.6.0/LICENSE          |   27 +\n .../LICENSE                                        |  364 +++++++\n .../simplelru/LICENSE_list                         |   29 +\n .../LICENSE                                        |  201 ++++\n .../github.com_jackc_pgpassfile_v1.0.0/LICENSE     |   22 +\n .../LICENSE                                        |   22 +\n .../github.com_jackc_pgx_v5_v5.9.2/LICENSE         |   22 +\n .../github.com_jackc_puddle_v2_v2.2.2/LICENSE      |   22 +\n .../github.com_kr_pretty_v0.3.0/License            |   19 +\n .../third-party/github.com_kr_text_v0.2.0/License  |   19 +\n .../github.com_mattn_go-isatty_v0.0.24/LICENSE     |    9 +\n .../github.com_ncruces_go-strftime_v1.0.0/LICENSE  |   21 +\n .../github.com_oklog_ulid_v2_v2.1.2/AUTHORS.md     |    2 +\n .../github.com_oklog_ulid_v2_v2.1.2/LICENSE        |  201 ++++\n .../AUTHORS                                        |    1 +\n .../LICENSE                                        |   27 +\n .../github.com_pmezard_go-difflib_v1.0.0/LICENSE   |   27 +\n .../LICENSE                                        |   27 +\n .../LICENSE                                        |   27 +\n .../LICENSE.txt                                    |   29 +\n .../LICENSE                                        |  175 +++\n .../github.com_spf13_cobra_v1.10.2/LICENSE.txt     |  174 +++\n .../github.com_spf13_pflag_v1.0.9/LICENSE          |   28 +\n .../github.com_stretchr_objx_v0.1.0/LICENSE        |   22 +\n .../github.com_stretchr_objx_v0.5.2/LICENSE        |   22 +\n .../github.com_stretchr_testify_v1.11.1/LICENSE    |   21 +\n .../github.com_zalando_go-keyring_v0.2.8/LICENSE   |   21 +\n .../internal/shellescape/LICENSE                   |   21 +\n LICENSES/third-party/go-runtime/LICENSE            |   27 +\n LICENSES/third-party/go-runtime/PATENTS            |   22 +\n .../third-party/go.yaml.in_yaml_v3_v3.0.4/LICENSE  |   50 +\n .../third-party/go.yaml.in_yaml_v3_v3.0.4/NOTICE   |   13 +\n .../third-party/golang.org_x_mod_v0.37.0/LICENSE   |   27 +\n .../third-party/golang.org_x_mod_v0.37.0/PATENTS   |   22 +\n .../third-party/golang.org_x_mod_v0.38.0/LICENSE   |   27 +\n .../third-party/golang.org_x_mod_v0.38.0/PATENTS   |   22 +\n .../third-party/golang.org_x_sync_v0.21.0/LICENSE  |   27 +\n .../third-party/golang.org_x_sync_v0.21.0/PATENTS  |   22 +\n .../third-party/golang.org_x_sync_v0.22.0/LICENSE  |   27 +\n .../third-party/golang.org_x_sync_v0.22.0/PATENTS  |   22 +\n .../third-party/golang.org_x_sys_v0.26.0/LICENSE   |   27 +\n .../third-party/golang.org_x_sys_v0.26.0/PATENTS   |   22 +\n .../third-party/golang.org_x_sys_v0.47.0/LICENSE   |   27 +\n .../third-party/golang.org_x_sys_v0.47.0/PATENTS   |   22 +\n .../third-party/golang.org_x_text_v0.39.0/LICENSE  |   27 +\n .../third-party/golang.org_x_text_v0.39.0/PATENTS  |   22 +\n .../third-party/golang.org_x_text_v0.41.0/LICENSE  |   27 +\n .../third-party/golang.org_x_text_v0.41.0/PATENTS  |   22 +\n .../third-party/golang.org_x_tools_v0.47.0/LICENSE |   27 +\n .../third-party/golang.org_x_tools_v0.47.0/PATENTS |   22 +\n .../third-party/golang.org_x_tools_v0.48.0/LICENSE |   27 +\n .../third-party/golang.org_x_tools_v0.48.0/PATENTS |   22 +\n .../LICENSE                                        |   25 +\n .../third-party/gopkg.in_yaml.v3_v3.0.1/LICENSE    |   50 +\n .../third-party/gopkg.in_yaml.v3_v3.0.1/NOTICE     |   13 +\n .../infrastructure-discovery/LUCIDE_LICENSE.txt    |   43 +\n .../third-party/modernc.org_cc_v4_v4.29.1/LICENSE  |   27 +\n .../testdata/jhjourdan/LICENSE                     |   24 +\n .../modernc.org_ccgo_v4_v4.34.6/LICENSE            |   27 +\n .../modernc.org_fileutil_v1.4.0/AUTHORS            |   18 +\n .../modernc.org_fileutil_v1.4.0/LICENSE            |   27 +\n .../modernc.org_fileutil_v1.4.0/falloc/LICENSE     |   27 +\n .../modernc.org_fileutil_v1.4.0/hdb/LICENSE        |   27 +\n .../modernc.org_fileutil_v1.4.0/storage/LICENSE    |   27 +\n .../third-party/modernc.org_gc_v2_v2.6.5/LICENSE   |   69 ++\n .../third-party/modernc.org_gc_v3_v3.1.4/LICENSE   |   69 ++\n .../third-party/modernc.org_goabi0_v0.2.0/AUTHORS  |   11 +\n .../third-party/modernc.org_goabi0_v0.2.0/LICENSE  |   26 +\n .../third-party/modernc.org_libc_v1.74.4/AUTHORS   |   24 +\n .../third-party/modernc.org_libc_v1.74.4/LICENSE   |   27 +\n .../modernc.org_libc_v1.74.4/LICENSE-3RD-PARTY.md  |  305 ++++++\n .../testdata/nsz.repo.hu/libc-test/AUTHORS         |    7 +\n .../testdata/nsz.repo.hu/libc-test/COPYRIGHT       |   29 +\n .../nsz.repo.hu/libc-test/src/math/crlibm/COPYING  |  340 ++++++\n .../modernc.org_mathutil_v1.7.1/AUTHORS            |   13 +\n .../modernc.org_mathutil_v1.7.1/LICENSE            |   27 +\n .../modernc.org_mathutil_v1.7.1/mersenne/AUTHORS   |   11 +\n .../modernc.org_mathutil_v1.7.1/mersenne/LICENSE   |   27 +\n .../third-party/modernc.org_memory_v1.11.0/AUTHORS |   15 +\n .../third-party/modernc.org_memory_v1.11.0/LICENSE |   27 +\n .../modernc.org_memory_v1.11.0/LICENSE-GO          |   27 +\n .../modernc.org_memory_v1.11.0/LICENSE-LOGO        |    1 +\n .../modernc.org_memory_v1.11.0/LICENSE-MMAP-GO     |   25 +\n .../third-party/modernc.org_opt_v0.2.0/AUTHORS     |   11 +\n .../third-party/modernc.org_opt_v0.2.0/LICENSE     |   27 +\n .../modernc.org_sortutil_v1.2.1/AUTHORS            |   11 +\n .../modernc.org_sortutil_v1.2.1/LICENSE            |   27 +\n .../third-party/modernc.org_sqlite_v1.56.0/AUTHORS |   34 +\n .../third-party/modernc.org_sqlite_v1.56.0/LICENSE |   26 +\n .../third-party/modernc.org_strutil_v1.2.1/AUTHORS |   12 +\n .../third-party/modernc.org_strutil_v1.2.1/LICENSE |   27 +\n .../third-party/modernc.org_token_v1.1.0/LICENSE   |   27 +\n LICENSE_METADATA.json                              |   12 +\n LICENSE_POLICY.md                                  |   21 +\n LICENSING_HISTORY.md                               |   18 +\n NOTICE                                             |    6 +\n README.md                                          |   13 +-\n THIRD_PARTY_NOTICES.md                             |   24 +\n TRADEMARK_POLICY.md                                |   14 +\n docs/v2-license-audit.md                           |   25 +\n go.mod                                             |    6 +-\n go.sum                                             |   17 +-\n scripts/license-guard.py                           |   34 +\n third-party-inventory.json                         | 1088 +++++++++++++++++++\n third-party.cdx.json                               | 1119 ++++++++++++++++++++\n 129 files changed, 7929 insertions(+), 213 deletions(-)",
+        "stderr": ""
+      },
+      "ancestry": {
+        "exit": 0,
+        "stdout": "f1ebb93172355132c4171a49ed9603771819222e",
+        "stderr": ""
+      },
+      "pr": {
+        "exit": 0,
+        "stderr": "",
+        "data": {
+          "baseRefName": "main",
+          "baseRefOid": "f1ebb93172355132c4171a49ed9603771819222e",
+          "commits": [
+            {
+              "authoredDate": "2026-10-30T16:01:06Z",
+              "authors": [
+                {
+                  "email": "genejie199@gmail.com",
+                  "id": "MDQ6VXNlcjQ1MTM4MDE1",
+                  "login": "GeneJie199",
+                  "name": "GeneJie"
+                }
+              ],
+              "committedDate": "2026-10-30T16:01:06Z",
+              "messageBody": "",
+              "messageHeadline": "legal: migrate v2 source with preserved notices and secure Go baseline",
+              "oid": "2b2e16b0f25b4631606100389666caefee19a3fc"
+            },
+            {
+              "authoredDate": "2026-10-30T16:05:11Z",
+              "authors": [
+                {
+                  "email": "genejie199@gmail.com",
+                  "id": "MDQ6VXNlcjQ1MTM4MDE1",
+                  "login": "GeneJie199",
+                  "name": "GeneJie"
+                }
+              ],
+              "committedDate": "2026-10-30T16:05:11Z",
+              "messageBody": "",
+              "messageHeadline": "build: use patched compiler for macOS and release targets",
+              "oid": "21ccbfd35d81eac568bd67870338c499a1ca9d9d"
+            },
+            {
+              "authoredDate": "2026-10-30T16:08:59Z",
+              "authors": [
+                {
+                  "email": "genejie199@gmail.com",
+                  "id": "MDQ6VXNlcjQ1MTM4MDE1",
+                  "login": "GeneJie199",
+                  "name": "GeneJie"
+                }
+              ],
+              "committedDate": "2026-10-30T16:08:59Z",
+              "messageBody": "",
+              "messageHeadline": "security: update x/text past reachable PRECIS vulnerability",
+              "oid": "883430d85e354b97ac4e2272a894a25d4a202f10"
+            },
+            {
+              "authoredDate": "2026-10-30T16:13:59Z",
+              "authors": [
+                {
+                  "email": "genejie199@gmail.com",
+                  "id": "MDQ6VXNlcjQ1MTM4MDE1",
+                  "login": "GeneJie199",
+                  "name": "GeneJie"
+                }
+              ],
+              "committedDate": "2026-10-30T16:13:59Z",
+              "messageBody": "…idence",
+              "messageHeadline": "fix: finalize v2 policy contracts and refreshed dependency license ev…",
+              "oid": "a7b1230e39b14a68f9830d28e12bfb018d0b6c58"
+            }
+          ],
+          "headRefName": "codex/v2-ai-team-c0",
+          "headRefOid": "a7b1230e39b14a68f9830d28e12bfb018d0b6c58",
+          "isDraft": true,
+          "mergeStateStatus": "CLEAN",
+          "mergeable": "MERGEABLE",
+          "number": 1,
+          "reviewDecision": "",
+          "reviews": [],
+          "state": "OPEN",
+          "statusCheckRollup": [
+            {
+              "__typename": "CheckRun",
+              "completedAt": "2026-10-30T16:14:48Z",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/GeneJie199/fleet-observability/actions/runs/41088000073/job/124174151708",
+              "name": "test (ubuntu-latest)",
+              "startedAt": "2026-10-30T16:14:10Z",
+              "status": "COMPLETED",
+              "workflowName": "CI"
+            },
+            {
+              "__typename": "CheckRun",
+              "completedAt": "2026-10-30T16:14:43Z",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/GeneJie199/fleet-observability/actions/runs/41087990215/job/124174117081",
+              "name": "test (ubuntu-latest)",
+              "startedAt": "2026-10-30T16:14:06Z",
+              "status": "COMPLETED",
+              "workflowName": "CI"
+            },
+            {
+              "__typename": "CheckRun",
+              "completedAt": "2026-10-30T16:15:04Z",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/GeneJie199/fleet-observability/actions/runs/41088000073/job/124174151743",
+              "name": "test (windows-latest)",
+              "startedAt": "2026-10-30T16:14:10Z",
+              "status": "COMPLETED",
+              "workflowName": "CI"
+            },
+            {
+              "__typename": "CheckRun",
+              "completedAt": "2026-10-30T16:14:50Z",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/GeneJie199/fleet-observability/actions/runs/41087990215/job/124174116757",
+              "name": "test (windows-latest)",
+              "startedAt": "2026-10-30T16:14:06Z",
+              "status": "COMPLETED",
+              "workflowName": "CI"
+            },
+            {
+              "__typename": "CheckRun",
+              "completedAt": "2026-10-30T16:15:26Z",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/GeneJie199/fleet-observability/actions/runs/41088000073/job/124174151230",
+              "name": "test (macos-latest)",
+              "startedAt": "2026-10-30T16:14:45Z",
+              "status": "COMPLETED",
+              "workflowName": "CI"
+            },
+            {
+              "__typename": "CheckRun",
+              "completedAt": "2026-10-30T16:21:52Z",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/GeneJie199/fleet-observability/actions/runs/41087990215/job/124174117448",
+              "name": "test (macos-latest)",
+              "startedAt": "2026-10-30T16:20:39Z",
+              "status": "COMPLETED",
+              "workflowName": "CI"
+            }
+          ],
+          "url": "https://github.com/GeneJie199/fleet-observability/pull/1"
+        }
+      },
+      "protection": {
+        "exit": 1,
+        "stdout": "{\"message\":\"Branch not protected\",\"documentation_url\":\"https://docs.github.com/rest/branches/branch-protection#get-branch-protection\",\"status\":\"404\"}",
+        "stderr": "gh: Branch not protected (HTTP 404)"
+      },
+      "rules": {
+        "exit": 0,
+        "stderr": "",
+        "data": []
+      },
+      "reviewThreads": {
+        "exit": 0,
+        "data": {
+          "data": {
+            "repository": {
+              "pullRequest": {
+                "reviewThreads": {
+                  "nodes": []
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "repository": {
+        "exit": 0,
+        "stderr": "",
+        "data": {
+          "id": 1331630412,
+          "node_id": "R_kgDOT18RTA",
+          "name": "release-validation",
+          "full_name": "GeneJie199/release-validation",
+          "private": false,
+          "owner": {
+            "login": "GeneJie199",
+            "id": 45138015,
+            "node_id": "MDQ6VXNlcjQ1MTM4MDE1",
+            "avatar_url": "https://avatars.githubusercontent.com/u/45138015?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/GeneJie199",
+            "html_url": "https://github.com/GeneJie199",
+            "followers_url": "https://api.github.com/users/GeneJie199/followers",
+            "following_url": "https://api.github.com/users/GeneJie199/following{/other_user}",
+            "gists_url": "https://api.github.com/users/GeneJie199/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/GeneJie199/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/GeneJie199/subscriptions",
+            "organizations_url": "https://api.github.com/users/GeneJie199/orgs",
+            "repos_url": "https://api.github.com/users/GeneJie199/repos",
+            "events_url": "https://api.github.com/users/GeneJie199/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/GeneJie199/received_events",
+            "type": "User",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "html_url": "https://github.com/GeneJie199/release-validation",
+          "description": "Deterministic release gates, observation windows, rollback evidence, and digest-bound human approvals",
+          "fork": false,
+          "url": "https://api.github.com/repos/GeneJie199/release-validation",
+          "forks_url": "https://api.github.com/repos/GeneJie199/release-validation/forks",
+          "keys_url": "https://api.github.com/repos/GeneJie199/release-validation/keys{/key_id}",
+          "collaborators_url": "https://api.github.com/repos/GeneJie199/release-validation/collaborators{/collaborator}",
+          "teams_url": "https://api.github.com/repos/GeneJie199/release-validation/teams",
+          "hooks_url": "https://api.github.com/repos/GeneJie199/release-validation/hooks",
+          "issue_events_url": "https://api.github.com/repos/GeneJie199/release-validation/issues/events{/number}",
+          "events_url": "https://api.github.com/repos/GeneJie199/release-validation/events",
+          "assignees_url": "https://api.github.com/repos/GeneJie199/release-validation/assignees{/user}",
+          "branches_url": "https://api.github.com/repos/GeneJie199/release-validation/branches{/branch}",
+          "tags_url": "https://api.github.com/repos/GeneJie199/release-validation/tags",
+          "blobs_url": "https://api.github.com/repos/GeneJie199/release-validation/git/blobs{/sha}",
+          "git_tags_url": "https://api.github.com/repos/GeneJie199/release-validation/git/tags{/sha}",
+          "git_refs_url": "https://api.github.com/repos/GeneJie199/release-validation/git/refs{/sha}",
+          "trees_url": "https://api.github.com/repos/GeneJie199/release-validation/git/trees{/sha}",
+          "statuses_url": "https://api.github.com/repos/GeneJie199/release-validation/statuses/{sha}",
+          "languages_url": "https://api.github.com/repos/GeneJie199/release-validation/languages",
+          "stargazers_url": "https://api.github.com/repos/GeneJie199/release-validation/stargazers",
+          "contributors_url": "https://api.github.com/repos/GeneJie199/release-validation/contributors",
+          "subscribers_url": "https://api.github.com/repos/GeneJie199/release-validation/subscribers",
+          "subscription_url": "https://api.github.com/repos/GeneJie199/release-validation/subscription",
+          "commits_url": "https://api.github.com/repos/GeneJie199/release-validation/commits{/sha}",
+          "git_commits_url": "https://api.github.com/repos/GeneJie199/release-validation/git/commits{/sha}",
+          "comments_url": "https://api.github.com/repos/GeneJie199/release-validation/comments{/number}",
+          "issue_comment_url": "https://api.github.com/repos/GeneJie199/release-validation/issues/comments{/number}",
+          "contents_url": "https://api.github.com/repos/GeneJie199/release-validation/contents/{+path}",
+          "compare_url": "https://api.github.com/repos/GeneJie199/release-validation/compare/{base}...{head}",
+          "merges_url": "https://api.github.com/repos/GeneJie199/release-validation/merges",
+          "archive_url": "https://api.github.com/repos/GeneJie199/release-validation/{archive_format}{/ref}",
+          "downloads_url": "https://api.github.com/repos/GeneJie199/release-validation/downloads",
+          "issues_url": "https://api.github.com/repos/GeneJie199/release-validation/issues{/number}",
+          "pulls_url": "https://api.github.com/repos/GeneJie199/release-validation/pulls{/number}",
+          "milestones_url": "https://api.github.com/repos/GeneJie199/release-validation/milestones{/number}",
+          "notifications_url": "https://api.github.com/repos/GeneJie199/release-validation/notifications{?since,all,participating}",
+          "labels_url": "https://api.github.com/repos/GeneJie199/release-validation/labels{/name}",
+          "releases_url": "https://api.github.com/repos/GeneJie199/release-validation/releases{/id}",
+          "deployments_url": "https://api.github.com/repos/GeneJie199/release-validation/deployments",
+          "created_at": "2026-08-12T05:05:48Z",
+          "updated_at": "2026-08-23T00:47:55Z",
+          "pushed_at": "2026-10-30T16:14:05Z",
+          "git_url": "git://github.com/GeneJie199/release-validation.git",
+          "ssh_url": "git@github.com:GeneJie199/release-validation.git",
+          "clone_url": "https://github.com/GeneJie199/release-validation.git",
+          "svn_url": "https://github.com/GeneJie199/release-validation",
+          "homepage": null,
+          "size": 349,
+          "stargazers_count": 0,
+          "watchers_count": 0,
+          "language": "Go",
+          "has_issues": true,
+          "has_projects": true,
+          "has_downloads": false,
+          "has_wiki": false,
+          "has_pages": false,
+          "has_discussions": false,
+          "forks_count": 0,
+          "mirror_url": null,
+          "archived": false,
+          "disabled": false,
+          "open_issues_count": 1,
+          "license": {
+            "key": "apache-2.0",
+            "name": "Apache License 2.0",
+            "spdx_id": "Apache-2.0",
+            "url": "https://api.github.com/licenses/apache-2.0",
+            "node_id": "MDc6TGljZW5zZTI="
+          },
+          "allow_forking": true,
+          "is_template": false,
+          "web_commit_signoff_required": false,
+          "has_pull_requests": true,
+          "pull_request_creation_policy": "all",
+          "topics": [
+            "deployment",
+            "devops",
+            "golang",
+            "local-first",
+            "release-engineering"
+          ],
+          "visibility": "public",
+          "forks": 0,
+          "open_issues": 1,
+          "watchers": 0,
+          "default_branch": "main",
+          "permissions": {
+            "admin": true,
+            "maintain": true,
+            "push": true,
+            "triage": true,
+            "pull": true
+          },
+          "temp_clone_token": "",
+          "allow_squash_merge": true,
+          "allow_merge_commit": true,
+          "allow_rebase_merge": true,
+          "allow_auto_merge": false,
+          "delete_branch_on_merge": false,
+          "allow_update_branch": false,
+          "use_squash_pr_title_as_default": false,
+          "squash_merge_commit_message": "COMMIT_MESSAGES",
+          "squash_merge_commit_title": "COMMIT_OR_PR_TITLE",
+          "merge_commit_message": "PR_TITLE",
+          "merge_commit_title": "MERGE_MESSAGE",
+          "security_and_analysis": {
+            "secret_scanning": {
+              "status": "enabled"
+            },
+            "secret_scanning_push_protection": {
+              "status": "enabled"
+            },
+            "dependabot_security_updates": {
+              "status": "disabled"
+            },
+            "secret_scanning_non_provider_patterns": {
+              "status": "disabled"
+            },
+            "secret_scanning_validity_checks": {
+              "status": "disabled"
+            }
+          },
+          "network_count": 0,
+          "subscribers_count": 0
+        }
+      },
+      "directory": "release-validation",
+      "url": "https://github.com/GeneJie199/release-validation/pull/1",
+      "local": "C:\\Users\\揭剑\\Documents\\ChatGPT\\release-validation",
+      "head": "6271813ad122e08da33dc139fb5cc97f744d4fa0",
+      "status": {
+        "exit": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      "branches": {
+        "exit": 0,
+        "stdout": "+ audit/c0-final-release-validation  6271813 (C:/Users/揭剑/Documents/ChatGPT/ai-devops/.qa/c0-final/review-release-validation) fix: finalize v2 policy contracts and refreshed dependency license evidence\n* codex/v2-ai-team-c0                6271813 [origin/codex/v2-ai-team-c0] fix: finalize v2 policy contracts and refreshed dependency license evidence\n  main                               8e0d7e8 [origin/main] release: embed standalone binary checksums\n  remotes/origin/HEAD                -> origin/main\n  remotes/origin/codex/v2-ai-team-c0 6271813 fix: finalize v2 policy contracts and refreshed dependency license evidence\n  remotes/origin/main                8e0d7e8 release: embed standalone binary checksums",
+        "stderr": ""
+      },
+      "log": {
+        "exit": 0,
+        "stdout": "6271813ad122e08da33dc139fb5cc97f744d4fa0 GeneJie <genejie199@gmail.com> fix: finalize v2 policy contracts and refreshed dependency license evidence\n3fa948fcebf92b458b3ab305b92ee0ab35461e4b GeneJie <genejie199@gmail.com> security: update x/text past reachable PRECIS vulnerability\n531446d07d84113c3481f8de6e000a27bbae5246 GeneJie <genejie199@gmail.com> build: use patched compiler for macOS and release targets\nd04e0193cbb5a0933b227bf13db51968128583a4 GeneJie <genejie199@gmail.com> legal: migrate v2 source with preserved notices and secure Go baseline\n8e0d7e8c9feea59e389500713a1c3a0e2bfe17b0 GeneJie <genejie199@gmail.com> release: embed standalone binary checksums\n6e7ebb6f9cd27f31a3d786a0602d033a73a01d12 GeneJie <genejie199@gmail.com> release: add verified supply-chain packaging\nccde7fe1fcde43ed82e3da489c979f7ff85c203d GeneJie <genejie199@gmail.com> test: harden release parsing and run contention\n64a329415f6153611f76657a1c567a45a45ebe7d GeneJie <genejie199@gmail.com> feat: unify ReleaseGuard product experience",
+        "stderr": ""
+      },
+      "worktrees": {
+        "exit": 0,
+        "stdout": "worktree C:/Users/揭剑/Documents/ChatGPT/release-validation\nHEAD 6271813ad122e08da33dc139fb5cc97f744d4fa0\nbranch refs/heads/codex/v2-ai-team-c0\n\nworktree C:/Users/揭剑/Documents/ChatGPT/ai-devops/.qa/c0-final/review-release-validation\nHEAD 6271813ad122e08da33dc139fb5cc97f744d4fa0\nbranch refs/heads/audit/c0-final-release-validation",
+        "stderr": ""
+      },
+      "diffStat": {
+        "exit": 0,
+        "stdout": ".gitattributes                                     |    4 +\n .github/workflows/ci.yml                           |    2 +-\n .github/workflows/release.yml                      |    4 +-\n .gitignore                                         |    5 +\n COMMERCIALIZATION.md                               |   16 +\n COMMERCIAL_LICENSE.md                              |   26 +\n CONTRIBUTING.md                                    |    3 +\n CONTRIBUTOR_POLICY.md                              |   28 +\n LICENSE                                            |  436 ++++----\n LICENSES/AGPL-3.0-only.txt                         |  235 ++++\n LICENSES/Apache-2.0.txt                            |  201 ++++\n .../ai-dev-cycle-manager/LUCIDE_LICENSE.txt        |   43 +\n .../filippo.io_edwards25519_v1.1.0/LICENSE         |   27 +\n .../LICENSE.md                                     |   21 +\n .../github.com_creack_pty_v1.1.9/LICENSE           |   23 +\n .../github.com_danieljoos_wincred_v1.2.3/LICENSE   |   21 +\n .../github.com_davecgh_go-spew_v1.1.1/LICENSE      |   15 +\n .../github.com_dustin_go-humanize_v1.0.1/LICENSE   |   21 +\n .../github.com_go-sql-driver_mysql_v1.9.3/AUTHORS  |  155 +++\n .../github.com_go-sql-driver_mysql_v1.9.3/LICENSE  |  373 +++++++\n .../github.com_godbus_dbus_v5_v5.2.2/LICENSE       |   25 +\n .../AUTHORS                                        |    7 +\n .../LICENSE                                        |  202 ++++\n .../third_party/svgpan/LICENSE                     |   27 +\n .../github.com_google_uuid_v1.6.0/LICENSE          |   27 +\n .../LICENSE                                        |  364 +++++++\n .../simplelru/LICENSE_list                         |   29 +\n .../LICENSE                                        |  201 ++++\n .../github.com_jackc_pgpassfile_v1.0.0/LICENSE     |   22 +\n .../LICENSE                                        |   22 +\n .../github.com_jackc_pgx_v5_v5.9.2/LICENSE         |   22 +\n .../github.com_jackc_puddle_v2_v2.2.2/LICENSE      |   22 +\n .../github.com_kr_pretty_v0.3.0/License            |   19 +\n .../third-party/github.com_kr_text_v0.2.0/License  |   19 +\n .../github.com_mattn_go-isatty_v0.0.24/LICENSE     |    9 +\n .../github.com_ncruces_go-strftime_v1.0.0/LICENSE  |   21 +\n .../github.com_oklog_ulid_v2_v2.1.2/AUTHORS.md     |    2 +\n .../github.com_oklog_ulid_v2_v2.1.2/LICENSE        |  201 ++++\n .../AUTHORS                                        |    1 +\n .../LICENSE                                        |   27 +\n .../github.com_pmezard_go-difflib_v1.0.0/LICENSE   |   27 +\n .../LICENSE                                        |   27 +\n .../LICENSE                                        |   27 +\n .../LICENSE.txt                                    |   29 +\n .../LICENSE                                        |  175 +++\n .../github.com_spf13_cobra_v1.10.2/LICENSE.txt     |  174 +++\n .../github.com_spf13_pflag_v1.0.9/LICENSE          |   28 +\n .../github.com_stretchr_objx_v0.1.0/LICENSE        |   22 +\n .../github.com_stretchr_objx_v0.5.2/LICENSE        |   22 +\n .../github.com_stretchr_testify_v1.11.1/LICENSE    |   21 +\n .../github.com_zalando_go-keyring_v0.2.8/LICENSE   |   21 +\n .../internal/shellescape/LICENSE                   |   21 +\n LICENSES/third-party/go-runtime/LICENSE            |   27 +\n LICENSES/third-party/go-runtime/PATENTS            |   22 +\n .../third-party/go.yaml.in_yaml_v3_v3.0.4/LICENSE  |   50 +\n .../third-party/go.yaml.in_yaml_v3_v3.0.4/NOTICE   |   13 +\n .../third-party/golang.org_x_mod_v0.37.0/LICENSE   |   27 +\n .../third-party/golang.org_x_mod_v0.37.0/PATENTS   |   22 +\n .../third-party/golang.org_x_mod_v0.38.0/LICENSE   |   27 +\n .../third-party/golang.org_x_mod_v0.38.0/PATENTS   |   22 +\n .../third-party/golang.org_x_sync_v0.21.0/LICENSE  |   27 +\n .../third-party/golang.org_x_sync_v0.21.0/PATENTS  |   22 +\n .../third-party/golang.org_x_sync_v0.22.0/LICENSE  |   27 +\n .../third-party/golang.org_x_sync_v0.22.0/PATENTS  |   22 +\n .../third-party/golang.org_x_sys_v0.26.0/LICENSE   |   27 +\n .../third-party/golang.org_x_sys_v0.26.0/PATENTS   |   22 +\n .../third-party/golang.org_x_sys_v0.47.0/LICENSE   |   27 +\n .../third-party/golang.org_x_sys_v0.47.0/PATENTS   |   22 +\n .../third-party/golang.org_x_text_v0.39.0/LICENSE  |   27 +\n .../third-party/golang.org_x_text_v0.39.0/PATENTS  |   22 +\n .../third-party/golang.org_x_text_v0.41.0/LICENSE  |   27 +\n .../third-party/golang.org_x_text_v0.41.0/PATENTS  |   22 +\n .../third-party/golang.org_x_tools_v0.47.0/LICENSE |   27 +\n .../third-party/golang.org_x_tools_v0.47.0/PATENTS |   22 +\n .../third-party/golang.org_x_tools_v0.48.0/LICENSE |   27 +\n .../third-party/golang.org_x_tools_v0.48.0/PATENTS |   22 +\n .../LICENSE                                        |   25 +\n .../third-party/gopkg.in_yaml.v3_v3.0.1/LICENSE    |   50 +\n .../third-party/gopkg.in_yaml.v3_v3.0.1/NOTICE     |   13 +\n .../infrastructure-discovery/LUCIDE_LICENSE.txt    |   43 +\n .../third-party/modernc.org_cc_v4_v4.29.1/LICENSE  |   27 +\n .../testdata/jhjourdan/LICENSE                     |   24 +\n .../modernc.org_ccgo_v4_v4.34.6/LICENSE            |   27 +\n .../modernc.org_fileutil_v1.4.0/AUTHORS            |   18 +\n .../modernc.org_fileutil_v1.4.0/LICENSE            |   27 +\n .../modernc.org_fileutil_v1.4.0/falloc/LICENSE     |   27 +\n .../modernc.org_fileutil_v1.4.0/hdb/LICENSE        |   27 +\n .../modernc.org_fileutil_v1.4.0/storage/LICENSE    |   27 +\n .../third-party/modernc.org_gc_v2_v2.6.5/LICENSE   |   69 ++\n .../third-party/modernc.org_gc_v3_v3.1.4/LICENSE   |   69 ++\n .../third-party/modernc.org_goabi0_v0.2.0/AUTHORS  |   11 +\n .../third-party/modernc.org_goabi0_v0.2.0/LICENSE  |   26 +\n .../third-party/modernc.org_libc_v1.74.4/AUTHORS   |   24 +\n .../third-party/modernc.org_libc_v1.74.4/LICENSE   |   27 +\n .../modernc.org_libc_v1.74.4/LICENSE-3RD-PARTY.md  |  305 ++++++\n .../testdata/nsz.repo.hu/libc-test/AUTHORS         |    7 +\n .../testdata/nsz.repo.hu/libc-test/COPYRIGHT       |   29 +\n .../nsz.repo.hu/libc-test/src/math/crlibm/COPYING  |  340 ++++++\n .../modernc.org_mathutil_v1.7.1/AUTHORS            |   13 +\n .../modernc.org_mathutil_v1.7.1/LICENSE            |   27 +\n .../modernc.org_mathutil_v1.7.1/mersenne/AUTHORS   |   11 +\n .../modernc.org_mathutil_v1.7.1/mersenne/LICENSE   |   27 +\n .../third-party/modernc.org_memory_v1.11.0/AUTHORS |   15 +\n .../third-party/modernc.org_memory_v1.11.0/LICENSE |   27 +\n .../modernc.org_memory_v1.11.0/LICENSE-GO          |   27 +\n .../modernc.org_memory_v1.11.0/LICENSE-LOGO        |    1 +\n .../modernc.org_memory_v1.11.0/LICENSE-MMAP-GO     |   25 +\n .../third-party/modernc.org_opt_v0.2.0/AUTHORS     |   11 +\n .../third-party/modernc.org_opt_v0.2.0/LICENSE     |   27 +\n .../modernc.org_sortutil_v1.2.1/AUTHORS            |   11 +\n .../modernc.org_sortutil_v1.2.1/LICENSE            |   27 +\n .../third-party/modernc.org_sqlite_v1.56.0/AUTHORS |   34 +\n .../third-party/modernc.org_sqlite_v1.56.0/LICENSE |   26 +\n .../third-party/modernc.org_strutil_v1.2.1/AUTHORS |   12 +\n .../third-party/modernc.org_strutil_v1.2.1/LICENSE |   27 +\n .../third-party/modernc.org_token_v1.1.0/LICENSE   |   27 +\n LICENSE_METADATA.json                              |   12 +\n LICENSE_POLICY.md                                  |   21 +\n LICENSING_HISTORY.md                               |   18 +\n NOTICE                                             |    6 +\n README.md                                          |   13 +-\n THIRD_PARTY_NOTICES.md                             |   24 +\n TRADEMARK_POLICY.md                                |   14 +\n docs/v2-license-audit.md                           |   25 +\n go.mod                                             |    6 +-\n go.sum                                             |   18 +-\n scripts/license-guard.py                           |   34 +\n third-party-inventory.json                         | 1088 +++++++++++++++++++\n third-party.cdx.json                               | 1119 ++++++++++++++++++++\n 129 files changed, 7922 insertions(+), 217 deletions(-)",
+        "stderr": ""
+      },
+      "ancestry": {
+        "exit": 0,
+        "stdout": "8e0d7e8c9feea59e389500713a1c3a0e2bfe17b0",
+        "stderr": ""
+      },
+      "pr": {
+        "exit": 0,
+        "stderr": "",
+        "data": {
+          "baseRefName": "main",
+          "baseRefOid": "8e0d7e8c9feea59e389500713a1c3a0e2bfe17b0",
+          "commits": [
+            {
+              "authoredDate": "2026-10-30T16:01:09Z",
+              "authors": [
+                {
+                  "email": "genejie199@gmail.com",
+                  "id": "MDQ6VXNlcjQ1MTM4MDE1",
+                  "login": "GeneJie199",
+                  "name": "GeneJie"
+                }
+              ],
+              "committedDate": "2026-10-30T16:01:09Z",
+              "messageBody": "",
+              "messageHeadline": "legal: migrate v2 source with preserved notices and secure Go baseline",
+              "oid": "d04e0193cbb5a0933b227bf13db51968128583a4"
+            },
+            {
+              "authoredDate": "2026-10-30T16:05:16Z",
+              "authors": [
+                {
+                  "email": "genejie199@gmail.com",
+                  "id": "MDQ6VXNlcjQ1MTM4MDE1",
+                  "login": "GeneJie199",
+                  "name": "GeneJie"
+                }
+              ],
+              "committedDate": "2026-10-30T16:05:16Z",
+              "messageBody": "",
+              "messageHeadline": "build: use patched compiler for macOS and release targets",
+              "oid": "531446d07d84113c3481f8de6e000a27bbae5246"
+            },
+            {
+              "authoredDate": "2026-10-30T16:09:03Z",
+              "authors": [
+                {
+                  "email": "genejie199@gmail.com",
+                  "id": "MDQ6VXNlcjQ1MTM4MDE1",
+                  "login": "GeneJie199",
+                  "name": "GeneJie"
+                }
+              ],
+              "committedDate": "2026-10-30T16:09:03Z",
+              "messageBody": "",
+              "messageHeadline": "security: update x/text past reachable PRECIS vulnerability",
+              "oid": "3fa948fcebf92b458b3ab305b92ee0ab35461e4b"
+            },
+            {
+              "authoredDate": "2026-10-30T16:14:03Z",
+              "authors": [
+                {
+                  "email": "genejie199@gmail.com",
+                  "id": "MDQ6VXNlcjQ1MTM4MDE1",
+                  "login": "GeneJie199",
+                  "name": "GeneJie"
+                }
+              ],
+              "committedDate": "2026-10-30T16:14:03Z",
+              "messageBody": "…idence",
+              "messageHeadline": "fix: finalize v2 policy contracts and refreshed dependency license ev…",
+              "oid": "6271813ad122e08da33dc139fb5cc97f744d4fa0"
+            }
+          ],
+          "headRefName": "codex/v2-ai-team-c0",
+          "headRefOid": "6271813ad122e08da33dc139fb5cc97f744d4fa0",
+          "isDraft": true,
+          "mergeStateStatus": "CLEAN",
+          "mergeable": "MERGEABLE",
+          "number": 1,
+          "reviewDecision": "",
+          "reviews": [],
+          "state": "OPEN",
+          "statusCheckRollup": [
+            {
+              "__typename": "CheckRun",
+              "completedAt": "2026-10-30T16:15:43Z",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/GeneJie199/release-validation/actions/runs/41088014993/job/124174200563",
+              "name": "test",
+              "startedAt": "2026-10-30T16:14:45Z",
+              "status": "COMPLETED",
+              "workflowName": "CI"
+            },
+            {
+              "__typename": "CheckRun",
+              "completedAt": "2026-10-30T16:15:03Z",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/GeneJie199/release-validation/actions/runs/41087999662/job/124174149933",
+              "name": "test",
+              "startedAt": "2026-10-30T16:14:10Z",
+              "status": "COMPLETED",
+              "workflowName": "CI"
+            },
+            {
+              "__typename": "CheckRun",
+              "completedAt": "2026-10-30T16:15:56Z",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/GeneJie199/release-validation/actions/runs/41088014993/job/124174201615",
+              "name": "platform-test (windows-latest)",
+              "startedAt": "2026-10-30T16:14:49Z",
+              "status": "COMPLETED",
+              "workflowName": "CI"
+            },
+            {
+              "__typename": "CheckRun",
+              "completedAt": "2026-10-30T16:14:58Z",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/GeneJie199/release-validation/actions/runs/41087999662/job/124174150603",
+              "name": "platform-test (windows-latest)",
+              "startedAt": "2026-10-30T16:14:10Z",
+              "status": "COMPLETED",
+              "workflowName": "CI"
+            },
+            {
+              "__typename": "CheckRun",
+              "completedAt": "2026-10-30T16:18:32Z",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/GeneJie199/release-validation/actions/runs/41088014993/job/124174201119",
+              "name": "platform-test (macos-latest)",
+              "startedAt": "2026-10-30T16:16:32Z",
+              "status": "COMPLETED",
+              "workflowName": "CI"
+            },
+            {
+              "__typename": "CheckRun",
+              "completedAt": "2026-10-30T16:15:10Z",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/GeneJie199/release-validation/actions/runs/41087999662/job/124174150432",
+              "name": "platform-test (macos-latest)",
+              "startedAt": "2026-10-30T16:14:41Z",
+              "status": "COMPLETED",
+              "workflowName": "CI"
+            }
+          ],
+          "url": "https://github.com/GeneJie199/release-validation/pull/1"
+        }
+      },
+      "protection": {
+        "exit": 1,
+        "stdout": "{\"message\":\"Branch not protected\",\"documentation_url\":\"https://docs.github.com/rest/branches/branch-protection#get-branch-protection\",\"status\":\"404\"}",
+        "stderr": "gh: Branch not protected (HTTP 404)"
+      },
+      "rules": {
+        "exit": 0,
+        "stderr": "",
+        "data": []
+      },
+      "reviewThreads": {
+        "exit": 0,
+        "data": {
+          "data": {
+            "repository": {
+              "pullRequest": {
+                "reviewThreads": {
+                  "nodes": []
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "repository": {
+        "exit": 0,
+        "stderr": "",
+        "data": {
+          "id": 1326281729,
+          "node_id": "R_kgDOTw10AQ",
+          "name": "lifecycle-spec",
+          "full_name": "GeneJie199/lifecycle-spec",
+          "private": false,
+          "owner": {
+            "login": "GeneJie199",
+            "id": 45138015,
+            "node_id": "MDQ6VXNlcjQ1MTM4MDE1",
+            "avatar_url": "https://avatars.githubusercontent.com/u/45138015?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/GeneJie199",
+            "html_url": "https://github.com/GeneJie199",
+            "followers_url": "https://api.github.com/users/GeneJie199/followers",
+            "following_url": "https://api.github.com/users/GeneJie199/following{/other_user}",
+            "gists_url": "https://api.github.com/users/GeneJie199/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/GeneJie199/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/GeneJie199/subscriptions",
+            "organizations_url": "https://api.github.com/users/GeneJie199/orgs",
+            "repos_url": "https://api.github.com/users/GeneJie199/repos",
+            "events_url": "https://api.github.com/users/GeneJie199/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/GeneJie199/received_events",
+            "type": "User",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "html_url": "https://github.com/GeneJie199/lifecycle-spec",
+          "description": "Versioned open lifecycle protocol (JSON Schema) for AI DevOps suite",
+          "fork": false,
+          "url": "https://api.github.com/repos/GeneJie199/lifecycle-spec",
+          "forks_url": "https://api.github.com/repos/GeneJie199/lifecycle-spec/forks",
+          "keys_url": "https://api.github.com/repos/GeneJie199/lifecycle-spec/keys{/key_id}",
+          "collaborators_url": "https://api.github.com/repos/GeneJie199/lifecycle-spec/collaborators{/collaborator}",
+          "teams_url": "https://api.github.com/repos/GeneJie199/lifecycle-spec/teams",
+          "hooks_url": "https://api.github.com/repos/GeneJie199/lifecycle-spec/hooks",
+          "issue_events_url": "https://api.github.com/repos/GeneJie199/lifecycle-spec/issues/events{/number}",
+          "events_url": "https://api.github.com/repos/GeneJie199/lifecycle-spec/events",
+          "assignees_url": "https://api.github.com/repos/GeneJie199/lifecycle-spec/assignees{/user}",
+          "branches_url": "https://api.github.com/repos/GeneJie199/lifecycle-spec/branches{/branch}",
+          "tags_url": "https://api.github.com/repos/GeneJie199/lifecycle-spec/tags",
+          "blobs_url": "https://api.github.com/repos/GeneJie199/lifecycle-spec/git/blobs{/sha}",
+          "git_tags_url": "https://api.github.com/repos/GeneJie199/lifecycle-spec/git/tags{/sha}",
+          "git_refs_url": "https://api.github.com/repos/GeneJie199/lifecycle-spec/git/refs{/sha}",
+          "trees_url": "https://api.github.com/repos/GeneJie199/lifecycle-spec/git/trees{/sha}",
+          "statuses_url": "https://api.github.com/repos/GeneJie199/lifecycle-spec/statuses/{sha}",
+          "languages_url": "https://api.github.com/repos/GeneJie199/lifecycle-spec/languages",
+          "stargazers_url": "https://api.github.com/repos/GeneJie199/lifecycle-spec/stargazers",
+          "contributors_url": "https://api.github.com/repos/GeneJie199/lifecycle-spec/contributors",
+          "subscribers_url": "https://api.github.com/repos/GeneJie199/lifecycle-spec/subscribers",
+          "subscription_url": "https://api.github.com/repos/GeneJie199/lifecycle-spec/subscription",
+          "commits_url": "https://api.github.com/repos/GeneJie199/lifecycle-spec/commits{/sha}",
+          "git_commits_url": "https://api.github.com/repos/GeneJie199/lifecycle-spec/git/commits{/sha}",
+          "comments_url": "https://api.github.com/repos/GeneJie199/lifecycle-spec/comments{/number}",
+          "issue_comment_url": "https://api.github.com/repos/GeneJie199/lifecycle-spec/issues/comments{/number}",
+          "contents_url": "https://api.github.com/repos/GeneJie199/lifecycle-spec/contents/{+path}",
+          "compare_url": "https://api.github.com/repos/GeneJie199/lifecycle-spec/compare/{base}...{head}",
+          "merges_url": "https://api.github.com/repos/GeneJie199/lifecycle-spec/merges",
+          "archive_url": "https://api.github.com/repos/GeneJie199/lifecycle-spec/{archive_format}{/ref}",
+          "downloads_url": "https://api.github.com/repos/GeneJie199/lifecycle-spec/downloads",
+          "issues_url": "https://api.github.com/repos/GeneJie199/lifecycle-spec/issues{/number}",
+          "pulls_url": "https://api.github.com/repos/GeneJie199/lifecycle-spec/pulls{/number}",
+          "milestones_url": "https://api.github.com/repos/GeneJie199/lifecycle-spec/milestones{/number}",
+          "notifications_url": "https://api.github.com/repos/GeneJie199/lifecycle-spec/notifications{?since,all,participating}",
+          "labels_url": "https://api.github.com/repos/GeneJie199/lifecycle-spec/labels{/name}",
+          "releases_url": "https://api.github.com/repos/GeneJie199/lifecycle-spec/releases{/id}",
+          "deployments_url": "https://api.github.com/repos/GeneJie199/lifecycle-spec/deployments",
+          "created_at": "2026-08-07T06:12:08Z",
+          "updated_at": "2026-08-22T23:55:31Z",
+          "pushed_at": "2026-10-30T16:43:02Z",
+          "git_url": "git://github.com/GeneJie199/lifecycle-spec.git",
+          "ssh_url": "git@github.com:GeneJie199/lifecycle-spec.git",
+          "clone_url": "https://github.com/GeneJie199/lifecycle-spec.git",
+          "svn_url": "https://github.com/GeneJie199/lifecycle-spec",
+          "homepage": null,
+          "size": 216,
+          "stargazers_count": 0,
+          "watchers_count": 0,
+          "language": "Go",
+          "has_issues": true,
+          "has_projects": true,
+          "has_downloads": false,
+          "has_wiki": true,
+          "has_pages": false,
+          "has_discussions": false,
+          "forks_count": 0,
+          "mirror_url": null,
+          "archived": false,
+          "disabled": false,
+          "open_issues_count": 1,
+          "license": {
+            "key": "apache-2.0",
+            "name": "Apache License 2.0",
+            "spdx_id": "Apache-2.0",
+            "url": "https://api.github.com/licenses/apache-2.0",
+            "node_id": "MDc6TGljZW5zZTI="
+          },
+          "allow_forking": true,
+          "is_template": false,
+          "web_commit_signoff_required": false,
+          "has_pull_requests": true,
+          "pull_request_creation_policy": "all",
+          "topics": [],
+          "visibility": "public",
+          "forks": 0,
+          "open_issues": 1,
+          "watchers": 0,
+          "default_branch": "main",
+          "permissions": {
+            "admin": true,
+            "maintain": true,
+            "push": true,
+            "triage": true,
+            "pull": true
+          },
+          "temp_clone_token": "",
+          "allow_squash_merge": true,
+          "allow_merge_commit": true,
+          "allow_rebase_merge": true,
+          "allow_auto_merge": false,
+          "delete_branch_on_merge": false,
+          "allow_update_branch": false,
+          "use_squash_pr_title_as_default": false,
+          "squash_merge_commit_message": "COMMIT_MESSAGES",
+          "squash_merge_commit_title": "COMMIT_OR_PR_TITLE",
+          "merge_commit_message": "PR_TITLE",
+          "merge_commit_title": "MERGE_MESSAGE",
+          "security_and_analysis": {
+            "secret_scanning": {
+              "status": "enabled"
+            },
+            "secret_scanning_push_protection": {
+              "status": "enabled"
+            },
+            "dependabot_security_updates": {
+              "status": "disabled"
+            },
+            "secret_scanning_non_provider_patterns": {
+              "status": "disabled"
+            },
+            "secret_scanning_validity_checks": {
+              "status": "disabled"
+            }
+          },
+          "network_count": 0,
+          "subscribers_count": 0
+        }
+      },
+      "directory": "lifecycle-spec",
+      "url": "https://github.com/GeneJie199/lifecycle-spec/pull/1",
+      "local": "C:\\Users\\揭剑\\Documents\\ChatGPT\\lifecycle-spec",
+      "head": "7a19feda867b77a147903d1d92db0919ec8233f0",
+      "status": {
+        "exit": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      "branches": {
+        "exit": 0,
+        "stdout": "+ audit/c0-final-lifecycle-spec      7a19fed (C:/Users/揭剑/Documents/ChatGPT/ai-devops/.qa/c0-final/review-lifecycle-spec) feat: bind execution evidence to accumulated source artifacts\n* codex/v2-ai-team-c0                7a19fed [origin/codex/v2-ai-team-c0] feat: bind execution evidence to accumulated source artifacts\n  main                               37f13ac [origin/main] release: mark candidate tags as prereleases\n  remotes/origin/HEAD                -> origin/main\n  remotes/origin/codex/v2-ai-team-c0 7a19fed feat: bind execution evidence to accumulated source artifacts\n  remotes/origin/main                37f13ac release: mark candidate tags as prereleases",
+        "stderr": ""
+      },
+      "log": {
+        "exit": 0,
+        "stdout": "7a19feda867b77a147903d1d92db0919ec8233f0 GeneJie <genejie199@gmail.com> feat: bind execution evidence to accumulated source artifacts\na381a363af8c4e93cad673a5706d04c8cc508339 GeneJie <genejie199@gmail.com> fix: retain additive compatibility for v2 configuration snapshots\n0558a8e22d47985a3fc1f6d0b26171964d3d0c4f GeneJie <genejie199@gmail.com> fix: finalize v2 policy contracts and refreshed dependency license evidence\nd70f1ae9244f36a67d4b5c75ea515ff8d68a3fdb GeneJie <genejie199@gmail.com> build: use patched compiler for macOS and release targets\n814ad709ae650a522868e9590e82533768cc328f GeneJie <genejie199@gmail.com> feat: expose additive v2 schema validation in offline CLI\n15a4b38a8b9969c2d4e26429693be16d11e6aea4 GeneJie <genejie199@gmail.com> legal: migrate v2 source with preserved notices and secure Go baseline\n37f13ac2ea4bc7ea5a5316d130ece6537c5dbff5 GeneJie <genejie199@gmail.com> release: mark candidate tags as prereleases\n7b93aa2019e22d6c574516dfb86cfc020b32ec43 GeneJie <genejie199@gmail.com> docs: prepare lifecycle protocol v1 guide",
+        "stderr": ""
+      },
+      "worktrees": {
+        "exit": 0,
+        "stdout": "worktree C:/Users/揭剑/Documents/ChatGPT/lifecycle-spec\nHEAD 7a19feda867b77a147903d1d92db0919ec8233f0\nbranch refs/heads/codex/v2-ai-team-c0\n\nworktree C:/Users/揭剑/Documents/ChatGPT/ai-devops/.qa/c0-final/review-lifecycle-spec\nHEAD 7a19feda867b77a147903d1d92db0919ec8233f0\nbranch refs/heads/audit/c0-final-lifecycle-spec",
+        "stderr": ""
+      },
+      "diffStat": {
+        "exit": 0,
+        "stdout": ".gitattributes                                     |    4 +\n .github/workflows/ci.yml                           |    4 +-\n .github/workflows/release.yml                      |    4 +-\n .gitignore                                         |    5 +\n COMMERCIALIZATION.md                               |   16 +\n COMMERCIAL_LICENSE.md                              |   26 +\n CONTRIBUTING.md                                    |    5 +-\n CONTRIBUTOR_POLICY.md                              |   28 +\n LICENSE                                            |  436 ++++----\n LICENSES/AGPL-3.0-only.txt                         |  235 ++++\n LICENSES/Apache-2.0.txt                            |  201 ++++\n .../ai-dev-cycle-manager/LUCIDE_LICENSE.txt        |   43 +\n .../filippo.io_edwards25519_v1.1.0/LICENSE         |   27 +\n .../LICENSE.md                                     |   21 +\n .../github.com_creack_pty_v1.1.9/LICENSE           |   23 +\n .../github.com_danieljoos_wincred_v1.2.3/LICENSE   |   21 +\n .../github.com_davecgh_go-spew_v1.1.1/LICENSE      |   15 +\n .../github.com_dustin_go-humanize_v1.0.1/LICENSE   |   21 +\n .../github.com_go-sql-driver_mysql_v1.9.3/AUTHORS  |  155 +++\n .../github.com_go-sql-driver_mysql_v1.9.3/LICENSE  |  373 +++++++\n .../github.com_godbus_dbus_v5_v5.2.2/LICENSE       |   25 +\n .../AUTHORS                                        |    7 +\n .../LICENSE                                        |  202 ++++\n .../third_party/svgpan/LICENSE                     |   27 +\n .../github.com_google_uuid_v1.6.0/LICENSE          |   27 +\n .../LICENSE                                        |  364 +++++++\n .../simplelru/LICENSE_list                         |   29 +\n .../LICENSE                                        |  201 ++++\n .../github.com_jackc_pgpassfile_v1.0.0/LICENSE     |   22 +\n .../LICENSE                                        |   22 +\n .../github.com_jackc_pgx_v5_v5.9.2/LICENSE         |   22 +\n .../github.com_jackc_puddle_v2_v2.2.2/LICENSE      |   22 +\n .../github.com_kr_pretty_v0.3.0/License            |   19 +\n .../third-party/github.com_kr_text_v0.2.0/License  |   19 +\n .../github.com_mattn_go-isatty_v0.0.24/LICENSE     |    9 +\n .../github.com_ncruces_go-strftime_v1.0.0/LICENSE  |   21 +\n .../github.com_oklog_ulid_v2_v2.1.2/AUTHORS.md     |    2 +\n .../github.com_oklog_ulid_v2_v2.1.2/LICENSE        |  201 ++++\n .../AUTHORS                                        |    1 +\n .../LICENSE                                        |   27 +\n .../github.com_pmezard_go-difflib_v1.0.0/LICENSE   |   27 +\n .../LICENSE                                        |   27 +\n .../LICENSE                                        |   27 +\n .../LICENSE.txt                                    |   29 +\n .../LICENSE                                        |  175 +++\n .../github.com_spf13_cobra_v1.10.2/LICENSE.txt     |  174 +++\n .../github.com_spf13_pflag_v1.0.9/LICENSE          |   28 +\n .../github.com_stretchr_objx_v0.1.0/LICENSE        |   22 +\n .../github.com_stretchr_objx_v0.5.2/LICENSE        |   22 +\n .../github.com_stretchr_testify_v1.11.1/LICENSE    |   21 +\n .../github.com_zalando_go-keyring_v0.2.8/LICENSE   |   21 +\n .../internal/shellescape/LICENSE                   |   21 +\n LICENSES/third-party/go-runtime/LICENSE            |   27 +\n LICENSES/third-party/go-runtime/PATENTS            |   22 +\n .../third-party/go.yaml.in_yaml_v3_v3.0.4/LICENSE  |   50 +\n .../third-party/go.yaml.in_yaml_v3_v3.0.4/NOTICE   |   13 +\n .../third-party/golang.org_x_mod_v0.37.0/LICENSE   |   27 +\n .../third-party/golang.org_x_mod_v0.37.0/PATENTS   |   22 +\n .../third-party/golang.org_x_mod_v0.38.0/LICENSE   |   27 +\n .../third-party/golang.org_x_mod_v0.38.0/PATENTS   |   22 +\n .../third-party/golang.org_x_sync_v0.21.0/LICENSE  |   27 +\n .../third-party/golang.org_x_sync_v0.21.0/PATENTS  |   22 +\n .../third-party/golang.org_x_sync_v0.22.0/LICENSE  |   27 +\n .../third-party/golang.org_x_sync_v0.22.0/PATENTS  |   22 +\n .../third-party/golang.org_x_sys_v0.26.0/LICENSE   |   27 +\n .../third-party/golang.org_x_sys_v0.26.0/PATENTS   |   22 +\n .../third-party/golang.org_x_sys_v0.47.0/LICENSE   |   27 +\n .../third-party/golang.org_x_sys_v0.47.0/PATENTS   |   22 +\n .../third-party/golang.org_x_text_v0.39.0/LICENSE  |   27 +\n .../third-party/golang.org_x_text_v0.39.0/PATENTS  |   22 +\n .../third-party/golang.org_x_text_v0.41.0/LICENSE  |   27 +\n .../third-party/golang.org_x_text_v0.41.0/PATENTS  |   22 +\n .../third-party/golang.org_x_tools_v0.47.0/LICENSE |   27 +\n .../third-party/golang.org_x_tools_v0.47.0/PATENTS |   22 +\n .../third-party/golang.org_x_tools_v0.48.0/LICENSE |   27 +\n .../third-party/golang.org_x_tools_v0.48.0/PATENTS |   22 +\n .../LICENSE                                        |   25 +\n .../third-party/gopkg.in_yaml.v3_v3.0.1/LICENSE    |   50 +\n .../third-party/gopkg.in_yaml.v3_v3.0.1/NOTICE     |   13 +\n .../infrastructure-discovery/LUCIDE_LICENSE.txt    |   43 +\n .../third-party/modernc.org_cc_v4_v4.29.1/LICENSE  |   27 +\n .../testdata/jhjourdan/LICENSE                     |   24 +\n .../modernc.org_ccgo_v4_v4.34.6/LICENSE            |   27 +\n .../modernc.org_fileutil_v1.4.0/AUTHORS            |   18 +\n .../modernc.org_fileutil_v1.4.0/LICENSE            |   27 +\n .../modernc.org_fileutil_v1.4.0/falloc/LICENSE     |   27 +\n .../modernc.org_fileutil_v1.4.0/hdb/LICENSE        |   27 +\n .../modernc.org_fileutil_v1.4.0/storage/LICENSE    |   27 +\n .../third-party/modernc.org_gc_v2_v2.6.5/LICENSE   |   69 ++\n .../third-party/modernc.org_gc_v3_v3.1.4/LICENSE   |   69 ++\n .../third-party/modernc.org_goabi0_v0.2.0/AUTHORS  |   11 +\n .../third-party/modernc.org_goabi0_v0.2.0/LICENSE  |   26 +\n .../third-party/modernc.org_libc_v1.74.4/AUTHORS   |   24 +\n .../third-party/modernc.org_libc_v1.74.4/LICENSE   |   27 +\n .../modernc.org_libc_v1.74.4/LICENSE-3RD-PARTY.md  |  305 ++++++\n .../testdata/nsz.repo.hu/libc-test/AUTHORS         |    7 +\n .../testdata/nsz.repo.hu/libc-test/COPYRIGHT       |   29 +\n .../nsz.repo.hu/libc-test/src/math/crlibm/COPYING  |  340 ++++++\n .../modernc.org_mathutil_v1.7.1/AUTHORS            |   13 +\n .../modernc.org_mathutil_v1.7.1/LICENSE            |   27 +\n .../modernc.org_mathutil_v1.7.1/mersenne/AUTHORS   |   11 +\n .../modernc.org_mathutil_v1.7.1/mersenne/LICENSE   |   27 +\n .../third-party/modernc.org_memory_v1.11.0/AUTHORS |   15 +\n .../third-party/modernc.org_memory_v1.11.0/LICENSE |   27 +\n .../modernc.org_memory_v1.11.0/LICENSE-GO          |   27 +\n .../modernc.org_memory_v1.11.0/LICENSE-LOGO        |    1 +\n .../modernc.org_memory_v1.11.0/LICENSE-MMAP-GO     |   25 +\n .../third-party/modernc.org_opt_v0.2.0/AUTHORS     |   11 +\n .../third-party/modernc.org_opt_v0.2.0/LICENSE     |   27 +\n .../modernc.org_sortutil_v1.2.1/AUTHORS            |   11 +\n .../modernc.org_sortutil_v1.2.1/LICENSE            |   27 +\n .../third-party/modernc.org_sqlite_v1.56.0/AUTHORS |   34 +\n .../third-party/modernc.org_sqlite_v1.56.0/LICENSE |   26 +\n .../third-party/modernc.org_strutil_v1.2.1/AUTHORS |   12 +\n .../third-party/modernc.org_strutil_v1.2.1/LICENSE |   27 +\n .../third-party/modernc.org_token_v1.1.0/LICENSE   |   27 +\n LICENSE_METADATA.json                              |   12 +\n LICENSE_POLICY.md                                  |   21 +\n LICENSING_HISTORY.md                               |   18 +\n NOTICE                                             |    6 +\n README.md                                          |   13 +-\n THIRD_PARTY_NOTICES.md                             |   24 +\n TRADEMARK_POLICY.md                                |   14 +\n cmd/lifecycle-validate/main.go                     |    7 +-\n docs/v2-license-audit.md                           |   25 +\n go.mod                                             |    2 +-\n schemas/v2/ai-team-mission.json                    |  568 ++++++++++\n schemas/v2/project-status.json                     |   37 +\n scripts/generate-team-schema.py                    |   41 +\n scripts/license-guard.py                           |   34 +\n team_validator.go                                  |   54 +\n team_validator_test.go                             |   24 +\n third-party-inventory.json                         | 1088 +++++++++++++++++++\n third-party.cdx.json                               | 1119 ++++++++++++++++++++\n 134 files changed, 8643 insertions(+), 209 deletions(-)",
+        "stderr": ""
+      },
+      "ancestry": {
+        "exit": 0,
+        "stdout": "37f13ac2ea4bc7ea5a5316d130ece6537c5dbff5",
+        "stderr": ""
+      },
+      "pr": {
+        "exit": 0,
+        "stderr": "",
+        "data": {
+          "baseRefName": "main",
+          "baseRefOid": "37f13ac2ea4bc7ea5a5316d130ece6537c5dbff5",
+          "commits": [
+            {
+              "authoredDate": "2026-10-30T16:01:12Z",
+              "authors": [
+                {
+                  "email": "genejie199@gmail.com",
+                  "id": "MDQ6VXNlcjQ1MTM4MDE1",
+                  "login": "GeneJie199",
+                  "name": "GeneJie"
+                }
+              ],
+              "committedDate": "2026-10-30T16:01:12Z",
+              "messageBody": "",
+              "messageHeadline": "legal: migrate v2 source with preserved notices and secure Go baseline",
+              "oid": "15a4b38a8b9969c2d4e26429693be16d11e6aea4"
+            },
+            {
+              "authoredDate": "2026-10-30T16:05:04Z",
+              "authors": [
+                {
+                  "email": "genejie199@gmail.com",
+                  "id": "MDQ6VXNlcjQ1MTM4MDE1",
+                  "login": "GeneJie199",
+                  "name": "GeneJie"
+                }
+              ],
+              "committedDate": "2026-10-30T16:05:04Z",
+              "messageBody": "",
+              "messageHeadline": "feat: expose additive v2 schema validation in offline CLI",
+              "oid": "814ad709ae650a522868e9590e82533768cc328f"
+            },
+            {
+              "authoredDate": "2026-10-30T16:05:20Z",
+              "authors": [
+                {
+                  "email": "genejie199@gmail.com",
+                  "id": "MDQ6VXNlcjQ1MTM4MDE1",
+                  "login": "GeneJie199",
+                  "name": "GeneJie"
+                }
+              ],
+              "committedDate": "2026-10-30T16:05:20Z",
+              "messageBody": "",
+              "messageHeadline": "build: use patched compiler for macOS and release targets",
+              "oid": "d70f1ae9244f36a67d4b5c75ea515ff8d68a3fdb"
+            },
+            {
+              "authoredDate": "2026-10-30T16:14:06Z",
+              "authors": [
+                {
+                  "email": "genejie199@gmail.com",
+                  "id": "MDQ6VXNlcjQ1MTM4MDE1",
+                  "login": "GeneJie199",
+                  "name": "GeneJie"
+                }
+              ],
+              "committedDate": "2026-10-30T16:14:06Z",
+              "messageBody": "…idence",
+              "messageHeadline": "fix: finalize v2 policy contracts and refreshed dependency license ev…",
+              "oid": "0558a8e22d47985a3fc1f6d0b26171964d3d0c4f"
+            },
+            {
+              "authoredDate": "2026-10-30T16:25:34Z",
+              "authors": [
+                {
+                  "email": "genejie199@gmail.com",
+                  "id": "MDQ6VXNlcjQ1MTM4MDE1",
+                  "login": "GeneJie199",
+                  "name": "GeneJie"
+                }
+              ],
+              "committedDate": "2026-10-30T16:25:34Z",
+              "messageBody": "",
+              "messageHeadline": "fix: retain additive compatibility for v2 configuration snapshots",
+              "oid": "a381a363af8c4e93cad673a5706d04c8cc508339"
+            },
+            {
+              "authoredDate": "2026-10-30T16:42:59Z",
+              "authors": [
+                {
+                  "email": "genejie199@gmail.com",
+                  "id": "MDQ6VXNlcjQ1MTM4MDE1",
+                  "login": "GeneJie199",
+                  "name": "GeneJie"
+                }
+              ],
+              "committedDate": "2026-10-30T16:42:59Z",
+              "messageBody": "",
+              "messageHeadline": "feat: bind execution evidence to accumulated source artifacts",
+              "oid": "7a19feda867b77a147903d1d92db0919ec8233f0"
+            }
+          ],
+          "headRefName": "codex/v2-ai-team-c0",
+          "headRefOid": "7a19feda867b77a147903d1d92db0919ec8233f0",
+          "isDraft": true,
+          "mergeStateStatus": "CLEAN",
+          "mergeable": "MERGEABLE",
+          "number": 1,
+          "reviewDecision": "",
+          "reviews": [],
+          "state": "OPEN",
+          "statusCheckRollup": [
+            {
+              "__typename": "CheckRun",
+              "completedAt": "2026-10-30T16:43:44Z",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/GeneJie199/lifecycle-spec/actions/runs/41092414887/job/124189427693",
+              "name": "test (ubuntu-latest)",
+              "startedAt": "2026-10-30T16:43:10Z",
+              "status": "COMPLETED",
+              "workflowName": "CI"
+            },
+            {
+              "__typename": "CheckRun",
+              "completedAt": "2026-10-30T16:43:45Z",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/GeneJie199/lifecycle-spec/actions/runs/41092406377/job/124189399385",
+              "name": "test (ubuntu-latest)",
+              "startedAt": "2026-10-30T16:43:07Z",
+              "status": "COMPLETED",
+              "workflowName": "CI"
+            },
+            {
+              "__typename": "CheckRun",
+              "completedAt": "2026-10-30T16:43:55Z",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/GeneJie199/lifecycle-spec/actions/runs/41092414887/job/124189428356",
+              "name": "test (windows-latest)",
+              "startedAt": "2026-10-30T16:43:10Z",
+              "status": "COMPLETED",
+              "workflowName": "CI"
+            },
+            {
+              "__typename": "CheckRun",
+              "completedAt": "2026-10-30T16:43:41Z",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/GeneJie199/lifecycle-spec/actions/runs/41092406377/job/124189398920",
+              "name": "test (windows-latest)",
+              "startedAt": "2026-10-30T16:43:07Z",
+              "status": "COMPLETED",
+              "workflowName": "CI"
+            },
+            {
+              "__typename": "CheckRun",
+              "completedAt": "2026-10-30T16:48:45Z",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/GeneJie199/lifecycle-spec/actions/runs/41092414887/job/124189428302",
+              "name": "test (macos-latest)",
+              "startedAt": "2026-10-30T16:48:11Z",
+              "status": "COMPLETED",
+              "workflowName": "CI"
+            },
+            {
+              "__typename": "CheckRun",
+              "completedAt": "2026-10-30T16:43:31Z",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/GeneJie199/lifecycle-spec/actions/runs/41092406377/job/124189399347",
+              "name": "test (macos-latest)",
+              "startedAt": "2026-10-30T16:43:07Z",
+              "status": "COMPLETED",
+              "workflowName": "CI"
+            }
+          ],
+          "url": "https://github.com/GeneJie199/lifecycle-spec/pull/1"
+        }
+      },
+      "protection": {
+        "exit": 1,
+        "stdout": "{\"message\":\"Branch not protected\",\"documentation_url\":\"https://docs.github.com/rest/branches/branch-protection#get-branch-protection\",\"status\":\"404\"}",
+        "stderr": "gh: Branch not protected (HTTP 404)"
+      },
+      "rules": {
+        "exit": 0,
+        "stderr": "",
+        "data": []
+      },
+      "reviewThreads": {
+        "exit": 0,
+        "data": {
+          "data": {
+            "repository": {
+              "pullRequest": {
+                "reviewThreads": {
+                  "nodes": []
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "repository": {
+        "exit": 0,
+        "stderr": "",
+        "data": {
+          "id": 1326566154,
+          "node_id": "R_kgDOTxHLCg",
+          "name": "ai-devops-open-suite",
+          "full_name": "GeneJie199/ai-devops-open-suite",
+          "private": false,
+          "owner": {
+            "login": "GeneJie199",
+            "id": 45138015,
+            "node_id": "MDQ6VXNlcjQ1MTM4MDE1",
+            "avatar_url": "https://avatars.githubusercontent.com/u/45138015?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/GeneJie199",
+            "html_url": "https://github.com/GeneJie199",
+            "followers_url": "https://api.github.com/users/GeneJie199/followers",
+            "following_url": "https://api.github.com/users/GeneJie199/following{/other_user}",
+            "gists_url": "https://api.github.com/users/GeneJie199/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/GeneJie199/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/GeneJie199/subscriptions",
+            "organizations_url": "https://api.github.com/users/GeneJie199/orgs",
+            "repos_url": "https://api.github.com/users/GeneJie199/repos",
+            "events_url": "https://api.github.com/users/GeneJie199/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/GeneJie199/received_events",
+            "type": "User",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "html_url": "https://github.com/GeneJie199/ai-devops-open-suite",
+          "description": "Local-first AI DevOps suite for development evidence, infrastructure discovery, native fleet observability, and release validation",
+          "fork": false,
+          "url": "https://api.github.com/repos/GeneJie199/ai-devops-open-suite",
+          "forks_url": "https://api.github.com/repos/GeneJie199/ai-devops-open-suite/forks",
+          "keys_url": "https://api.github.com/repos/GeneJie199/ai-devops-open-suite/keys{/key_id}",
+          "collaborators_url": "https://api.github.com/repos/GeneJie199/ai-devops-open-suite/collaborators{/collaborator}",
+          "teams_url": "https://api.github.com/repos/GeneJie199/ai-devops-open-suite/teams",
+          "hooks_url": "https://api.github.com/repos/GeneJie199/ai-devops-open-suite/hooks",
+          "issue_events_url": "https://api.github.com/repos/GeneJie199/ai-devops-open-suite/issues/events{/number}",
+          "events_url": "https://api.github.com/repos/GeneJie199/ai-devops-open-suite/events",
+          "assignees_url": "https://api.github.com/repos/GeneJie199/ai-devops-open-suite/assignees{/user}",
+          "branches_url": "https://api.github.com/repos/GeneJie199/ai-devops-open-suite/branches{/branch}",
+          "tags_url": "https://api.github.com/repos/GeneJie199/ai-devops-open-suite/tags",
+          "blobs_url": "https://api.github.com/repos/GeneJie199/ai-devops-open-suite/git/blobs{/sha}",
+          "git_tags_url": "https://api.github.com/repos/GeneJie199/ai-devops-open-suite/git/tags{/sha}",
+          "git_refs_url": "https://api.github.com/repos/GeneJie199/ai-devops-open-suite/git/refs{/sha}",
+          "trees_url": "https://api.github.com/repos/GeneJie199/ai-devops-open-suite/git/trees{/sha}",
+          "statuses_url": "https://api.github.com/repos/GeneJie199/ai-devops-open-suite/statuses/{sha}",
+          "languages_url": "https://api.github.com/repos/GeneJie199/ai-devops-open-suite/languages",
+          "stargazers_url": "https://api.github.com/repos/GeneJie199/ai-devops-open-suite/stargazers",
+          "contributors_url": "https://api.github.com/repos/GeneJie199/ai-devops-open-suite/contributors",
+          "subscribers_url": "https://api.github.com/repos/GeneJie199/ai-devops-open-suite/subscribers",
+          "subscription_url": "https://api.github.com/repos/GeneJie199/ai-devops-open-suite/subscription",
+          "commits_url": "https://api.github.com/repos/GeneJie199/ai-devops-open-suite/commits{/sha}",
+          "git_commits_url": "https://api.github.com/repos/GeneJie199/ai-devops-open-suite/git/commits{/sha}",
+          "comments_url": "https://api.github.com/repos/GeneJie199/ai-devops-open-suite/comments{/number}",
+          "issue_comment_url": "https://api.github.com/repos/GeneJie199/ai-devops-open-suite/issues/comments{/number}",
+          "contents_url": "https://api.github.com/repos/GeneJie199/ai-devops-open-suite/contents/{+path}",
+          "compare_url": "https://api.github.com/repos/GeneJie199/ai-devops-open-suite/compare/{base}...{head}",
+          "merges_url": "https://api.github.com/repos/GeneJie199/ai-devops-open-suite/merges",
+          "archive_url": "https://api.github.com/repos/GeneJie199/ai-devops-open-suite/{archive_format}{/ref}",
+          "downloads_url": "https://api.github.com/repos/GeneJie199/ai-devops-open-suite/downloads",
+          "issues_url": "https://api.github.com/repos/GeneJie199/ai-devops-open-suite/issues{/number}",
+          "pulls_url": "https://api.github.com/repos/GeneJie199/ai-devops-open-suite/pulls{/number}",
+          "milestones_url": "https://api.github.com/repos/GeneJie199/ai-devops-open-suite/milestones{/number}",
+          "notifications_url": "https://api.github.com/repos/GeneJie199/ai-devops-open-suite/notifications{?since,all,participating}",
+          "labels_url": "https://api.github.com/repos/GeneJie199/ai-devops-open-suite/labels{/name}",
+          "releases_url": "https://api.github.com/repos/GeneJie199/ai-devops-open-suite/releases{/id}",
+          "deployments_url": "https://api.github.com/repos/GeneJie199/ai-devops-open-suite/deployments",
+          "created_at": "2026-08-07T11:05:10Z",
+          "updated_at": "2026-10-16T17:59:46Z",
+          "pushed_at": "2026-10-30T17:44:12Z",
+          "git_url": "git://github.com/GeneJie199/ai-devops-open-suite.git",
+          "ssh_url": "git@github.com:GeneJie199/ai-devops-open-suite.git",
+          "clone_url": "https://github.com/GeneJie199/ai-devops-open-suite.git",
+          "svn_url": "https://github.com/GeneJie199/ai-devops-open-suite",
+          "homepage": null,
+          "size": 1053,
+          "stargazers_count": 0,
+          "watchers_count": 0,
+          "language": "PowerShell",
+          "has_issues": true,
+          "has_projects": true,
+          "has_downloads": false,
+          "has_wiki": true,
+          "has_pages": false,
+          "has_discussions": false,
+          "forks_count": 0,
+          "mirror_url": null,
+          "archived": false,
+          "disabled": false,
+          "open_issues_count": 1,
+          "license": {
+            "key": "apache-2.0",
+            "name": "Apache License 2.0",
+            "spdx_id": "Apache-2.0",
+            "url": "https://api.github.com/licenses/apache-2.0",
+            "node_id": "MDc6TGljZW5zZTI="
+          },
+          "allow_forking": true,
+          "is_template": false,
+          "web_commit_signoff_required": false,
+          "has_pull_requests": true,
+          "pull_request_creation_policy": "all",
+          "topics": [
+            "ai-devops",
+            "developer-tools",
+            "devops",
+            "local-first",
+            "observability"
+          ],
+          "visibility": "public",
+          "forks": 0,
+          "open_issues": 1,
+          "watchers": 0,
+          "default_branch": "main",
+          "permissions": {
+            "admin": true,
+            "maintain": true,
+            "push": true,
+            "triage": true,
+            "pull": true
+          },
+          "temp_clone_token": "",
+          "allow_squash_merge": true,
+          "allow_merge_commit": true,
+          "allow_rebase_merge": true,
+          "allow_auto_merge": false,
+          "delete_branch_on_merge": false,
+          "allow_update_branch": false,
+          "use_squash_pr_title_as_default": false,
+          "squash_merge_commit_message": "COMMIT_MESSAGES",
+          "squash_merge_commit_title": "COMMIT_OR_PR_TITLE",
+          "merge_commit_message": "PR_TITLE",
+          "merge_commit_title": "MERGE_MESSAGE",
+          "security_and_analysis": {
+            "secret_scanning": {
+              "status": "enabled"
+            },
+            "secret_scanning_push_protection": {
+              "status": "enabled"
+            },
+            "dependabot_security_updates": {
+              "status": "disabled"
+            },
+            "secret_scanning_non_provider_patterns": {
+              "status": "disabled"
+            },
+            "secret_scanning_validity_checks": {
+              "status": "disabled"
+            }
+          },
+          "network_count": 0,
+          "subscribers_count": 0
+        }
+      },
+      "directory": "ai-devops",
+      "url": "https://github.com/GeneJie199/ai-devops-open-suite/pull/9",
+      "local": "C:\\Users\\揭剑\\Documents\\ChatGPT\\ai-devops",
+      "head": "9d3a6cd12b69dd561a9818f6aee4d5724f0989e7",
+      "status": {
+        "exit": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      "branches": {
+        "exit": 0,
+        "stdout": "* codex/v2-ai-team-c0                                         9d3a6cd [origin/codex/v2-ai-team-c0] build: assemble exact-revision C0 source evidence and artifact delivery\n  main                                                        c5ec8da [origin/main: ahead 1] docs: establish audited v2 architecture and master plan\n+ team/2abc7ebe-8d8f-4aca-801e-553071fa3c77/analysis-67f16a14 b7dce39 (C:/Users/揭剑/Documents/ChatGPT/ai-devops/.qa/real-mission-final/team-worktrees/2abc7ebe-8d8f-4aca-801e-553071fa3c77/analysis-67f16a14) fix: archive committed source revisions for reproducible delivery\n+ team/2abc7ebe-8d8f-4aca-801e-553071fa3c77/build-3ceb84ff    bba8c27 (C:/Users/揭剑/Documents/ChatGPT/ai-devops/.qa/real-mission-final/team-worktrees/2abc7ebe-8d8f-4aca-801e-553071fa3c77/build-3ceb84ff) AI Team build: 2abc7ebe-8d8f-4aca-801e-553071fa3c77\n+ team/2abc7ebe-8d8f-4aca-801e-553071fa3c77/review-617c939a   bba8c27 (C:/Users/揭剑/Documents/ChatGPT/ai-devops/.qa/real-mission-final/team-worktrees/2abc7ebe-8d8f-4aca-801e-553071fa3c77/review-617c939a) AI Team build: 2abc7ebe-8d8f-4aca-801e-553071fa3c77\n+ team/2abc7ebe-8d8f-4aca-801e-553071fa3c77/tests-a49d3745    bba8c27 (C:/Users/揭剑/Documents/ChatGPT/ai-devops/.qa/real-mission-final/team-worktrees/2abc7ebe-8d8f-4aca-801e-553071fa3c77/tests-a49d3745) AI Team build: 2abc7ebe-8d8f-4aca-801e-553071fa3c77\n  remotes/origin/HEAD                                         -> origin/main\n  remotes/origin/codex/v2-ai-team-c0                          9d3a6cd build: assemble exact-revision C0 source evidence and artifact delivery\n  remotes/origin/main                                         039d63a docs: add workstation transfer guide",
+        "stderr": ""
+      },
+      "log": {
+        "exit": 0,
+        "stdout": "9d3a6cd12b69dd561a9818f6aee4d5724f0989e7 GeneJie <genejie199@gmail.com> build: assemble exact-revision C0 source evidence and artifact delivery\nea0ea3aaf5633854580513733d441002b1059c46 GeneJie <genejie199@gmail.com> docs: distinguish historical release security from patched v2 artifacts\nd4e0e550685454408819ad7b67b6ac8534d06663 GeneJie <genejie199@gmail.com> fix: exclude generated QA dependency sources from project link checks\n43538712bd93fcf8deb00e9356f03111d2b9d7c8 GeneJie <genejie199@gmail.com> docs: accept evidence-verified v2 C0 and record review and operational boundaries\n48e7797e0266b672789ea8444f70bb500e7f176a GeneJie <genejie199@gmail.com> AI Team build: 2abc7ebe-8d8f-4aca-801e-553071fa3c77\nb7dce39b6b7bd32153e98e8d66065266c878424f GeneJie <genejie199@gmail.com> fix: archive committed source revisions for reproducible delivery\n494d58d2269b3663d0a942aa7546580b6371a0d2 GeneJie <genejie199@gmail.com> build: include source and dependency archives in offline development delivery\n23eb8f431494937016c278fe793a4f322e625c3e GeneJie <genejie199@gmail.com> fix: finalize v2 policy contracts and refreshed dependency license evidence",
+        "stderr": ""
+      },
+      "worktrees": {
+        "exit": 0,
+        "stdout": "worktree C:/Users/揭剑/Documents/ChatGPT/ai-devops\nHEAD 9d3a6cd12b69dd561a9818f6aee4d5724f0989e7\nbranch refs/heads/codex/v2-ai-team-c0\n\nworktree C:/Users/揭剑/Documents/ChatGPT/ai-devops/.qa/real-mission-final/team-worktrees/2abc7ebe-8d8f-4aca-801e-553071fa3c77/analysis-67f16a14\nHEAD b7dce39b6b7bd32153e98e8d66065266c878424f\nbranch refs/heads/team/2abc7ebe-8d8f-4aca-801e-553071fa3c77/analysis-67f16a14\n\nworktree C:/Users/揭剑/Documents/ChatGPT/ai-devops/.qa/real-mission-final/team-worktrees/2abc7ebe-8d8f-4aca-801e-553071fa3c77/build-3ceb84ff\nHEAD bba8c27a1c6c91cf03804789a66207f8a1d99652\nbranch refs/heads/team/2abc7ebe-8d8f-4aca-801e-553071fa3c77/build-3ceb84ff\n\nworktree C:/Users/揭剑/Documents/ChatGPT/ai-devops/.qa/real-mission-final/team-worktrees/2abc7ebe-8d8f-4aca-801e-553071fa3c77/review-617c939a\nHEAD bba8c27a1c6c91cf03804789a66207f8a1d99652\nbranch refs/heads/team/2abc7ebe-8d8f-4aca-801e-553071fa3c77/review-617c939a\n\nworktree C:/Users/揭剑/Documents/ChatGPT/ai-devops/.qa/real-mission-final/team-worktrees/2abc7ebe-8d8f-4aca-801e-553071fa3c77/tests-a49d3745\nHEAD bba8c27a1c6c91cf03804789a66207f8a1d99652\nbranch refs/heads/team/2abc7ebe-8d8f-4aca-801e-553071fa3c77/tests-a49d3745",
+        "stderr": ""
+      },
+      "diffStat": {
+        "exit": 0,
+        "stdout": ".gitattributes                                     |    4 +\n .github/workflows/ci.yml                           |    6 +-\n .github/workflows/release.yml                      |    4 +-\n .gitignore                                         |    5 +\n AI_TEAM_RUNTIME.md                                 |   84 ++\n COMMERCIALIZATION.md                               |   16 +\n COMMERCIAL_LICENSE.md                              |   26 +\n CONTRIBUTING.md                                    |    3 +\n CONTRIBUTOR_POLICY.md                              |   28 +\n LICENSE                                            |  436 ++++----\n LICENSES/AGPL-3.0-only.txt                         |  235 ++++\n LICENSES/Apache-2.0.txt                            |  201 ++++\n .../ai-dev-cycle-manager/LUCIDE_LICENSE.txt        |   43 +\n .../filippo.io_edwards25519_v1.1.0/LICENSE         |   27 +\n .../LICENSE.md                                     |   21 +\n .../github.com_creack_pty_v1.1.9/LICENSE           |   23 +\n .../github.com_danieljoos_wincred_v1.2.3/LICENSE   |   21 +\n .../github.com_davecgh_go-spew_v1.1.1/LICENSE      |   15 +\n .../github.com_dustin_go-humanize_v1.0.1/LICENSE   |   21 +\n .../github.com_go-sql-driver_mysql_v1.9.3/AUTHORS  |  155 +++\n .../github.com_go-sql-driver_mysql_v1.9.3/LICENSE  |  373 +++++++\n .../github.com_godbus_dbus_v5_v5.2.2/LICENSE       |   25 +\n .../AUTHORS                                        |    7 +\n .../LICENSE                                        |  202 ++++\n .../third_party/svgpan/LICENSE                     |   27 +\n .../github.com_google_uuid_v1.6.0/LICENSE          |   27 +\n .../LICENSE                                        |  364 +++++++\n .../simplelru/LICENSE_list                         |   29 +\n .../LICENSE                                        |  201 ++++\n .../github.com_jackc_pgpassfile_v1.0.0/LICENSE     |   22 +\n .../LICENSE                                        |   22 +\n .../github.com_jackc_pgx_v5_v5.9.2/LICENSE         |   22 +\n .../github.com_jackc_puddle_v2_v2.2.2/LICENSE      |   22 +\n .../github.com_kr_pretty_v0.3.0/License            |   19 +\n .../third-party/github.com_kr_text_v0.2.0/License  |   19 +\n .../github.com_mattn_go-isatty_v0.0.24/LICENSE     |    9 +\n .../github.com_ncruces_go-strftime_v1.0.0/LICENSE  |   21 +\n .../github.com_oklog_ulid_v2_v2.1.2/AUTHORS.md     |    2 +\n .../github.com_oklog_ulid_v2_v2.1.2/LICENSE        |  201 ++++\n .../AUTHORS                                        |    1 +\n .../LICENSE                                        |   27 +\n .../github.com_pmezard_go-difflib_v1.0.0/LICENSE   |   27 +\n .../LICENSE                                        |   27 +\n .../LICENSE                                        |   27 +\n .../LICENSE.txt                                    |   29 +\n .../LICENSE                                        |  175 +++\n .../github.com_spf13_cobra_v1.10.2/LICENSE.txt     |  174 +++\n .../github.com_spf13_pflag_v1.0.9/LICENSE          |   28 +\n .../github.com_stretchr_objx_v0.1.0/LICENSE        |   22 +\n .../github.com_stretchr_objx_v0.5.2/LICENSE        |   22 +\n .../github.com_stretchr_testify_v1.11.1/LICENSE    |   21 +\n .../github.com_zalando_go-keyring_v0.2.8/LICENSE   |   21 +\n .../internal/shellescape/LICENSE                   |   21 +\n LICENSES/third-party/go-runtime/LICENSE            |   27 +\n LICENSES/third-party/go-runtime/PATENTS            |   22 +\n .../third-party/go.yaml.in_yaml_v3_v3.0.4/LICENSE  |   50 +\n .../third-party/go.yaml.in_yaml_v3_v3.0.4/NOTICE   |   13 +\n .../third-party/golang.org_x_mod_v0.37.0/LICENSE   |   27 +\n .../third-party/golang.org_x_mod_v0.37.0/PATENTS   |   22 +\n .../third-party/golang.org_x_mod_v0.38.0/LICENSE   |   27 +\n .../third-party/golang.org_x_mod_v0.38.0/PATENTS   |   22 +\n .../third-party/golang.org_x_sync_v0.21.0/LICENSE  |   27 +\n .../third-party/golang.org_x_sync_v0.21.0/PATENTS  |   22 +\n .../third-party/golang.org_x_sync_v0.22.0/LICENSE  |   27 +\n .../third-party/golang.org_x_sync_v0.22.0/PATENTS  |   22 +\n .../third-party/golang.org_x_sys_v0.26.0/LICENSE   |   27 +\n .../third-party/golang.org_x_sys_v0.26.0/PATENTS   |   22 +\n .../third-party/golang.org_x_sys_v0.47.0/LICENSE   |   27 +\n .../third-party/golang.org_x_sys_v0.47.0/PATENTS   |   22 +\n .../third-party/golang.org_x_text_v0.39.0/LICENSE  |   27 +\n .../third-party/golang.org_x_text_v0.39.0/PATENTS  |   22 +\n .../third-party/golang.org_x_text_v0.41.0/LICENSE  |   27 +\n .../third-party/golang.org_x_text_v0.41.0/PATENTS  |   22 +\n .../third-party/golang.org_x_tools_v0.47.0/LICENSE |   27 +\n .../third-party/golang.org_x_tools_v0.47.0/PATENTS |   22 +\n .../third-party/golang.org_x_tools_v0.48.0/LICENSE |   27 +\n .../third-party/golang.org_x_tools_v0.48.0/PATENTS |   22 +\n .../LICENSE                                        |   25 +\n .../third-party/gopkg.in_yaml.v3_v3.0.1/LICENSE    |   50 +\n .../third-party/gopkg.in_yaml.v3_v3.0.1/NOTICE     |   13 +\n .../infrastructure-discovery/LUCIDE_LICENSE.txt    |   43 +\n .../third-party/modernc.org_cc_v4_v4.29.1/LICENSE  |   27 +\n .../testdata/jhjourdan/LICENSE                     |   24 +\n .../modernc.org_ccgo_v4_v4.34.6/LICENSE            |   27 +\n .../modernc.org_fileutil_v1.4.0/AUTHORS            |   18 +\n .../modernc.org_fileutil_v1.4.0/LICENSE            |   27 +\n .../modernc.org_fileutil_v1.4.0/falloc/LICENSE     |   27 +\n .../modernc.org_fileutil_v1.4.0/hdb/LICENSE        |   27 +\n .../modernc.org_fileutil_v1.4.0/storage/LICENSE    |   27 +\n .../third-party/modernc.org_gc_v2_v2.6.5/LICENSE   |   69 ++\n .../third-party/modernc.org_gc_v3_v3.1.4/LICENSE   |   69 ++\n .../third-party/modernc.org_goabi0_v0.2.0/AUTHORS  |   11 +\n .../third-party/modernc.org_goabi0_v0.2.0/LICENSE  |   26 +\n .../third-party/modernc.org_libc_v1.74.4/AUTHORS   |   24 +\n .../third-party/modernc.org_libc_v1.74.4/LICENSE   |   27 +\n .../modernc.org_libc_v1.74.4/LICENSE-3RD-PARTY.md  |  305 ++++++\n .../testdata/nsz.repo.hu/libc-test/AUTHORS         |    7 +\n .../testdata/nsz.repo.hu/libc-test/COPYRIGHT       |   29 +\n .../nsz.repo.hu/libc-test/src/math/crlibm/COPYING  |  340 ++++++\n .../modernc.org_mathutil_v1.7.1/AUTHORS            |   13 +\n .../modernc.org_mathutil_v1.7.1/LICENSE            |   27 +\n .../modernc.org_mathutil_v1.7.1/mersenne/AUTHORS   |   11 +\n .../modernc.org_mathutil_v1.7.1/mersenne/LICENSE   |   27 +\n .../third-party/modernc.org_memory_v1.11.0/AUTHORS |   15 +\n .../third-party/modernc.org_memory_v1.11.0/LICENSE |   27 +\n .../modernc.org_memory_v1.11.0/LICENSE-GO          |   27 +\n .../modernc.org_memory_v1.11.0/LICENSE-LOGO        |    1 +\n .../modernc.org_memory_v1.11.0/LICENSE-MMAP-GO     |   25 +\n .../third-party/modernc.org_opt_v0.2.0/AUTHORS     |   11 +\n .../third-party/modernc.org_opt_v0.2.0/LICENSE     |   27 +\n .../modernc.org_sortutil_v1.2.1/AUTHORS            |   11 +\n .../modernc.org_sortutil_v1.2.1/LICENSE            |   27 +\n .../third-party/modernc.org_sqlite_v1.56.0/AUTHORS |   34 +\n .../third-party/modernc.org_sqlite_v1.56.0/LICENSE |   26 +\n .../third-party/modernc.org_strutil_v1.2.1/AUTHORS |   12 +\n .../third-party/modernc.org_strutil_v1.2.1/LICENSE |   27 +\n .../third-party/modernc.org_token_v1.1.0/LICENSE   |   27 +\n LICENSE_METADATA.json                              |   12 +\n LICENSE_POLICY.md                                  |   21 +\n LICENSING_HISTORY.md                               |   18 +\n MODEL_ROUTING.md                                   |   37 +\n NOTICE                                             |    6 +\n PROJECT_MEMORY.md                                  |   18 +\n PROJECT_STATUS.md                                  |    6 +\n README.md                                          |   21 +-\n RISK_MODEL.md                                      |   25 +\n ROADMAP.md                                         |    4 +\n THIRD_PARTY_NOTICES.md                             |   24 +\n TRADEMARK_POLICY.md                                |   14 +\n V2_ACCEPTANCE.md                                   |   54 +\n V2_ARCHITECTURE.md                                 |   28 +\n V2_MASTER_PLAN.md                                  |   43 +\n docs/adr/0002-v2-team-runtime.md                   |   23 +\n docs/ai-team-evidence-checklist.md                 |   34 +\n docs/v2-baseline.md                                |   49 +\n docs/v2-known-risks.md                             |   26 +\n docs/v2-license-audit.md                           |   25 +\n docs/v2-review.md                                  |   26 +\n scripts/build-offline-bundle.py                    |   26 +-\n scripts/build-v2-delivery.py                       |   78 ++\n scripts/build-v2-development.py                    |   67 ++\n scripts/check-docs.py                              |    2 +-\n scripts/license-guard.py                           |   34 +\n scripts/license-inventory.py                       |   93 ++\n scripts/suite_manifest.py                          |   14 +\n scripts/test-license-compliance.py                 |   20 +\n scripts/test-suite-manifest.py                     |    6 +\n scripts/verify-offline-bundle.py                   |    8 +\n third-party-inventory.json                         | 1088 +++++++++++++++++++\n third-party.cdx.json                               | 1119 ++++++++++++++++++++\n 150 files changed, 8688 insertions(+), 210 deletions(-)",
+        "stderr": ""
+      },
+      "ancestry": {
+        "exit": 0,
+        "stdout": "039d63a513d0b39dbb074cb040ead4fbc6746f20",
+        "stderr": ""
+      },
+      "pr": {
+        "exit": 0,
+        "stderr": "",
+        "data": {
+          "baseRefName": "main",
+          "baseRefOid": "039d63a513d0b39dbb074cb040ead4fbc6746f20",
+          "commits": [
+            {
+              "authoredDate": "2026-10-30T15:17:00Z",
+              "authors": [
+                {
+                  "email": "genejie199@gmail.com",
+                  "id": "MDQ6VXNlcjQ1MTM4MDE1",
+                  "login": "GeneJie199",
+                  "name": "GeneJie"
+                }
+              ],
+              "committedDate": "2026-10-30T15:17:00Z",
+              "messageBody": "",
+              "messageHeadline": "docs: establish audited v2 architecture and master plan",
+              "oid": "c5ec8da6bed032b90997a0fb3d76d50aafb19a45"
+            },
+            {
+              "authoredDate": "2026-10-30T16:00:30Z",
+              "authors": [
+                {
+                  "email": "genejie199@gmail.com",
+                  "id": "MDQ6VXNlcjQ1MTM4MDE1",
+                  "login": "GeneJie199",
+                  "name": "GeneJie"
+                }
+              ],
+              "committedDate": "2026-10-30T16:00:30Z",
+              "messageBody": "…aseline",
+              "messageHeadline": "legal: migrate v2 Community and establish commercial redistribution b…",
+              "oid": "48ac2780dd94c2f716d1ca0a99de21cc2632c5b4"
+            },
+            {
+              "authoredDate": "2026-10-30T16:04:53Z",
+              "authors": [
+                {
+                  "email": "genejie199@gmail.com",
+                  "id": "MDQ6VXNlcjQ1MTM4MDE1",
+                  "login": "GeneJie199",
+                  "name": "GeneJie"
+                }
+              ],
+              "committedDate": "2026-10-30T16:04:53Z",
+              "messageBody": "",
+              "messageHeadline": "build: use patched compiler for macOS and release targets",
+              "oid": "0f404b2bd9ac1c13cf06e4580631cbee0f33b796"
+            },
+            {
+              "authoredDate": "2026-10-30T16:13:48Z",
+              "authors": [
+                {
+                  "email": "genejie199@gmail.com",
+                  "id": "MDQ6VXNlcjQ1MTM4MDE1",
+                  "login": "GeneJie199",
+                  "name": "GeneJie"
+                }
+              ],
+              "committedDate": "2026-10-30T16:13:48Z",
+              "messageBody": "…idence",
+              "messageHeadline": "fix: finalize v2 policy contracts and refreshed dependency license ev…",
+              "oid": "23eb8f431494937016c278fe793a4f322e625c3e"
+            },
+            {
+              "authoredDate": "2026-10-30T16:25:23Z",
+              "authors": [
+                {
+                  "email": "genejie199@gmail.com",
+                  "id": "MDQ6VXNlcjQ1MTM4MDE1",
+                  "login": "GeneJie199",
+                  "name": "GeneJie"
+                }
+              ],
+              "committedDate": "2026-10-30T16:25:23Z",
+              "messageBody": "…delivery",
+              "messageHeadline": "build: include source and dependency archives in offline development …",
+              "oid": "494d58d2269b3663d0a942aa7546580b6371a0d2"
+            },
+            {
+              "authoredDate": "2026-10-30T16:42:55Z",
+              "authors": [
+                {
+                  "email": "genejie199@gmail.com",
+                  "id": "MDQ6VXNlcjQ1MTM4MDE1",
+                  "login": "GeneJie199",
+                  "name": "GeneJie"
+                }
+              ],
+              "committedDate": "2026-10-30T16:42:55Z",
+              "messageBody": "",
+              "messageHeadline": "fix: archive committed source revisions for reproducible delivery",
+              "oid": "b7dce39b6b7bd32153e98e8d66065266c878424f"
+            },
+            {
+              "authoredDate": "2026-10-30T16:49:47Z",
+              "authors": [
+                {
+                  "email": "genejie199@gmail.com",
+                  "id": "MDQ6VXNlcjQ1MTM4MDE1",
+                  "login": "GeneJie199",
+                  "name": "GeneJie"
+                }
+              ],
+              "committedDate": "2026-10-30T17:34:46Z",
+              "messageBody": "",
+              "messageHeadline": "AI Team build: 2abc7ebe-8d8f-4aca-801e-553071fa3c77",
+              "oid": "48e7797e0266b672789ea8444f70bb500e7f176a"
+            },
+            {
+              "authoredDate": "2026-10-30T17:34:52Z",
+              "authors": [
+                {
+                  "email": "genejie199@gmail.com",
+                  "id": "MDQ6VXNlcjQ1MTM4MDE1",
+                  "login": "GeneJie199",
+                  "name": "GeneJie"
+                }
+              ],
+              "committedDate": "2026-10-30T17:34:52Z",
+              "messageBody": "…l boundaries",
+              "messageHeadline": "docs: accept evidence-verified v2 C0 and record review and operationa…",
+              "oid": "43538712bd93fcf8deb00e9356f03111d2b9d7c8"
+            },
+            {
+              "authoredDate": "2026-10-30T17:35:44Z",
+              "authors": [
+                {
+                  "email": "genejie199@gmail.com",
+                  "id": "MDQ6VXNlcjQ1MTM4MDE1",
+                  "login": "GeneJie199",
+                  "name": "GeneJie"
+                }
+              ],
+              "committedDate": "2026-10-30T17:35:44Z",
+              "messageBody": "",
+              "messageHeadline": "fix: exclude generated QA dependency sources from project link checks",
+              "oid": "d4e0e550685454408819ad7b67b6ac8534d06663"
+            },
+            {
+              "authoredDate": "2026-10-30T17:37:21Z",
+              "authors": [
+                {
+                  "email": "genejie199@gmail.com",
+                  "id": "MDQ6VXNlcjQ1MTM4MDE1",
+                  "login": "GeneJie199",
+                  "name": "GeneJie"
+                }
+              ],
+              "committedDate": "2026-10-30T17:37:21Z",
+              "messageBody": "",
+              "messageHeadline": "docs: distinguish historical release security from patched v2 artifacts",
+              "oid": "ea0ea3aaf5633854580513733d441002b1059c46"
+            },
+            {
+              "authoredDate": "2026-10-30T17:44:10Z",
+              "authors": [
+                {
+                  "email": "genejie199@gmail.com",
+                  "id": "MDQ6VXNlcjQ1MTM4MDE1",
+                  "login": "GeneJie199",
+                  "name": "GeneJie"
+                }
+              ],
+              "committedDate": "2026-10-30T17:44:10Z",
+              "messageBody": "",
+              "messageHeadline": "build: assemble exact-revision C0 source evidence and artifact delivery",
+              "oid": "9d3a6cd12b69dd561a9818f6aee4d5724f0989e7"
+            }
+          ],
+          "headRefName": "codex/v2-ai-team-c0",
+          "headRefOid": "9d3a6cd12b69dd561a9818f6aee4d5724f0989e7",
+          "isDraft": true,
+          "mergeStateStatus": "CLEAN",
+          "mergeable": "MERGEABLE",
+          "number": 9,
+          "reviewDecision": "",
+          "reviews": [],
+          "state": "OPEN",
+          "statusCheckRollup": [
+            {
+              "__typename": "CheckRun",
+              "completedAt": "2026-10-30T17:47:39Z",
+              "conclusion": "SUCCESS",
+              "detailsUrl": "https://github.com/GeneJie199/ai-devops-open-suite/actions/runs/41101162268/job/124218485824",
+              "name": "docs",
+              "startedAt": "2026-10-30T17:44:21Z",
+              "status": "COMPLETED",
+              "workflowName": "CI"
+            }
+          ],
+          "url": "https://github.com/GeneJie199/ai-devops-open-suite/pull/9"
+        }
+      },
+      "protection": {
+        "exit": 1,
+        "stdout": "{\"message\":\"Branch not protected\",\"documentation_url\":\"https://docs.github.com/rest/branches/branch-protection#get-branch-protection\",\"status\":\"404\"}",
+        "stderr": "gh: Branch not protected (HTTP 404)"
+      },
+      "rules": {
+        "exit": 0,
+        "stderr": "",
+        "data": []
+      },
+      "reviewThreads": {
+        "exit": 0,
+        "data": {
+          "data": {
+            "repository": {
+              "pullRequest": {
+                "reviewThreads": {
+                  "nodes": []
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

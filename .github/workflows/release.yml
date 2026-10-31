@@ -16,7 +16,7 @@ jobs:
       - uses: actions/checkout@v7
       - uses: actions/setup-go@v7
         with:
-          go-version: '1.26.6'
+          go-version: '1.26.10'
           cache: false
       - name: Validate package inputs
         env:
@@ -41,17 +41,22 @@ jobs:
           cp examples/release-report.demo.json "$package/examples/"
           cp docs/quickstart.md docs/offline-install.md "$package/docs/"
           cp -r manifests "$package/"
+          cp -r LICENSES "$package/"
+          cp NOTICE LICENSE_METADATA.json third-party-inventory.json third-party.cdx.json *_POLICY.md COMMERCIAL_LICENSE.md COMMERCIALIZATION.md LICENSING_HISTORY.md THIRD_PARTY_NOTICES.md "$package/"
           cp README.md LICENSE SECURITY.md COMPATIBILITY.md SUPPORT_MATRIX.md RELEASE_POLICY.md suite-manifest.json "$package/"
+          python3 scripts/copy-release-docs.py "$package"
           chmod +x "$package/scripts/"*.sh
           tag="${GITHUB_REF_NAME}"
           (cd dist && zip -qr "ai-devops-open-suite-${tag}.zip" ai-devops-open-suite)
           tar -C dist -czf "dist/ai-devops-open-suite-${tag}.tar.gz" ai-devops-open-suite
           cp "dist/ai-devops-open-suite-${tag}.zip" dist/ai-devops-open-suite-online.zip
           cp "dist/ai-devops-open-suite-${tag}.tar.gz" dist/ai-devops-open-suite-online.tar.gz
+      - name: Prepare exact Suite source for offline bundles
+        run: python3 scripts/prepare-offline-release.py
       - name: Build full offline bundles
         run: |
-          for platform in windows-amd64 linux-amd64 linux-arm64 darwin-amd64 darwin-arm64; do
-            python3 scripts/build-offline-bundle.py --platform "$platform" --output dist --cache dist/.asset-cache
+          for platform in windows-amd64 linux-amd64; do
+            python3 scripts/build-offline-bundle.py --manifest .qa/release/suite-manifest.json --platform "$platform" --output dist --cache dist/.asset-cache
           done
           python3 scripts/verify-offline-bundle.py dist/ai-devops-open-suite-full-offline-*
       - name: Generate suite SBOM
@@ -62,7 +67,9 @@ jobs:
           output-file: dist/ai-devops-open-suite-${{ github.ref_name }}.cdx.json
           upload-artifact: false
       - name: Generate release checksums
-        run: (cd dist && sha256sum *.zip *.tar.gz *.cdx.json >checksums.txt)
+        run: |
+          cp suite-manifest.json dist/suite-manifest.json
+          (cd dist && sha256sum *.zip *.tar.gz *.json >checksums.txt)
       - name: Attest release archives
         uses: actions/attest-build-provenance@v4
         with:
@@ -78,7 +85,7 @@ jobs:
           tag="${GITHUB_REF_NAME}"
           mapfile -t archives < <(find dist -maxdepth 1 -type f \( -name '*.zip' -o -name '*.tar.gz' \) -print | sort)
           mapfile -t sboms < <(find dist -maxdepth 1 -type f -name '*.cdx.json' -print | sort)
-          assets=("${archives[@]}" "${sboms[@]}" dist/checksums.txt suite-manifest.json)
-          options=(--generate-notes --title "AI DevOps Open Suite ${tag}")
+          assets=("${archives[@]}" "${sboms[@]}" dist/checksums.txt dist/suite-manifest.json dist/release-provenance.json)
+          options=(--notes-file RELEASE_NOTES.md --title "AI DevOps Open Suite ${tag}")
           [[ "$tag" == *-* ]] && options+=(--prerelease)
           gh release create "$tag" "${assets[@]}" "${options[@]}"

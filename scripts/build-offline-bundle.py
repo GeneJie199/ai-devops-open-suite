@@ -17,6 +17,7 @@ import urllib.request
 import zipfile
 
 from suite_manifest import ManifestError, load_manifest, render_index, verify_file
+from release_docs import copy_documentation
 
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
@@ -60,7 +61,7 @@ def build(manifest: dict, platform: str, output: pathlib.Path, cache: pathlib.Pa
         protocol_dir = stage / "protocols"
         asset_dir.mkdir(parents=True)
         protocol_dir.mkdir(parents=True)
-        shutil.copy2(ROOT / "suite-manifest.json", stage / "suite-manifest.json")
+        (stage / "suite-manifest.json").write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
         (stage / "install-assets.txt").write_text(render_index(manifest, platform), encoding="utf-8", newline="\n")
         for relative in (
             "README.md",
@@ -81,13 +82,27 @@ def build(manifest: dict, platform: str, output: pathlib.Path, cache: pathlib.Pa
             destination = stage / relative
             destination.parent.mkdir(parents=True, exist_ok=True)
             shutil.copy2(source, destination)
+        copy_documentation(ROOT, stage)
         for component in manifest["components"]:
             asset = component["assets"][platform]
-            cached = obtain(cache, component["repository"], component["tag"], asset["name"], asset["sha256"])
+            cached = obtain(cache, component["repository"], component["tag"], asset["name"], asset["sha256"], allow_network=manifest["channel"] != "development")
             shutil.copy2(cached, asset_dir / asset["name"])
+        shutil.copytree(ROOT / "LICENSES", stage / "LICENSES")
+        for name in ("NOTICE", "LICENSE_METADATA.json", "third-party-inventory.json", "third-party.cdx.json", "THIRD_PARTY_NOTICES.md", "LICENSING_HISTORY.md", "LICENSE_POLICY.md", "COMMERCIAL_LICENSE.md", "COMMERCIALIZATION.md", "TRADEMARK_POLICY.md", "CONTRIBUTOR_POLICY.md"):
+            shutil.copy2(ROOT / name, stage / name)
+        # Components are historical independent artifacts, not relicensed by aggregation.
+        licenses = {item["id"]: {"version": item["version"], "license": "Apache-2.0" if item["version"].startswith("1.") else "AGPL-3.0-only" if item["version"].startswith("2.") else "NOASSERTION"} for item in manifest["components"]}
+        (stage / "component-licenses.json").write_text(json.dumps(licenses, indent=2) + "\n", encoding="utf-8")
         protocol = manifest["protocol"]
-        cached_protocol = obtain(cache, protocol["repository"], protocol["tag"], protocol["asset"], protocol["sha256"])
+        cached_protocol = obtain(cache, protocol["repository"], protocol["tag"], protocol["asset"], protocol["sha256"], allow_network=manifest["channel"] != "development")
         shutil.copy2(cached_protocol, protocol_dir / protocol["asset"])
+        for source in manifest.get("sources", []):
+            # Published sources use the same host and digest policy as binaries.
+            # Development sources must already exist in the explicit local cache.
+            cached_source = obtain(cache, source["repository"], source["tag"], source["asset"], source["sha256"], allow_network=manifest["channel"] != "development")
+            destination = stage / "sources" / source["asset"]
+            destination.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(cached_source, destination)
         if not platform.startswith("windows-"):
             for name in ("install-suite.sh", "suitectl.sh"):
                 (stage / "scripts" / name).chmod(0o755)
@@ -101,14 +116,18 @@ def build(manifest: dict, platform: str, output: pathlib.Path, cache: pathlib.Pa
     return archive
 
 
-def obtain(cache: pathlib.Path, repository: str, tag: str, name: str, digest: str) -> pathlib.Path:
+def obtain(cache: pathlib.Path, repository: str, tag: str, name: str, digest: str, *, allow_network: bool = True) -> pathlib.Path:
     path = cache / repository / tag / name
     if path.is_file():
         try:
             verify_file(path, digest)
             return path
         except ManifestError:
+            if not allow_network:
+                raise
             path.unlink()
+    if not allow_network:
+        raise ManifestError(f"development asset must be explicitly rebuilt in local cache: {name}")
     path.parent.mkdir(parents=True, exist_ok=True)
     temporary = path.with_suffix(path.suffix + ".part")
     url = f"https://github.com/GeneJie199/{repository}/releases/download/{tag}/{name}"

@@ -23,7 +23,7 @@ def local_target(markdown: Path, raw: str) -> Path | None:
 def main() -> int:
     failures: list[str] = []
     for markdown in sorted(ROOT.rglob("*.md")):
-        if ".git" in markdown.parts:
+        if ".git" in markdown.parts or ".qa" in markdown.parts:
             continue
         text = markdown.read_text(encoding="utf-8")
         for match in LINK.finditer(text):

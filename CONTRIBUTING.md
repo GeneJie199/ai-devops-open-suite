@@ -8,3 +8,6 @@
 - 改**开发周期后端**请到 [ai-dev-cycle-manager](https://github.com/GeneJie199/ai-dev-cycle-manager)  
 
 本仓主要接受：文档勘误、命名统一、演示剧本与链接修复。请开 Issue 说明页面路径与建议改法。
+
+
+For v2 copyrightable contributions, read [CONTRIBUTOR_POLICY.md](CONTRIBUTOR_POLICY.md). A reviewed CLA appropriate for dual licensing is required before accepting new third-party code; DCO alone is not a commercial relicensing grant.

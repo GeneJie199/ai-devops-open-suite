@@ -28,8 +28,8 @@ function Wait-Http([string]$Url) {
 function Invoke-Json([string]$Method, [string]$Url, $Body = $null) {
   $params = @{ Method = $Method; Uri = $Url; TimeoutSec = 10 }
   if ($null -ne $Body) {
-    $params.ContentType = 'application/json'
-    $params.Body = $Body | ConvertTo-Json -Depth 30 -Compress
+    $params.ContentType = 'application/json; charset=utf-8'
+    $params.Body = [Text.Encoding]::UTF8.GetBytes(($Body | ConvertTo-Json -Depth 30 -Compress))
   }
   Invoke-RestMethod @params
 }
@@ -46,7 +46,7 @@ try {
     foreach ($Module in $Modules) {
       Push-Location (Join-Path $Root $Module)
       try {
-        Invoke-External go @('test','./...')
+        Invoke-External go @('test','-timeout','300s','./...')
         Invoke-External go @('vet','./...')
       } finally { Pop-Location }
     }
@@ -98,11 +98,32 @@ try {
   Wait-Http "$DevBase/api/requirements"
   $Requirement = Invoke-Json POST "$DevBase/api/requirements" @{ title='Suite delivery'; description='Cross-module verification' }
   $Criterion = Invoke-Json POST "$DevBase/api/requirements/$($Requirement.id)/criteria" @{ description='All suite checks pass with evidence' }
-  Invoke-Json PATCH "$DevBase/api/criteria/$($Criterion.id)" @{ satisfied=$true; evidenceTitle='suite E2E verification'; evidenceNote='automated cross-module acceptance' } | Out-Null
   $Task = Invoke-Json POST "$DevBase/api/tasks" @{ requirementId=$Requirement.id; title='Verify suite source and runtime' }
   $Worktree = Join-Path $Work 'source-worktree'
   Invoke-Json POST "$DevBase/api/tasks/$($Task.id)/worktree" @{ repositoryPath=$SourceRepo; branch='suite/e2e'; worktreePath=$Worktree } | Out-Null
   Invoke-Json PATCH "$DevBase/api/tasks/$($Task.id)" @{ status='done' } | Out-Null
+  $Verification = Invoke-Json POST "$DevBase/api/requirements/$($Requirement.id)/runs" @{ name='test committed source'; command='git cat-file -e HEAD:README.md'; workingDir=$Worktree; criterionId=$Criterion.id; timeoutSeconds=30 }
+  $VerificationDeadline = [DateTime]::UtcNow.AddSeconds(45)
+  $Run = $null
+  do {
+    # Windows PowerShell wraps a REST JSON array as one pipeline object.
+    # Assign it directly, then enumerate its records when selecting the run.
+    $Runs = Invoke-Json GET "$DevBase/api/requirements/$($Requirement.id)/runs"
+    $MatchingRuns = @($Runs | Where-Object { $_.id -eq $Verification.id })
+    if ($MatchingRuns.Count -gt 1) { throw "Duplicate verification run ID: $($Verification.id)" }
+    if ($MatchingRuns.Count -eq 1) {
+      $Run = $MatchingRuns[0]
+      if ($Run.status -in @('passed','failed','timed_out','stopped','interrupted')) { break }
+      if ($Run.status -notin @('running','stopping')) {
+        throw "Unexpected verification state: $($Run | ConvertTo-Json -Depth 10 -Compress)"
+      }
+    }
+    Start-Sleep -Milliseconds 100
+  } while ([DateTime]::UtcNow -lt $VerificationDeadline)
+  if ($null -eq $Run -or $Run.status -ne 'passed' -or -not $Run.evidenceId -or -not $Run.completedAt -or $Run.completedAt -like '0001-*' -or $Run.exitCode -ne 0) {
+    throw "Machine source verification did not complete successfully (run $($Verification.id)). Last run: $($Run | ConvertTo-Json -Depth 10 -Compress); available runs: $($Runs | ConvertTo-Json -Depth 10 -Compress)"
+  }
+  Invoke-Json PATCH "$DevBase/api/criteria/$($Criterion.id)" @{ satisfied=$true } | Out-Null
   $Candidate = Invoke-Json GET "$DevBase/api/requirements/$($Requirement.id)/release-candidate"
   $CandidatePath = Join-Path $Work 'candidate.json'
 	Write-Utf8 $CandidatePath ($Candidate | ConvertTo-Json -Depth 50)
@@ -132,6 +153,9 @@ try {
     release_id = 'suite-e2e'
     version = $SuiteVersion
     candidate_file = $CandidatePath
+    repository = [string]$Candidate.sources[0].repositoryPath
+    base_ref = [string]$Candidate.sources[0].headCommit
+    target_ref = [string]$Candidate.sources[0].headCommit
     recovery_checks = @(@{ name='previous binary retained'; type='file'; path=$ReleaseGuard })
     checks = @(@{ name='InfraScout inventory'; type='file'; path=(Join-Path $InfraState 'inventory.json') })
     drift_file = Join-Path $InfraState 'drift.json'

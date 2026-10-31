@@ -1,3 +1,9 @@
+# Active v2 development status
+
+Updated: 2026-10-31. v2 C0 AI Engineering Team and commercialization baseline implemented; not GA. Stable public release remains v1.0.0. See [v2 acceptance](V2_ACCEPTANCE.md), [master plan](V2_MASTER_PLAN.md), [architecture](V2_ARCHITECTURE.md), and [known boundaries](docs/v2-known-risks.md). Six development PRs retain independent product ownership and immutable v1 releases.
+
+The following v1 record is retained as historical acceptance, not new v2 evidence.
+
 # AI DevOps Open Suite Project Status
 
 Updated: 2026-08-23
