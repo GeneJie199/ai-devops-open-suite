@@ -114,6 +114,10 @@ wait_endpoint() {
 }
 
 start_suite() {
+	# Pass the resolved per-instance ports to module UIs, including values loaded
+	# from ports.env rather than exported by the invoking shell.
+	export AI_DEVOPS_DEVCYCLE_PORT="$DEVCYCLE_PORT" AI_DEVOPS_INFRASCOUT_PORT="$INFRASCOUT_PORT"
+	export AI_DEVOPS_FLEETSCOPE_PORT="$FLEETSCOPE_PORT" AI_DEVOPS_RELEASEGUARD_PORT="$RELEASEGUARD_PORT"
   init_suite
   trap 'stop_suite >/dev/null 2>&1 || true' ERR
   for name in devcycle infrascout fleetctl releaseguard lifecycle-validate; do [[ -x "$BIN/$name" ]] || { printf 'Missing binary: %s\n' "$BIN/$name" >&2; exit 1; }; done
