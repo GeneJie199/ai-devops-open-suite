@@ -1,7 +1,7 @@
-suite|ai-devops.suite-manifest/v1|1.0.0|windows-amd64
-component|lifecycle-validate|lifecycle-spec|v1.0.0|1.0.0|lifecycle-validate-windows-amd64.exe|lifecycle-validate.exe|0610f16d1f3d37163a810576b8c164f787777b3afba4afd062a19f40482dedf8
-component|devcycle|ai-dev-cycle-manager|v1.0.0|1.0.0|devcycle-windows-amd64.exe|devcycle.exe|85109505fa1d703fd7b887108ab0bcd4a494a12ba5558095a60b0c9c4b365db5
-component|infrascout|infrastructure-discovery|v1.0.0|1.0.0|infrascout-windows-amd64.exe|infrascout.exe|84f4ebc901d9a31aa6565b5a6f74265a4026d5cb1db4c14119f6a7b9973574dd
-component|fleetctl|fleet-observability|v1.0.0|1.0.0|fleetctl-windows-amd64.exe|fleetctl.exe|d2f2da8a32744d053c11c782c109f63d4b6771a71c2b56e4025f1c1ef5215921
-component|releaseguard|release-validation|v1.0.0|1.0.0|releaseguard-windows-amd64.exe|releaseguard.exe|2fdccc6f0d1a3f6bbd49ba6574b4b27e512c3fdcd49fb9ef2d195035cfe42ce9
-protocol|lifecycle-spec|v1.0.0|1.0.0|lifecycle-spec-v1.0.0.tar.gz|e13aceb476a072ac24ae1b4cc9472a289004876d472ecc48f0deeb1f1f8a6551
+suite|ai-devops.suite-manifest/v1|2.0.0-rc.1|windows-amd64
+component|lifecycle-validate|lifecycle-spec|v2.0.0-rc.1|2.0.0-rc.1|lifecycle-validate-windows-amd64.exe|lifecycle-validate.exe|3826e90a273baa65111d5b70b4ac737a850fb439af8444864ce91c84c3e58164
+component|devcycle|ai-dev-cycle-manager|v2.0.0-rc.1|2.0.0-rc.1|devcycle-windows-amd64.exe|devcycle.exe|a97fc53ac0e26f1488e0006a9bc68614a56dcd6ba02e208bd95c5f53a461e5b1
+component|infrascout|infrastructure-discovery|v2.0.0-rc.1|2.0.0-rc.1|infrascout-windows-amd64.exe|infrascout.exe|7b627f80dabcb59975a2ac36123139f06eda0d31edca2c90e2890f116db120d7
+component|fleetctl|fleet-observability|v2.0.0-rc.1|2.0.0-rc.1|fleetctl-windows-amd64.exe|fleetctl.exe|e010bfa5991f63432b5eeaf55cacb750d9e291296e8cac724006c52c4c3f45b4
+component|releaseguard|release-validation|v2.0.0-rc.1|2.0.0-rc.1|releaseguard-windows-amd64.exe|releaseguard.exe|0343d514adcb3654d5eb43526900787a6efc12ab53cd1a34cfc623e129166585
+protocol|lifecycle-spec|v2.0.0-rc.1|2.0.0-rc.1|lifecycle-spec-v2.0.0-rc.1.tar.gz|8626b84f13124cc05bbef1fb157479ee6d1b8b94e8c62111f83a90bd4d1ef9f3

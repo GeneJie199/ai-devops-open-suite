@@ -1,7 +1,7 @@
-suite|ai-devops.suite-manifest/v1|1.0.0|linux-arm64
-component|lifecycle-validate|lifecycle-spec|v1.0.0|1.0.0|lifecycle-validate-linux-arm64|lifecycle-validate|cb0d405f443a6658b1dbc29324b66d00ebade0058842e19ce075783c8c274147
-component|devcycle|ai-dev-cycle-manager|v1.0.0|1.0.0|devcycle-linux-arm64|devcycle|c25e958c159ea31735da70704c89e0e5ae6c74a527292665ac39bfa3d57ecc47
-component|infrascout|infrastructure-discovery|v1.0.0|1.0.0|infrascout-linux-arm64|infrascout|f58d466ac8d9ff5466cdd2b1c0ae6951f7ddd18812bfa8364a51bd56bd0047e3
-component|fleetctl|fleet-observability|v1.0.0|1.0.0|fleetctl-linux-arm64|fleetctl|be365ca43e5bb9d53e70a27bdaac60715e148bb80d79fa97058cbddd1a9b1e17
-component|releaseguard|release-validation|v1.0.0|1.0.0|releaseguard-linux-arm64|releaseguard|0939eda29b36b6abbaf3d6ec2b7b3d01c45791e6e68014eefd073be8aa91a989
-protocol|lifecycle-spec|v1.0.0|1.0.0|lifecycle-spec-v1.0.0.tar.gz|e13aceb476a072ac24ae1b4cc9472a289004876d472ecc48f0deeb1f1f8a6551
+suite|ai-devops.suite-manifest/v1|2.0.0-rc.1|linux-arm64
+component|lifecycle-validate|lifecycle-spec|v2.0.0-rc.1|2.0.0-rc.1|lifecycle-validate-linux-arm64|lifecycle-validate|a816b46fb51349bd713251a7b68beac5bd6eef247c8f47c59552f9808238192f
+component|devcycle|ai-dev-cycle-manager|v2.0.0-rc.1|2.0.0-rc.1|devcycle-linux-arm64|devcycle|7497ef4cb27626298170724dacab41d24b0b61cf81d7ac872d6d0def7bc5a402
+component|infrascout|infrastructure-discovery|v2.0.0-rc.1|2.0.0-rc.1|infrascout-linux-arm64|infrascout|6e71ae2308ba2a940eb97d786a3c5308ae19a52996877b67771807d434c63141
+component|fleetctl|fleet-observability|v2.0.0-rc.1|2.0.0-rc.1|fleetctl-linux-arm64|fleetctl|1437c4f63c47cb3094b34b0bb6ac192a346e5936e2b4dfdcb1a44a19ddc0875e
+component|releaseguard|release-validation|v2.0.0-rc.1|2.0.0-rc.1|releaseguard-linux-arm64|releaseguard|cbfd076ce7287a7a18003de6522df78639f0f73e89d641467353bdfb4f5e0f01
+protocol|lifecycle-spec|v2.0.0-rc.1|2.0.0-rc.1|lifecycle-spec-v2.0.0-rc.1.tar.gz|8626b84f13124cc05bbef1fb157479ee6d1b8b94e8c62111f83a90bd4d1ef9f3
