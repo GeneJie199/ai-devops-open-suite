@@ -5,6 +5,8 @@
 
 Stable: v1.x (historical Apache-2.0 releases). Preview: v2.0.0-rc.1 AI Engineering Team Community; not GA. The public stable installer remains v1.x; use the explicit RC offline release for these Runtime and security updates; see [known release boundaries](docs/v2-known-risks.md).
 
+Evaluate the RC from its [release page](https://github.com/GeneJie199/ai-devops-open-suite/releases/tag/v2.0.0-rc.1): download the [Windows amd64 offline bundle](https://github.com/GeneJie199/ai-devops-open-suite/releases/download/v2.0.0-rc.1/ai-devops-open-suite-full-offline-v2.0.0-rc.1-windows-amd64.zip) or [Linux amd64 offline bundle](https://github.com/GeneJie199/ai-devops-open-suite/releases/download/v2.0.0-rc.1/ai-devops-open-suite-full-offline-v2.0.0-rc.1-linux-amd64.tar.gz), verify it against the release's [checksums](https://github.com/GeneJie199/ai-devops-open-suite/releases/download/v2.0.0-rc.1/checksums.txt), then follow [offline installation](docs/offline-install.md) in an isolated installation directory. The release also provides checksummed Corresponding Source, license evidence and SBOMs.
+
 Community Edition: **AGPL-3.0-only** for this development source. Historical release rights remain valid.
 Commercial / OEM licensing available for closed-source redistribution, white-labeling, embedding and other use cases incompatible with AGPL. See [license policy](LICENSE_POLICY.md), [history](LICENSING_HISTORY.md) and [commercial policy](COMMERCIAL_LICENSE.md).
 
