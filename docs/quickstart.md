@@ -16,7 +16,7 @@ AI DevOps Open Suite 的四个产品页面和协议校验器可以一次安装�
 
 从项目的 [Releases](https://github.com/GeneJie199/ai-devops-open-suite/releases) 下载 ZIP 或 TAR 包并解压。
 
-当前稳定版是套件 `0.3.3`、产品组件 `0.3.2` 和协议校验器 `0.1.1`。`main` 正在使用 `suite-manifest.json` 推进 v1；版本选择由清单统一完成，用户不再手工拼接五仓版本。
+当前公开稳定版为 `v1.0.0`；v2 使用单独标记的预发行版。默认 bootstrap 选择稳定版。评估 v2 时请从对应的预发行页面下载完整包，不要把稳定版入口当成 v2 安装入口。具体组件版本由包内 `suite-manifest.json` 统一钉住，用户无需手工拼接五仓版本。
 
 Windows PowerShell：
 
@@ -58,6 +58,10 @@ Linux/macOS 的安装与自启动：
 | InfraScout | `http://127.0.0.1:8765` |
 | FleetScope | `http://127.0.0.1:8770` |
 | ReleaseGuard | `http://127.0.0.1:8771` |
+
+v2 的统一工作入口是 `http://127.0.0.1:8766/team.html`，`suitectl open` 会打开该页面。自定义端口时使用安装状态中保存的 DevCycle 端口。四个产品仍可分别使用，无需先连接模型即可打开页面。
+
+真实 AI 开发需要可用的模型或已登录的 Coding CLI。订阅不等于 API 权限；计费测试必须先设置预算。首次配置前请阅读[模型凭据与预算](provider-credentials-and-budget.md)。没有模型凭据时，基础扫描、监控和发布验证仍可使用，但不能完成真实 AI 开发。
 
 首次启动会创建本机 Fleet Agent 身份和随机写入令牌。Windows 首次运行 InfraScout 展示安全的示例数据；Linux 会直接建立本机资产基线并持续采集。ReleaseGuard 使用随安装包提供的示例报告作为起始页面，真实发布运行后可替换它。
 
