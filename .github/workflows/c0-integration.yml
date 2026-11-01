@@ -23,22 +23,22 @@ jobs:
       - uses: actions/checkout@v7
         with:
           repository: GeneJie199/ai-dev-cycle-manager
-          ref: e773ad16d5daac430e0a9cce1f0542449909e4f9
+          ref: a8340b56c08f4bd4f99e4963d36eea39ba95f0e0
           path: ai-dev-cycle-manager
       - uses: actions/checkout@v7
         with:
           repository: GeneJie199/infrastructure-discovery
-          ref: d0be76403fe7066bc5dc39a7b07bb08097fbd1ed
+          ref: 5ecf76c11a146683c7e9a8aab0ee23c8e1792ee7
           path: infrastructure-discovery
       - uses: actions/checkout@v7
         with:
           repository: GeneJie199/fleet-observability
-          ref: 297dd8ee421224c4a4c00a0d5058232f28eb6e73
+          ref: 3e672f726cd1c9501a5d548f612670a8f3e3ecf5
           path: fleet-observability
       - uses: actions/checkout@v7
         with:
           repository: GeneJie199/release-validation
-          ref: c8da90639bc312c16c282daceff2a3ee4102815b
+          ref: 6fe4a35660cf86e01ff4c75cd67e3524557b0c5d
           path: release-validation
       - uses: actions/checkout@v7
         with:
