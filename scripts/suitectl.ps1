@@ -305,7 +305,7 @@ function Disable-Autostart {
 }
 
 function Open-Suite {
-  $WorkspaceUrl = "$($Urls.devcycle)team.html"
+  $WorkspaceUrl = "$($Urls.devcycle)suite.html"
   Start-Process $WorkspaceUrl | Out-Null
   Write-Host "Opened $WorkspaceUrl. Use the module switcher to move through the suite."
 }

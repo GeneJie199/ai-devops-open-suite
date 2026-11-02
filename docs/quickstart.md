@@ -59,7 +59,7 @@ Linux/macOS 的安装与自启动：
 | FleetScope | `http://127.0.0.1:8770` |
 | ReleaseGuard | `http://127.0.0.1:8771` |
 
-v2 的统一工作入口是 `http://127.0.0.1:8766/team.html`，`suitectl open` 会打开该页面。自定义端口时使用安装状态中保存的 DevCycle 端口。四个产品仍可分别使用，无需先连接模型即可打开页面。
+v2 的统一工作入口是 `http://127.0.0.1:8766/suite.html`，`suitectl open` 会打开该页面。从首页进入 AI 研发团队、Provider 配置或任一独立模块；自定义端口时使用安装状态中保存的 DevCycle 端口。四个产品仍可分别使用，无需先连接模型即可打开页面。
 
 真实 AI 开发需要可用的模型或已登录的 Coding CLI。订阅不等于 API 权限；计费测试必须先设置预算。首次配置前请阅读[模型凭据与预算](provider-credentials-and-budget.md)。没有模型凭据时，基础扫描、监控和发布验证仍可使用，但不能完成真实 AI 开发。
 
