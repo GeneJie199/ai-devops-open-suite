@@ -98,6 +98,15 @@ test('denied persistence and invalid external preferences do not prevent local p
   assert.equal(h.api.getTheme(), 'light');
 });
 
+test('a valid incoming cross-product theme survives denied local storage', () => {
+  const h = harness({ storageDenied: true, dark: false, url: 'http://127.0.2.136:8766/team.html?suite-theme=dark' });
+  assert.equal(h.api.getTheme(), 'dark');
+  assert.equal(h.document.documentElement.dataset.suiteTheme, 'dark');
+  h.api.setTheme('light');
+  assert.equal(new URL(h.location.href).searchParams.get('suite-theme'), 'light');
+  assert.equal(h.document.documentElement.dataset.suiteTheme, 'light');
+});
+
 test('provider and delivery routes keep the destination instance and accessible fragment', () => {
   for (const [page, fragment] of [['providers', '#providers'], ['delivery', '#missions']]) {
     const target = link('http://127.0.2.168:8766/?suite-devcycle=http%3A%2F%2F127.0.2.168%3A8766%2F', { suite: 'devcycle', suitePage: page });
