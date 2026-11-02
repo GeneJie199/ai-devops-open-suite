@@ -25,6 +25,8 @@ jobs:
         run: python3 scripts/test-license-compliance.py
       - name: Validate local documentation links and images
         run: python3 scripts/check-docs.py
+      - name: Shared UI theme and navigation behavior
+        run: node --test scripts/test-suite-ui.mjs
       - name: Validate suite manifest and generated indexes
         run: |
           python3 scripts/validate-suite-manifest.py
