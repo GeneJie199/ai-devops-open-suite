@@ -65,6 +65,8 @@ class DocumentationArchiveTests(unittest.TestCase):
                         if target.suffix == '.md':
                             queue.append(target)
                 self.assertGreaterEqual(len(targets), 26)
+                for relative in ['docs/unified-ui.md', 'assets/ui/suite-design.css', 'assets/ui/suite-ui.js']:
+                    self.assertEqual(bundle.read(prefix + relative), (ROOT / relative).read_bytes(), relative)
                 for component in manifest['components']:
                     name = component['assets']['windows-amd64']['name']
                     self.assertEqual(bundle.read(prefix + 'assets/windows-amd64/' + name), payload)

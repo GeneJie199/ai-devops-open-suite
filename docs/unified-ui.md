@@ -44,6 +44,16 @@ Use `--ui-*` variables for all surfaces, text, borders and chart colors. Existin
 textual status. Native charts use `--ui-chart-1` through `--ui-chart-6`; retain
 units, labels and accessible descriptions in both themes.
 
+Keep the product's Content Security Policy. Render data-driven charts with
+external stylesheet classes and SVG presentation attributes, or set individual
+DOM style properties in the trusted external script. Inline style attributes
+inserted through HTML strings are blocked by `style-src 'self'` and must not be
+used. Check the rendered chart under the actual served policy.
+
+The shared shell measures the real top bar into `--ui-header-space`. Use this
+variable for product sticky offsets so wrapped tablet/mobile headers do not
+cover content; `--ui-top` is only the baseline minimum height.
+
 ## Theme and navigation
 
 The user selects Light, Dark or System. Preference is stored per origin under
