@@ -131,7 +131,20 @@ function Wait-Endpoint([string]$Name, [string]$Url) {
 
 function Start-Suite {
   Initialize-Suite
+  $ResolvedPortEnvironment = @{
+    AI_DEVOPS_DEVCYCLE_PORT = [string]$Ports.devcycle
+    AI_DEVOPS_INFRASCOUT_PORT = [string]$Ports.infrascout
+    AI_DEVOPS_FLEETSCOPE_PORT = [string]$Ports.fleetscope
+    AI_DEVOPS_RELEASEGUARD_PORT = [string]$Ports.releaseguard
+  }
+  $PreviousPortEnvironment = @{}
+  foreach ($Name in $ResolvedPortEnvironment.Keys) {
+    $PreviousPortEnvironment[$Name] = [Environment]::GetEnvironmentVariable($Name, 'Process')
+  }
   try {
+    foreach ($Name in $ResolvedPortEnvironment.Keys) {
+      [Environment]::SetEnvironmentVariable($Name, $ResolvedPortEnvironment[$Name], 'Process')
+    }
     $Required = 'devcycle','infrascout','fleetctl','releaseguard','lifecycle-validate'
     foreach ($Name in $Required) { if (-not (Test-Path -LiteralPath (Binary $Name))) { throw "Missing binary: $(Binary $Name)" } }
     Start-Managed 'devcycle' (Binary 'devcycle') @('serve','--db',(Join-Path $Data 'devcycle\devcycle.db'),'--addr',"127.0.0.1:$($Ports.devcycle)")
@@ -163,6 +176,10 @@ function Start-Suite {
   } catch {
     Stop-Suite
     throw
+  } finally {
+    foreach ($Name in $ResolvedPortEnvironment.Keys) {
+      [Environment]::SetEnvironmentVariable($Name, $PreviousPortEnvironment[$Name], 'Process')
+    }
   }
 }
 
@@ -288,8 +305,9 @@ function Disable-Autostart {
 }
 
 function Open-Suite {
-  Start-Process $Urls.devcycle | Out-Null
-  Write-Host "Opened $($Urls.devcycle). Use the module switcher to move through the suite."
+  $WorkspaceUrl = "$($Urls.devcycle)team.html"
+  Start-Process $WorkspaceUrl | Out-Null
+  Write-Host "Opened $WorkspaceUrl. Use the module switcher to move through the suite."
 }
 
 function Show-Logs {

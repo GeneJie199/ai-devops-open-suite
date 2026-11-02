@@ -310,7 +310,8 @@ disable_autostart() {
 }
 
 open_suite() {
-  if command -v open >/dev/null; then open "$url_devcycle"; elif command -v xdg-open >/dev/null; then xdg-open "$url_devcycle"; else printf 'Open %s\n' "$url_devcycle"; fi
+  local workspace_url="${url_devcycle}team.html"
+  if command -v open >/dev/null; then open "$workspace_url"; elif command -v xdg-open >/dev/null; then xdg-open "$workspace_url"; else printf 'Open %s\n' "$workspace_url"; fi
 }
 
 show_logs() {
