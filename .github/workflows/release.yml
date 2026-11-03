@@ -68,7 +68,7 @@ jobs:
           upload-artifact: false
       - name: Generate release checksums
         run: |
-          cp suite-manifest.json dist/suite-manifest.json
+          cp .qa/release/suite-manifest.json dist/suite-manifest.json
           (cd dist && sha256sum *.zip *.tar.gz *.json >checksums.txt)
       - name: Attest release archives
         uses: actions/attest-build-provenance@v4

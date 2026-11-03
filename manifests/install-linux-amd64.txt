@@ -1,7 +1,7 @@
-suite|ai-devops.suite-manifest/v1|2.0.0-rc.1|linux-amd64
-component|lifecycle-validate|lifecycle-spec|v2.0.0-rc.1|2.0.0-rc.1|lifecycle-validate-linux-amd64|lifecycle-validate|fd731e7538467583eed824dff463588d9a6e8886f8e59283b2ddd232732292ad
-component|devcycle|ai-dev-cycle-manager|v2.0.0-rc.1|2.0.0-rc.1|devcycle-linux-amd64|devcycle|7cd08d263a2753976addc459eb82905765bf16747736fd6ad1fdb4d8e91ff0c7
-component|infrascout|infrastructure-discovery|v2.0.0-rc.1|2.0.0-rc.1|infrascout-linux-amd64|infrascout|63041ba0e22afba6992f0bc30cd99b3b32dc004c44d7782aa157c6182dd17008
-component|fleetctl|fleet-observability|v2.0.0-rc.1|2.0.0-rc.1|fleetctl-linux-amd64|fleetctl|a61f94300056ebdbc72d9c0d53b9875cdf3898b8817c82d522c660ef5a20a6b7
-component|releaseguard|release-validation|v2.0.0-rc.1|2.0.0-rc.1|releaseguard-linux-amd64|releaseguard|06f9e48b495b041c516101bdf53e67b6fa4985040673f7abb437b8f4a9e9fd23
-protocol|lifecycle-spec|v2.0.0-rc.1|2.0.0-rc.1|lifecycle-spec-v2.0.0-rc.1.tar.gz|8626b84f13124cc05bbef1fb157479ee6d1b8b94e8c62111f83a90bd4d1ef9f3
+suite|ai-devops.suite-manifest/v1|2.0.0-rc.2|linux-amd64
+component|lifecycle-validate|lifecycle-spec|v2.0.0-rc.2|2.0.0-rc.2|lifecycle-validate-linux-amd64|lifecycle-validate|2e8dd281973f8018333815cbe796bd34d0864552c3521887987ec27662fd7316
+component|devcycle|ai-dev-cycle-manager|v2.0.0-rc.2|2.0.0-rc.2|devcycle-linux-amd64|devcycle|56f2bcc9a2140cb9bcb104d32be9e3fbf46771f8267787eea4ffb5a84fdb1368
+component|infrascout|infrastructure-discovery|v2.0.0-rc.2|2.0.0-rc.2|infrascout-linux-amd64|infrascout|b4f85e613d80c15cd61f6e874e2a87bcd7d3142066c80af5a6c042f5643de67a
+component|fleetctl|fleet-observability|v2.0.0-rc.2|2.0.0-rc.2|fleetctl-linux-amd64|fleetctl|79e27d71146958529883d91911ce7057f7e494f1d665541898a57c2f84d5ef05
+component|releaseguard|release-validation|v2.0.0-rc.2|2.0.0-rc.2|releaseguard-linux-amd64|releaseguard|e6f86f79a79e5b64e969a98f22ceb55e9f71b825142085578e62e720c50d942e
+protocol|lifecycle-spec|v2.0.0-rc.2|2.0.0-rc.2|lifecycle-spec-v2.0.0-rc.2.tar.gz|af96476c3768cd9fcca4130f0a0ca257fad71d26db7f3d1e618c0d87219ca418
