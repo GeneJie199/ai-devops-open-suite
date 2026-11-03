@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.0.0-rc.2 (2026-11-03)
+
+- Add browser onboarding, Provider configuration, verified role routing, persistent API budgets and readable Delivery evidence to the existing DevCycle runtime.
+- Initialize missing effective Git identity locally for projects created in the browser, preserving configured local/global identities.
+- Unify current product pages around responsive navigation, Light/Dark/System themes and real-data charts; retain independent product entry points.
+- Fix saved-port startup and cross-module links, retain Host/Origin protections, and add aggregate runtime diagnostics for stability observation.
+- Preserve interrupted execution history and explicit deployment, credential, platform and trusted single-user boundaries. RC publication does not imply completed final 24-hour observation or GA qualification.
+
 ## 2.0.0 (2026-10-31) — RC.1
 
 - Community RC: AI Team integration, AGPL-3.0-only source, preserved historical Apache rights.

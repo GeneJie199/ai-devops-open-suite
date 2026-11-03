@@ -11,3 +11,22 @@ Before a billable test, choose an explicit currency budget, request limit and ou
 DeepSeek model IDs and capabilities must come from the official account's model list, not from an old example. Check [official model discovery](https://api-docs.deepseek.com/api/list-models/) and [current pricing](https://api-docs.deepseek.com/zh-cn/quick_start/pricing/) before a live test. Do not enable billable search or fetch tools implicitly. A local usage estimate is not the Provider's invoice; account-level balance changes may include other applications.
 
 API access sends the selected prompt and source context to that Provider. Use synthetic or otherwise approved project data. Execution is for a trusted local user; process separation and Git worktrees do not establish a secure execution host for untrusted tenants.
+
+The Provider Center supplies forms for connection settings, model discovery,
+connection tests, roles, output limits and local budgets. The guided CLI executor
+currently supports Codex. Install and authorize the official CLI using its own
+workflow; the product does not read browser cookies or copy CLI authentication
+tokens. A verified connection is tied to the exact configuration and model.
+Changes require another connection test before new tasks can route to it.
+
+Windows API credentials use Credential Manager. Linux private-file storage is an
+explicit opt-in, requires owner-only files/directories and rejects unsafe links
+or ownership, but provides no encryption at rest. Revocation removes the local
+credential and invalidates the connection; it does not erase historical usage.
+
+The local ledger reserves capacity before each outbound API request. Metadata
+requests count toward the request cap. Uncertain or invalid usage retains its
+reservation and blocks further execution. Explicitly acknowledging uncertain
+usage does not refund it and requires re-verification. Do not enable multiple
+installations under one spending authorization without a separate shared budget
+controller: this product ledger is not an account-wide meter.
