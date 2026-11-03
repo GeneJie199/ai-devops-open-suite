@@ -1,6 +1,6 @@
 # Platform Support Matrix
 
-Updated: 2026-08-23
+Updated: 2026-11-03
 
 Support levels:
 
@@ -54,3 +54,24 @@ Linux arm64 and both macOS architectures are cross-built component artifacts;
 Suite offline bundles for these platforms are not published in this RC because
 native Suite lifecycle acceptance has not been completed. No Windows arm64 claim
 is made. Cross-compilation is not a native installation test.
+
+## v2.0.0-rc.2 scope
+
+Windows amd64 and Linux amd64 remain the Suite offline bundle targets. The
+component CI runs native Windows, Linux and macOS tests and cross-builds the five
+component targets; this does not verify a native macOS or arm64 Suite install.
+Final public-artifact re-download and install results belong to the C2 evidence
+cohort, with exact revisions and digests. Earlier rc.1 installations and candidate
+model exercises must not be relabeled as final rc.2 acceptance.
+
+The browser Provider Center supports the official Codex CLI and configured
+supported API transports. The guided CLI executor currently supports Codex.
+Kimi requires its own supported credential; a chat subscription is insufficient.
+Linux API secrets can use explicit owner-only private-file storage without
+encryption at rest; Windows uses Credential Manager. Worktrees and API edit
+constraints do not provide an OS sandbox for untrusted tenants.
+
+The development runtime serializes local task execution. A completed Mission is
+distinct from a running application preview, production approval or deployment.
+Three-model collaboration and 24-hour stability require their own actual evidence
+and are not implied by publishing an RC.

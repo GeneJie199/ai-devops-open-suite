@@ -54,7 +54,7 @@ def main():
             target=WORK/'cache'/component['repository']/component['tag']/name;target.parent.mkdir(parents=True,exist_ok=True)
             env={**os.environ,'GOTOOLCHAIN':'go1.27.3','GOOS':goos,'GOARCH':arch,'CGO_ENABLED':'0'}
             print('BUILD',component['repository'],platform,flush=True)
-            run(['go','build','-trimpath','-ldflags',f'-X {version_flag}={version}','-o',str(target),'./cmd/'+command],repo,env)
+            run(['go','build','-trimpath','-ldflags',f'-s -w -X {version_flag}={version}','-o',str(target),'./cmd/'+command],repo,env)
             asset.update(name=name,sha256=hashlib.sha256(target.read_bytes()).hexdigest())
             records.append({'component':command,'platform':platform,'sha256':asset['sha256'],'result':'build-passed'})
     protocol=manifest['protocol'];protocol.update(version=version,tag='v'+version,asset='lifecycle-spec-v'+version+'.tar.gz')

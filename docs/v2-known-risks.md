@@ -1,4 +1,40 @@
-# v2 C0 boundaries and known risks
+# v2 boundaries and known risks
+
+## Current C2 candidate scope
+
+Browser onboarding, the Provider Center and Delivery view replace the earlier
+Expert-only first-run setup below. Users can select or create a local Git project
+and configure connections through forms. Official CLI installation/login still
+belongs to the CLI vendor. Kimi without a supported credential remains blocked;
+no three-model acceptance is claimed. Candidate synthetic GPT and DeepSeek
+Missions have separate source and transport evidence, and do not establish final
+published-binary acceptance.
+
+API usage reservations persist across configuration changes and credential
+revocation. Unknown usage stops execution until an explicit acknowledgement and
+re-verification; acknowledgement does not reset charges. Limits are local to an
+installation, not a Provider-wide account meter. Linux private-file secrets are
+owner-only but unencrypted. Prefer dedicated development credentials and approved
+synthetic source. The API edit protocol and configured machine checks continue
+to require a trusted single-user execution host.
+
+Final public re-download, physical 136/168 functional and lifecycle acceptance,
+and a continuous actual 24-hour stability cohort must be reported separately.
+Earlier rc.1 runs and a shorter candidate observation cannot satisfy that gate.
+The C1 aggregate memory-limit events lack enough contemporaneous data to prove a
+leak or identify a single responsible process; C2 adds per-unit event counters,
+memory attribution and runtime diagnostics. Absence of OOM alone is insufficient.
+
+Two local Windows ReleaseGuard default cold builds failed inside the Go compiler;
+a clean bounded offline build passed, as did the hosted native/build gates. The
+cause remains undetermined. This is retained as a build observation, not presented
+as a repaired default compiler path.
+
+## Historical C0 audit state
+
+The following table records the original C0 scope. Statements about first-run
+setup, live vendor coverage and native acceptance are historical, not the current
+C2 capability or final C2 result.
 
 No known P0 remains after the recorded tests and independent review. The five concrete
 audit findings are fixed; see [review](v2-review.md).

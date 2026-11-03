@@ -12,3 +12,6 @@ def copy_documentation(root: Path, destination: Path) -> None:
     assets.mkdir(exist_ok=True)
     for source in (root / 'assets').glob('*.png'):
         shutil.copy2(source, assets / source.name)
+    shared_ui = root / 'assets' / 'ui'
+    if shared_ui.is_dir():
+        shutil.copytree(shared_ui, assets / 'ui', dirs_exist_ok=True)
