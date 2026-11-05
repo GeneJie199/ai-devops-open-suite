@@ -1,7 +1,7 @@
-suite|ai-devops.suite-manifest/v1|2.0.0-rc.2|linux-arm64
+suite|ai-devops.suite-manifest/v1|2.0.0-rc.3|linux-arm64
 component|lifecycle-validate|lifecycle-spec|v2.0.0-rc.2|2.0.0-rc.2|lifecycle-validate-linux-arm64|lifecycle-validate|b2dd98ae0a17dad69b576ea262ad8068fa20b3396fb617cb5cf97934b8f1baa9
 component|devcycle|ai-dev-cycle-manager|v2.0.0-rc.2|2.0.0-rc.2|devcycle-linux-arm64|devcycle|6a99dba381605f087d911138533c2aad4956729ec6758fadd2b32f20a1d9bf76
 component|infrascout|infrastructure-discovery|v2.0.0-rc.2|2.0.0-rc.2|infrascout-linux-arm64|infrascout|7bd5fb34cd0e0261b3502863f948158c2221b7cce3b79d8aae3672e35e258604
-component|fleetctl|fleet-observability|v2.0.0-rc.2|2.0.0-rc.2|fleetctl-linux-arm64|fleetctl|bfad025e9aa52b876c4f993cd63a77d46510253cb4878a10ca6f482481190d70
+component|fleetctl|fleet-observability|v2.0.0-rc.3|2.0.0-rc.3|fleetctl-linux-arm64|fleetctl|9cd035acc99a01a11c33351f23a69a481beeec9156df47c03e3853421968aaa4
 component|releaseguard|release-validation|v2.0.0-rc.2|2.0.0-rc.2|releaseguard-linux-arm64|releaseguard|33dfb1c05a1ab9df3e0e9350bf3f813e6716d04cb5dcac866024abb17d8ca8a9
 protocol|lifecycle-spec|v2.0.0-rc.2|2.0.0-rc.2|lifecycle-spec-v2.0.0-rc.2.tar.gz|af96476c3768cd9fcca4130f0a0ca257fad71d26db7f3d1e618c0d87219ca418

@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.0.0-rc.3 (2026-11-05)
+
+- Prepare the Suite candidate for FleetScope's lower-memory history compaction, with DevCycle, InfraScout, ReleaseGuard and lifecycle-spec pinned to their published rc.2 releases.
+
 ## 2.0.0-rc.2 (2026-11-03)
 
 - Add browser onboarding, Provider configuration, verified role routing, persistent API budgets and readable Delivery evidence to the existing DevCycle runtime.

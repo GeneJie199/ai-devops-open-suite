@@ -1,8 +1,8 @@
 {
   "schemaVersion": "ai-devops.suite-manifest/v1",
-  "suiteVersion": "2.0.0-rc.2",
+  "suiteVersion": "2.0.0-rc.3",
   "channel": "prerelease",
-  "generatedAt": "2026-11-03T17:43:22.250325+00:00",
+  "generatedAt": "2026-11-05T09:23:32.540728+00:00",
   "components": [
     {
       "id": "lifecycle-validate",
@@ -94,29 +94,29 @@
     {
       "id": "fleetctl",
       "repository": "fleet-observability",
-      "version": "2.0.0-rc.2",
-      "tag": "v2.0.0-rc.2",
+      "version": "2.0.0-rc.3",
+      "tag": "v2.0.0-rc.3",
       "target": "fleetctl",
       "assets": {
         "windows-amd64": {
           "name": "fleetctl-windows-amd64.exe",
-          "sha256": "51f46fb16fe5ed1df524134058ea605c275b360921c0b6144ac84df12af5dd0f"
+          "sha256": "3f163fc1c341a0c207abc41874ce300b584444d0682290f43a3dd56034b3f961"
         },
         "linux-amd64": {
           "name": "fleetctl-linux-amd64",
-          "sha256": "79e27d71146958529883d91911ce7057f7e494f1d665541898a57c2f84d5ef05"
+          "sha256": "84e559b08ac68ff82dabc969985b03e158c4b27a5afe1f468aa603da603460c4"
         },
         "linux-arm64": {
           "name": "fleetctl-linux-arm64",
-          "sha256": "bfad025e9aa52b876c4f993cd63a77d46510253cb4878a10ca6f482481190d70"
+          "sha256": "9cd035acc99a01a11c33351f23a69a481beeec9156df47c03e3853421968aaa4"
         },
         "darwin-amd64": {
           "name": "fleetctl-darwin-amd64",
-          "sha256": "0a20aa6d9317105d868f22465c8d3271a68c9882bac0ea8bfee0a4f1b963547f"
+          "sha256": "3164eb98661e0010d7c01f4dd071087b80f15593f487bf86d1571e862921cd7e"
         },
         "darwin-arm64": {
           "name": "fleetctl-darwin-arm64",
-          "sha256": "e974f393b01088252ca422ec9baa3a31118e76cde2926e2a0d92b29362aa8f88"
+          "sha256": "f3f62834119ff5f03e8622ba0bc7ce5dc597cab239af9dad026f54a24896c5d4"
         }
       }
     },
@@ -208,10 +208,10 @@
     },
     {
       "repository": "fleet-observability",
-      "tag": "v2.0.0-rc.2",
-      "revision": "fe7f97956dfb1fb494bfbb81baaae2eb0f2737fd",
-      "asset": "fleet-observability-v2.0.0-rc.2-source.tar.gz",
-      "sha256": "dfe89c0e213497d537430514d44071110cc3ad8c2797646f904cf369531bfc8b"
+      "tag": "v2.0.0-rc.3",
+      "revision": "926d5546450f6373724dd4efcfebf3711a7df006",
+      "asset": "fleet-observability-v2.0.0-rc.3-source.tar.gz",
+      "sha256": "6dfad20dbf5185cc6e58173505a4a3584c83a538dae1a0804a13e8b122525c77"
     },
     {
       "repository": "release-validation",

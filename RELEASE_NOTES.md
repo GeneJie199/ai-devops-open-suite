@@ -1,6 +1,19 @@
-# AI Engineering Team v2.0.0-rc.2 Community
+# AI Engineering Team v2.0.0-rc.3 Community
 
-This release candidate adds browser onboarding, a Provider Center and a readable
+This candidate includes the public FleetScope rc.3 release and retains the
+published rc.2 pins for DevCycle, InfraScout, ReleaseGuard and lifecycle-spec.
+
+FleetScope's history compaction streams retained records into the replacement
+file when a node crosses the retention limit. This preserves the entry and byte
+limits, record order, newline handling and atomic replacement. In an isolated
+Linux amd64 comparison with 2,001 synthetic reports, the revised compaction
+reduced the test cgroup's peak memory from 254.5 MiB to 102.4 MiB. The new
+published Suite cohort requires its own functional and uninterrupted 24-hour
+stability evidence.
+
+## Included from rc.2
+
+The rc.2 base added browser onboarding, a Provider Center and a readable
 Delivery view to the existing DevCycle AI Team runtime. Users can connect an
 authorized official Codex CLI or supported API, create or select a Git project,
 choose permitted Providers and machine checks, and inspect real task branches,
