@@ -1,6 +1,6 @@
-suite|ai-devops.suite-manifest/v1|2.0.0-rc.3|windows-amd64
+suite|ai-devops.suite-manifest/v1|2.0.0-rc.4|windows-amd64
 component|lifecycle-validate|lifecycle-spec|v2.0.0-rc.2|2.0.0-rc.2|lifecycle-validate-windows-amd64.exe|lifecycle-validate.exe|ca22ac2ef803719d8659aa41e84ba8af534ef4bc27f663991c1fb7f8592757bb
-component|devcycle|ai-dev-cycle-manager|v2.0.0-rc.2|2.0.0-rc.2|devcycle-windows-amd64.exe|devcycle.exe|b0d23fbc0a48a669c2c4efa112d9b73780c2710333114c1eb64f7afd54df86fe
+component|devcycle|ai-dev-cycle-manager|v2.0.0-rc.3|2.0.0-rc.3|devcycle-windows-amd64.exe|devcycle.exe|aac7476a209f9ce8760687abd9bfd56ffea86689978564d1ddc60b32ac50b70d
 component|infrascout|infrastructure-discovery|v2.0.0-rc.2|2.0.0-rc.2|infrascout-windows-amd64.exe|infrascout.exe|c3387962cb25b3874ee296f040da26f14d7fcb969b091d98cb2f399d95243343
 component|fleetctl|fleet-observability|v2.0.0-rc.3|2.0.0-rc.3|fleetctl-windows-amd64.exe|fleetctl.exe|3f163fc1c341a0c207abc41874ce300b584444d0682290f43a3dd56034b3f961
 component|releaseguard|release-validation|v2.0.0-rc.2|2.0.0-rc.2|releaseguard-windows-amd64.exe|releaseguard.exe|62f10d37a74fac3ef5395d8abfddd86f281dbce60a000fc760b3da68692db2d4

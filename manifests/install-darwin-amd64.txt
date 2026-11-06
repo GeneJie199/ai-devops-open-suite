@@ -1,6 +1,6 @@
-suite|ai-devops.suite-manifest/v1|2.0.0-rc.3|darwin-amd64
+suite|ai-devops.suite-manifest/v1|2.0.0-rc.4|darwin-amd64
 component|lifecycle-validate|lifecycle-spec|v2.0.0-rc.2|2.0.0-rc.2|lifecycle-validate-darwin-amd64|lifecycle-validate|07691cb163de9d66c8e2ce849552d32857ec3ace15a0d7273c537546a7f94a25
-component|devcycle|ai-dev-cycle-manager|v2.0.0-rc.2|2.0.0-rc.2|devcycle-darwin-amd64|devcycle|74f9d55069bd7ea4cdbccdc1709f95632d3e0bb414b36f666a639d20cc92f204
+component|devcycle|ai-dev-cycle-manager|v2.0.0-rc.3|2.0.0-rc.3|devcycle-darwin-amd64|devcycle|3e97807910796a183a071e40cdeb0facd9bc714a99148678a5e31059a2ca5076
 component|infrascout|infrastructure-discovery|v2.0.0-rc.2|2.0.0-rc.2|infrascout-darwin-amd64|infrascout|a68825859799b05979c30f517c0b87e8cf30e19b01d176944d9e3fa9f2a9c7d0
 component|fleetctl|fleet-observability|v2.0.0-rc.3|2.0.0-rc.3|fleetctl-darwin-amd64|fleetctl|3164eb98661e0010d7c01f4dd071087b80f15593f487bf86d1571e862921cd7e
 component|releaseguard|release-validation|v2.0.0-rc.2|2.0.0-rc.2|releaseguard-darwin-amd64|releaseguard|e569333a6302e319a4cc0de04c4a01fff39f64b473c14c211545196304d7ad0e
