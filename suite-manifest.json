@@ -1,8 +1,8 @@
 {
   "schemaVersion": "ai-devops.suite-manifest/v1",
-  "suiteVersion": "2.0.0-rc.3",
+  "suiteVersion": "2.0.0-rc.4",
   "channel": "prerelease",
-  "generatedAt": "2026-11-05T09:23:32.540728+00:00",
+  "generatedAt": "2026-11-06T05:06:19.300820+00:00",
   "components": [
     {
       "id": "lifecycle-validate",
@@ -36,29 +36,29 @@
     {
       "id": "devcycle",
       "repository": "ai-dev-cycle-manager",
-      "version": "2.0.0-rc.2",
-      "tag": "v2.0.0-rc.2",
+      "version": "2.0.0-rc.3",
+      "tag": "v2.0.0-rc.3",
       "target": "devcycle",
       "assets": {
         "windows-amd64": {
           "name": "devcycle-windows-amd64.exe",
-          "sha256": "b0d23fbc0a48a669c2c4efa112d9b73780c2710333114c1eb64f7afd54df86fe"
+          "sha256": "aac7476a209f9ce8760687abd9bfd56ffea86689978564d1ddc60b32ac50b70d"
         },
         "linux-amd64": {
           "name": "devcycle-linux-amd64",
-          "sha256": "56f2bcc9a2140cb9bcb104d32be9e3fbf46771f8267787eea4ffb5a84fdb1368"
+          "sha256": "42fcd832bc6c00640c321af191dd65f40a7b6a4c3bf06afa89032dea9b5ea6c1"
         },
         "linux-arm64": {
           "name": "devcycle-linux-arm64",
-          "sha256": "6a99dba381605f087d911138533c2aad4956729ec6758fadd2b32f20a1d9bf76"
+          "sha256": "e97dba164a05738eba8901f965144fd653d6e357f104895fd86c6ca21a6db3e0"
         },
         "darwin-amd64": {
           "name": "devcycle-darwin-amd64",
-          "sha256": "74f9d55069bd7ea4cdbccdc1709f95632d3e0bb414b36f666a639d20cc92f204"
+          "sha256": "3e97807910796a183a071e40cdeb0facd9bc714a99148678a5e31059a2ca5076"
         },
         "darwin-arm64": {
           "name": "devcycle-darwin-arm64",
-          "sha256": "68e0a53a644c835ac6387054b7a597d0e61e19103babb7d2f72656ae1d364471"
+          "sha256": "52cb98f2b791cab8ca9fc17a88bc7d392529c0dc74dca7d7f8a43c5544f096e6"
         }
       }
     },
@@ -194,10 +194,10 @@
     },
     {
       "repository": "ai-dev-cycle-manager",
-      "tag": "v2.0.0-rc.2",
-      "revision": "8dc53d540b7bde1542aa5248ee22c8eff31b3c04",
-      "asset": "ai-dev-cycle-manager-v2.0.0-rc.2-source.tar.gz",
-      "sha256": "6be07a6b8c7db41c149c995afb8b2a52c921a37e29aad7e708843eb43d6234a9"
+      "tag": "v2.0.0-rc.3",
+      "revision": "2b175a327d93fa56e8c3f0bcc55d61a68c282351",
+      "asset": "ai-dev-cycle-manager-v2.0.0-rc.3-source.tar.gz",
+      "sha256": "fc7bb1bde129b9c3ffae2927b44c969de70ff7841c27deeb03145103555069be"
     },
     {
       "repository": "infrastructure-discovery",

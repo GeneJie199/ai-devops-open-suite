@@ -1,7 +1,11 @@
-# AI Engineering Team v2.0.0-rc.3 Community
+# AI Engineering Team v2.0.0-rc.4 Community
 
-This candidate includes the public FleetScope rc.3 release and retains the
-published rc.2 pins for DevCycle, InfraScout, ReleaseGuard and lifecycle-spec.
+This candidate includes DevCycle rc.3 and FleetScope rc.3. InfraScout,
+ReleaseGuard and lifecycle-spec remain at their published rc.2 versions.
+
+Delivery now opens for pending and R4-blocked Missions with no execution
+records. Users can inspect incomplete work and risks and download the evidence
+ZIP. The release status reflects the Mission's actual readiness.
 
 FleetScope's history compaction streams retained records into the replacement
 file when a node crosses the retention limit. This preserves the entry and byte

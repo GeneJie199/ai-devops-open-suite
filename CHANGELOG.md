@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.0.0-rc.4 (2026-11-06)
+
+- Include the DevCycle Delivery fix so pending and R4-blocked Missions with no execution records can show their incomplete work and offer the evidence download.
+
 ## 2.0.0-rc.3 (2026-11-05)
 
 - Prepare the Suite candidate for FleetScope's lower-memory history compaction, with DevCycle, InfraScout, ReleaseGuard and lifecycle-spec pinned to their published rc.2 releases.
